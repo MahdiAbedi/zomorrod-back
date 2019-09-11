@@ -1,0 +1,73 @@
+.notices{
+    background:#fff;
+    padding:15px 10px;
+    border:1px solid $border_gray;
+    border-radius: $border_radius;
+    margin-bottom: 10px;
+    i{
+        margin-left:5px;
+    }
+    p{
+        margin-bottom: 10px;
+    }
+}
+
+.ticket-info-confirm{
+    display: flex;
+
+    h3{
+        margin-bottom: 10px;
+    }
+    
+
+    td:nth-child(even),th:nth-child(even){
+        text-align: left
+    }
+}
+
+.passenger-info{
+    h3{
+        margin:5px 0;
+    }
+}
+
+.coupon{
+    input{
+        width:50%;
+        border-radius: $border_radius
+    }
+}
+
+.pay{
+    margin:30px 0;
+    float:left;
+}
+
+
+/* start of desktop styles */
+
+@media screen and (max-width: 991px) {
+
+}
+
+@media screen and (max-width: 767px) {
+
+}
+
+@media screen and (max-width: 479px) {
+    .ticket-info-confirm{
+        flex-direction: column;
+    }
+
+    .coupon{
+        input{
+            width:100%;
+            margin:10px 0;
+        }
+    }
+
+    .pay{
+        margin-left:15px;
+        // margin-right:5px;
+    }
+}

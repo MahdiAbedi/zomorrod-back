@@ -1,0 +1,162 @@
+.inner-flight-detail {
+    display: flex;
+
+    h3 {
+        text-align: center;
+        background: #e1e1e1;
+    }
+}
+
+.inner-ticket {
+    .legs {
+        width: 100%;
+
+        .ticket-choose {
+            width: 30%;
+        }
+    }
+
+}
+
+.ticket-detail {
+
+
+
+    table {
+        border-collapse: collapse;
+        border-top: 1px solid $table-border-gray;
+        border-bottom: 1px solid $table-border-gray;
+        text-align: center;
+
+        td {
+            padding: 2px 0;
+
+            &:not(:last-child) {
+                border-left: 1px solid $table-border-gray;
+            }
+        }
+
+        tr {
+
+            border-bottom: 1px solid $table-border-gray;
+        }
+    }
+}
+
+.flight-detail,
+.cancelation-rules,
+.ticket-price {
+    width: 60%;
+    margin: 5px;
+    border: 1px solid $table-border-gray;
+    border-radius: $border-radius;
+
+    .row:not(:last-child) {
+        border-bottom: 1px solid $table-border-gray;
+        padding: 2px 5px;
+    }
+
+}
+
+.cancelation-rules {
+    width: 100%;
+}
+
+// بخش نمایش بلیط رفت انتخاب شده و انتظار برای انتخاب بلیط برگشت
+.ticket-preview {
+    display: flex;
+
+    i {
+        font-size: 25px;
+    }
+
+    .back-ticket,
+    .went-ticket {
+        border: 1px solid $table-border-gray;
+        width: 50%;
+        margin: 5px;
+        border-radius: $border-radius;
+    }
+
+    .back-ticket {
+
+        i{
+            transform: rotateX(150deg);
+        }
+        &.empty {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            cursor: move;
+            transition: all .3s ease;
+
+            &:hover {
+                font-size: 28px;
+            }
+        }
+    }
+
+    .ticket-container,
+    .single-ticket {
+        margin-bottom: 0;
+    }
+}
+
+
+
+/* start of desktop styles */
+
+@media screen and (max-width: 991px) {}
+
+@media screen and (max-width: 767px) {
+
+    .ticket-detail {
+        flex-direction: column;
+
+        .flight-detail,
+        .cancelation-rules,
+        .ticket-price {
+            width: 98%;
+        }
+
+    }
+
+    .inner-ticket {
+        .legs {
+            .leg {
+                &>* {
+                    flex: 1;
+                }
+
+                flex-wrap: wrap;
+
+                .logoes {
+                    // padding-right: 20px;
+                    justify-content: center;
+                }
+
+            }
+
+            .ticket-choose {
+                flex-basis: 100%;
+                padding: 10px;
+                margin: 10px;
+                border-top: 1px solid $table-border-gray;
+            }
+        }
+
+    }
+
+    .ticket-preview {
+        flex-direction: column;
+
+        .back-ticket,
+        .went-ticket {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 479px) {}

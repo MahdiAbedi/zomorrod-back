@@ -1,0 +1,596 @@
+.top-search {
+    color: #fff;
+    padding: 15px 0px;
+    background: url("../img/bgs/top-search-bg.jpg");
+
+    form {
+        width: 75%
+    }
+
+    .path-name {
+        width: 25%;
+        justify-content: center;
+    }
+}
+
+
+
+.result-panel {
+    margin-top: 30px;
+    color: #333;
+    // font-size: 14px;
+    display: flex;
+    // border:1px solid red;
+
+    i {
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 14px;
+        color: $medium_green;
+    }
+
+    .results {
+        // border: 1px solid green;
+        width: 75%;
+
+        a {
+            color: inherit;
+        }
+
+        padding-top: 5px;
+        // border-radius: $border_radius;
+
+        .sorting {
+            color: black;
+        }
+
+        .sort {
+            width: 65%;
+            border: 2px solid transparent;
+            background-color: #fff;
+            border-radius: $border_radius;
+            box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+
+            // li{
+            //     border-right: 1px solid #efefef;
+            // }
+        }
+
+        .date {
+            width: 33%;
+            margin-right: 3px;
+            flex-grow: 2;
+            border: 2px solid transparent;
+            background-color: #fff;
+            border-radius: $border_radius;
+            box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+        }
+
+        .current-date {
+            border-right: 1px dashed $font_gray;
+            border-left: 1px dashed $font_gray;
+            padding: 0 20px;
+        }
+
+        .tickets {
+            // background-color: $white_color;
+            margin-top: 10px;
+        }
+    }
+
+
+    aside.filters {
+        // border: 1px solid orange;
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        // align-items: flex-start;
+        margin-left: 10px;
+        color: inherit;
+        margin-top: 1px;
+
+        section {
+            background-color: #fff;
+            width: 100%;
+            padding: 10px 10px;
+            box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+            border-radius: $border_radius;
+            margin-bottom: 10px;
+
+        }
+    }
+
+    button.reset {
+        outline: none;
+        background: transparent;
+        border: 1px solid $font_green;
+        border-radius: 5px;
+        padding: 2px 5px;
+        font-family: inherit;
+    }
+
+    .panel {
+        color: inherit;
+
+        .panel-title {
+            border-bottom: 1px solid #b1b1b1;
+            padding-bottom: 10px;
+            color: black;
+        }
+
+        .panel-body {
+            padding-top: 10px;
+        }
+    }
+}
+
+
+.ticket-container {
+    background: transparent;
+    margin-bottom: 20px;
+    position: relative;
+    // border:1px solid red;
+}
+
+// فیلتر انتخاب ایرلاینها و ...
+.airline-filter,
+.panel-body>* {
+    // display: flex;
+    // justify-content: space-between;
+    padding: 5px 0;
+    // border-bottom: 1px dashed $light_gray;
+    cursor: pointer;
+    transition: all .1s ease;
+
+    &:hover {
+        background: $font_green;
+        border-radius: $border_radius;
+        color: #fff;
+        padding: 5px;
+        transform: scale(1.06);
+
+    }
+
+    img {
+        width: 24px;
+        height: 24px;
+        margin: 0 5px;
+    }
+
+    .price {
+        margin-right: auto;
+    }
+}
+
+
+
+.single-ticket {
+    position: relative;
+    cursor: grabbing;
+    // font-size: 13px;
+    border: 2px solid transparent;
+    background-color: #fff;
+    border-top-left-radius: $border_radius;
+    border-top-right-radius: $border_radius;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    transition: all .7s ease;
+    width: 100%;
+
+
+
+    .leg{
+        transition: all .2s ease;
+        &:hover{
+            transform: scale(1.01);
+            box-shadow: 0 0 5px 1px rgba($medium_green, 0.5);
+        }
+    }
+
+    .legs {
+        width: 80%;
+
+        .leg {
+            margin: 5px;
+            padding: 10px;
+
+            &:not(:last-child){
+                border-bottom: 1px solid #efefef;
+            }
+
+            &>* {
+                margin: auto;
+                text-align: center;
+                padding-right: 10px;
+            }
+        }
+
+        .path {
+            // border:1px solid red;
+            margin: 0 auto;
+            width: 60%;
+            text-align: center;
+
+        }
+    }
+
+    .logoes {
+        width: 20%;
+        display: flex;
+
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            border: 1px solid #efefef;
+            padding: 7px;
+            background: #fff;
+            transition: all .2s ease;
+
+            &:hover {
+                transform: scale(1.1);
+                border: 1px solid $font_green;
+
+            }
+
+            &:first-child {
+                margin-left: -20px;
+            }
+        }
+
+
+        .destination {
+            // font-size: 16px;
+            // font-weight: bold;
+            text-align: center;
+            width: 20%;
+
+            span {
+                display: block;
+            }
+        }
+
+    }
+
+    .ticket-choose {
+        font-size: 14px;
+        margin: auto;
+        text-align: center;
+
+        &>* {
+            margin-bottom: 2.5px;
+        }
+
+    }
+
+    .price {
+        color: green;
+    }
+
+    
+
+}
+
+ul.path {
+    // justify-content: space-between;
+
+    position: relative;
+
+    &::before {
+        border: 1px dashed #a5a5a5;
+        content: "";
+        display: block;
+        position: absolute;
+
+        top: calc(50% + 1px);
+        width: 100%;
+    }
+
+    li {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &:first-child {
+            text-align: right;
+            margin-right: -20px;
+            color: #006c50;
+            font-size: 20px;
+        }
+
+        &:last-child {
+            text-align: left;
+            margin-left: -28px
+        }
+
+        .circle {
+            width: 20px;
+            height: 20px;
+            margin-top: -1px;
+            border: 1px solid #006c50;
+            border-radius: 50%;
+            background-color: #fff;
+            z-index: 1;
+        }
+    }
+
+}
+
+
+
+
+
+// ticket detail
+
+.more-info {
+
+    background: $font_green;
+    padding: 10px 5px;
+    color: #fff;
+    // border-radius: $border_radius;
+    margin-top: -10px;
+    margin-left: -1px;
+    margin-right: -1px;
+
+    border-bottom-left-radius: $border_radius;
+    border-bottom-right-radius: $border_radius;
+}
+
+
+
+
+// جزییات بلیط 
+.ticket-detail {
+    border: 1px solid $border_gray;
+    border-radius: $border_radius;
+    padding: 20px 3px;
+    background:#fff;
+    // font-size: 1rem;
+
+    .btn {
+        width: auto;
+    }
+
+    ul {
+        width: 70%;
+        border: 1px solid $border_gray;
+        border-radius: $border_radius;
+        justify-content: center;
+        align-items: center;
+
+        li {
+            padding-left:5px;
+            padding-right:5px;
+            font-size: 1.1rem;
+
+            &:not(:last-child) {
+                border-left: 1px solid $border_gray;
+
+            }
+        }
+    }
+
+
+    // جزییات رفت و برگشت بلیط
+    .legs-detail{
+        margin-top:30px;
+
+        
+        .leg-detail{       
+            // position: relative;
+            
+            border:1px solid $border_gray;
+            border-radius: 10px;
+            width:50%;
+            padding:10px;
+            padding-right:20px;
+            
+            .row{
+                display: flex;
+                // justify-content: space-evenly;
+                width:auto;
+                margin-bottom: 10px;
+                margin-top: 10px;
+                
+                img{
+                    width:50px !important;
+                    height:50px !important;
+                    // border:1px solid black;
+                } 
+                .description{
+                    display: flex;
+                    flex-direction: column;
+                    // border:1px solid red;
+                }
+            
+
+                & > :last-child{
+                    margin-right: 30px;
+                }
+                
+                
+            }
+
+            .went-time{
+                background:$background_gray;
+                width:auto;
+                border-radius: $border_radius;
+                padding:3px;
+
+            }
+
+
+            .stop-detail{
+                border:1px dashed $dark_gray;
+                // border-radius: $border_radius;
+                padding:10px;
+                text-align: center;
+            }
+            
+        }
+    }
+}
+
+.detail-card{
+    position: relative;
+
+    &::before{
+        content: "";
+        width: 2px;
+        height: 100%;
+        border-right:1px dashed $light_gray;
+        position: absolute;
+        display: block;
+        right:-13px;
+    }
+}
+
+
+
+// قسمت پیشنهاد پرواز با بهترین قیمت 
+
+.best-price{
+    .ticket_type{
+        background: $medium_orange;
+    }
+    & >.more-info{
+        background:$medium_orange;
+    }
+    & i{
+        color:$medium_orange;
+        border-color:$medium_orange !important;
+    }
+
+}
+
+
+.checkbox-spanner.selected::before{
+    background-color: $font_green;
+    border:none;
+}
+.checkbox-spanner{
+    position: relative;
+    float:left;
+    &::before{
+        content: "";
+        position: absolute;
+        
+        float:left;
+        width: 6px;
+        height: 20px;
+        
+        background-color: $lighter_gray ;
+        border:1px solid $light_gray;
+        border-radius: 20px;
+    }
+}
+
+
+.ticket_type {
+    position: absolute;
+    top: 25px;
+    left: 100%;
+    margin-left: -9px;
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+    vertical-align: top;
+    // background: transparent;
+    background: $font_green;
+    border: solid hsla(0,0%,82.4%,.6);
+    border-width: 1px 1px 0;
+    color: #fff;
+
+    width: 70px;
+    height: 18px;
+    transform: translateX(-50%) translateY(50%) rotate(-90deg);
+    font-size: 10px;
+    text-align: center;
+    line-height: 16px;
+}
+
+/* start of desktop styles */
+
+@media screen and (max-width: 991px) {
+    .test{color:#fff;}
+}
+
+@media screen and (max-width: 767px) {
+
+    .top-search {
+        display: none;
+    }
+
+    .order-steps,aside.filters{
+        display: none !important;
+    }
+
+    .leg-detail{
+        width:100% !important;
+    }
+
+    .single-ticket{
+        .legs{
+            width:100%;
+
+            .leg{
+                flex-direction: row;
+                margin:0;
+                padding:10px 1px;
+                border-bottom: 1px solid #efefef;
+
+                .logoes{
+                    padding-right:1px;
+                }
+
+                ul{
+                    padding:5px;
+                }
+
+                li{
+                    display: none;
+                }
+            }
+        }
+
+        
+       
+    }
+
+    .ticket-detail{
+        .detail-titles{
+            align-items: center;
+        }
+
+        .buttons{
+            margin-bottom: 5px;
+            
+        }
+
+        ul{
+            width:100%;
+            flex-direction: row;
+            justify-content:space-between;
+
+            li{
+                padding:10px;
+                border:1px solid $border_gray;
+                width:50%;
+            }
+        }
+    }
+
+    .more-info{
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    
+    
+}

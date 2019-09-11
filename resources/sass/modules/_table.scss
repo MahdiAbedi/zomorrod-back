@@ -1,0 +1,82 @@
+table {
+    border-collapse: separate;
+    border: solid $table-border-gray 1px;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    width: 100%;
+
+}
+
+td,
+th {
+    border-right: solid $table-border-gray 1px;
+    border-top: solid $table-border-gray 1px;
+    padding: 5px;
+}
+
+th {
+    // background-color: blue;
+    border-top: none;
+}
+
+td:first-child,
+th:first-child {
+    border-right: none;
+}
+
+
+.gray-title {
+    text-align: center;
+    color: #747474;
+    border-collapse: collapse;
+
+    th {
+        background: #e6e6e6;
+        // padding:0;
+        padding: 5px;
+    }
+
+}
+
+
+
+/* start of desktop styles */
+
+@media screen and (max-width: 991px) {}
+
+@media screen and (max-width: 767px) {}
+
+@media screen and (max-width: 479px) {
+
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        // text-align: right;
+    }
+
+   
+}

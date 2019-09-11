@@ -1,0 +1,53 @@
+
+.tours{
+    margin-top:20px;
+    justify-content: space-around;
+    // border:3px black dashed;
+}
+.tour{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #EEEEEE;
+    border-radius: 5px;
+    cursor: pointer;
+
+    img{
+        width:100%;
+        height:auto;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+    h2{
+        font-size:1.8rem;
+        color:$font_green;
+    }
+    p{
+        color:$font_gray;
+    }
+    .price{
+        align-self: flex-end;
+        padding: 5px;
+    }
+}
+.special_offers{
+    color:$font_green;
+}
+
+.extra{
+    width:100%;
+    margin-top:20px;
+    padding:10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.newsletter{
+    #newsletter_btn{
+        margin-left:5px;
+    }
+    #newsletter{width:465px;
+    border: 1px solid #eee;}
+}

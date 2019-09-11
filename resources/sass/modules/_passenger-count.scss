@@ -1,0 +1,40 @@
+.passengers_count_container{
+    // display:none;
+    &::before{
+        position: absolute;
+        content: '';
+        right: 30px;
+        top:-25px;
+        border: 12px solid transparent;
+        border-bottom-color: #fff;
+    }
+    margin-top: 10px;
+    color:black;
+    position: relative;
+    border:3px solid transparent !important;
+    background:white;
+    border-radius: 5px;
+    padding:10px;
+    z-index: 10;
+}
+
+.passengers_count{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.plus-btn{
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    margin:5px;
+    font-size: 1.1em;
+    text-align: center;
+    border: 1px solid orange;
+    color: orange;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: transparent;
+}

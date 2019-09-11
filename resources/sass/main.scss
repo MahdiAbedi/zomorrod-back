@@ -1,0 +1,332 @@
+:root {
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 10px;
+}
+
+body {
+    direction: rtl;
+    text-align: right;
+    font-family: "IRANSans", "robotolight", sans-serif !important;
+    font-size: 1.3rem;
+    display:flex; 
+    flex-direction:column; 
+}
+
+@font-face {
+    font-family: IRANSansBlack;
+    font-style: normal;
+    font-weight: 900;
+    src: url("fonts/IRANSansWeb_Black.eot?");
+    src: url("fonts/IRANSansWeb_Black.eot?#iefix") format("embedded-opentype"),
+        url("fonts/IRANSansWeb_Black.woff2") format("woff2"),
+        url("fonts/IRANSansWeb_Black.woff") format("woff"),
+        url("fonts/IRANSansWeb_Black.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: IRANSansBold;
+    font-style: normal;
+    font-weight: bold;
+    src: url("fonts/IRANSansWeb_Bold.eot?");
+    src: url("fonts/IRANSansWeb_Bold.eot?#iefix") format("embedded-opentype"),
+        url("fonts/IRANSansWeb_Bold.woff2") format("woff2"),
+        url("fonts/IRANSansWeb_Bold.woff") format("woff"),
+        url("fonts/IRANSansWeb_Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: IRANSansMedium;
+    font-style: normal;
+    font-weight: 500;
+    src: url("fonts/IRANSansWeb_Medium.eot?");
+    src: url("fonts/IRANSansWeb_Medium.eot?#iefix") format("embedded-opentype"),
+        url("fonts/IRANSansWeb_Medium.woff2") format("woff2"),
+        url("fonts/IRANSansWeb_Medium.woff") format("woff"),
+        url("fonts/IRANSansWeb_Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: IRANSansLight;
+    font-style: normal;
+    font-weight: 300;
+    src: url("fonts/IRANSansWeb_Light.eot?");
+    src: url("fonts/IRANSansWeb_Light.eot?#iefix") format("embedded-opentype"),
+        url("fonts/IRANSansWeb_Light.woff2") format("woff2"),
+        url("fonts/IRANSansWeb_Light.woff") format("woff"),
+        url("fonts/IRANSansWeb_Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: IRANSansUltraLight;
+    font-style: normal;
+    font-weight: 200;
+    src: url("fonts/IRANSansWeb_UltraLight.eot?");
+    src: url("fonts/IRANSansWeb_UltraLight.eot?#iefix") format("embedded-opentype"), url("fonts/IRANSansWeb_UltraLight.woff2") format("woff2"),
+        url("fonts/IRANSansWeb_UltraLight.woff") format("woff"),
+        url("fonts/IRANSansWeb_UltraLight.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: IRANSans;
+    font-style: normal;
+    font-weight: normal;
+    src: url("fonts/IRANSansWeb.eot?");
+    src: url("fonts/IRANSansWeb.eot?#iefix") format("embedded-opentype"),
+        url("fonts/IRANSansWeb.woff2") format("woff2"),
+        url("fonts/IRANSansWeb.woff") format("woff"),
+        url("fonts/IRANSansWeb.ttf") format("truetype");
+}
+
+
+@font-face {
+    font-family: iranyekanweblight;
+    src: url(fonts/iranyekanweblight.eot);
+    src: url(fonts/iranyekanweblight.eot?#iefix&v=4.6.2) format("embedded-opentype"), url(fonts/iranyekanweblight.woff2) format("woff2"), url(fonts/iranyekanweblight.woff) format("woff"), url(fonts/iranyekanweblight.ttf) format("truetype"), url(fonts/iranyekanweblight.svg?v=4.6.2#fontawesomeregular) format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: iranyekanwebbold;
+    src: url(fonts/iranyekanwebbold.eot);
+    src: url(fonts/iranyekanwebbold.eot?#iefix&v=4.6.2) format("embedded-opentype"), url(fonts/iranyekanwebbold.woff2) format("woff2"), url(fonts/iranyekanwebbold.woff) format("woff"), url(fonts/iranyekanwebbold.ttf) format("truetype"), url(fonts/iranyekanwebbold.svg?v=4.6.2#fontawesomeregular) format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: iranyekanwebregular;
+    src: url(fonts/iranyekanwebregular.eot);
+    src: url(fonts/iranyekanwebregular.eot?#iefix&v=4.6.2) format("embedded-opentype"), url(fonts/iranyekanwebregular.woff2) format("woff2"), url(fonts/iranyekanwebregular.woff) format("woff"), url(fonts/iranyekanwebregular.ttf) format("truetype"), url(fonts/iranyekanwebregular.svg?v=4.6.2#fontawesomeregular) format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+
+// Loading Variables
+@import "variables";
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.margin-right {
+    margin-right: 10px;
+}
+
+.margin-left {
+    margin-left: 10px;
+}
+
+// گرد کردن کناره های عناصر
+.right-border {
+    // border-radius: 0 10px 10px 0;
+    // margin-right: 5px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.left-border {
+    margin-left: 20px;
+    // border-radius: 10px 0 0 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
+main{
+    background-color: #f5f5f5;
+    // background-color: #fff;
+}
+
+.main-container {
+    // border:1px solid red;
+    width: 80%;
+    max-width: 1050px;
+    margin:20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    text-align: center;
+}
+
+
+.make_your_tour {
+    // border:2px black solid;
+    width: 100%;
+    background: url(../img/make-tour-bg.png) no-repeat center;
+    background-size: contain;
+    height: 220px;
+    margin-top: 10px;
+}
+
+
+.flex {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fcolumn {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    // border:1px solid orange;
+    justify-content: center;
+    align-items: center;
+
+    .blog_slide {
+
+        // width: 90%;
+        height: 50%;
+        padding: 5px 0;
+    }
+}
+
+.container {
+    // width: 80%;
+    width:1050px;
+    max-width: 1050px;
+    // min-width: 1000px;
+    // position: absolute;
+    // left: 50%;
+    // transform: translateX(-50%);
+
+    margin:0 auto;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+}
+
+.divider {
+    border-bottom: 1px dashed $lighter_gray;
+    width: 100%;
+    padding: 10px;
+}
+
+.orange-color {
+    color: $light-orange;
+}
+
+
+.rotate-right{
+    transform: rotateY(-150deg)
+}
+
+.green{
+    color:$font-green;
+}
+
+.bmargin{
+    margin-bottom: 10px;
+}
+
+.half{
+    width: 50%;
+    // border:1px solid black;
+    margin:5px;
+}
+
+// .organe{
+//     color: $medium_orange !important;
+// }
+@import 'modules/menu';
+@import 'pages/home';
+@import 'modules/tours';
+@import 'modules/search-container';
+@import 'modules/form';
+@import 'modules/animations';
+@import 'modules/footer';
+
+// @import 'pages/ticket_result';
+@import 'modules/checkbox';
+@import 'modules/redio-botton';
+@import 'pages/outer_flight_result';
+@import 'modules/order_steps';
+@import 'mixins/responsive';
+// @import 'responsives/outer_flight';
+@import 'pages/inner_flight_result';
+@import 'pages/passengers-info';
+@import 'modules/tabs';
+@import 'pages/confirm_info';
+@import 'modules/panel';
+@import 'modules/table';
+@import 'modules/select2';
+@import 'modules/login';
+@import 'modules/passenger-count';
+
+.DatePicker{
+    position: relative;
+
+    &.disabled{
+       input{
+           background: rgba(black, .5);
+           color:$light_gray;
+           cursor: not-allowed;
+         
+       }
+       
+    }
+
+    .button{
+        position: absolute;
+        top:15%;
+        left:3px;
+        border:1px solid $light_gray;
+        background: transparent;
+        outline: none;
+        padding:2px 4px;
+        color:$dark_gray;
+        font-size: 12px;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+}
+.owl-stage{
+    display: flex;
+
+    .owl-item{
+        
+
+        .active{
+            width:100% !important;
+        }
+    }
+}
+/* start of desktop styles */
+
+@media screen and (max-width: 991px) {
+
+}
+
+@media screen and (max-width: 767px) {
+
+}
+
+@media screen and (max-width: 479px) {
+    .half{
+        width:100%;
+    }
+}

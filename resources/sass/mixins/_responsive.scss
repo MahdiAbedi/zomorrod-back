@@ -1,0 +1,241 @@
+/* start of desktop styles */
+
+@media screen and (max-width: 991px) {
+    .search_icons {
+        width: 80%;
+    }
+
+    .search-container {
+        width: 98%;
+    }
+    .container {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    //total
+    .flex,
+    .flex-between {
+        flex-direction: column;
+    }
+
+    
+
+    // homepage
+
+    .search-container,
+    .search_icons {
+        width: 100%;
+        overflow: visible;
+    }
+
+    .icon_container {
+        padding: 14px;
+
+        img {
+            width: 75%;
+            height: 75%;
+        }
+    }
+
+    .search-container {
+        top: 60vh;
+    }
+
+    h4.inner-flight-title {
+        span {
+            display: none;
+        }
+
+        &::after {
+            content: "داخلی"
+        }
+    }
+
+    h4.out-flight-title {
+        span {
+            display: none;
+        }
+
+        &::after {
+            content: "خارجی"
+        }
+    }
+
+    form.search {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .form {
+        // background: rgba(0, 0, 0, 0.5);
+        font-size: 17px;
+    }
+
+    .group {
+        width: 95%;
+        margin: 12px 5px;
+
+        input,
+        select {
+            border-radius: 10px;
+            height: 50px;
+        }
+    }
+
+  
+
+    input.search-btn {
+        display: table;
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+    }
+
+    
+
+    .slider {
+        background: url(/img/mobile/outline-airplane-bg-mobile.jpg) no-repeat center;
+        // height: 60vh;
+    }
+
+    .home_icon,
+    .blog_slide {
+        width: 33%;
+    }
+
+    .tour {
+        width: 33%;
+        margin-bottom: 10px;
+    }
+
+    footer {
+        background: black;
+        background-size: cover;
+        padding:10px;
+        // min-height: 200px;
+    }
+
+    .footer1,
+    .footer2,
+    .footer3 {
+        flex-basis: 100%;
+    }
+
+    .footer2,
+    .footer_links {
+        display: none;
+    }
+
+    .footer3 {
+        margin-bottom: 30px;
+    }
+
+    footer a {
+        color: $light_orange;
+    }
+
+    .mojavezha a {
+        margin: 3px;
+
+        img {
+            width: 75px;
+            height: 75px;
+        }
+    }
+
+    .search_icons {
+        width: 100%;
+    }
+
+
+
+
+    //صفحه نتایج بلیط
+    .path-title{
+
+        .path-date{
+            font-size: 10px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .flex{
+            flex-direction: row;
+        }
+    }
+    
+    .result-panel {
+        .filters {
+            display: none;
+        }
+
+        .ticket{
+            &.flex-between{
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .airline-type{
+                display: none;
+            }
+
+            & > *{
+                // border:1px solid red;
+                border-top: 1px dashed #E3E3E3;
+                width:50%;
+                text-align: center;
+            }
+        }
+
+        .results {
+            width: 100%;
+
+            .sorting {
+
+                // flex-direction: row;
+                .sort,
+                .date {
+                    width: 100%;
+                    margin-bottom: 5px;
+                    ul.flex{
+                        flex-direction: row;
+                        
+                    }
+                }
+            }
+        }
+    }
+
+    .flight-info{
+        .best-price{
+            display: none;
+        }
+        .table{
+            width:100%;
+        }
+    }
+}
+
+@media screen and (max-width: 479px) {
+
+    .home_icon,
+    .blog_slide {
+        width: 100%;
+    }
+
+    .tour {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .home_icons,
+    .special_offers {
+        display: none;
+    }
+
+}
+

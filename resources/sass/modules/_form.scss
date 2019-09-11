@@ -1,0 +1,216 @@
+form.search{
+    display: flex;
+}
+input{
+    font-family: inherit;
+}
+input[type="text"]{
+    background: white;
+    // border-radius: 5px;
+    outline: none;
+    border:1px solid $border-gray;
+    height: 38px;
+    width:100%;
+    // border-left: 1px #ccc solid;    
+    padding-right: 15px;
+}
+
+input[type="radio"]{
+    margin-right:15px;
+    cursor: pointer;   
+}
+label{
+    color:inherit;
+    cursor: pointer;
+}
+
+select{
+    width:100%;
+    border:1px solid $border-gray;
+    outline:none;
+    height: 38px;;
+}
+
+::placeholder,select{
+    font-family: "iranyekanwebregular", "robotolight", sans-serif !important;
+    font-size: 1.2rem;
+    // padding-right: 15px;
+}
+
+.btn{
+    outline: none;
+    // border:2px solid transparent;
+    border:none;
+    text-align: center;
+    // background:transparent;
+    padding:10px 10px;
+    border-radius: $border-radius;
+    font-family: inherit;
+    // width: 100%;
+    cursor: pointer;
+    // margin-top: 5px;
+    // height: 38px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .5s ease;
+    color:#fff;
+    margin:0 5px 0 0;
+}
+.btn-blue{
+    background:$light_blue;
+}
+
+.btn-green{
+    background: $font-green;
+}
+.btn-transparent{
+    border:1px solid $border-gray;
+    background: transparent;
+    color:$font_gray;
+
+    &:hover{
+        background:gray;
+        color:white;
+    }
+}
+.btn-yellow{
+    color:#ffa700;
+    border:1px solid #ffa700;
+    background: #fff4df;
+
+    &:hover{
+        color:#fff;
+        border-color:#ffa700;
+        background-color: #ffa700;
+    }
+}
+
+//دکمه سبز رنگ طرح ستاره زمرد
+
+.btn-zgreen{
+    background:linear-gradient(70deg,#006d51,#006d51 75%,#013a32 75%,#036e60);
+    // font-size: 15px;
+
+    &:hover{
+        // background:#dfa105;
+        background:linear-gradient(70deg,#006d51,#006d51 55%,#013a32 55%,#036e60);
+    }
+}
+//دکمه نارنجی رنگ طرح ستاره زمرد
+
+.btn-zorange{
+    background:linear-gradient(70deg,$light_orange,$light_orange 75%,$medium_orange 75%,$medium_orange);
+    // font-size: 15px;
+
+    &:hover{
+        // background:#dfa105;
+        background:linear-gradient(70deg,$light_orange,$light_orange 55%,$medium_orange 55%,$medium_orange);
+    }
+}
+//دکمه خاکستری رنگ طرح ستاره زمرد
+.btn-zgray{
+    background:linear-gradient(70deg,#d8d8d8,#d8d8d8 75%,#c9c9c9 75%,#c9c9c9);
+    // font-size: 15px;
+    color:#000;
+
+    &:hover{
+        // background:#dfa105;
+        background:linear-gradient(70deg,#d8d8d8,#d8d8d8 55%,#c9c9c9 55%,#c9c9c9);
+    }
+}
+
+.round-btn{
+    width:30px;
+    height: 30px;
+    border-radius: 50%;
+    outline:none;
+    border:none;
+    position: absolute;
+    top:50%;
+    left:-15px;
+    transform: translateY(-50%);
+    z-index: 10;
+    outline:none;
+    border:1px solid #ccc;
+    cursor: pointer;
+    background-color: #fff;
+    
+    i.icon-transfer{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        color:orange;
+    }
+}
+
+.group{
+    width:100%;
+    // border:3px solid orange;
+    position: relative;
+    height: 38px;
+
+    i {
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        color: #fff;
+        transform: translate(-50%,-30%);
+    }
+}
+
+[placeholder]:focus::placeholder{
+    transition: text-indent .5s ease;
+    text-indent: -100%;
+    opacity: 1;
+}
+
+
+// فیلدهای صفحه اطلاعات مسافر
+.fields{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    .field{
+        display: flex;
+        flex-direction: column;
+        width:24%;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        margin-left: 10px;
+        // border:1px solid black;
+
+        label{
+            margin-bottom: 3px;
+        }
+    
+        input[type="text"]{
+            // border:1px solid black;
+            border-radius: $border-radius;
+        }
+        select{
+            border-radius: $border-radius;
+        }
+    }
+}
+
+
+/* start of desktop styles */
+
+@media screen and (max-width: 991px) {
+
+}
+
+@media screen and (max-width: 767px) {
+
+}
+
+@media screen and (max-width: 479px) {
+
+    .fields{
+        .field{
+            width:100%;
+        }
+    }
+}

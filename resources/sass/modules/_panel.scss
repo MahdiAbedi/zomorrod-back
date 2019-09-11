@@ -1,0 +1,21 @@
+.panel{
+    border:1px solid $border_gray;
+    border-radius: $border_radius;
+    margin-bottom: 10px;
+
+    .title{
+        padding:10px 10px;
+        background:$font_green;
+        border-top-left-radius: $border_radius;
+        border-top-right-radius: $border_radius;
+        color:#fff;
+    }
+
+    .body{
+        padding:15px 10px;
+        // border-radius: $border_radius;
+        border-bottom-left-radius:$border_radius;
+        border-bottom-right-radius:$border_radius;
+        background: #fff;
+    }
+}

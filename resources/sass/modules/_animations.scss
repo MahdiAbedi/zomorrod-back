@@ -1,0 +1,28 @@
+@keyframes airplane-old{
+    0% {transform: translateX(-100%) scale(.1);}
+    5% {transform: translateX(-97%) scale(.05);}
+    10% {transform: translateX(-95%) scale(.1);}
+    15% {transform: translateX(-93%) scale(.15);}
+    20% {transform: translateX(-90%) scale(.2);}
+    25% {transform: translateX(-87%) scale(.25);}
+    30% {transform: translateX(-85%) scale(.3);}
+    35% {transform: translateX(-82%) scale(.35);}
+    40% {transform: translateX(-80%) scale(.4);}
+    45% {transform: translateX(-77%) scale(.45);}
+    50% {transform: translateX(-75%) scale(.5);}
+    55% {transform: translateX(-72%) scale(.55);}
+    60% {transform: translateX(-70%) scale(.6);}
+    65% {transform: translateX(-67%) scale(.65);}
+    70% {transform: translateX(-65%) scale(.7);}
+    75% {transform: translateX(-62%) scale(.75);}
+    80% {transform: translateX(-60%) scale(.8);}
+    85% {transform: translateX(-57%) scale(.85);}
+    90% {transform: translateX(-55%) scale(.9);}
+    95% {transform: translateX(-52%) scale(.95);}
+    100% {transform: translateX(-50%) scale(1);}
+}
+
+@keyframes airplane{
+    0% {transform: translateX(-80%) scale(.1);}
+    100% {transform:scale(1);}
+}

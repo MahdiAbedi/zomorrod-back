@@ -1,0 +1,335 @@
+.path-title {
+    background: $font_green;
+    width: 100%;
+    height: 50px;
+    padding: 10px 0;
+    font-size: 14px;
+
+    color: #fff;
+}
+
+.path-date {
+    span {
+        padding-right: 30px;
+    }
+}
+
+
+
+.result-panel {
+    margin-top: 30px;
+    color: #333;
+    font-size: 14px;
+    display: flex;
+    // border:1px solid red;
+
+    i {
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 16px;
+        color: $medium_green;
+    }
+
+    .results {
+        // border: 1px solid green;
+        width: 75%;
+
+        a {
+            color: inherit;
+        }
+
+        padding-top: 5px;
+        // border-radius: $border_radius;
+
+        .sorting {
+            color: black;
+        }
+
+        .sort {
+            width: 65%;
+            border: 2px solid transparent;
+            background-color: #fff;
+            border-radius: $border_radius;
+            box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+        }
+
+        .date {
+            width: 33%;
+            margin-right: 3px;
+            flex-grow: 2;
+            border: 2px solid transparent;
+            background-color: #fff;
+            border-radius: $border_radius;
+            box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+        }
+
+        .current-date {
+            border-right: 1px dashed $font_gray;
+            border-left: 1px dashed $font_gray;
+            padding: 0 20px;
+        }
+
+        .tickets {
+            // background-color: $white_color;
+            margin-top: 10px;
+        }
+    }
+
+
+    aside.filters {
+        // border: 1px solid orange;
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        // align-items: flex-start;
+        margin-left: 10px;
+        color: inherit;
+        margin-top:1px;
+
+        section {
+            background-color: #fff;
+            width: 100%;
+            padding: 10px 10px;
+            box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+            border-radius: $border_radius;
+            margin-bottom: 10px;
+
+        }
+    }
+
+    button.reset {
+        outline: none;
+        background: transparent;
+        border: 1px solid $font_green;
+        border-radius: 5px;
+        padding: 2px 5px;
+        font-family: inherit;
+    }
+
+    .panel {
+        color: inherit;
+
+        .panel-title {
+            border-bottom: 1px solid #b1b1b1;
+            padding-bottom: 10px;
+            color: black;
+        }
+
+        .panel-body {
+            padding-top: 10px;
+        }
+    }
+}
+
+// بخش تیکتها
+.ticket {
+    cursor: grabbing;
+    font-size: 13px;
+    border: 2px solid transparent;
+    background-color: #fff;
+    border-radius: $border_radius;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    transition: all .7s ease;
+    width: 100%;
+
+    &>* {
+        border-left: 1px dashed $lighter_gray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+
+    }
+
+    img {
+        width: 80px;
+        height: 80px;
+        border-bottom: 1px dashed $lighter_gray;
+        margin-bottom: 3px;
+    }
+
+    .flight-time,
+    .ticket-price {
+        justify-content: space-evenly;
+
+    }
+
+    .price {
+        color: $light_green;
+    }
+
+    &:hover {
+        border: 2px solid $medium_green;
+        transform: scale(1.02);
+        // background: rgb(29, 29, 29);
+        // color: #fff;
+        box-shadow: 0 0 5px 10px rgba($medium_green, 0.1);
+    }
+
+    & + .detail{
+        background: $background_gray;
+
+        ul {
+            display: flex;
+            margin-right:10px;
+           
+            li{
+                background: #fff;
+                margin:5px 2px;
+                padding:5px 20px;
+                border-radius: $border_radius;
+                cursor: pointer;
+                border:1px solid $border_gray;
+            }
+        }
+
+        section{
+            background: #fff;
+            padding:10px;
+            border-radius: $border_radius;
+            margin-bottom: 10px;
+            border:1px solid $border_gray;
+
+        }
+    }
+}
+
+.ticket-container{
+    background: transparent;
+    // border: 1px solid black;
+    // border:1px solid $border_gray;
+    border-radius: $border_radius;
+    // padding:0;
+    // margin:0;
+}
+
+// صفحه جزییات هر تیکت
+.flight-info{
+    .table{width:80%;}
+    table{
+        background:$background_gray;
+        float: right;
+        width: 100%;
+        height: auto;
+
+        thead{
+            float: right;
+            width: 100%;
+            height: auto;
+            background-color: #fbf9f3;
+            border-bottom: 1px solid #dcdbd5;
+            border-radius: 3px 3px 0 0;
+            text-align: center;
+
+            th{
+                float: right;
+                height: 30px;
+                width: 25%;
+                font-size: 1.2rem;
+                font-weight: 100;
+                border-left: 1px dashed #E3E3E3;
+            }
+        }
+
+        tbody{
+            float: right;
+            width: 100%;
+            height: auto;
+            border-radius: 0 0 3px 3px;
+            background-color: #fbf9f3;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        tr{
+            float: right;
+            width: 100%;
+            height: auto;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px solid #e6e5e0;
+        }
+
+        td{
+            float: right;
+            width: 25%;
+            font-size: 1.2rem;
+            border-right: 1px solid #e6e5e0;
+            text-align: center;
+
+            &:first-child {
+                text-align: right;
+                padding: 0 10px;
+                border-right: 0;
+            }
+        }
+    }
+
+    .best-price{
+        border:1px solid $border_gray;
+        padding:10px;
+    }
+}
+
+.airline-filter,
+.panel-body>* {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px dashed $light_gray;
+    cursor: pointer;
+    transition: all .1s ease;
+
+    &:hover {
+        background: $medium_green;
+        border-radius: $border_radius;
+        color: #fff;
+        padding: 5px;
+        transform: scale(1.06);
+
+    }
+
+    img {
+        width: 24px;
+        height: 24px;
+        margin: 0 5px;
+    }
+
+    .price {
+        margin-right: auto;
+    }
+}
+
+
+
+// قوانین استرداد بلیط
+
+.refund-policies{
+    display: flex;
+    justify-content: space-around;
+    .policy{
+        border-radius: $border_radius;
+        border:1px solid #ff6d00;
+        margin:5px;
+        text-align: center;
+        padding:10px;
+        background: $background_gray;
+        cursor: pointer;
+        
+        .title{
+            border-bottom: 1px solid #ff6d00;
+            margin-bottom: 10px;
+            width:100%;
+            padding-bottom: 10px;
+        }
+
+        .percent{
+            color:#ff6d00;
+        }
+
+
+    }
+}
