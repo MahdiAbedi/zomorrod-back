@@ -18,10 +18,10 @@ Route::get('/', function () {
 Route::get('/international', function () {
     return view('pages/international');
 });
-Route::post('/international', function (Request $request) {
-    dd($request->all());
-    return view('pages/international');
-});
+Route::post('/checkTicket','TicketController@international' );
+
+
+
 //################################## بلیط سفر داخلی ########################################
 Route::get('/flights', function () {
     return view('pages/flights');

@@ -1,7 +1,6 @@
 import React from 'react';
 import DateSelector from '../DateSelector';
 import PassengerCount from './PassengerCount';
-import IranAirlines from './InternationalAirlines';
 import InternationalAirlines from './InternationalAirlines';
 
 
@@ -16,8 +15,19 @@ class OutLineTicket extends React.Component{
         this.setState({toWay:true});
     }
 
-    checkTicket(){
-        
+    //هنگام ارسال فرم
+    submitForm(event){
+        event.preventDefault();
+        localStorage.setItem("international_origin", $('#international_origin').val());                                        //مسیر رفت
+        localStorage.setItem("international_destination", $('#international_destination').val());                             //مسیر برگشت
+        localStorage.setItem("international_departureTime", document.getElementById('international_departureTime').value);   //زمان رفت
+        localStorage.setItem("international_returnTime", document.getElementById('international_returnTime').value);        //زمان برگشت
+        localStorage.setItem("international_adult", document.getElementById('international_adult').value);                 //زمان برگشت
+        localStorage.setItem("international_child", document.getElementById('international_child').value);                //زمان برگشت
+        localStorage.setItem("international_infant", document.getElementById('international_infant').value);             //زمان برگشت
+
+        window.location.replace("/international");
+
     }
 
     hideReturnDate = ()=>{
@@ -36,27 +46,30 @@ class OutLineTicket extends React.Component{
                 <label for="group3">چند مسیره</label>
             </div>
             {/* <!-- فیلدهای جستجو --> */}
-            <form  className="search" action="/international" method="post">
+            <form  className="search" onSubmit={this.submitForm} >
                 <div className="group margin-right">
-                    <InternationalAirlines className="right-border select2" Placeholder="فرودگاه مبدا" />
+                    <input type="hidden" id="csrf" name="_token" />
+                    <input type="hidden" name="toWay" value={!this.state.toWay}/>
+
+                    <InternationalAirlines className="right-border select2" Placeholder="فرودگاه مبدا" name="origin" prefix="international" />
                     
                     <button className="round-btn"><i className="icon-transfer"><img src="img/change-way.png"
                                 alt=""/></i></button>
                 </div>
                 <div className="group">
 
-                <InternationalAirlines className="left-border select2" Placeholder="فرودگاه مقصد" />
+                <InternationalAirlines className="left-border select2" Placeholder="فرودگاه مقصد" name="destination"  prefix="international"/>
 
                 </div>
                 <div className="group margin-right">
-                    <DateSelector />
+                    <DateSelector name="departureTime" prefix="international"/>
                 </div>
                 <div className="group">
-                <DateSelector disabled={this.state.toWay} />
+                <DateSelector name="returnTime" disabled={this.state.toWay} prefix="international" />
                 </div>
                 
                 <div className="group">
-                    <PassengerCount />
+                    <PassengerCount prefix="international"/>
                    
                 </div>
                 <div className="group">

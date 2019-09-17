@@ -1,7 +1,7 @@
 import React from 'react';
 
 const InternationalAirlines = props =>(
-    <select className={props.className} title="فرودگاه مبدا" name={props.name}>
+    <select className={props.className} title="فرودگاه مبدا" name={props.name} id={props.prefix +'_'+props.name}>
     <optgroup label="شهرهای پرتردد">
     <option value="THR">تهران</option>
     <option value="TBZ">تبریز</option>

@@ -14,9 +14,14 @@ class PassengerCount extends React.Component{
     render(){
         return(
 
-            <span>
+        <span>
 
-            
+            {/* قسمت دریافت اطلاعات هر مسافر که مخفی است */}
+            <input type="hidden" name={this.props.prefix + '_adult'} id={this.props.prefix + '_adult'} value={this.state.adult} />
+            <input type="hidden" name={this.props.prefix + '_child'} id={this.props.prefix + '_child'} value={this.state.child} />
+            <input type="hidden" name={this.props.prefix + '_infant'} id={this.props.prefix + '_infant'} value={this.state.infant} />
+
+
             <input type="text"  className="left-border" id="mosafer" placeholder="تعداد مسافر" value={this.state.child + this.state.adult + this.state.infant +" مسافر "} contenteditable="false" onClick={()=>{this.setState({display:!this.state.display})}}/>
 
             <div className="passengers_count_container" style={{display:(this.state.display ? 'block' :'none')}}>
@@ -45,7 +50,7 @@ class PassengerCount extends React.Component{
                         <button type="button" className="plus-btn" onClick={()=>this.setState({infant:(this.state.infant>0)? this.state.infant - 1 : this.state.infant})}>-</button>
                     </span>
                 </div>
-        </div>
+            </div>
 
         </span>
         );

@@ -11,7 +11,7 @@
                 <ul class="menu right-menu hide" id="hamburger-menu">
                     <li class="menu-item active">
                         <img src="img/icons/home.png" alt="منوی">
-                        <a href="#">خانه</a>
+                        <a href="/">خانه</a>
                     </li>
                     <li class="menu-item">
                         <img src="img/icons/airplane-icon-colored.png" alt="منوی">

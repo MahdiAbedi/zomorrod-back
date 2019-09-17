@@ -56,8 +56,7 @@
     </footer>
 </body>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
-<!-- React compiles codes in my project -->
-<script src="/js/app.js"></script>
+
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- select2 -->
@@ -67,7 +66,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 <!-- custom.js -->
-<script src="/js/custom.js"></script>
+<script src="js/custom.js"></script>
 
 <!-- CSRF  -->
 <script>
@@ -76,5 +75,11 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
+
+// document.getElementById('csrf').value="{{ csrf_token() }}";
 </script>
+
+
+<!-- React compiles codes in my project -->
+<script src="js/app.js"></script>
 </html>

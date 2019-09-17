@@ -25,5 +25,7 @@ class SearchPanel extends React.Component{
     }
 }
 
+if(document.querySelector('.SearchPanel')){
 
-ReactDOM.render(<SearchPanel/> , document.querySelector('.SearchPanel'));
+    ReactDOM.render(<SearchPanel/> , document.querySelector('.SearchPanel'));
+}

@@ -140,3 +140,17 @@ function Toggle(tagId) {
         element.classList.toggle("hide");
         
     }
+
+    //فرمت پولی
+    // function formatCurrency(value){
+    //     value = parseInt(value);
+    //     return value.toFixed(0).Replace(/(\d)(?=(\d{3})+(?:\.\d)?$)/g,"$1,");
+    // }
+
+    // function formatInsideTagMoney(tagName){
+    //     var divs = document.getElementsByName(tagName);
+    //     for (let index = 0; index < divs.length; index++) {
+    //         divs[index].innerText = formatCurrency(divs[i].innerText);
+            
+    //     }
+    // }
