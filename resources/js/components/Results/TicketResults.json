@@ -73,7 +73,8 @@
             {
             "JourneyDurationPerMinute": 425,
             "ConnectionTimePerMinute": 135,
-            "FlightSegments": [{
+            "FlightSegments": [
+                {
                 "DepartureDateTime": "2019-09-25T03:40:00",
                 "ArrivalDateTime": "2019-09-25T06:25:00",
                 "StopQuantity": 0,

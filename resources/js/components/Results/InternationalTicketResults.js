@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TwoWayInternationalTicket from './TwoWayInternationalTicket';
-import OneWayInternationalTicket from './OneWayInternationalTicket';
-import myTickets from './TicketResults.json';
+// import OneWayInternationalTicket from './OneWayInternationalTicket';
+import myTickets from './RoundTripTicket.json';
+// import myTickets from './TicketResults.json';
 
 class InternationalTicketResults extends React.Component{
 

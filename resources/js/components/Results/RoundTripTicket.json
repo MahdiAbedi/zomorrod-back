@@ -1,0 +1,966 @@
+{
+    "Success": true,
+    "Error": null,
+    "PricedItineraries": [
+        {
+        "IsPassportMandatory": true,
+        "IsPassportIssueDateMandatory": false,
+        "DirectionInd": 2,
+        "RefundMethod": 0,
+        "ValidatingAirlineCode": "SU",
+        "FareSourceCode": "6636353034363636646465663465326438303233653634626436616566313564263230373326323838383133",
+        "AirItineraryPricingInfo": {
+            "FareType": 2,
+            "ItinTotalFare": {
+                "BaseFare": 4680000.00,
+                "TotalFare": 41760000.00,
+                "TotalCommission": 0.0,
+                "TotalTax": 37080000.00,
+                "ServiceTax": 0.00,
+                "Currency": "IRR"
+            },
+            "PtcFareBreakdown": [{
+                "PassengerFare": {
+                    "BaseFare": 4680000.00,
+                    "TotalFare": 41760000.00,
+                    "Commission": 0.0,
+                    "ServiceTax": 0.00,
+                    "Taxes": [{
+                        "Amount": 37080000.00,
+                        "Currency": "IRR"
+                    }],
+                    "Currency": "IRR"
+                },
+                "PassengerTypeQuantity": {
+                    "PassengerType": 1,
+                    "Quantity": 1
+                }
+            }],
+            "FareInfoes": []
+        },
+        "OriginDestinationOptions": [{
+            "JourneyDurationPerMinute": 465,
+            "ConnectionTimePerMinute": 195,
+            "FlightSegments": [{
+                "DepartureDateTime": "2019-09-20T03:30:00",
+                "ArrivalDateTime": "2019-09-20T05:55:00",
+                "StopQuantity": 0,
+                "FlightNumber": "513",
+                "ResBookDesigCode": "N",
+                "JourneyDuration": "03:55",
+                "JourneyDurationPerMinute": 235,
+                "ConnectionTimePerMinute": 195,
+                "DepartureAirportLocationCode": "IKA",
+                "ArrivalAirportLocationCode": "SVO",
+                "MarketingAirlineCode": "SU",
+                "CabinClassCode": 2,
+                "OperatingAirline": {
+                    "Code": "SU",
+                    "FlightNumber": "513",
+                    "Equipment": "32A"
+                },
+                "SeatsRemaining": 4,
+                "IsCharter": false,
+                "IsReturn": false,
+                "Baggage": "0 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-20T09:10:00",
+                "ArrivalDateTime": "2019-09-20T12:00:00",
+                "StopQuantity": 0,
+                "FlightNumber": "2550",
+                "ResBookDesigCode": "N",
+                "JourneyDuration": "03:50",
+                "JourneyDurationPerMinute": 230,
+                "ConnectionTimePerMinute": 0,
+                "DepartureAirportLocationCode": "SVO",
+                "ArrivalAirportLocationCode": "AMS",
+                "MarketingAirlineCode": "SU",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "SU",
+                    "FlightNumber": "2550",
+                    "Equipment": "333"
+                },
+                "SeatsRemaining": 4,
+                "IsCharter": false,
+                "IsReturn": false,
+                "Baggage": "0 pieces",
+                "TechnicalStops": []
+            }]
+        }, {
+            "JourneyDurationPerMinute": 440,
+            "ConnectionTimePerMinute": 200,
+            "FlightSegments": [{
+                "DepartureDateTime": "2019-09-23T13:15:00",
+                "ArrivalDateTime": "2019-09-23T17:45:00",
+                "StopQuantity": 0,
+                "FlightNumber": "2551",
+                "ResBookDesigCode": "N",
+                "JourneyDuration": "03:30",
+                "JourneyDurationPerMinute": 210,
+                "ConnectionTimePerMinute": 200,
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "SVO",
+                "MarketingAirlineCode": "SU",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "SU",
+                    "FlightNumber": "2551",
+                    "Equipment": "333"
+                },
+                "SeatsRemaining": 4,
+                "IsCharter": false,
+                "IsReturn": true,
+                "Baggage": "0 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-23T21:05:00",
+                "ArrivalDateTime": "2019-09-24T01:25:00",
+                "StopQuantity": 0,
+                "FlightNumber": "512",
+                "ResBookDesigCode": "N",
+                "JourneyDuration": "03:50",
+                "JourneyDurationPerMinute": 230,
+                "ConnectionTimePerMinute": 0,
+                "DepartureAirportLocationCode": "SVO",
+                "ArrivalAirportLocationCode": "IKA",
+                "MarketingAirlineCode": "SU",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "SU",
+                    "FlightNumber": "512",
+                    "Equipment": "32A"
+                },
+                "SeatsRemaining": 4,
+                "IsCharter": false,
+                "IsReturn": true,
+                "Baggage": "0 pieces",
+                "TechnicalStops": []
+            }]
+        }]
+    },  {
+        "IsPassportMandatory": true,
+        "IsPassportIssueDateMandatory": false,
+        "DirectionInd": 2,
+        "RefundMethod": 0,
+        "ValidatingAirlineCode": "LH",
+        "FareSourceCode": "6233626462303662663761313465633138386366356133363436353466373066263230373326323838383133",
+        "AirItineraryPricingInfo": {
+            "FareType": 2,
+            "ItinTotalFare": {
+                "BaseFare": 108000000.00,
+                "TotalFare": 159840000.00,
+                "TotalCommission": 0.0,
+                "TotalTax": 51840000.00,
+                "ServiceTax": 0.00,
+                "Currency": "IRR"
+            },
+            "PtcFareBreakdown": [{
+                "PassengerFare": {
+                    "BaseFare": 108000000.00,
+                    "TotalFare": 159840000.00,
+                    "Commission": 0.0,
+                    "ServiceTax": 0.00,
+                    "Taxes": [{
+                        "Amount": 51840000.00,
+                        "Currency": "IRR"
+                    }],
+                    "Currency": "IRR"
+                },
+                "PassengerTypeQuantity": {
+                    "PassengerType": 1,
+                    "Quantity": 1
+                }
+            }],
+            "FareInfoes": []
+        },
+        "OriginDestinationOptions": [{
+            "JourneyDurationPerMinute": 400,
+            "ConnectionTimePerMinute": 145,
+            "FlightSegments": [{
+                "DepartureDateTime": "2019-09-20T02:45:00",
+                "ArrivalDateTime": "2019-09-20T05:45:00",
+                "StopQuantity": 0,
+                "FlightNumber": "601",
+                "ResBookDesigCode": "H",
+                "JourneyDuration": "05:30",
+                "JourneyDurationPerMinute": 330,
+                "ConnectionTimePerMinute": 145,
+                "DepartureAirportLocationCode": "IKA",
+                "ArrivalAirportLocationCode": "FRA",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 2,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "601",
+                    "Equipment": "343"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": false,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-20T08:10:00",
+                "ArrivalDateTime": "2019-09-20T09:20:00",
+                "StopQuantity": 0,
+                "FlightNumber": "986",
+                "ResBookDesigCode": "H",
+                "JourneyDuration": "01:10",
+                "JourneyDurationPerMinute": 70,
+                "ConnectionTimePerMinute": 0,
+                "DepartureAirportLocationCode": "FRA",
+                "ArrivalAirportLocationCode": "AMS",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "986",
+                    "Equipment": "320"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": false,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }]
+        }, {
+            "JourneyDurationPerMinute": 445,
+            "ConnectionTimePerMinute": 180,
+            "FlightSegments": [{
+                "DepartureDateTime": "2019-09-23T08:50:00",
+                "ArrivalDateTime": "2019-09-23T10:10:00",
+                "StopQuantity": 0,
+                "FlightNumber": "2301",
+                "ResBookDesigCode": "U",
+                "JourneyDuration": "01:20",
+                "JourneyDurationPerMinute": 80,
+                "ConnectionTimePerMinute": 110,
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "MUC",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "CL",
+                    "FlightNumber": "2301",
+                    "Equipment": "CR9"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": true,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-23T12:00:00",
+                "ArrivalDateTime": "2019-09-23T13:00:00",
+                "StopQuantity": 0,
+                "FlightNumber": "4814",
+                "ResBookDesigCode": "U",
+                "JourneyDuration": "01:00",
+                "JourneyDurationPerMinute": 60,
+                "ConnectionTimePerMinute": 70,
+                "DepartureAirportLocationCode": "MUC",
+                "ArrivalAirportLocationCode": "FRA",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "4814",
+                    "Equipment": "319"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": true,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-23T14:10:00",
+                "ArrivalDateTime": "2019-09-23T20:45:00",
+                "StopQuantity": 0,
+                "FlightNumber": "600",
+                "ResBookDesigCode": "U",
+                "JourneyDuration": "05:05",
+                "JourneyDurationPerMinute": 305,
+                "ConnectionTimePerMinute": 0,
+                "DepartureAirportLocationCode": "FRA",
+                "ArrivalAirportLocationCode": "IKA",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "600",
+                    "Equipment": "343"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": true,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }]
+        }]
+    }, {
+        "IsPassportMandatory": true,
+        "IsPassportIssueDateMandatory": false,
+        "DirectionInd": 2,
+        "RefundMethod": 0,
+        "ValidatingAirlineCode": "LH",
+        "FareSourceCode": "3336646438613831353137303433393138373137383562396634633661656535263230373326323838383133",
+        "AirItineraryPricingInfo": {
+            "FareType": 2,
+            "ItinTotalFare": {
+                "BaseFare": 108000000.00,
+                "TotalFare": 159840000.00,
+                "TotalCommission": 0.0,
+                "TotalTax": 51840000.00,
+                "ServiceTax": 0.00,
+                "Currency": "IRR"
+            },
+            "PtcFareBreakdown": [{
+                "PassengerFare": {
+                    "BaseFare": 108000000.00,
+                    "TotalFare": 159840000.00,
+                    "Commission": 0.0,
+                    "ServiceTax": 0.00,
+                    "Taxes": [{
+                        "Amount": 51840000.00,
+                        "Currency": "IRR"
+                    }],
+                    "Currency": "IRR"
+                },
+                "PassengerTypeQuantity": {
+                    "PassengerType": 1,
+                    "Quantity": 1
+                }
+            }],
+            "FareInfoes": []
+        },
+        "OriginDestinationOptions": [{
+            "JourneyDurationPerMinute": 400,
+            "ConnectionTimePerMinute": 145,
+            "FlightSegments": [{
+                "DepartureDateTime": "2019-09-20T02:45:00",
+                "ArrivalDateTime": "2019-09-20T05:45:00",
+                "StopQuantity": 0,
+                "FlightNumber": "601",
+                "ResBookDesigCode": "H",
+                "JourneyDuration": "05:30",
+                "JourneyDurationPerMinute": 330,
+                "ConnectionTimePerMinute": 145,
+                "DepartureAirportLocationCode": "IKA",
+                "ArrivalAirportLocationCode": "FRA",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "601",
+                    "Equipment": "343"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": false,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-20T08:10:00",
+                "ArrivalDateTime": "2019-09-20T09:20:00",
+                "StopQuantity": 0,
+                "FlightNumber": "986",
+                "ResBookDesigCode": "H",
+                "JourneyDuration": "01:10",
+                "JourneyDurationPerMinute": 70,
+                "ConnectionTimePerMinute": 0,
+                "DepartureAirportLocationCode": "FRA",
+                "ArrivalAirportLocationCode": "AMS",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "986",
+                    "Equipment": "320"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": false,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }]
+        }, {
+            "JourneyDurationPerMinute": 450,
+            "ConnectionTimePerMinute": 175,
+            "FlightSegments": [{
+                "DepartureDateTime": "2019-09-23T08:50:00",
+                "ArrivalDateTime": "2019-09-23T10:10:00",
+                "StopQuantity": 0,
+                "FlightNumber": "2301",
+                "ResBookDesigCode": "U",
+                "JourneyDuration": "01:20",
+                "JourneyDurationPerMinute": 80,
+                "ConnectionTimePerMinute": 110,
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "MUC",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "CL",
+                    "FlightNumber": "2301",
+                    "Equipment": "CR9"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": true,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-23T12:00:00",
+                "ArrivalDateTime": "2019-09-23T13:05:00",
+                "StopQuantity": 0,
+                "FlightNumber": "5018",
+                "ResBookDesigCode": "U",
+                "JourneyDuration": "01:05",
+                "JourneyDurationPerMinute": 65,
+                "ConnectionTimePerMinute": 65,
+                "DepartureAirportLocationCode": "MUC",
+                "ArrivalAirportLocationCode": "FRA",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "5018",
+                    "Equipment": "346"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": true,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-23T14:10:00",
+                "ArrivalDateTime": "2019-09-23T20:45:00",
+                "StopQuantity": 0,
+                "FlightNumber": "600",
+                "ResBookDesigCode": "U",
+                "JourneyDuration": "05:05",
+                "JourneyDurationPerMinute": 305,
+                "ConnectionTimePerMinute": 0,
+                "DepartureAirportLocationCode": "FRA",
+                "ArrivalAirportLocationCode": "IKA",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "600",
+                    "Equipment": "343"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": true,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }]
+        }]
+    }, {
+        "IsPassportMandatory": true,
+        "IsPassportIssueDateMandatory": false,
+        "DirectionInd": 2,
+        "RefundMethod": 0,
+        "ValidatingAirlineCode": "LH",
+        "FareSourceCode": "3366353138666637346434613435663939323938353361633233356138386132263230373326323838383133",
+        "AirItineraryPricingInfo": {
+            "FareType": 2,
+            "ItinTotalFare": {
+                "BaseFare": 108000000.00,
+                "TotalFare": 159840000.00,
+                "TotalCommission": 0.0,
+                "TotalTax": 51840000.00,
+                "ServiceTax": 0.00,
+                "Currency": "IRR"
+            },
+            "PtcFareBreakdown": [{
+                "PassengerFare": {
+                    "BaseFare": 108000000.00,
+                    "TotalFare": 159840000.00,
+                    "Commission": 0.0,
+                    "ServiceTax": 0.00,
+                    "Taxes": [{
+                        "Amount": 51840000.00,
+                        "Currency": "IRR"
+                    }],
+                    "Currency": "IRR"
+                },
+                "PassengerTypeQuantity": {
+                    "PassengerType": 1,
+                    "Quantity": 1
+                }
+            }],
+            "FareInfoes": []
+        },
+        "OriginDestinationOptions": [{
+            "JourneyDurationPerMinute": 400,
+            "ConnectionTimePerMinute": 145,
+            "FlightSegments": [{
+                "DepartureDateTime": "2019-09-20T02:45:00",
+                "ArrivalDateTime": "2019-09-20T05:45:00",
+                "StopQuantity": 0,
+                "FlightNumber": "601",
+                "ResBookDesigCode": "H",
+                "JourneyDuration": "05:30",
+                "JourneyDurationPerMinute": 330,
+                "ConnectionTimePerMinute": 145,
+                "DepartureAirportLocationCode": "IKA",
+                "ArrivalAirportLocationCode": "FRA",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "601",
+                    "Equipment": "343"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": false,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-20T08:10:00",
+                "ArrivalDateTime": "2019-09-20T09:20:00",
+                "StopQuantity": 0,
+                "FlightNumber": "986",
+                "ResBookDesigCode": "H",
+                "JourneyDuration": "01:10",
+                "JourneyDurationPerMinute": 70,
+                "ConnectionTimePerMinute": 0,
+                "DepartureAirportLocationCode": "FRA",
+                "ArrivalAirportLocationCode": "AMS",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "986",
+                    "Equipment": "320"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": false,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }]
+        }, {
+            "JourneyDurationPerMinute": 435,
+            "ConnectionTimePerMinute": 190,
+            "FlightSegments": [{
+                "DepartureDateTime": "2019-09-23T08:50:00",
+                "ArrivalDateTime": "2019-09-23T10:10:00",
+                "StopQuantity": 0,
+                "FlightNumber": "2301",
+                "ResBookDesigCode": "U",
+                "JourneyDuration": "01:20",
+                "JourneyDurationPerMinute": 80,
+                "ConnectionTimePerMinute": 50,
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "MUC",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "CL",
+                    "FlightNumber": "2301",
+                    "Equipment": "CR9"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": true,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-23T11:00:00",
+                "ArrivalDateTime": "2019-09-23T11:50:00",
+                "StopQuantity": 0,
+                "FlightNumber": "7033",
+                "ResBookDesigCode": "U",
+                "JourneyDuration": "00:50",
+                "JourneyDurationPerMinute": 50,
+                "ConnectionTimePerMinute": 140,
+                "DepartureAirportLocationCode": "MUC",
+                "ArrivalAirportLocationCode": "FRA",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "7033",
+                    "Equipment": "320"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": true,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-23T14:10:00",
+                "ArrivalDateTime": "2019-09-23T20:45:00",
+                "StopQuantity": 0,
+                "FlightNumber": "600",
+                "ResBookDesigCode": "U",
+                "JourneyDuration": "05:05",
+                "JourneyDurationPerMinute": 305,
+                "ConnectionTimePerMinute": 0,
+                "DepartureAirportLocationCode": "FRA",
+                "ArrivalAirportLocationCode": "IKA",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "600",
+                    "Equipment": "343"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": true,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }]
+        }]
+    }, {
+        "IsPassportMandatory": true,
+        "IsPassportIssueDateMandatory": false,
+        "DirectionInd": 2,
+        "RefundMethod": 0,
+        "ValidatingAirlineCode": "LH",
+        "FareSourceCode": "6230353736366436316564313464383738636437323165383561363134333564263230373326323838383133",
+        "AirItineraryPricingInfo": {
+            "FareType": 2,
+            "ItinTotalFare": {
+                "BaseFare": 108000000.00,
+                "TotalFare": 159840000.00,
+                "TotalCommission": 0.0,
+                "TotalTax": 51840000.00,
+                "ServiceTax": 0.00,
+                "Currency": "IRR"
+            },
+            "PtcFareBreakdown": [{
+                "PassengerFare": {
+                    "BaseFare": 108000000.00,
+                    "TotalFare": 159840000.00,
+                    "Commission": 0.0,
+                    "ServiceTax": 0.00,
+                    "Taxes": [{
+                        "Amount": 51840000.00,
+                        "Currency": "IRR"
+                    }],
+                    "Currency": "IRR"
+                },
+                "PassengerTypeQuantity": {
+                    "PassengerType": 1,
+                    "Quantity": 1
+                }
+            }],
+            "FareInfoes": []
+        },
+        "OriginDestinationOptions": [{
+            "JourneyDurationPerMinute": 400,
+            "ConnectionTimePerMinute": 145,
+            "FlightSegments": [{
+                "DepartureDateTime": "2019-09-20T02:45:00",
+                "ArrivalDateTime": "2019-09-20T05:45:00",
+                "StopQuantity": 0,
+                "FlightNumber": "601",
+                "ResBookDesigCode": "H",
+                "JourneyDuration": "05:30",
+                "JourneyDurationPerMinute": 330,
+                "ConnectionTimePerMinute": 145,
+                "DepartureAirportLocationCode": "IKA",
+                "ArrivalAirportLocationCode": "FRA",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "601",
+                    "Equipment": "343"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": false,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-20T08:10:00",
+                "ArrivalDateTime": "2019-09-20T09:20:00",
+                "StopQuantity": 0,
+                "FlightNumber": "986",
+                "ResBookDesigCode": "H",
+                "JourneyDuration": "01:10",
+                "JourneyDurationPerMinute": 70,
+                "ConnectionTimePerMinute": 0,
+                "DepartureAirportLocationCode": "FRA",
+                "ArrivalAirportLocationCode": "AMS",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "986",
+                    "Equipment": "320"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": false,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }]
+        }, {
+            "JourneyDurationPerMinute": 445,
+            "ConnectionTimePerMinute": 180,
+            "FlightSegments": [{
+                "DepartureDateTime": "2019-09-23T08:50:00",
+                "ArrivalDateTime": "2019-09-23T10:10:00",
+                "StopQuantity": 0,
+                "FlightNumber": "2301",
+                "ResBookDesigCode": "U",
+                "JourneyDuration": "01:20",
+                "JourneyDurationPerMinute": 80,
+                "ConnectionTimePerMinute": 110,
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "MUC",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "CL",
+                    "FlightNumber": "2301",
+                    "Equipment": "CR9"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": true,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-23T12:00:00",
+                "ArrivalDateTime": "2019-09-23T13:00:00",
+                "StopQuantity": 0,
+                "FlightNumber": "7302",
+                "ResBookDesigCode": "U",
+                "JourneyDuration": "01:00",
+                "JourneyDurationPerMinute": 60,
+                "ConnectionTimePerMinute": 70,
+                "DepartureAirportLocationCode": "MUC",
+                "ArrivalAirportLocationCode": "FRA",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "7302",
+                    "Equipment": "321"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": true,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-23T14:10:00",
+                "ArrivalDateTime": "2019-09-23T20:45:00",
+                "StopQuantity": 0,
+                "FlightNumber": "600",
+                "ResBookDesigCode": "U",
+                "JourneyDuration": "05:05",
+                "JourneyDurationPerMinute": 305,
+                "ConnectionTimePerMinute": 0,
+                "DepartureAirportLocationCode": "FRA",
+                "ArrivalAirportLocationCode": "IKA",
+                "MarketingAirlineCode": "LH",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "600",
+                    "Equipment": "343"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": true,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }]
+        }]
+    }, {
+        "IsPassportMandatory": true,
+        "IsPassportIssueDateMandatory": false,
+        "DirectionInd": 2,
+        "RefundMethod": 0,
+        "ValidatingAirlineCode": "LX",
+        "FareSourceCode": "3032313763353036633239653466323762646634636265316338386162623731263230373326323838383133",
+        "AirItineraryPricingInfo": {
+            "FareType": 2,
+            "ItinTotalFare": {
+                "BaseFare": 160560000.00,
+                "TotalFare": 213840000.00,
+                "TotalCommission": 0.0,
+                "TotalTax": 53280000.00,
+                "ServiceTax": 0.00,
+                "Currency": "IRR"
+            },
+            "PtcFareBreakdown": [{
+                "PassengerFare": {
+                    "BaseFare": 160560000.00,
+                    "TotalFare": 213840000.00,
+                    "Commission": 0.0,
+                    "ServiceTax": 0.00,
+                    "Taxes": [{
+                        "Amount": 53280000.00,
+                        "Currency": "IRR"
+                    }],
+                    "Currency": "IRR"
+                },
+                "PassengerTypeQuantity": {
+                    "PassengerType": 1,
+                    "Quantity": 1
+                }
+            }],
+            "FareInfoes": []
+        },
+        "OriginDestinationOptions": [{
+            "JourneyDurationPerMinute": 485,
+            "ConnectionTimePerMinute": 350,
+            "FlightSegments": [{
+                "DepartureDateTime": "2019-09-20T02:45:00",
+                "ArrivalDateTime": "2019-09-20T05:45:00",
+                "StopQuantity": 0,
+                "FlightNumber": "4021",
+                "ResBookDesigCode": "M",
+                "JourneyDuration": "05:30",
+                "JourneyDurationPerMinute": 330,
+                "ConnectionTimePerMinute": 235,
+                "DepartureAirportLocationCode": "IKA",
+                "ArrivalAirportLocationCode": "FRA",
+                "MarketingAirlineCode": "LX",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "4021",
+                    "Equipment": "343"
+                },
+                "SeatsRemaining": 4,
+                "IsCharter": false,
+                "IsReturn": false,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-20T09:40:00",
+                "ArrivalDateTime": "2019-09-20T10:35:00",
+                "StopQuantity": 0,
+                "FlightNumber": "3603",
+                "ResBookDesigCode": "M",
+                "JourneyDuration": "00:55",
+                "JourneyDurationPerMinute": 55,
+                "ConnectionTimePerMinute": 115,
+                "DepartureAirportLocationCode": "FRA",
+                "ArrivalAirportLocationCode": "ZRH",
+                "MarketingAirlineCode": "LX",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "3603",
+                    "Equipment": "32A"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": false,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-20T12:30:00",
+                "ArrivalDateTime": "2019-09-20T14:10:00",
+                "StopQuantity": 0,
+                "FlightNumber": "728",
+                "ResBookDesigCode": "M",
+                "JourneyDuration": "01:40",
+                "JourneyDurationPerMinute": 100,
+                "ConnectionTimePerMinute": 0,
+                "DepartureAirportLocationCode": "ZRH",
+                "ArrivalAirportLocationCode": "AMS",
+                "MarketingAirlineCode": "LX",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LX",
+                    "FlightNumber": "728",
+                    "Equipment": "320"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": false,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }]
+        }, {
+            "JourneyDurationPerMinute": 450,
+            "ConnectionTimePerMinute": 285,
+            "FlightSegments": [{
+                "DepartureDateTime": "2019-09-23T07:00:00",
+                "ArrivalDateTime": "2019-09-23T08:25:00",
+                "StopQuantity": 0,
+                "FlightNumber": "737",
+                "ResBookDesigCode": "M",
+                "JourneyDuration": "01:25",
+                "JourneyDurationPerMinute": 85,
+                "ConnectionTimePerMinute": 70,
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "ZRH",
+                "MarketingAirlineCode": "LX",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LX",
+                    "FlightNumber": "737",
+                    "Equipment": "320"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": true,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-23T09:35:00",
+                "ArrivalDateTime": "2019-09-23T10:35:00",
+                "StopQuantity": 0,
+                "FlightNumber": "3600",
+                "ResBookDesigCode": "M",
+                "JourneyDuration": "01:00",
+                "JourneyDurationPerMinute": 60,
+                "ConnectionTimePerMinute": 215,
+                "DepartureAirportLocationCode": "ZRH",
+                "ArrivalAirportLocationCode": "FRA",
+                "MarketingAirlineCode": "LX",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LX",
+                    "FlightNumber": "3600",
+                    "Equipment": "E90"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": true,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }, {
+                "DepartureDateTime": "2019-09-23T14:10:00",
+                "ArrivalDateTime": "2019-09-23T20:45:00",
+                "StopQuantity": 0,
+                "FlightNumber": "4020",
+                "ResBookDesigCode": "M",
+                "JourneyDuration": "05:05",
+                "JourneyDurationPerMinute": 305,
+                "ConnectionTimePerMinute": 0,
+                "DepartureAirportLocationCode": "FRA",
+                "ArrivalAirportLocationCode": "IKA",
+                "MarketingAirlineCode": "LX",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "LH",
+                    "FlightNumber": "4020",
+                    "Equipment": "343"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": true,
+                "Baggage": "1 pieces",
+                "TechnicalStops": []
+            }]
+        }]
+    }]
+}
