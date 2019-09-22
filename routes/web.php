@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +20,10 @@ Route::get('/', function () {
 Route::get('/international', function () {
     return view('pages/international');
 });
-Route::post('/checkTicket','TicketController@international' );
+Route::post('/checkTicket','TicketController@checkTicket' );
+Route::get('/checkTicket1',function(){
+    echo 'hello';
+} );
 
 
 
@@ -30,3 +35,9 @@ Route::post('/flights', function () {
     
     return view('pages/flights');
 });
+
+
+
+//################################## فرودگاه های بین اللملی ########################################
+
+Route::get('/airports','AirportController@find');

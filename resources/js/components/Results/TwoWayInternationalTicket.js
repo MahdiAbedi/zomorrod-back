@@ -10,21 +10,20 @@ class TwoWayInternationalTicket extends React.Component{
         this.state = {
             display: "none",
             displayTitle:"مشاهده جزییات",
-            travelTime:''
+            travelTime:'',
         };
 
-        this.OriginDestinationOptions=this.props.OriginDestinationOptions[0];
-        // this.AirItineraryPricingInfo=this.props.AirItineraryPricingInfo;
+        this.adult  =   localStorage.getItem('international_adult',0);
+        this.child  =   localStorage.getItem('international_child',0);
+        this.infant =   localStorage.getItem('international_infant',0);
 
+        this.OriginDestinationOptions=this.props.OriginDestinationOptions[0];
     }
 
 
 
     formatCurrency(value){
-        // alert(value);
-        return value;
-        // value = parseInt(value);
-        // return parseInt(value).toFixed(0).Replace(/(\d)(?=(\d{3})+(?:\.\d)?$)/g,"$1,");
+        return value.toLocaleString();
     }
 
     formatInsideTagMoney(tagName){
@@ -35,7 +34,7 @@ class TwoWayInternationalTicket extends React.Component{
         }
     }
 
-    componentWillMount=() =>
+    componentDidMount=() =>
     { 
         this.calcaulateTravelTime();
     } 
@@ -191,10 +190,10 @@ class TwoWayInternationalTicket extends React.Component{
 
 
                           <ul className="flex">
-                              <li>1 نفر بزرگسال :<small>5/200/000</small>ریال</li>
-                              <li>1 نفر کودک :<small>5/200/000</small>ریال</li>
-                              <li>1 نفر نوزاد :<small>5/200/000</small>ریال</li>
-                              <li>جمع مبلغ:<small>13/200/000</small>ریال</li>
+                              <li>{this.adult} نفر بزرگسال :<strong>{this.adult} </strong>Adult</li>
+                              <li>{this.child} نفر کودک :<strong>{this.child} </strong>Child</li>
+                              <li>{this.infant} نفر نوزاد :<strong>{this.infant} </strong>Infant</li>
+                              <li>جمع مبلغ:<strong>{this.formatCurrency(this.props.AirItineraryPricingInfo.ItinTotalFare.TotalFare)}</strong>ریال</li>
 
                           </ul>
                       </div>

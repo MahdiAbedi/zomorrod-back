@@ -36,7 +36,7 @@ class TicketController extends Controller
        
 
     }
-
+    
     
     public function checkTicket(Request $request){
         $this->makeSession();
@@ -76,7 +76,7 @@ class TicketController extends Controller
               )
         ]);
 
-        dd($response->getBody()->getContents());
+        return $response->getBody()->getContents();
 
     }//international
 

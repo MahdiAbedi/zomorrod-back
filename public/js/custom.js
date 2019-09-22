@@ -2,7 +2,31 @@ $(document).ready(function () {
     $('.select2').select2();
 
     // showSearchPanel("OutLineTicket");
+    //درخواست لیست فرودگاه های بین المللی
+    
 
+    $('.airports-select2').select2({
+        // placeholder: "Choose tags...",
+        language: "fa",
+        minimumInputLength: 3,
+        ajax: {
+            url: '/airports',
+            dataType: 'json',
+            data: function (params) {
+                return {
+                    q: $.trim(params.term)
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data
+                };
+            },
+            cache: true
+        }
+    });
+
+    
 
 
     console.log('%c Designed By MahdiAbedi220@yahoo.com tel:09395187902 ', 'background: #222; color: #bada55');
@@ -141,16 +165,6 @@ function Toggle(tagId) {
         
     }
 
-    //فرمت پولی
-    // function formatCurrency(value){
-    //     value = parseInt(value);
-    //     return value.toFixed(0).Replace(/(\d)(?=(\d{3})+(?:\.\d)?$)/g,"$1,");
-    // }
 
-    // function formatInsideTagMoney(tagName){
-    //     var divs = document.getElementsByName(tagName);
-    //     for (let index = 0; index < divs.length; index++) {
-    //         divs[index].innerText = formatCurrency(divs[i].innerText);
-            
-    //     }
-    // }
+
+
