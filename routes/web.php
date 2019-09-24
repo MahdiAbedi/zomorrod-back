@@ -21,8 +21,8 @@ Route::get('/international', function () {
     return view('pages/international');
 });
 Route::post('/checkTicket','TicketController@checkTicket' );
-Route::get('/checkTicket1',function(){
-    echo 'hello';
+Route::post('/checkTicket1',function(){
+    return ;
 } );
 
 

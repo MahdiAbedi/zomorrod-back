@@ -67,9 +67,9 @@ class TicketController extends Controller
                   0 => 
                   array (
                     'DepartureDateTime' => '2019-09-25T00:00:00',
-                    'DestinationLocationCode' => 'AMS',
+                    'DestinationLocationCode' => 'DXB',
                     'DestinationType' => 0,
-                    'OriginLocationCode' => 'LON',
+                    'OriginLocationCode' => 'IKA',
                     'OriginType' => 0,
                   ),
                 ),

@@ -18,13 +18,13 @@ class AirportController extends Controller
 
         // $tags = Airport::whereRaw('iata = ? OR name like "%?%"',[$term,$term])->limit(5)->get();
         // $tags = Airport::where('iata = ? OR name like "%?%"',[$term,$term])->limit(5)->get();
-        $tags = Airport::where('iata',$term)->orWhere('city','like','%',$term .'%')->orWhere('name','like','%',$term .'%')->orWhere('farsi','like','%',$term .'%')->limit(5)->get();
+        $tags = Airport::where('iata',$term)->orWhere('city','like',$term .'%')->limit(5)->get();
 
 
         $formatted_tags = [];
 
         foreach ($tags as $tag) {
-            $formatted_tags[] = ['id' => $tag->iata, 'text' => $tag->city .'-'.$tag->iata];
+            $formatted_tags[] = ['id' => $tag->iata, 'text' => $tag->city .'-' .$tag->name];
         }
 
         return \Response::json($formatted_tags);

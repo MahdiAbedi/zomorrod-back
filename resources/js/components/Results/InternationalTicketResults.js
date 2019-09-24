@@ -3,20 +3,21 @@ import ReactDOM from 'react-dom';
 import TwoWayInternationalTicket from './TwoWayInternationalTicket';
 // import OneWayInternationalTicket from './OneWayInternationalTicket';
 import myTickets from './RoundTripTicket.json';
-// import myTickets from './TicketResults.json';
+import myTickets2 from './TicketResults.json';
 import axios from 'axios';
 
 class InternationalTicketResults extends React.Component{
 
     constructor(props){
         super(props);
-        this.state = {tickets:myTickets};
+        this.state = {tickets:myTickets2};
     }
 
-    componentWillMount(){
-        // this.setState({tickets:[myTickets][0]})
-        // console.log(this.state.tickets)
-        // this.setState({tickets:myTickets})
+  
+
+    componentDidMount(){
+  
+
 
         // axios.post('/checkTicket1', {
             
@@ -32,16 +33,21 @@ class InternationalTicketResults extends React.Component{
 
 
 
-        axios.get('/checkTicket1')
+        axios.post('/checkTicket1')
         .then(response => {
-            this.setState({tickets:myTickets})
-            console.log(this.state.tickets);
+            // console.log(response.data)
+            //  this.setState({tickets:response.data})
+             this.setState({tickets:myTickets})
+            // console.log(this.state.tickets);
         })
        .catch((error)=>{
           console.log(error);
        });
     }
 
+    clickMe(){
+        alert('hello')
+    }
 
     render(){
             return (  
@@ -88,7 +94,7 @@ class InternationalTicketResults extends React.Component{
                             </header>
                             <div className="panel-body">
                                 <div>
-                                    <input type="checkbox" name="check1" id="systemi"/>
+                                    <input type="checkbox" name="check1" id="systemi" onClick={()=>this.clickMe()}/>
                                     <label htmlFor="systemi">سیستمی</label>
                                     <span className="checkbox-spanner selected"></span>
                                 </div>

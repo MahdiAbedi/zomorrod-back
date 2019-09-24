@@ -68222,8 +68222,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TwoWayInternationalTicket__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TwoWayInternationalTicket */ "./resources/js/components/Results/TwoWayInternationalTicket.js");
 /* harmony import */ var _RoundTripTicket_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RoundTripTicket.json */ "./resources/js/components/Results/RoundTripTicket.json");
 var _RoundTripTicket_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./RoundTripTicket.json */ "./resources/js/components/Results/RoundTripTicket.json", 1);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _TicketResults_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TicketResults.json */ "./resources/js/components/Results/TicketResults.json");
+var _TicketResults_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./TicketResults.json */ "./resources/js/components/Results/TicketResults.json", 1);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -68246,7 +68248,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
  // import OneWayInternationalTicket from './OneWayInternationalTicket';
 
- // import myTickets from './TicketResults.json';
+
 
 
 
@@ -68262,19 +68264,16 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(InternationalTicketResults).call(this, props));
     _this.state = {
-      tickets: _RoundTripTicket_json__WEBPACK_IMPORTED_MODULE_3__
+      tickets: _TicketResults_json__WEBPACK_IMPORTED_MODULE_4__
     };
     return _this;
   }
 
   _createClass(InternationalTicketResults, [{
-    key: "componentWillMount",
-    value: function componentWillMount() {
+    key: "componentDidMount",
+    value: function componentDidMount() {
       var _this2 = this;
 
-      // this.setState({tickets:[myTickets][0]})
-      // console.log(this.state.tickets)
-      // this.setState({tickets:myTickets})
       // axios.post('/checkTicket1', {
       //   })
       //   .then( (response)=> {
@@ -68284,19 +68283,27 @@ function (_React$Component) {
       //   .catch(function (error) {
       //     console.log(error);
       //   });
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/checkTicket1').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_5___default.a.post('/checkTicket1').then(function (response) {
+        // console.log(response.data)
+        //  this.setState({tickets:response.data})
         _this2.setState({
           tickets: _RoundTripTicket_json__WEBPACK_IMPORTED_MODULE_3__
-        });
+        }); // console.log(this.state.tickets);
 
-        console.log(_this2.state.tickets);
       })["catch"](function (error) {
         console.log(error);
       });
     }
   }, {
+    key: "clickMe",
+    value: function clickMe() {
+      alert('hello');
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "result-panel container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
@@ -68352,7 +68359,10 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "checkbox",
         name: "check1",
-        id: "systemi"
+        id: "systemi",
+        onClick: function onClick() {
+          return _this3.clickMe();
+        }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "systemi"
       }, "\u0633\u06CC\u0633\u062A\u0645\u06CC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -68628,6 +68638,17 @@ module.exports = JSON.parse("{\"Success\":true,\"Error\":null,\"PricedItinerarie
 
 /***/ }),
 
+/***/ "./resources/js/components/Results/TicketResults.json":
+/*!************************************************************!*\
+  !*** ./resources/js/components/Results/TicketResults.json ***!
+  \************************************************************/
+/*! exports provided: Success, Error, PricedItineraries, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"Success\":true,\"Error\":null,\"PricedItineraries\":[{\"IsPassportMandatory\":true,\"IsPassportIssueDateMandatory\":false,\"DirectionInd\":1,\"RefundMethod\":0,\"ValidatingAirlineCode\":\"PC\",\"FareSourceCode\":\"3263396266333766353064373431336139633366613038346364363636336338263230373326323838353539\",\"AirItineraryPricingInfo\":{\"FareType\":2,\"ItinTotalFare\":{\"BaseFare\":79920000,\"TotalFare\":122400000,\"TotalCommission\":0,\"TotalTax\":42480000,\"ServiceTax\":0,\"Currency\":\"IRR\"},\"PtcFareBreakdown\":[{\"PassengerFare\":{\"BaseFare\":18000000,\"TotalFare\":28440000,\"Commission\":0,\"ServiceTax\":0,\"Taxes\":[{\"Amount\":10440000,\"Currency\":\"IRR\"}],\"Currency\":\"IRR\"},\"PassengerTypeQuantity\":{\"PassengerType\":1,\"Quantity\":2}},{\"PassengerFare\":{\"BaseFare\":18000000,\"TotalFare\":28440000,\"Commission\":0,\"ServiceTax\":0,\"Taxes\":[{\"Amount\":10440000,\"Currency\":\"IRR\"}],\"Currency\":\"IRR\"},\"PassengerTypeQuantity\":{\"PassengerType\":2,\"Quantity\":2}},{\"PassengerFare\":{\"BaseFare\":7920000,\"TotalFare\":8640000,\"Commission\":0,\"ServiceTax\":0,\"Taxes\":[{\"Amount\":720000,\"Currency\":\"IRR\"}],\"Currency\":\"IRR\"},\"PassengerTypeQuantity\":{\"PassengerType\":3,\"Quantity\":1}}],\"FareInfoes\":[]},\"OriginDestinationOptions\":[{\"JourneyDurationPerMinute\":425,\"ConnectionTimePerMinute\":135,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-09-25T03:40:00\",\"ArrivalDateTime\":\"2019-09-25T06:25:00\",\"StopQuantity\":0,\"FlightNumber\":\"513\",\"ResBookDesigCode\":\"I\",\"JourneyDuration\":\"03:15\",\"JourneyDurationPerMinute\":195,\"ConnectionTimePerMinute\":135,\"DepartureAirportLocationCode\":\"IKA\",\"ArrivalAirportLocationCode\":\"SAW\",\"MarketingAirlineCode\":\"PC\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"PC\",\"FlightNumber\":\"513\",\"Equipment\":\"320\"},\"SeatsRemaining\":8,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":\"20K\",\"TechnicalStops\":[]},{\"DepartureDateTime\":\"2019-09-25T08:40:00\",\"ArrivalDateTime\":\"2019-09-25T11:30:00\",\"StopQuantity\":0,\"FlightNumber\":\"1251\",\"ResBookDesigCode\":\"I\",\"JourneyDuration\":\"03:50\",\"JourneyDurationPerMinute\":230,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"SAW\",\"ArrivalAirportLocationCode\":\"AMS\",\"MarketingAirlineCode\":\"PC\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"PC\",\"FlightNumber\":\"1251\",\"Equipment\":\"738\"},\"SeatsRemaining\":9,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":\"20K\",\"TechnicalStops\":[]}]}]}]}");
+
+/***/ }),
+
 /***/ "./resources/js/components/Results/TwoWayInternationalTicket.js":
 /*!**********************************************************************!*\
   !*** ./resources/js/components/Results/TwoWayInternationalTicket.js ***!
@@ -68820,7 +68841,7 @@ function (_React$Component) {
           className: "".concat(index % 2 != 0 ? 'circle' : 'fa fa-plane rotate-right', " ")
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "".concat(index % 2 == 0 ? 'circle' : 'fa fa-plane rotate-left', " ")
-        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, OrginDestination.FlightSegments[0].StopQuantity, " \u062A\u0648\u0642\u0641:", _this2.OriginDestinationOptions.FlightSegments[1].ArrivalAirportLocationCode, ",", _this2.OriginDestinationOptions.FlightSegments[0].DepartureAirportLocationCode)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, OrginDestination.FlightSegments[0].StopQuantity, " \u062A\u0648\u0642\u0641:", _this2.OriginDestinationOptions.FlightSegments[0].ArrivalAirportLocationCode, ",", _this2.OriginDestinationOptions.FlightSegments[0].DepartureAirportLocationCode)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "destination"
         }, " Vancouver", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, moment_jalaali__WEBPACK_IMPORTED_MODULE_1___default()(_this2.OriginDestinationOptions.FlightSegments[0].ArrivalDateTime).format('jYYYY/jM/jD HH:mm'))));
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

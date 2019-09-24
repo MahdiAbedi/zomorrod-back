@@ -156,7 +156,7 @@ class TwoWayInternationalTicket extends React.Component{
                                         </li>
                                     </ul>
                                     <span>{OrginDestination.FlightSegments[0].StopQuantity} توقف:
-                                    {this.OriginDestinationOptions.FlightSegments[1].ArrivalAirportLocationCode},{this.OriginDestinationOptions.FlightSegments[0].DepartureAirportLocationCode}
+                                    {this.OriginDestinationOptions.FlightSegments[0].ArrivalAirportLocationCode},{this.OriginDestinationOptions.FlightSegments[0].DepartureAirportLocationCode}
                                     </span>
                                 </div>
 
