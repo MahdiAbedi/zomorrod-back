@@ -1,9 +1,6 @@
-@include('includes/head')
+@extends('master')
 
-<body>
-    <!-- منوی بالا -->
-    @include('includes/topMenu')
-    <!-- مسیر هوایی -->
+@section('body')
     <!-- مسیر هوایی -->
     <div class="top-search">
         <div class="flex container">
@@ -77,10 +74,4 @@
         <div id="InternationalTicketResults"></div>
     </main>
 
-
-
-    <!-- منوی پایین -->
-    @include('includes/footer')
-</body>
-
-</html>
+@endsection

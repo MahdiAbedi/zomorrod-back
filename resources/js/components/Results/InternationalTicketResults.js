@@ -10,7 +10,7 @@ class InternationalTicketResults extends React.Component{
 
     constructor(props){
         super(props);
-        this.state = {tickets:myTickets2};
+        this.state = {tickets:[]};
     }
 
   
@@ -50,6 +50,18 @@ class InternationalTicketResults extends React.Component{
     }
 
     render(){
+
+            if(this.state.tickets.length==0){
+                return(
+                
+                    <section className="result-panel container">
+                        <img src="images/loader.gif" />
+                    </section>
+                
+                    );
+            }else{
+
+            
             return (  
                 <section className="result-panel container">                    
                     <aside className="filters">
@@ -292,6 +304,8 @@ class InternationalTicketResults extends React.Component{
             
                 </section>     
             );
+
+        }//else
     }
 }
 

@@ -24,7 +24,10 @@ Route::post('/checkTicket','TicketController@checkTicket' );
 Route::post('/checkTicket1',function(){
     return ;
 } );
-
+//روز بلیط خارجی
+Route::get('/international/book',function(){
+    return view('pages/international-ticket/book');
+});
 
 
 //################################## بلیط سفر داخلی ########################################
@@ -41,3 +44,13 @@ Route::post('/flights', function () {
 //################################## فرودگاه های بین اللملی ########################################
 
 Route::get('/airports','AirportController@find');
+
+
+
+//#################################### کاربران ######################################
+Route::get('/register',function(){
+    return view('users/register');
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -473,7 +473,7 @@ form.search {
 input {
   font-family: inherit; }
 
-input[type="text"] {
+input[type="text"], input[type="password"], input[type='email'] {
   background: white;
   outline: none;
   border: 1px solid #dcdbd5;
@@ -517,7 +517,8 @@ select {
   background: #1EBAFF; }
 
 .btn-green {
-  background: #006C50; }
+  background: #006C50;
+  color: #fff !important; }
 
 .btn-transparent {
   border: 1px solid #dcdbd5;
@@ -947,12 +948,13 @@ input[type=checkbox]:checked:disabled + label:before {
       border: 1px solid #efefef;
       padding: 7px;
       background: #fff;
-      transition: all .2s ease; }
+      transition: all .2s ease;
+      margin-right: -20px; }
       .single-ticket .logoes img:hover {
         transform: scale(1.1);
         border: 1px solid #006C50; }
       .single-ticket .logoes img:first-child {
-        margin-left: -20px; }
+        margin-right: -3px; }
     .single-ticket .logoes .destination {
       text-align: center;
       width: 20%; }
@@ -1711,6 +1713,56 @@ th:first-child {
   border-radius: 50%;
   cursor: pointer;
   background-color: transparent; }
+
+.login-section {
+  display: flex; }
+  .login-section .panel {
+    background-color: #fff;
+    padding: 40px;
+    margin: 30px;
+    width: 50%; }
+  .login-section h3 {
+    text-align: center;
+    background-color: #D2F1FF;
+    padding: 10px 0;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    color: #0f5d7f;
+    border-bottom: 1px solid #0d739e;
+    box-shadow: 1px 3px 2px #0f5d7f #0f5d7f; }
+  .login-section input[type="password"], .login-section input[type="email"] {
+    border-radius: 5px; }
+  .login-section .field {
+    width: 100%; }
+
+/* start of desktop styles */
+@media screen and (max-width: 767px) {
+  .login-section {
+    flex-direction: column; }
+    .login-section .panel {
+      width: 95%;
+      margin: 10px;
+      padding: 5px; } }
+
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 0.83;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  border-radius: 5px; }
+  .alert .success {
+    background-color: #4CAF50; }
+  .alert .info {
+    background-color: #2196F3; }
+  .alert .warning {
+    background-color: #ff9800; }
+
+.invalid-feedback {
+  color: #f44336;
+  margin: 5px 0px; }
 
 .DatePicker {
   position: relative; }

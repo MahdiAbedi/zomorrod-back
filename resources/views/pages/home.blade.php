@@ -5,6 +5,10 @@
     <div class="slider" id="slider">
         <!-- منوی بالا -->
         @include('includes/topMenu')
+
+        <!-- نمایش پیامهای خطا و ... در بالای صفحات  -->
+        @include('layouts/flash-message')
+
         <!-- تصویر هواپیمای بزرگ که روی اسلایدر و منو -->
         <div class="airplane" id="slider-img">
             <img src="img/bgs/airplane.png" alt="">
