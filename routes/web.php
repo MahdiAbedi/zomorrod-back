@@ -20,7 +20,10 @@ Route::get('/', function () {
 Route::get('/international', function () {
     return view('pages/international');
 });
+
+//ارسال اطلاعات پرواز و گرفتن تیکتها
 Route::post('/checkTicket','TicketController@checkTicket' );
+//just for test
 Route::post('/checkTicket1',function(){
     return ;
 } );

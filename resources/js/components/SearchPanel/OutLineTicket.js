@@ -16,15 +16,17 @@ class OutLineTicket extends React.Component{
     }
 
     //هنگام ارسال فرم
-    submitForm(event){
+    submitForm=(event)=>{
+        // alert(this.state.toWay)
         event.preventDefault();
-        localStorage.setItem("international_origin", $('#international_origin').val());                                        //مسیر رفت
-        localStorage.setItem("international_destination", $('#international_destination').val());                             //مسیر برگشت
-        localStorage.setItem("international_departureTime", document.getElementById('international_departureTime').value);   //زمان رفت
-        localStorage.setItem("international_returnTime", document.getElementById('international_returnTime').value);        //زمان برگشت
-        localStorage.setItem("international_adult", document.getElementById('international_adult').value);                 //زمان برگشت
-        localStorage.setItem("international_child", document.getElementById('international_child').value);                //زمان برگشت
-        localStorage.setItem("international_infant", document.getElementById('international_infant').value);             //زمان برگشت
+        localStorage.setItem("international_origin"         , $('#international_origin').val());                                        //مسیر رفت
+        localStorage.setItem("international_destination"    , $('#international_destination').val());                             //مسیر برگشت
+        localStorage.setItem("international_departureTime"  , document.getElementById('international_departureTime').value);   //زمان رفت
+        localStorage.setItem("international_returnTime"     , document.getElementById('international_returnTime').value);        //زمان برگشت
+        localStorage.setItem("international_adult"          , document.getElementById('international_adult').value);                 //زمان برگشت
+        localStorage.setItem("international_child"          , document.getElementById('international_child').value);                //زمان برگشت
+        localStorage.setItem("international_infant"         , document.getElementById('international_infant').value);             //زمان برگشت
+        localStorage.setItem("international_IsRoundTrip"    , !this.state.toWay);          //آیا دو مسیره است یا نه؟ 
 
         window.location.replace("/international");
 

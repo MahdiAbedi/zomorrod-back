@@ -39,43 +39,66 @@ class TicketController extends Controller
     
     
     public function checkTicket(Request $request){
+        
+        // dd($request->all());
         $this->makeSession();
-
-
-
         $client = new Client();
+        $OrginDestinationArray=[];
+        $AirTripType=1;
+
+        array_push($OrginDestinationArray,
+        array (
+          'DepartureDateTime'         => $request->input('DepartureDateTime'),
+          // 'DepartureDateTime'         => $request->input('DepartureDateTime'),
+          'DestinationLocationCode'   => $request->input('DestinationLocationCode'),
+          'DestinationType'           => 0,
+          'OriginLocationCode'        => $request->input('OriginLocationCode'),
+          'OriginType'                => 0,
+        ));
+
+
+        
+        //اگر رفت و برگشت بود اطلاعات مسیر برگشت
+        if($request->input('IsRoundTrip')=='true'){
+            $AirTripType=2;
+            array_push($OrginDestinationArray,
+                array (
+                'DepartureDateTime'         => '2019-10-13T14:10:00',
+                // 'DepartureDateTime'         => $request->input('DepartureDateTime'),
+                // 'DepartureDateTime'         => $request->input('DepartureDateTime'),
+                'DestinationLocationCode'   => $request->input('OriginLocationCode'),
+                'DestinationType'           => 0,
+                'OriginLocationCode'        => $request->input('DestinationLocationCode'),
+                'OriginType'                => 0,
+                ));
+        }
+
+        // dd($OrginDestinationArray);
 
         $response = $client->post('https://apidemo.partocrs.com/Rest/Air/AirLowFareSearch', [
             RequestOptions::JSON => array (
-                'PricingSourceType' => 0,
-                'RequestOption' => 2,
-                'SessionId' => $this->SessionId,
-                'AdultCount' => 1,
-                'ChildCount' => 0,
-                'InfantCount' => 0,
-                'TravelPreference' => 
+                'PricingSourceType'     => 0,
+                'RequestOption'         => 2,
+                'SessionId'             => $this->SessionId,
+                'AdultCount'            => $request->input('AdultCount'),
+                'ChildCount'            => $request->input('ChildCount'),
+                'InfantCount'           => $request->input('InfantCount'),
+                'TravelPreference'      => 
                 array (
-                  'CabinType' => 1,
-                  'MaxStopsQuantity' => 0,
-                  'AirTripType' => 1,
-                  'VendorExcludeCodes' => [],
+                  'CabinType'           => 1,
+                  'MaxStopsQuantity'    => 0,
+                //   چند مسیره بودن مسیرها
+                  'AirTripType'         => $AirTripType,
+                  'VendorExcludeCodes'  => [],
                   'VendorPreferenceCodes' => []
                   
                 ),
-                'OriginDestinationInformations' => 
-                array (
-                  0 => 
-                  array (
-                    'DepartureDateTime' => '2019-09-25T00:00:00',
-                    'DestinationLocationCode' => 'DXB',
-                    'DestinationType' => 0,
-                    'OriginLocationCode' => 'IKA',
-                    'OriginType' => 0,
-                  ),
-                ),
+                'OriginDestinationInformations' => $OrginDestinationArray
+                
               )
         ]);
 
+        // dd($response->getBody()->getContents());
         return $response->getBody()->getContents();
 
     }//international

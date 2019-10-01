@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import moment from 'moment-jalaali';
+
 import TwoWayInternationalTicket from './TwoWayInternationalTicket';
 // import OneWayInternationalTicket from './OneWayInternationalTicket';
 import myTickets from './RoundTripTicket.json';
@@ -17,8 +19,6 @@ class InternationalTicketResults extends React.Component{
 
     componentDidMount(){
   
-
-
         // axios.post('/checkTicket1', {
             
         //   })
@@ -33,29 +33,47 @@ class InternationalTicketResults extends React.Component{
 
 
 
-        axios.post('/checkTicket1')
+        axios.post('/checkTicket1',{
+            // PricingSourceType    :localStorage.getItem(''),
+            // RequestOption        :localStorage.getItem(''),
+
+            AdultCount              :localStorage.getItem('international_adult'),
+            ChildCount              :localStorage.getItem('international_child'),
+            InfantCount             :localStorage.getItem('international_infant'),
+
+            // CabinType            :localStorage.getItem(''),
+            // MaxStopsQuantity     :localStorage.getItem(''),
+            // AirTripType          :localStorage.getItem(''),
+
+            DepartureDateTime       :localStorage.getItem('international_departureTime'),
+            DestinationLocationCode :localStorage.getItem('international_destination'),
+            // DestinationType      :localStorage.getItem(''),
+            OriginLocationCode      :localStorage.getItem('international_origin'),
+            // OriginType           :localStorage.getItem(''),
+            IsRoundTrip             :localStorage.getItem('international_IsRoundTrip'),
+            ReturnTime              :localStorage.getItem('international_returnTime'),
+        })
         .then(response => {
-            // console.log(response.data)
             //  this.setState({tickets:response.data})
              this.setState({tickets:myTickets})
-            // console.log(this.state.tickets);
+            // console.log(response.data)
         })
        .catch((error)=>{
           console.log(error);
        });
     }
 
-    clickMe(){
-        alert('hello')
-    }
 
     render(){
+
+
 
             if(this.state.tickets.length==0){
                 return(
                 
                     <section className="result-panel container">
                         <img src="images/loader.gif" />
+                        سیستم در حال جستجوی بلیط میباشد.
                     </section>
                 
                     );
@@ -269,7 +287,6 @@ class InternationalTicketResults extends React.Component{
         
                 {/*<!-- نتایج --> */}
                 <section className="results ">
-                
                 {/*<!-- قسمت مرتبط سازی نتایج بر اساس قیمت و.. و نمایش تاریخ --> */}
                 <section className="sorting flex">
                     <section className="sort">
@@ -284,7 +301,7 @@ class InternationalTicketResults extends React.Component{
                     <section className="date">
                         <ul className="flex">
                             <li><a href="#"><i className="fas fa-angle-right"></i>روز قبل</a></li>
-                            <li className="current-date"><a href="#">98/05/08</a></li>
+                            <li className="current-date"><a href="#">{moment(localStorage.getItem('international_departureTime')).format('jYYYY/jMM/jDD')}</a></li>
                             <li><a href="#">روز بعد<i className="fas fa-angle-left"></i></a></li>
                         </ul>
                     </section>
@@ -294,7 +311,8 @@ class InternationalTicketResults extends React.Component{
                 <section className="tickets">
         
                 {this.state.tickets.PricedItineraries.map((ticket,index)=>{
-                        return <TwoWayInternationalTicket AirItineraryPricingInfo={ticket.AirItineraryPricingInfo} OriginDestinationOptions={ticket.OriginDestinationOptions}/>
+                        // return <TwoWayInternationalTicket index={index} ticket={ticket}/>
+                        return <TwoWayInternationalTicket index={index} AirItineraryPricingInfo={ticket.AirItineraryPricingInfo} OriginDestinationOptions={ticket.OriginDestinationOptions}/>
                     })}
                     {/*<!-- یک تیکت تک --> */}
                         

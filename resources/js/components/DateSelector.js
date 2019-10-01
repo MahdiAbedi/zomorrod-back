@@ -17,7 +17,7 @@ class DateSelector extends React.Component {
   MiladiFormat(inputValue) {
     if (!inputValue)
       return '';
-    return inputValue.locale('es').format('YYYY/M/D');
+    return inputValue.locale('es').format('YYYY-MM-DDThh:mm:ss');
   }
 
 

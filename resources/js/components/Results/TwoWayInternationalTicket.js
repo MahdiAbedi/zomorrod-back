@@ -20,8 +20,6 @@ class TwoWayInternationalTicket extends React.Component{
         this.OriginDestinationOptions=this.props.OriginDestinationOptions[0];
     }
 
-
-
     formatCurrency(value){
         return value.toLocaleString();
     }
@@ -65,7 +63,6 @@ class TwoWayInternationalTicket extends React.Component{
     shamsiDate=(Date)=>{
        return moment(Date).format('jYYYY/jM/jD HH:mm')
     }
-
 
     //فرمت بندی تاریخ میلادی
     FormatMiladiDate=(requestedDate)=>{
@@ -117,25 +114,33 @@ class TwoWayInternationalTicket extends React.Component{
         }
     }
 
+    //انتخاب بلیط
 
+    chooseTicket =()=>{
+
+        // localStorage.setItem('FareSourceCode')
+        //ارجاع به صفحه وارد کردن اطلاعات مسافر
+        window.location.replace("/international/book");
+    }
 
     render(){
         return(
 
               <div className="ticket-container">
+
+
                   <section className="single-ticket flex-between">
                       
                       <div className="ticket_type">{this.OriginDestinationOptions.FlightSegments[0].IsCharter ? 'چارتر' :'سیستمی'}</div>
                       <div className="legs">
-                          {/*
-                          <!-- لگ رفت و برگشت -->
-                          <!-- لگ رفت --> */}
-
+                         
                         {this.props.OriginDestinationOptions.map((OrginDestination,index) =>{
-                           
+                            
+
                                 return <div className="first-leg leg flex-between" key={index}>
                                 <div className="logoes ">
                                     {OrginDestination.FlightSegments.map((segment,index)=>{
+                                        
 
                                         return <img src={`img/airlines-logo/${segment.MarketingAirlineCode}.png`} key={index} alt={`${segment.MarketingAirlineCode} Airline`}/>
                                     })}
@@ -143,10 +148,12 @@ class TwoWayInternationalTicket extends React.Component{
                                 {/* مبدا */}
                                 <p className="destination"> Tehran  
                                 {/* زمان حرکت  */}
-                                <span>{this.shamsiDate(OrginDestination.FlightSegments[index].DepartureDateTime)}</span></p>
+
+                                <span>{(OrginDestination.FlightSegments[index]) ?this.shamsiDate(OrginDestination.FlightSegments[index].DepartureDateTime) :''}</span>
+                                </p>
 
                                 <div className="path">
-                                    <span>طول سفر:{this.calcaulateTravelTime(OrginDestination.FlightSegments[index].JourneyDurationPerMinute)} </span>
+                                    {/* <span>طول سفر:{this.calcaulateTravelTime(OrginDestination.FlightSegments[index].JourneyDurationPerMinute)} </span> */}
                                     <ul className="path flex-between">
                                         <li>
                                             <i className={`${index % 2 !=0 ? 'circle':'fa fa-plane rotate-right'} `}></i>
@@ -173,13 +180,13 @@ class TwoWayInternationalTicket extends React.Component{
                       <div className="ticket-choose">
                           <p>{this.OriginDestinationOptions.FlightSegments[0].SeatsRemaining == null ? 0 :this.OriginDestinationOptions.FlightSegments[0].SeatsRemaining } صندلی باقی مانده</p>
                           <p className="price">{this.formatCurrency(this.props.AirItineraryPricingInfo.ItinTotalFare.TotalFare)} <span>ریال</span></p>
-                          <button className="btn btn-zgreen">انتخاب بلیط</button>
+                          <button className="btn btn-zgreen" onClick={this.chooseTicket}>انتخاب بلیط</button>
                       </div>
                   </section>
 
 
                 {/* جزییات هر بلیط  */}
-                  <section className="ticket-detail"  style={{display:this.state.display}}>
+                <section className="ticket-detail"  style={{display:this.state.display}}>
                       {/* <!-- عناوین  --> */}
                       <div className="detail-border"></div>
                       <div className="detail-titles flex">
