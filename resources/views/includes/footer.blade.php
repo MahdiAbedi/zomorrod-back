@@ -66,7 +66,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 <!-- custom.js -->
-<script src="js/custom.js"></script>
+<script src="/js/custom.js"></script>
 
 <!-- CSRF  -->
 <script>
@@ -81,5 +81,5 @@ $.ajaxSetup({
 
 
 <!-- React compiles codes in my project -->
-<script src="js/app.js"></script>
+<script src="/js/app.js"></script>
 </html>

@@ -204,124 +204,14 @@
             <!-- تب اطلاعات مسافران -->
 
             <!-- خرید با کد ملی -->
-            <section class="tabs">
-                <div class="tabs-title">
-                    <div class="tab-title">
-                        <i class="green fas fa-times-circle"></i>
-                        <label for="check1">بزرگسال</label>
-                    </div>
-                    <div class="tab-title">
-                        <input type="checkbox" name="check1" id="check1" checked="">
-                        <label for="check1">خرید با کد ملی</label>
-                    </div>
-                    <div class="tab-title">
-                        <input type="checkbox" name="check1" id="check2">
-                        <label for="check2">خرید با پاسپورت</label>
-                    </div>
-
+          
+                <div id="PassengerInfo">
+                
+                
                 </div>
+                
+            
 
-                <div class="tab-desctiption">
-                    <div class="fields">
-                        <div class="field">
-                            <label for="">نام(فارسی)</label>
-                            <input type="text" name="fa-name" id="fa-name">
-                        </div>
-                        <div class="field">
-                            <label for="">نام خانوادگی(فارسی)</label>
-                            <input type="text" name="fa-name" id="fa-name">
-                        </div>
-                        <div class="field">
-                            <label for="">نام(لاتین)</label>
-                            <input type="text" name="fa-name" id="fa-name">
-                        </div>
-                        <div class="field">
-                            <label for="">نام خانوادگی(لاتین)</label>
-                            <input type="text" name="fa-name" id="fa-name">
-                        </div>
-                        <div class="field">
-                            <label for="">کد ملی</label>
-                            <input type="text" name="fa-name" id="fa-name">
-                        </div>
-                        <div class="field">
-                            <label for="">جنسیت</label>
-                            <select name="gender" id="gender1">
-                                <option value="man">آقا</option>
-                                <option value="woman">خانم</option>
-                            </select>
-                        </div>
-                        <div class="field">
-                            <label for="">تاریخ تولد(شمسی)</label>
-                            <input type="text" name="fa-name" id="fa-name">
-                        </div>
-
-                    </div>
-                    <div class="detail1">
-                        <!-- secontd detail -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- خرید با پاسپورت -->
-            <section class="tabs">
-                <div class="tabs-title">
-                    <div class="tab-title">
-                        <i class="green fas fa-times-circle"></i>
-                        <label for="check1">کودک</label>
-                    </div>
-                    <div class="tab-title">
-                        <input type="checkbox" name="check3" id="check3">
-                        <label for="check3">خرید با کد ملی</label>
-                    </div>
-                    <div class="tab-title">
-                        <input type="checkbox" name="check1" id="check4" checked="">
-                        <label for="check4">خرید با پاسپورت</label>
-                    </div>
-
-                </div>
-
-                <div class="tab-desctiption">
-                    <div class="fields">
-
-                        <div class="field">
-                            <label for="">نام(لاتین)</label>
-                            <input type="text" name="fa-name" id="fa-name">
-                        </div>
-                        <div class="field">
-                            <label for="">نام خانوادگی(لاتین)</label>
-                            <input type="text" name="fa-name" id="fa-name">
-                        </div>
-                        <div class="field">
-                            <label for="">جنسیت</label>
-                            <select name="gender" id="gender1">
-                                <option value="man">آقا</option>
-                                <option value="woman">خانم</option>
-                            </select>
-                        </div>
-
-                        <div class="field">
-                            <label for="">تاریخ تولد(میلادی)</label>
-                            <input type="text" name="fa-name" id="fa-name">
-                        </div>
-                        <div class="field">
-                            <label for="">کشور محل تولد</label>
-                            <input type="text" name="fa-name" id="fa-name">
-                        </div>
-                        <div class="field">
-                            <label for="">کشور صادر کننده پاسپورت</label>
-                            <input type="text" name="fa-name" id="fa-name">
-                        </div>
-                        <div class="field">
-                            <label for="">تاریخ انقضای پاسپورت</label>
-                            <input type="text" name="fa-name" id="fa-name">
-                        </div>
-
-                    </div>
-                    <div class="detail1">
-                        <!-- secontd detail -->
-                    </div>
-                </div>
-            </section>
 
             <!-- اطلاعات تماس -->
             <div class="contact-info">

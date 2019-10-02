@@ -33,7 +33,8 @@ class TicketController extends Controller
 
         $this->SessionId =  json_decode($response->getBody()->getContents())->SessionId;
 
-       
+        //برای استفاده های آتی سشن را ذخیره میکنیم
+        session(['SessionId' => $this->SessionId]);
 
     }
     

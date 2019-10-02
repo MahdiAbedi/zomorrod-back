@@ -311,8 +311,8 @@ class InternationalTicketResults extends React.Component{
                 <section className="tickets">
         
                 {this.state.tickets.PricedItineraries.map((ticket,index)=>{
-                        // return <TwoWayInternationalTicket index={index} ticket={ticket}/>
-                        return <TwoWayInternationalTicket index={index} AirItineraryPricingInfo={ticket.AirItineraryPricingInfo} OriginDestinationOptions={ticket.OriginDestinationOptions}/>
+                        return <TwoWayInternationalTicket index={index} ticket={ticket}/>
+                        // return <TwoWayInternationalTicket index={index} AirItineraryPricingInfo={ticket.AirItineraryPricingInfo} OriginDestinationOptions={ticket.OriginDestinationOptions}/>
                     })}
                     {/*<!-- یک تیکت تک --> */}
                         

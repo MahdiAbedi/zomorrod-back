@@ -222,7 +222,8 @@
             }],
             "FareInfoes": []
         },
-        "OriginDestinationOptions": [{
+        "OriginDestinationOptions": [
+            {
             "JourneyDurationPerMinute": 260,
             "ConnectionTimePerMinute": 340,
             "FlightSegments": [{
