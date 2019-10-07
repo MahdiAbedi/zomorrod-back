@@ -1,6 +1,5 @@
 import React from 'react';
 import moment from 'moment-jalaali';
-import {airportName} from './Functions';
 
 class TwoWayInternationalTicket extends React.Component {
 
@@ -148,7 +147,7 @@ class TwoWayInternationalTicket extends React.Component {
                   </div>
                   {/* مبدا */}
                   <p className="destination">
-                    {airportName(localStorage.getItem('international_origin'))} {/* زمان حرکت  */}
+                    Tehran {/* زمان حرکت  */}
 
                     <span>{(OrginDestination.FlightSegments[index])
                         ? this.shamsiDate(OrginDestination.FlightSegments[index].DepartureDateTime)
@@ -177,7 +176,7 @@ class TwoWayInternationalTicket extends React.Component {
                   </div>
 
                   <p className="destination">
-                  {airportName(localStorage.getItem('international_destination'))} {/* زمان رسیدن */}
+                    Vancouver {/* زمان رسیدن */}
                     <span>{moment(this.OriginDestinationOptions.FlightSegments[0].ArrivalDateTime).format('jYYYY/jM/jD HH:mm')}</span>
                   </p>
 
@@ -259,7 +258,7 @@ class TwoWayInternationalTicket extends React.Component {
                           <div className="row">
                             <strong>{this.FormatMiladiDateHour(segment.DepartureDateTime)}</strong>
                             <strong>{segment.DepartureAirportLocationCode}
-                              <small> ({airportName(segment.DepartureAirportLocationCode)})</small>
+                              <small>(Imam Khomeini Intl)</small>
                             </strong>
                           </div>
                           <div className="row">
@@ -278,12 +277,12 @@ class TwoWayInternationalTicket extends React.Component {
                           <div className="row">
                             <strong>{this.FormatMiladiDateHour(segment.ArrivalDateTime)}</strong>
                             <strong>{segment.ArrivalAirportLocationCode}
-                              <small> ({airportName(segment.ArrivalAirportLocationCode)})</small>
+                              <small>(Istanbul Airport)</small>
                             </strong>
                           </div>
                         </div>
                         <div className="stop-detail">
-                          <small>جابجایی در {airportName(segment.ArrivalAirportLocationCode)} / طول توقف: 2H 15m</small>
+                          <small>جابجایی در Istanbul / طول توقف: 2H 15m</small>
                         </div>
                       </span>
 

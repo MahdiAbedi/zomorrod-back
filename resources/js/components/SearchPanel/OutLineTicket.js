@@ -3,6 +3,8 @@ import DateSelector from '../DateSelector';
 import PassengerCount from './PassengerCount';
 import InternationalAirlines from './InternationalAirlines';
 
+import MultiSelect from '../../Modules/MultiSelect'
+
 
 class OutLineTicket extends React.Component{
 
@@ -41,12 +43,13 @@ class OutLineTicket extends React.Component{
             {/* <!-- فیلترهای پروازها --> */}
             <div className="filters" >
                 <input type="radio" value="oneWay" id="oneWay" name="outline-ticket" onClick={this.showReturnDate} checked={this.state.toWay}/>
-                <label for="oneWay">یک طرفه</label>
+                <label htmlFor="oneWay">یک طرفه</label>
                 <input type="radio" value="toWay" id="toWay" name="outline-ticket"  onClick={this.hideReturnDate} checked={!this.state.toWay}/>
-                <label for="toWay">رفت و برگشت</label>
+                <label htmlFor="toWay">رفت و برگشت</label>
                 <input type="radio" value="value2" id="group3" name="outline-ticket"/>
-                <label for="group3">چند مسیره</label>
+                <label htmlFor="group3">چند مسیره</label>
             </div>
+            
             {/* <!-- فیلدهای جستجو --> */}
             <form  className="search" onSubmit={this.submitForm} >
                 <div className="group margin-right">
@@ -54,6 +57,8 @@ class OutLineTicket extends React.Component{
                     <input type="hidden" name="toWay" value={!this.state.toWay}/>
 
                     <InternationalAirlines className="right-border airports-select2" Placeholder="فرودگاه مبدا" name="origin" prefix="international" />
+
+                    {/* <MultiSelect /> */}
                     
                     <button className="round-btn"><i className="icon-transfer"><img src="img/change-way.png"
                                 alt=""/></i></button>

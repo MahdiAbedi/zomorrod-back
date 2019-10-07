@@ -1829,6 +1829,112 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/Results/LoadingModal.css":
+/*!******************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/postcss-loader/src??ref--5-2!./resources/js/components/Results/LoadingModal.css ***!
+  \******************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".available-loading-modal {\r\n    position: fixed;\r\n    z-index: 1000;\r\n    background: #fff;\r\n    width: 700px;\r\n    height: 450px;\r\n    top: calc(50vh - 225px);\r\n    left: calc(50vw - 350px);\r\n    border-radius: 10px;\r\n    box-shadow: 0 15px 35px 0 rgba(0,0,0,.5);\r\n}\r\n.relative {\r\n    position: relative;\r\n}\r\n.available-loading-modal__image {\r\n    position: absolute;\r\n    left: -50px;\r\n    bottom: 0;\r\n    z-index: 1;\r\n}\r\n.available-loading-modal__body {\r\n    height: 450px;\r\n    width: 100%;\r\n    overflow: hidden;\r\n    position: relative;\r\n    border-radius: 10px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: flex-end;\r\n}\r\n.available-loading-modal__body:before {\r\n    content: \"\";\r\n    background: #ff9800;\r\n    width: 150%;\r\n    height: 310px;\r\n    position: absolute;\r\n    bottom: -155px;\r\n    left: -25%;\r\n    border-radius: 100%/310px;\r\n    z-index: -1;\r\n}\r\n.available-loading-modal__lottie {\r\n    width: 200px;\r\n    margin: 55px 100px 0 0;\r\n    position: absolute;\r\n    top: 0;\r\n}\r\n.available-loading-modal__info {\r\n    background: #fff;\r\n    z-index: 1;\r\n    width: 100%;\r\n    padding: 8px;\r\n    margin-top: 20px;\r\n    border-radius: 8px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    -webkit-animation: fadeInOut 2s ease-in-out infinite;\r\n    animation: fadeInOut 2s ease-in-out infinite;\r\n    opacity: .7;\r\n}\r\n.available-loading-modal__text {\r\n    margin: 0;\r\n    font-size: 14px;\r\n    font-weight: 500;\r\n    color: #202124;\r\n    text-align: center;\r\n}\r\n.available-loading-modal__dots {\r\n    height: 20px;\r\n}\r\n.available-loading-modal {\r\n    position: fixed;\r\n    z-index: 1000;\r\n    background: #fff;\r\n    width: 700px;\r\n    height: 450px;\r\n    top: calc(50vh - 225px);\r\n    left: calc(50vw - 350px);\r\n    border-radius: 10px;\r\n    box-shadow: 0 15px 35px 0 rgba(0,0,0,.5);\r\n}\r\n.available-loading-modal__image {\r\n    position: absolute;\r\n    left: -50px;\r\n    bottom: 0;\r\n    z-index: 1;\r\n}\r\n.available-loading-modal__body {\r\n    height: 450px;\r\n    width: 100%;\r\n    overflow: hidden;\r\n    position: relative;\r\n    border-radius: 10px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: flex-end;\r\n}\r\n.available-loading-modal__body:before {\r\n    content: \"\";\r\n    background: #ff9800;\r\n    width: 150%;\r\n    height: 310px;\r\n    position: absolute;\r\n    bottom: -155px;\r\n    left: -25%;\r\n    border-radius: 100%/310px;\r\n    z-index: -1;\r\n}\r\n.available-loading-modal__lottie {\r\n    width: 200px;\r\n    margin: 55px 100px 0 0;\r\n    position: absolute;\r\n    top: 0;\r\n}\r\n.available-loading-modal__info {\r\n    background: #fff;\r\n    z-index: 1;\r\n    width: 100%;\r\n    padding: 8px;\r\n    margin-top: 20px;\r\n    border-radius: 8px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    -webkit-animation: fadeInOut 2s ease-in-out infinite;\r\n    animation: fadeInOut 2s ease-in-out infinite;\r\n    opacity: .7;\r\n}\r\n.available-loading-modal__text {\r\n    margin: 0;\r\n    font-size: 14px;\r\n    font-weight: 500;\r\n    color: #202124;\r\n    text-align: center;\r\n}\r\n.available-loading-modal__dots {\r\n    height: 20px;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/lib/css-base.js":
+/*!*************************************************!*\
+  !*** ./node_modules/css-loader/lib/css-base.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/is-buffer/index.js":
 /*!*****************************************!*\
   !*** ./node_modules/is-buffer/index.js ***!
@@ -70831,6 +70937,515 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/lib/addStyles.js":
+/*!****************************************************!*\
+  !*** ./node_modules/style-loader/lib/addStyles.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+
+var stylesInDom = {};
+
+var	memoize = function (fn) {
+	var memo;
+
+	return function () {
+		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+		return memo;
+	};
+};
+
+var isOldIE = memoize(function () {
+	// Test for IE <= 9 as proposed by Browserhacks
+	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+	// Tests for existence of standard globals is to allow style-loader
+	// to operate correctly into non-standard environments
+	// @see https://github.com/webpack-contrib/style-loader/issues/177
+	return window && document && document.all && !window.atob;
+});
+
+var getTarget = function (target, parent) {
+  if (parent){
+    return parent.querySelector(target);
+  }
+  return document.querySelector(target);
+};
+
+var getElement = (function (fn) {
+	var memo = {};
+
+	return function(target, parent) {
+                // If passing function in options, then use it for resolve "head" element.
+                // Useful for Shadow Root style i.e
+                // {
+                //   insertInto: function () { return document.querySelector("#foo").shadowRoot }
+                // }
+                if (typeof target === 'function') {
+                        return target();
+                }
+                if (typeof memo[target] === "undefined") {
+			var styleTarget = getTarget.call(this, target, parent);
+			// Special case to return head of iframe instead of iframe itself
+			if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+				try {
+					// This will throw an exception if access to iframe is blocked
+					// due to cross-origin restrictions
+					styleTarget = styleTarget.contentDocument.head;
+				} catch(e) {
+					styleTarget = null;
+				}
+			}
+			memo[target] = styleTarget;
+		}
+		return memo[target]
+	};
+})();
+
+var singleton = null;
+var	singletonCounter = 0;
+var	stylesInsertedAtTop = [];
+
+var	fixUrls = __webpack_require__(/*! ./urls */ "./node_modules/style-loader/lib/urls.js");
+
+module.exports = function(list, options) {
+	if (typeof DEBUG !== "undefined" && DEBUG) {
+		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	}
+
+	options = options || {};
+
+	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
+
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+	// tags it will allow on a page
+	if (!options.singleton && typeof options.singleton !== "boolean") options.singleton = isOldIE();
+
+	// By default, add <style> tags to the <head> element
+        if (!options.insertInto) options.insertInto = "head";
+
+	// By default, add <style> tags to the bottom of the target
+	if (!options.insertAt) options.insertAt = "bottom";
+
+	var styles = listToStyles(list, options);
+
+	addStylesToDom(styles, options);
+
+	return function update (newList) {
+		var mayRemove = [];
+
+		for (var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+
+			domStyle.refs--;
+			mayRemove.push(domStyle);
+		}
+
+		if(newList) {
+			var newStyles = listToStyles(newList, options);
+			addStylesToDom(newStyles, options);
+		}
+
+		for (var i = 0; i < mayRemove.length; i++) {
+			var domStyle = mayRemove[i];
+
+			if(domStyle.refs === 0) {
+				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
+
+				delete stylesInDom[domStyle.id];
+			}
+		}
+	};
+};
+
+function addStylesToDom (styles, options) {
+	for (var i = 0; i < styles.length; i++) {
+		var item = styles[i];
+		var domStyle = stylesInDom[item.id];
+
+		if(domStyle) {
+			domStyle.refs++;
+
+			for(var j = 0; j < domStyle.parts.length; j++) {
+				domStyle.parts[j](item.parts[j]);
+			}
+
+			for(; j < item.parts.length; j++) {
+				domStyle.parts.push(addStyle(item.parts[j], options));
+			}
+		} else {
+			var parts = [];
+
+			for(var j = 0; j < item.parts.length; j++) {
+				parts.push(addStyle(item.parts[j], options));
+			}
+
+			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+		}
+	}
+}
+
+function listToStyles (list, options) {
+	var styles = [];
+	var newStyles = {};
+
+	for (var i = 0; i < list.length; i++) {
+		var item = list[i];
+		var id = options.base ? item[0] + options.base : item[0];
+		var css = item[1];
+		var media = item[2];
+		var sourceMap = item[3];
+		var part = {css: css, media: media, sourceMap: sourceMap};
+
+		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
+		else newStyles[id].parts.push(part);
+	}
+
+	return styles;
+}
+
+function insertStyleElement (options, style) {
+	var target = getElement(options.insertInto)
+
+	if (!target) {
+		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
+	}
+
+	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
+
+	if (options.insertAt === "top") {
+		if (!lastStyleElementInsertedAtTop) {
+			target.insertBefore(style, target.firstChild);
+		} else if (lastStyleElementInsertedAtTop.nextSibling) {
+			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			target.appendChild(style);
+		}
+		stylesInsertedAtTop.push(style);
+	} else if (options.insertAt === "bottom") {
+		target.appendChild(style);
+	} else if (typeof options.insertAt === "object" && options.insertAt.before) {
+		var nextSibling = getElement(options.insertAt.before, target);
+		target.insertBefore(style, nextSibling);
+	} else {
+		throw new Error("[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n");
+	}
+}
+
+function removeStyleElement (style) {
+	if (style.parentNode === null) return false;
+	style.parentNode.removeChild(style);
+
+	var idx = stylesInsertedAtTop.indexOf(style);
+	if(idx >= 0) {
+		stylesInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement (options) {
+	var style = document.createElement("style");
+
+	if(options.attrs.type === undefined) {
+		options.attrs.type = "text/css";
+	}
+
+	if(options.attrs.nonce === undefined) {
+		var nonce = getNonce();
+		if (nonce) {
+			options.attrs.nonce = nonce;
+		}
+	}
+
+	addAttrs(style, options.attrs);
+	insertStyleElement(options, style);
+
+	return style;
+}
+
+function createLinkElement (options) {
+	var link = document.createElement("link");
+
+	if(options.attrs.type === undefined) {
+		options.attrs.type = "text/css";
+	}
+	options.attrs.rel = "stylesheet";
+
+	addAttrs(link, options.attrs);
+	insertStyleElement(options, link);
+
+	return link;
+}
+
+function addAttrs (el, attrs) {
+	Object.keys(attrs).forEach(function (key) {
+		el.setAttribute(key, attrs[key]);
+	});
+}
+
+function getNonce() {
+	if (false) {}
+
+	return __webpack_require__.nc;
+}
+
+function addStyle (obj, options) {
+	var style, update, remove, result;
+
+	// If a transform function was defined, run it on the css
+	if (options.transform && obj.css) {
+	    result = typeof options.transform === 'function'
+		 ? options.transform(obj.css) 
+		 : options.transform.default(obj.css);
+
+	    if (result) {
+	    	// If transform returns a value, use that instead of the original css.
+	    	// This allows running runtime transformations on the css.
+	    	obj.css = result;
+	    } else {
+	    	// If the transform function returns a falsy value, don't add this css.
+	    	// This allows conditional loading of css
+	    	return function() {
+	    		// noop
+	    	};
+	    }
+	}
+
+	if (options.singleton) {
+		var styleIndex = singletonCounter++;
+
+		style = singleton || (singleton = createStyleElement(options));
+
+		update = applyToSingletonTag.bind(null, style, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+
+	} else if (
+		obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function"
+	) {
+		style = createLinkElement(options);
+		update = updateLink.bind(null, style, options);
+		remove = function () {
+			removeStyleElement(style);
+
+			if(style.href) URL.revokeObjectURL(style.href);
+		};
+	} else {
+		style = createStyleElement(options);
+		update = applyToTag.bind(null, style);
+		remove = function () {
+			removeStyleElement(style);
+		};
+	}
+
+	update(obj);
+
+	return function updateStyle (newObj) {
+		if (newObj) {
+			if (
+				newObj.css === obj.css &&
+				newObj.media === obj.media &&
+				newObj.sourceMap === obj.sourceMap
+			) {
+				return;
+			}
+
+			update(obj = newObj);
+		} else {
+			remove();
+		}
+	};
+}
+
+var replaceText = (function () {
+	var textStore = [];
+
+	return function (index, replacement) {
+		textStore[index] = replacement;
+
+		return textStore.filter(Boolean).join('\n');
+	};
+})();
+
+function applyToSingletonTag (style, index, remove, obj) {
+	var css = remove ? "" : obj.css;
+
+	if (style.styleSheet) {
+		style.styleSheet.cssText = replaceText(index, css);
+	} else {
+		var cssNode = document.createTextNode(css);
+		var childNodes = style.childNodes;
+
+		if (childNodes[index]) style.removeChild(childNodes[index]);
+
+		if (childNodes.length) {
+			style.insertBefore(cssNode, childNodes[index]);
+		} else {
+			style.appendChild(cssNode);
+		}
+	}
+}
+
+function applyToTag (style, obj) {
+	var css = obj.css;
+	var media = obj.media;
+
+	if(media) {
+		style.setAttribute("media", media)
+	}
+
+	if(style.styleSheet) {
+		style.styleSheet.cssText = css;
+	} else {
+		while(style.firstChild) {
+			style.removeChild(style.firstChild);
+		}
+
+		style.appendChild(document.createTextNode(css));
+	}
+}
+
+function updateLink (link, options, obj) {
+	var css = obj.css;
+	var sourceMap = obj.sourceMap;
+
+	/*
+		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
+		and there is no publicPath defined then lets turn convertToAbsoluteUrls
+		on by default.  Otherwise default to the convertToAbsoluteUrls option
+		directly
+	*/
+	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+
+	if (options.convertToAbsoluteUrls || autoFixUrls) {
+		css = fixUrls(css);
+	}
+
+	if (sourceMap) {
+		// http://stackoverflow.com/a/26603875
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = link.href;
+
+	link.href = URL.createObjectURL(blob);
+
+	if(oldSrc) URL.revokeObjectURL(oldSrc);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/lib/urls.js":
+/*!***********************************************!*\
+  !*** ./node_modules/style-loader/lib/urls.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+/**
+ * When source maps are enabled, `style-loader` uses a link element with a data-uri to
+ * embed the css on the page. This breaks all relative urls because now they are relative to a
+ * bundle instead of the current page.
+ *
+ * One solution is to only use full urls, but that may be impossible.
+ *
+ * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
+ *
+ * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
+ *
+ */
+
+module.exports = function (css) {
+  // get current location
+  var location = typeof window !== "undefined" && window.location;
+
+  if (!location) {
+    throw new Error("fixUrls requires window.location");
+  }
+
+	// blank or null?
+	if (!css || typeof css !== "string") {
+	  return css;
+  }
+
+  var baseUrl = location.protocol + "//" + location.host;
+  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+
+	// convert each url(...)
+	/*
+	This regular expression is just a way to recursively match brackets within
+	a string.
+
+	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+	   (  = Start a capturing group
+	     (?:  = Start a non-capturing group
+	         [^)(]  = Match anything that isn't a parentheses
+	         |  = OR
+	         \(  = Match a start parentheses
+	             (?:  = Start another non-capturing groups
+	                 [^)(]+  = Match anything that isn't a parentheses
+	                 |  = OR
+	                 \(  = Match a start parentheses
+	                     [^)(]*  = Match anything that isn't a parentheses
+	                 \)  = Match a end parentheses
+	             )  = End Group
+              *\) = Match anything and then a close parens
+          )  = Close non-capturing group
+          *  = Match anything
+       )  = Close capturing group
+	 \)  = Match a close parens
+
+	 /gi  = Get all matches, not the first.  Be case insensitive.
+	 */
+	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
+		// strip quotes (if they exist)
+		var unquotedOrigUrl = origUrl
+			.trim()
+			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
+			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+
+		// already a full url? no change
+		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(unquotedOrigUrl)) {
+		  return fullMatch;
+		}
+
+		// convert the url to a full url
+		var newUrl;
+
+		if (unquotedOrigUrl.indexOf("//") === 0) {
+		  	//TODO: should we add protocol?
+			newUrl = unquotedOrigUrl;
+		} else if (unquotedOrigUrl.indexOf("/") === 0) {
+			// path should be relative to the base url
+			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
+		} else {
+			// path should be relative to current directory
+			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
+		}
+
+		// send back the fixed url(...)
+		return "url(" + JSON.stringify(newUrl) + ")";
+	});
+
+	// send back the fixed css
+	return fixedCss;
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/webpack/buildin/global.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -70892,6 +71507,76 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+
+/***/ "./resources/js/Modules/MultiSelect.js":
+/*!*********************************************!*\
+  !*** ./resources/js/Modules/MultiSelect.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var MultiSelect =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(MultiSelect, _React$Component);
+
+  function MultiSelect(props) {
+    _classCallCheck(this, MultiSelect);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(MultiSelect).call(this, props));
+  }
+
+  _createClass(MultiSelect, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        list: "browsers"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("datalist", {
+        id: "browsers"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Internet Explorer"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Firefox"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Chrome"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Opera"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Safari"
+      })));
+    }
+  }]);
+
+  return MultiSelect;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (MultiSelect);
 
 /***/ }),
 
@@ -71702,6 +72387,339 @@ if (document.querySelector('#PassengerInfo')) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Results/Filters.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/Results/Filters.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Functions */ "./resources/js/components/Results/Functions.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var Filters =
+/*#__PURE__*/
+function (_React$PureComponent) {
+  _inherits(Filters, _React$PureComponent);
+
+  function Filters(props) {
+    var _this;
+
+    _classCallCheck(this, Filters);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Filters).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "checkCharter", function (charter) {
+      _this.props.checkCharter(charter);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
+      console.log('hello');
+      console.log(_this.props.airlines);
+    });
+
+    return _this;
+  }
+
+  _createClass(Filters, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
+        className: "filters"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "flex"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "reset"
+      }, "\u0644\u063A\u0648 \u0641\u06CC\u0644\u062A\u0631\u0647\u0627"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u0646\u062A\u0627\u06CC\u062C \u062C\u0633\u062A\u062C\u0648 ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "16"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "panel"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+        className: "panel-title flex-between"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u0632\u0645\u0627\u0646 \u067E\u0631\u0648\u0627\u0632"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-chevron-down"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "panel-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "check1",
+        id: "check1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "check1"
+      }, "\u0627\u0632 \u0633\u0627\u0639\u062A 6:00 \u062A\u0627 10:00")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "check1",
+        id: "check1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "check1"
+      }, "\u0627\u0632 \u0633\u0627\u0639\u062A 6:00 \u062A\u0627 10:00")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "check1",
+        id: "check1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "check1"
+      }, "\u0627\u0632 \u0633\u0627\u0639\u062A 6:00 \u062A\u0627 10:00")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "check1",
+        id: "check1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "check1"
+      }, "\u0627\u0632 \u0633\u0627\u0639\u062A 6:00 \u062A\u0627 10:00")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "panel"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+        className: "panel-title flex-between"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u0646\u0648\u0639 \u0641\u0631\u0648\u0634"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-chevron-down"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "panel-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "check1",
+        id: "systemi",
+        onClick: function onClick() {
+          return _this2.checkCharter(false);
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "systemi"
+      }, "\u0633\u06CC\u0633\u062A\u0645\u06CC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "checkbox-spanner selected"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "check1",
+        id: "charter",
+        onClick: function onClick() {
+          return _this2.checkCharter(true);
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "charter"
+      }, "\u0686\u0627\u0631\u062A\u0631"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "checkbox-spanner"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "panel"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+        className: "panel-title flex-between"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u062A\u0639\u062F\u0627\u062F \u062A\u0648\u0642\u0641"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-chevron-down"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "panel-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        name: "check1",
+        id: "radio1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "radio1"
+      }, "\u0645\u0633\u062A\u0642\u06CC\u0645")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        name: "check1",
+        id: "radio2",
+        checked: true
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "radio2"
+      }, "\u06CC\u06A9 \u062A\u0648\u0642\u0641")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        name: "check1",
+        id: "radio3"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "radio3"
+      }, "\u062F\u0648 \u062A\u0648\u0642\u0641 \u0648 \u0628\u06CC\u0634\u062A\u0631")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "panel"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+        className: "panel-title flex-between"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u06A9\u0644\u0627\u0633 \u067E\u0631\u0648\u0627\u0632\u06CC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-chevron-down"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "panel-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "check1",
+        id: "Economy",
+        checked: true
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "Economy"
+      }, "Economy"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "checkbox-spanner selected"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        name: "check1",
+        id: "Bussiness"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "Bussiness"
+      }, "Bussiness"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "checkbox-spanner"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "panel"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+        className: "panel-title flex-between"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u0634\u0631\u06A9\u062A\u0647\u0627\u06CC \u0647\u0648\u0627\u067E\u06CC\u0645\u0627\u06CC\u06CC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-chevron-down"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "panel-body"
+      }, this.props.airlines.map(function (item, index) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "airline-filter flex-between"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "checkbox",
+          name: "check1",
+          id: "pooya"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          htmlFor: "pooya",
+          className: "flex"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "img/airlines-logo/".concat(item, ".png"),
+          alt: ""
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, Object(_Functions__WEBPACK_IMPORTED_MODULE_1__["airlineName"])(item)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "price"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, ".."), ".")));
+      }))));
+    }
+  }]);
+
+  return Filters;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent);
+
+/* harmony default export */ __webpack_exports__["default"] = (Filters);
+
+/***/ }),
+
+/***/ "./resources/js/components/Results/Functions.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/Results/Functions.js ***!
+  \******************************************************/
+/*! exports provided: airlineName, airportName */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "airlineName", function() { return airlineName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "airportName", function() { return airportName; });
+//نام ایرلاین ها بر اساس کد یاتا
+function airlineName(code) {
+  var airlines = [];
+  airlines['A3'] = 'Aegean Airlines';
+  airlines['AF'] = 'Air France';
+  airlines['AY'] = 'Finnair';
+  airlines['AZ'] = 'Alitalia';
+  airlines['BA'] = 'British Airways';
+  airlines['BE'] = 'Flybe';
+  airlines['BT'] = 'Air Baltic';
+  airlines['CZ'] = 'China Southern Airlines';
+  airlines['DY'] = 'Norwegian Air Shuttle';
+  airlines['EK'] = 'Emirates Airline';
+  airlines['EW'] = 'Eurowings';
+  airlines['EY'] = 'Etihad Airways';
+  airlines['G9'] = 'Air Arabia';
+  airlines['GF'] = 'Gulf Air Bahrain';
+  airlines['IB'] = 'Iberia Airlines';
+  airlines['J2'] = 'Azerbaijan Airlines';
+  airlines['KK'] = 'Atlasjet';
+  airlines['KL'] = 'KLM';
+  airlines['KU'] = 'Kuwait Airways';
+  airlines['LH'] = 'Lufthansa';
+  airlines['LX'] = 'Swiss Air Lines';
+  airlines['OS'] = 'Austrian Airlines';
+  airlines['OV'] = 'Estonian Air';
+  airlines['PC'] = 'Pegasus Airlines';
+  airlines['PS'] = 'Ukraine Airlines';
+  airlines['QR'] = 'Qatar Airways';
+  airlines['TK'] = 'Turkish Airlines';
+  airlines['VY'] = 'Vueling Airlines';
+  airlines['W5'] = 'Mahan Air';
+  airlines['WY'] = 'Oman Air';
+
+  if (code in airlines) {
+    return airlines[code];
+  }
+
+  return code;
+} //نام فرودگاه ها بر اساس کد یاتا
+
+function airportName(code) {
+  var airports = []; //فرودگاه های ایران
+
+  airports['IKA'] = 'امام خمینی';
+  airports['ABD'] = 'آبادان';
+  airports['ACP'] = 'سهند';
+  airports['ACZ'] = 'زابل';
+  airports['ADU'] = 'اردبیل';
+  airports['AEU'] = 'ابوموسی';
+  airports['AFZ'] = 'سبزوار';
+  airports['AHW'] = 'اهواز';
+  airports['AJK'] = 'اراک';
+  airports['AKW'] = 'آقاجاری';
+  airports['AWZ'] = 'اهواز';
+  airports['AZD'] = 'یزد';
+  airports['BBL'] = 'بابلسر';
+  airports['BDH'] = 'بندر لنگه';
+  airports['BJB'] = 'بجنورد';
+  airports['BND'] = 'بجنورد';
+  airports['BUZ'] = 'بوشهر';
+  airports['BXR'] = 'بام';
+  airports['CKT'] = 'سرخس'; //فرودگاه های بین المللی
+
+  airports['DXB'] = 'دبی';
+  airports['LGW'] = 'لندن';
+  airports['IST'] = 'استانبول';
+  airports['STN'] = 'لندن';
+  airports['DOH'] = 'دوحه';
+  airports['FRA'] = 'فرانکفورت';
+  airports['SAW'] = 'استانبول';
+  airports['KBP'] = 'کی اف';
+  airports['KWI'] = 'کویت';
+  airports['STN'] = 'لندن';
+  airports['LCY'] = 'لندن';
+  airports['LHR'] = 'لندن';
+  airports['LGW'] = 'لندن';
+  airports['SVO'] = 'مسکو';
+  airports['MUC'] = 'مونیخ';
+  airports['MCT'] = 'مسقط';
+  airports['VIE'] = 'وی انا';
+  airports['ZRH'] = 'زوریخ';
+  airports['GYD'] = 'حیدر علی اف';
+
+  if (code in airports) {
+    return airports[code];
+  }
+
+  return code;
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/Results/InternationalTicketResults.js":
 /*!***********************************************************************!*\
   !*** ./resources/js/components/Results/InternationalTicketResults.js ***!
@@ -71715,15 +72733,246 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var moment_jalaali__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment-jalaali */ "./node_modules/moment-jalaali/index.js");
-/* harmony import */ var moment_jalaali__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment_jalaali__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _TwoWayInternationalTicket__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TwoWayInternationalTicket */ "./resources/js/components/Results/TwoWayInternationalTicket.js");
-/* harmony import */ var _RoundTripTicket_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RoundTripTicket.json */ "./resources/js/components/Results/RoundTripTicket.json");
-var _RoundTripTicket_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./RoundTripTicket.json */ "./resources/js/components/Results/RoundTripTicket.json", 1);
+/* harmony import */ var _RoundTripTicket_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RoundTripTicket.json */ "./resources/js/components/Results/RoundTripTicket.json");
+var _RoundTripTicket_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./RoundTripTicket.json */ "./resources/js/components/Results/RoundTripTicket.json", 1);
+/* harmony import */ var _Filters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Filters */ "./resources/js/components/Results/Filters.js");
+/* harmony import */ var _Results__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Results */ "./resources/js/components/Results/Results.js");
 /* harmony import */ var _TicketResults_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./TicketResults.json */ "./resources/js/components/Results/TicketResults.json");
 var _TicketResults_json__WEBPACK_IMPORTED_MODULE_5___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./TicketResults.json */ "./resources/js/components/Results/TicketResults.json", 1);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _LoadingModal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./LoadingModal */ "./resources/js/components/Results/LoadingModal.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+var InternationalTicketResults =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(InternationalTicketResults, _React$Component);
+
+  function InternationalTicketResults(props) {
+    var _this;
+
+    _classCallCheck(this, InternationalTicketResults);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(InternationalTicketResults).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "onlyUnique", function (value, index, self) {
+      return self.indexOf(value) === index;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getAirlines", function () {
+      //لیست ایرلاینها رو هم جدا میکنیم
+      _this.setState({
+        airlines: _this.state.tickets.map(function (airline) {
+          return airline.OriginDestinationOptions[0].FlightSegments[0].MarketingAirlineCode;
+        }).filter(_this.onlyUnique)
+      });
+
+      console.log('parent');
+      console.log(_this.state.airlines);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getTickets", function () {
+      axios__WEBPACK_IMPORTED_MODULE_6___default.a.post('/checkTicket1', {
+        // PricingSourceType    :localStorage.getItem(''),
+        // RequestOption        :localStorage.getItem(''),
+        AdultCount: localStorage.getItem('international_adult'),
+        ChildCount: localStorage.getItem('international_child'),
+        InfantCount: localStorage.getItem('international_infant'),
+        // CabinType            :localStorage.getItem(''),
+        // MaxStopsQuantity     :localStorage.getItem(''),
+        // AirTripType          :localStorage.getItem(''),
+        DepartureDateTime: localStorage.getItem('international_departureTime'),
+        DestinationLocationCode: localStorage.getItem('international_destination'),
+        // DestinationType      :localStorage.getItem(''),
+        OriginLocationCode: localStorage.getItem('international_origin'),
+        // OriginType           :localStorage.getItem(''),
+        IsRoundTrip: localStorage.getItem('international_IsRoundTrip'),
+        ReturnTime: localStorage.getItem('international_returnTime')
+      }).then(function (response) {
+        // let myTickets=response.data;
+        // this.setState({tickets:myTickets.PricedItineraries})
+        _this.setState({
+          tickets: _RoundTripTicket_json__WEBPACK_IMPORTED_MODULE_2__.PricedItineraries,
+          isLoading: false
+        });
+
+        _this.getAirlines(); // console.log(response.data)
+
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "checkCharter", function (charter) {
+      _this.state.tickets.filter(function (ticket) {
+        return ticket.OriginDestinationOptions[0].FlightSegments[0].IsCharter == charter ? ticket : null;
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "render", function () {
+      var msg = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoadingModal__WEBPACK_IMPORTED_MODULE_7__["default"], null);
+      var error = "\u062C\u0633\u062A\u062C\u0648\u06CC \u0634\u0645\u0627 \u0646\u062A\u06CC\u062C\u0647 \u0627\u06CC \u062F\u0631 \u0628\u0631 \u0646\u062F\u0627\u0634\u062A.";
+
+      if (_this.state.tickets.length == 0) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+          className: "result-panel container"
+        }, _this.state.isLoading ? msg : error);
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+          className: "result-panel container"
+        }, _this.state.airlines.length > 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Filters__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          checkCharter: _this.checkCharter,
+          airlines: _this.state.airlines
+        }) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Results__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          tickets: _this.state.tickets
+        }));
+      } //else
+
+    });
+
+    _this.state = {
+      tickets: [],
+      isLoading: true,
+      airlines: []
+    };
+    return _this;
+  } //پیدا کردن مقادیر غیر تکراری آرایه ها
+
+
+  _createClass(InternationalTicketResults, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getTickets();
+    }
+  }]);
+
+  return InternationalTicketResults;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+if (document.querySelector('#InternationalTicketResults')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(InternationalTicketResults, null), document.querySelector('#InternationalTicketResults'));
+} // export default InternationalTicketResults;
+
+/***/ }),
+
+/***/ "./resources/js/components/Results/LoadingModal.css":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/Results/LoadingModal.css ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/postcss-loader/src??ref--5-2!./LoadingModal.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/Results/LoadingModal.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./resources/js/components/Results/LoadingModal.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/Results/LoadingModal.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _LoadingModal_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LoadingModal.css */ "./resources/js/components/Results/LoadingModal.css");
+/* harmony import */ var _LoadingModal_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_LoadingModal_css__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function LoadingModal() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "available-loading-modal"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "relative"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "images/ManForLoadingResults.png",
+    className: "available-loading-modal__image"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "available-loading-modal__body"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "available-loading-modal__lottie"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "/images/loader.gif"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "/images/worldmapForLoadingResults.png",
+    className: "available-loading-modal__map"
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "available-loading-modal__info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "available-loading-modal__text"
+  }, "\u0633\u062A\u0627\u0631\u0647 \u0632\u0645\u0631\u062F \u062F\u0631 \u062D\u0627\u0644 \u062C\u0633\u062A\u062C\u0648 \u0628\u0647\u062A\u0631\u06CC\u0646 \u067E\u0631\u0648\u0627\u0632\u0647\u0627 \u0628\u0631\u0627\u06CC \u0634\u0645\u0627\u0633\u062A"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "available-loading-modal__dots"
+  })));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (LoadingModal);
+
+/***/ }),
+
+/***/ "./resources/js/components/Results/Results.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/Results/Results.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _TwoWayInternationalTicket__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TwoWayInternationalTicket */ "./resources/js/components/Results/TwoWayInternationalTicket.js");
+/* harmony import */ var moment_jalaali__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment-jalaali */ "./node_modules/moment-jalaali/index.js");
+/* harmony import */ var moment_jalaali__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment_jalaali__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -71745,403 +72994,76 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
- // import OneWayInternationalTicket from './OneWayInternationalTicket';
 
-
-
-
-
-var InternationalTicketResults =
+var Results =
 /*#__PURE__*/
-function (_React$Component) {
-  _inherits(InternationalTicketResults, _React$Component);
+function (_React$PureComponent) {
+  _inherits(Results, _React$PureComponent);
 
-  function InternationalTicketResults(props) {
-    var _this;
+  function Results(props) {
+    _classCallCheck(this, Results);
 
-    _classCallCheck(this, InternationalTicketResults);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(InternationalTicketResults).call(this, props));
-    _this.state = {
-      tickets: []
-    };
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(Results).call(this, props));
   }
 
-  _createClass(InternationalTicketResults, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      // axios.post('/checkTicket1', {
-      //   })
-      //   .then( (response)=> {
-      //     this.setState({tickets:myTickets})
-      //     console.log(this.state.tickets);
-      //   })
-      //   .catch(function (error) {
-      //     console.log(error);
-      //   });
-      axios__WEBPACK_IMPORTED_MODULE_6___default.a.post('/checkTicket1', {
-        // PricingSourceType    :localStorage.getItem(''),
-        // RequestOption        :localStorage.getItem(''),
-        AdultCount: localStorage.getItem('international_adult'),
-        ChildCount: localStorage.getItem('international_child'),
-        InfantCount: localStorage.getItem('international_infant'),
-        // CabinType            :localStorage.getItem(''),
-        // MaxStopsQuantity     :localStorage.getItem(''),
-        // AirTripType          :localStorage.getItem(''),
-        DepartureDateTime: localStorage.getItem('international_departureTime'),
-        DestinationLocationCode: localStorage.getItem('international_destination'),
-        // DestinationType      :localStorage.getItem(''),
-        OriginLocationCode: localStorage.getItem('international_origin'),
-        // OriginType           :localStorage.getItem(''),
-        IsRoundTrip: localStorage.getItem('international_IsRoundTrip'),
-        ReturnTime: localStorage.getItem('international_returnTime')
-      }).then(function (response) {
-        //  this.setState({tickets:response.data})
-        _this2.setState({
-          tickets: _RoundTripTicket_json__WEBPACK_IMPORTED_MODULE_4__
-        }); // console.log(response.data)
-
-      })["catch"](function (error) {
-        console.log(error);
-      });
-    }
-  }, {
+  _createClass(Results, [{
     key: "render",
     value: function render() {
-      var _this3 = this;
-
-      if (this.state.tickets.length == 0) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-          className: "result-panel container"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "images/loader.gif"
-        }), "\u0633\u06CC\u0633\u062A\u0645 \u062F\u0631 \u062D\u0627\u0644 \u062C\u0633\u062A\u062C\u0648\u06CC \u0628\u0644\u06CC\u0637 \u0645\u06CC\u0628\u0627\u0634\u062F.");
-      } else {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-          className: "result-panel container"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
-          className: "filters"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-          className: "flex"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "reset"
-        }, "\u0644\u063A\u0648 \u0641\u06CC\u0644\u062A\u0631\u0647\u0627"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u0646\u062A\u0627\u06CC\u062C \u062C\u0633\u062A\u062C\u0648 ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "16"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-          className: "panel"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
-          className: "panel-title flex-between"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u0632\u0645\u0627\u0646 \u067E\u0631\u0648\u0627\u0632"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "#"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-chevron-down"
-        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "panel-body"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "check1"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "check1"
-        }, "\u0627\u0632 \u0633\u0627\u0639\u062A 6:00 \u062A\u0627 10:00")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "check1"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "check1"
-        }, "\u0627\u0632 \u0633\u0627\u0639\u062A 6:00 \u062A\u0627 10:00")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "check1"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "check1"
-        }, "\u0627\u0632 \u0633\u0627\u0639\u062A 6:00 \u062A\u0627 10:00")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "check1"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "check1"
-        }, "\u0627\u0632 \u0633\u0627\u0639\u062A 6:00 \u062A\u0627 10:00")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-          className: "panel"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
-          className: "panel-title flex-between"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u0646\u0648\u0639 \u0641\u0631\u0648\u0634"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "#"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-chevron-down"
-        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "panel-body"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "systemi",
-          onClick: function onClick() {
-            return _this3.clickMe();
-          }
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "systemi"
-        }, "\u0633\u06CC\u0633\u062A\u0645\u06CC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "checkbox-spanner selected"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "charter"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "charter"
-        }, "\u0686\u0627\u0631\u062A\u0631"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "checkbox-spanner"
-        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-          className: "panel"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
-          className: "panel-title flex-between"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u062A\u0639\u062F\u0627\u062F \u062A\u0648\u0642\u0641"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "#"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-chevron-down"
-        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "panel-body"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "radio",
-          name: "check1",
-          id: "radio1"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "radio1"
-        }, "\u0645\u0633\u062A\u0642\u06CC\u0645")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "radio",
-          name: "check1",
-          id: "radio2",
-          checked: true
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "radio2"
-        }, "\u06CC\u06A9 \u062A\u0648\u0642\u0641")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "radio",
-          name: "check1",
-          id: "radio3"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "radio3"
-        }, "\u062F\u0648 \u062A\u0648\u0642\u0641 \u0648 \u0628\u06CC\u0634\u062A\u0631")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-          className: "panel"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
-          className: "panel-title flex-between"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u06A9\u0644\u0627\u0633 \u067E\u0631\u0648\u0627\u0632\u06CC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "#"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-chevron-down"
-        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "panel-body"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "Economy",
-          checked: true
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "Economy"
-        }, "Economy"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "checkbox-spanner selected"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "Bussiness"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "Bussiness"
-        }, "Bussiness"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "checkbox-spanner"
-        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-          className: "panel"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
-          className: "panel-title flex-between"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u0634\u0631\u06A9\u062A\u0647\u0627\u06CC \u0647\u0648\u0627\u067E\u06CC\u0645\u0627\u06CC\u06CC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "#"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-chevron-down"
-        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "panel-body"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "airline-filter flex-between"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "pooya"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "pooya",
-          className: "flex"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "img/airlines-logo/pooya.png",
-          alt: ""
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "pooya"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          className: "price"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "200,000,000"), "\u062A\u0648\u0645\u0627\u0646"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "airline-filter flex-between"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "pooya"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "pooya",
-          className: "flex"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "img/airlines-logo/meraj.png",
-          alt: ""
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u0645\u0639\u0631\u0627\u062C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          className: "price"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "200,000,000"), "\u062A\u0648\u0645\u0627\u0646"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "airline-filter flex-between"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "pooya"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "pooya",
-          className: "flex"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "img/airlines-logo/mahan.png",
-          alt: ""
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u0645\u0627\u0647\u0627\u0646"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          className: "price"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "200,000,000"), "\u062A\u0648\u0645\u0627\u0646"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "airline-filter flex-between"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "pooya"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "pooya",
-          className: "flex"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "img/airlines-logo/kish.png",
-          alt: ""
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u06A9\u06CC\u0634"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          className: "price"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "200,000,000"), "\u062A\u0648\u0645\u0627\u0646"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "airline-filter flex-between"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "pooya"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "pooya",
-          className: "flex"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "img/airlines-logo/kaspian.png",
-          alt: ""
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u06A9\u0627\u0633\u067E\u06CC\u0646"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          className: "price"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "200,000,000"), "\u062A\u0648\u0645\u0627\u0646"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "airline-filter flex-between"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "pooya"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "pooya",
-          className: "flex"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "img/airlines-logo/iran-air.png",
-          alt: ""
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u0627\u06CC\u0631\u0627\u0646 \u0627\u06CC\u0631"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          className: "price"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "200,000,000"), "\u062A\u0648\u0645\u0627\u0646"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "airline-filter flex-between"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "pooya"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "pooya",
-          className: "flex"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "img/airlines-logo/iran-air-tour.png",
-          alt: ""
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u0627\u06CC\u0631\u0627\u0646 \u0627\u06CC\u0631\u062A\u0648\u0631"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          className: "price"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "200,000,000"), "\u062A\u0648\u0645\u0627\u0646"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "airline-filter flex-between"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "pooya"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "pooya",
-          className: "flex"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "img/airlines-logo/ata.png",
-          alt: ""
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u0622\u062A\u0627"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          className: "price"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "200,000,000"), "\u062A\u0648\u0645\u0627\u0646"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "airline-filter flex-between"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "pooya"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "pooya",
-          className: "flex"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "img/airlines-logo/aseman.png",
-          alt: ""
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u0622\u0633\u0645\u0627\u0646"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          className: "price"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "200,000,000"), "\u062A\u0648\u0645\u0627\u0646")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-          className: "results "
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-          className: "sorting flex"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-          className: "sort"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-          className: "flex"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "#"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-sort-amount-up-alt"
-        }), "\u0633\u0627\u0639\u062A \u067E\u0631\u0648\u0627\u0632")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "#"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-sort-amount-up-alt"
-        }), "\u0638\u0631\u0641\u06CC\u062A")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "#"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-sort-amount-down-alt"
-        }), "\u0642\u06CC\u0645\u062A")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "#"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-sort-amount-down-alt"
-        }), "\u0627\u0631\u0632\u0627\u0646\u062A\u0631\u06CC\u0646 \u0646\u0631\u062E \u0647\u0627\u06CC \u0628\u0644\u06CC\u0637 \u062F\u0631 \u0628\u0627\u0632\u0647 7 \u0631\u0648\u0632\u0647")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-          className: "date"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-          className: "flex"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "#"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-angle-right"
-        }), "\u0631\u0648\u0632 \u0642\u0628\u0644")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          className: "current-date"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "#"
-        }, moment_jalaali__WEBPACK_IMPORTED_MODULE_2___default()(localStorage.getItem('international_departureTime')).format('jYYYY/jMM/jDD'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "#"
-        }, "\u0631\u0648\u0632 \u0628\u0639\u062F", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-angle-left"
-        })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-          className: "tickets"
-        }, this.state.tickets.PricedItineraries.map(function (ticket, index) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TwoWayInternationalTicket__WEBPACK_IMPORTED_MODULE_3__["default"], {
-            index: index,
-            ticket: ticket
-          }); // return <TwoWayInternationalTicket index={index} AirItineraryPricingInfo={ticket.AirItineraryPricingInfo} OriginDestinationOptions={ticket.OriginDestinationOptions}/>
-        }))));
-      } //else
-
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "results "
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "sorting flex"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "sort"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "flex"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-sort-amount-up-alt"
+      }), "\u0633\u0627\u0639\u062A \u067E\u0631\u0648\u0627\u0632")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-sort-amount-up-alt"
+      }), "\u0638\u0631\u0641\u06CC\u062A")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-sort-amount-down-alt"
+      }), "\u0642\u06CC\u0645\u062A")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-sort-amount-down-alt"
+      }), "\u0627\u0631\u0632\u0627\u0646\u062A\u0631\u06CC\u0646 \u0646\u0631\u062E \u0647\u0627\u06CC \u0628\u0644\u06CC\u0637 \u062F\u0631 \u0628\u0627\u0632\u0647 7 \u0631\u0648\u0632\u0647")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "date"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "flex"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-angle-right"
+      }), "\u0631\u0648\u0632 \u0642\u0628\u0644")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "current-date"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, moment_jalaali__WEBPACK_IMPORTED_MODULE_2___default()(localStorage.getItem('international_departureTime')).format('jYYYY/jMM/jDD'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "\u0631\u0648\u0632 \u0628\u0639\u062F", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-angle-left"
+      })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "tickets"
+      }, this.props.tickets.map(function (ticket, index) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TwoWayInternationalTicket__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          index: index,
+          ticket: ticket
+        }); // return <TwoWayInternationalTicket index={index} AirItineraryPricingInfo={ticket.AirItineraryPricingInfo} OriginDestinationOptions={ticket.OriginDestinationOptions}/>
+      })));
     }
   }]);
 
-  return InternationalTicketResults;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+  return Results;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent);
 
-if (document.querySelector('#InternationalTicketResults')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(InternationalTicketResults, null), document.querySelector('#InternationalTicketResults'));
-} // export default InternationalTicketResults;
+/* harmony default export */ __webpack_exports__["default"] = (Results);
 
 /***/ }),
 
@@ -72180,6 +73102,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var moment_jalaali__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment-jalaali */ "./node_modules/moment-jalaali/index.js");
 /* harmony import */ var moment_jalaali__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment_jalaali__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Functions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Functions */ "./resources/js/components/Results/Functions.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -72199,6 +73122,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -72358,7 +73282,7 @@ function (_React$Component) {
           });
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "destination"
-        }, "Tehran ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, OrginDestination.FlightSegments[index] ? _this2.shamsiDate(OrginDestination.FlightSegments[index].DepartureDateTime) : '')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, Object(_Functions__WEBPACK_IMPORTED_MODULE_2__["airportName"])(localStorage.getItem('international_origin')), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, OrginDestination.FlightSegments[index] ? _this2.shamsiDate(OrginDestination.FlightSegments[index].DepartureDateTime) : '')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "path"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "path flex-between"
@@ -72368,7 +73292,7 @@ function (_React$Component) {
           className: "".concat(index % 2 == 0 ? 'circle' : 'fa fa-plane rotate-left', " ")
         }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, OrginDestination.FlightSegments[0].StopQuantity, "\u062A\u0648\u0642\u0641: ", _this2.OriginDestinationOptions.FlightSegments[0].ArrivalAirportLocationCode, ",", _this2.OriginDestinationOptions.FlightSegments[0].DepartureAirportLocationCode)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "destination"
-        }, "Vancouver ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, moment_jalaali__WEBPACK_IMPORTED_MODULE_1___default()(_this2.OriginDestinationOptions.FlightSegments[0].ArrivalDateTime).format('jYYYY/jM/jD HH:mm'))));
+        }, Object(_Functions__WEBPACK_IMPORTED_MODULE_2__["airportName"])(localStorage.getItem('international_destination')), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, moment_jalaali__WEBPACK_IMPORTED_MODULE_1___default()(_this2.OriginDestinationOptions.FlightSegments[0].ArrivalDateTime).format('jYYYY/jM/jD HH:mm'))));
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "ticket-choose"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.OriginDestinationOptions.FlightSegments[0].SeatsRemaining == null ? 0 : this.OriginDestinationOptions.FlightSegments[0].SeatsRemaining, "\u0635\u0646\u062F\u0644\u06CC \u0628\u0627\u0642\u06CC \u0645\u0627\u0646\u062F\u0647"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -72411,7 +73335,7 @@ function (_React$Component) {
             className: "detail-card"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "row"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, _this2.FormatMiladiDateHour(segment.DepartureDateTime)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, segment.DepartureAirportLocationCode, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, "(Imam Khomeini Intl)"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, _this2.FormatMiladiDateHour(segment.DepartureDateTime)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, segment.DepartureAirportLocationCode, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, " (", Object(_Functions__WEBPACK_IMPORTED_MODULE_2__["airportName"])(segment.DepartureAirportLocationCode), ")"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "row"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
             src: "img/airlines-logo/".concat(segment.MarketingAirlineCode, ".png"),
@@ -72420,9 +73344,9 @@ function (_React$Component) {
             className: "description"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, "\u0634\u0645\u0627\u0631\u0647 \u067E\u0631\u0648\u0627\u0632:", segment.FlightNumber, "/ \u0638\u0631\u0641\u06CC\u062A: ", segment.SeatsRemaining, "\u0646\u0641\u0631"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, "\u06A9\u0644\u0627\u0633:", _this2.checkCabinType(segment.CabinClassCode)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, "\u0637\u0648\u0644 \u067E\u0631\u0648\u0627\u0632:", segment.JourneyDuration), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, "\u0647\u0648\u0627\u067E\u06CC\u0645\u0627: Airbus Industrie A321"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "row"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, _this2.FormatMiladiDateHour(segment.ArrivalDateTime)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, segment.ArrivalAirportLocationCode, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, "(Istanbul Airport)")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, _this2.FormatMiladiDateHour(segment.ArrivalDateTime)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, segment.ArrivalAirportLocationCode, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, " (", Object(_Functions__WEBPACK_IMPORTED_MODULE_2__["airportName"])(segment.ArrivalAirportLocationCode), ")")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "stop-detail"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, "\u062C\u0627\u0628\u062C\u0627\u06CC\u06CC \u062F\u0631 Istanbul / \u0637\u0648\u0644 \u062A\u0648\u0642\u0641: 2H 15m")));
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, "\u062C\u0627\u0628\u062C\u0627\u06CC\u06CC \u062F\u0631 ", Object(_Functions__WEBPACK_IMPORTED_MODULE_2__["airportName"])(segment.ArrivalAirportLocationCode), " / \u0637\u0648\u0644 \u062A\u0648\u0642\u0641: 2H 15m")));
         }));
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "more-info flex-between",
@@ -72625,13 +73549,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -72643,10 +73569,51 @@ var InlineTicket =
 function (_React$Component) {
   _inherits(InlineTicket, _React$Component);
 
-  function InlineTicket() {
+  function InlineTicket(props) {
+    var _this;
+
     _classCallCheck(this, InlineTicket);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(InlineTicket).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(InlineTicket).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "showReturnDate", function () {
+      _this.setState({
+        toWay: true
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "submitForm", function (event) {
+      // alert(this.state.toWay)
+      event.preventDefault();
+      localStorage.setItem("inline_origin", $('#inline_origin').val()); //مسیر رفت
+
+      localStorage.setItem("inline_destination", $('#inline_destination').val()); //مسیر برگشت
+
+      localStorage.setItem("inline_departureTime", document.getElementById('inline_departureTime').value); //زمان رفت
+
+      localStorage.setItem("inline_returnTime", document.getElementById('inline_returnTime').value); //زمان برگشت
+
+      localStorage.setItem("inline_adult", document.getElementById('inline_adult').value); //زمان برگشت
+
+      localStorage.setItem("inline_child", document.getElementById('inline_child').value); //زمان برگشت
+
+      localStorage.setItem("inline_infant", document.getElementById('inline_infant').value); //زمان برگشت
+
+      localStorage.setItem("inline_IsRoundTrip", !_this.state.toWay); //آیا دو مسیره است یا نه؟ 
+
+      window.location.replace("/flights");
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "hideReturnDate", function () {
+      _this.setState({
+        toWay: false
+      });
+    });
+
+    _this.state = {
+      toWay: true
+    };
+    return _this;
   }
 
   _createClass(InlineTicket, [{
@@ -72662,21 +73629,25 @@ function (_React$Component) {
         className: "filters"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
-        value: "value1",
-        id: "group3",
-        name: "group3",
-        checked: true
+        value: "oneWay",
+        id: "inline-oneWay",
+        name: "inline-ticket",
+        onClick: this.showReturnDate,
+        checked: this.state.toWay
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "group1"
+        htmlFor: "inline-oneWay"
       }, "\u06CC\u06A9 \u0637\u0631\u0641\u0647"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
-        value: "value2",
-        id: "group4",
-        name: "group4"
+        value: "toWay",
+        id: "inline-toWay",
+        name: "inline-ticket",
+        onClick: this.hideReturnDate,
+        checked: !this.state.toWay
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "group2"
+        htmlFor: "inline-toWay"
       }, "\u0631\u0641\u062A \u0648 \u0628\u0631\u06AF\u0634\u062A")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "search"
+        className: "search",
+        onSubmit: this.submitForm
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "group margin-right"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_IranAirports__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -72698,14 +73669,23 @@ function (_React$Component) {
         name: "inline-destination"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "group margin-right"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        name: "departureTime",
+        prefix: "inline"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        name: "returnTime",
+        prefix: "inline",
+        disabled: this.state.toWay
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PassengerCount__WEBPACK_IMPORTED_MODULE_2__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PassengerCount__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        prefix: "inline"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "button",
+        type: "submit",
         className: "btn btn-zgreen",
         value: "\u062C\u0633\u062A\u062C\u0648"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -73097,6 +74077,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DateSelector__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../DateSelector */ "./resources/js/components/DateSelector.js");
 /* harmony import */ var _PassengerCount__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PassengerCount */ "./resources/js/components/SearchPanel/PassengerCount.js");
 /* harmony import */ var _InternationalAirlines__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./InternationalAirlines */ "./resources/js/components/SearchPanel/InternationalAirlines.js");
+/* harmony import */ var _Modules_MultiSelect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Modules/MultiSelect */ "./resources/js/Modules/MultiSelect.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -73116,6 +74097,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -73190,7 +74172,7 @@ function (_React$Component) {
         onClick: this.showReturnDate,
         checked: this.state.toWay
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "oneWay"
+        htmlFor: "oneWay"
       }, "\u06CC\u06A9 \u0637\u0631\u0641\u0647"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         value: "toWay",
@@ -73199,14 +74181,14 @@ function (_React$Component) {
         onClick: this.hideReturnDate,
         checked: !this.state.toWay
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "toWay"
+        htmlFor: "toWay"
       }, "\u0631\u0641\u062A \u0648 \u0628\u0631\u06AF\u0634\u062A"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         value: "value2",
         id: "group3",
         name: "outline-ticket"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        "for": "group3"
+        htmlFor: "group3"
       }, "\u0686\u0646\u062F \u0645\u0633\u06CC\u0631\u0647")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "search",
         onSubmit: this.submitForm
