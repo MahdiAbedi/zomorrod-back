@@ -10,11 +10,6 @@ class Filters extends React.PureComponent{
         this.props.checkCharter(charter);
     }
 
-
-    componentDidMount=()=>{
-        console.log('hello')
-        console.log(this.props.airlines)
-    }
     render(){
         return(
             <aside className="filters">
@@ -128,18 +123,15 @@ class Filters extends React.PureComponent{
                                 {/*<!-- شرکت هواپیما --> */}
                                 {this.props.airlines.map((item,index)=>{
                                    return   <div className="airline-filter flex-between">
-                                                <input type="checkbox" name="check1" id="pooya"/>
-                                                <label htmlFor="pooya" className="flex">
+                                                <input type="checkbox" name={`${item}`} id={`${item}`}/>
+                                                <label htmlFor={`${item}`} className="flex">
                                                     <img src={`img/airlines-logo/${item}.png`} alt=""/>
                                                     <p>{airlineName(item)}</p>
                                                     <p className="price"><span>..</span>.</p>
                                                 </label>
                                             </div>
                                 })}
-                                
-                                
-                                
-        
+
                             </div>
         
                         </section>

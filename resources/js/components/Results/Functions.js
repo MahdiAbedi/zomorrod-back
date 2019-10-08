@@ -1,3 +1,7 @@
+import moment from 'moment-jalaali';
+import fa from "moment/locale/fa";
+
+
 //نام ایرلاین ها بر اساس کد یاتا
 export function airlineName(code){
     
@@ -93,4 +97,73 @@ export function airportName(code){
         return airports[code];
     }
     return code;
+}
+
+
+  // نوع کابین Y - 1 - Economy S - 2 - Premium Economy C - 3 - Business J - 4 -
+  // Premium Business F - 5 - First P - 6 - Premium First Default - 100 - Default
+
+  export function checkCabinType(cabin){
+    let cabins = [];
+    cabins[1]='Economy-H';
+    cabins[2]='Premium Economy-S';
+    cabins[3]='Business-C';
+    cabins[4]='Premium Business-J';
+    cabins[5]='First-F';
+    cabins[6]='Premium First-P';
+    if(cabin in cabins){
+        return cabins[cabin];
+    }
+    return cabin;
+  }
+
+  export function formatCurrency(value) {
+    return value.toLocaleString();
+  }
+
+  export function formatInsideTagMoney(tagName) {
+    var divs = document.getElementsByName(tagName);
+    for (let index = 0; index < divs.length; index++) {
+      divs[index].innerText = formatCurrency(divs[i].innerText);
+
+    }
+  }
+
+  export function calcaulateTravelTime(time){
+    let hour = parseInt(time / 60);
+    let min = time % 60;
+    // this.travelTime="2 ساعت و 25 دقیقه";
+    return `${hour} ساعت و ${min} دقیقه`;
+  }
+
+  //تبدیل تاریخ میلادی به شمسی
+  export function shamsiDate(Date){
+    return moment(Date).format('jYYYY/jM/jD HH:mm')
+  }
+
+//فرمت بندی تاریخ میلادی
+export function FormatMiladiDate(requestedDate){
+    let OldDate = new Date(requestedDate);
+    let formatted_date = OldDate.getFullYear() + "/" + (OldDate.getMonth() + 1) + "/" + OldDate.getDate();
+    return formatted_date;
+}
+
+//فرمت بندی تاریخ میلادی بهمراه ساعت
+export function FormatMiladiDateHour(requestedDate){
+let OldDate = new Date(requestedDate);
+let formatted_date = OldDate.getFullYear() + "/" + (OldDate.getMonth() + 1) + "/" + OldDate.getDate() + " " + OldDate.getHours() + ":" + OldDate.getMinutes() + ":" + OldDate.getSeconds();
+
+return formatted_date;
+}
+
+//پیدا کردن مقادیر غیر تکراری آرایه ها
+export function onlyUnique(value, index, self){ 
+    return self.indexOf(value) === index;
+}
+
+//نمایش روز و ماه شمسی
+export function ShowDay(miladiDate){
+    moment.locale("fa", fa);
+    moment.loadPersian();
+    return moment(miladiDate).format(' Do jMMMM jYYYY');
 }

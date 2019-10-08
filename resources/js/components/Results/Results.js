@@ -41,11 +41,7 @@ class Results extends React.PureComponent{
                             
                     </section>
             </section>
-        
-        
-           );
-        
-        
+           );    
     }
 }
 

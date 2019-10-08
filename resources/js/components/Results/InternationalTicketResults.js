@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-
 import myTickets from './RoundTripTicket.json';
 import Filters from './Filters';
 import Results from './Results';
 import myTickets2 from './TicketResults.json';
 import axios from 'axios';
 import LoadingModal from './LoadingModal';
+import {onlyUnique} from './Functions'
 
 class InternationalTicketResults extends React.Component{
 
@@ -19,19 +18,13 @@ class InternationalTicketResults extends React.Component{
             airlines:[]
         };
     }
-    //پیدا کردن مقادیر غیر تکراری آرایه ها
-    onlyUnique=(value, index, self) => { 
-        return self.indexOf(value) === index;
-    }
+
 
     getAirlines = ()=>{
         //لیست ایرلاینها رو هم جدا میکنیم
         this.setState({airlines:this.state.tickets.map((airline)=>{
             return airline.OriginDestinationOptions[0].FlightSegments[0].MarketingAirlineCode
-        }).filter(this.onlyUnique)});
-        
-        console.log('parent')
-        console.log(this.state.airlines)
+        }).filter(onlyUnique)});
     }
 
     //دریافت بلیط از سرور
@@ -65,8 +58,6 @@ class InternationalTicketResults extends React.Component{
             })
 
             this.getAirlines()
-
-            // console.log(response.data)
 
         })
        .catch((error)=>{
@@ -106,9 +97,6 @@ class InternationalTicketResults extends React.Component{
             return (  
                 <section className="result-panel container">
                     {(this.state.airlines.length > 0) ? <Filters checkCharter={this.checkCharter} airlines={this.state.airlines} /> :null}                    
-                    
-                    {/* {console.log('for test')}
-                    {console.log(this.state.airlines)} */}
                     <Results tickets={this.state.tickets}/>
             </section>     
             );
