@@ -19,7 +19,7 @@ class TicketController extends Controller
 
      private $SessionId;
 
-    //ایجاد سشن به مدت 20 دقیقه قبل از هر درخواست
+    //########################### ایجاد سشن به مدت 20 دقیقه قبل از هر درخواست ############################
     public function makeSession(){
         $client = new Client();
 
@@ -38,7 +38,7 @@ class TicketController extends Controller
 
     }
     
-    
+    //############################### چک کردن بلیط پروازهای خارجی ######################################
     public function checkTicket(Request $request){
         
         // dd($request->all());
@@ -103,6 +103,75 @@ class TicketController extends Controller
         return $response->getBody()->getContents();
 
     }//international
+
+
+
+
+    //############################### چک کردن بلیط پروازهای خارجی ######################################
+    public function checkInlineTickets(Request $request){
+        
+        // dd($request->all());
+        $this->makeSession();
+        $client = new Client();
+        $OrginDestinationArray=[];
+        $AirTripType=1;
+
+        array_push($OrginDestinationArray,
+        array (
+          'DepartureDateTime'         => $request->input('DepartureDateTime'),
+          // 'DepartureDateTime'         => $request->input('DepartureDateTime'),
+          'DestinationLocationCode'   => $request->input('DestinationLocationCode'),
+          'DestinationType'           => 0,
+          'OriginLocationCode'        => $request->input('OriginLocationCode'),
+          'OriginType'                => 0,
+        ));
+
+
+        
+        //اگر رفت و برگشت بود اطلاعات مسیر برگشت
+        if($request->input('IsRoundTrip')=='true'){
+            $AirTripType=2;
+            array_push($OrginDestinationArray,
+                array (
+                'DepartureDateTime'         => '2019-10-23T14:10:00',
+                // 'DepartureDateTime'         => $request->input('DepartureDateTime'),
+                // 'DepartureDateTime'         => $request->input('DepartureDateTime'),
+                'DestinationLocationCode'   => $request->input('OriginLocationCode'),
+                'DestinationType'           => 0,
+                'OriginLocationCode'        => $request->input('DestinationLocationCode'),
+                'OriginType'                => 0,
+                ));
+        }
+
+        // dd($OrginDestinationArray);
+
+        $response = $client->post('https://apidemo.partocrs.com/Rest/Air/AirLowFareSearch', [
+            RequestOptions::JSON => array (
+                'PricingSourceType'     => 0,
+                'RequestOption'         => 2,
+                'SessionId'             => $this->SessionId,
+                'AdultCount'            => $request->input('AdultCount'),
+                'ChildCount'            => $request->input('ChildCount'),
+                'InfantCount'           => $request->input('InfantCount'),
+                'TravelPreference'      => 
+                array (
+                  'CabinType'           => 1,
+                  'MaxStopsQuantity'    => 0,
+                //   چند مسیره بودن مسیرها
+                  'AirTripType'         => $AirTripType,
+                  'VendorExcludeCodes'  => [],
+                  'VendorPreferenceCodes' => []
+                  
+                ),
+                'OriginDestinationInformations' => $OrginDestinationArray
+                
+              )
+        ]);
+
+        // dd($response->getBody()->getContents());
+        return $response->getBody()->getContents();
+
+    }//پرواز داخلی
 
 
 

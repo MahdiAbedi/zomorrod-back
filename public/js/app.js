@@ -71669,6 +71669,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SearchPanel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SearchPanel */ "./resources/js/SearchPanel.js");
 /* harmony import */ var _components_PassengersInfo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/PassengersInfo */ "./resources/js/components/PassengersInfo.js");
 /* harmony import */ var _components_Results_InternationalTicketResults__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Results/InternationalTicketResults */ "./resources/js/components/Results/InternationalTicketResults.js");
+/* harmony import */ var _components_Results_InternalTicketResults__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Results/InternalTicketResults */ "./resources/js/components/Results/InternalTicketResults.js");
+
 
 
 
@@ -72438,13 +72440,37 @@ function (_React$PureComponent) {
       _this.props.checkCharter(charter);
     });
 
+    _defineProperty(_assertThisInitialized(_this), "stopCount", function (count) {
+      _this.props.StopCount(count);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "chooseAirline", function (airlineCode) {
+      var airlines = [];
+      $("input:checkbox[class=airlineCode]:checked").each(function () {
+        airlines.push($(this).val());
+      });
+
+      _this.props.chooseAirline(airlines);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "chooseCabinType", function (CabinType) {
+      var CabinTypes = [];
+      $("input:checkbox[class=CabinType]:checked").each(function () {
+        CabinTypes.push($(this).val());
+      });
+
+      _this.props.chooseCabinType(CabinTypes);
+    });
+
     return _this;
-  }
+  } //############## چک کردن چارتر بودن یا نبودن پرواز ##########################
+
 
   _createClass(Filters, [{
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this2 = this,
+          _React$createElement;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
         className: "filters"
@@ -72497,8 +72523,8 @@ function (_React$PureComponent) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "panel-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "checkbox",
-        name: "check1",
+        type: "radio",
+        name: "charter",
         id: "systemi",
         onClick: function onClick() {
           return _this2.checkCharter(false);
@@ -72508,8 +72534,8 @@ function (_React$PureComponent) {
       }, "\u0633\u06CC\u0633\u062A\u0645\u06CC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "checkbox-spanner selected"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "checkbox",
-        name: "check1",
+        type: "radio",
+        name: "charter",
         id: "charter",
         onClick: function onClick() {
           return _this2.checkCharter(true);
@@ -72531,20 +72557,28 @@ function (_React$PureComponent) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         name: "check1",
-        id: "radio1"
+        id: "radio1",
+        onClick: function onClick() {
+          return _this2.stopCount(0);
+        }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "radio1"
       }, "\u0645\u0633\u062A\u0642\u06CC\u0645")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         name: "check1",
         id: "radio2",
-        checked: true
+        onClick: function onClick() {
+          return _this2.stopCount(1);
+        }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "radio2"
       }, "\u06CC\u06A9 \u062A\u0648\u0642\u0641")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         name: "check1",
-        id: "radio3"
+        id: "radio3",
+        onClick: function onClick() {
+          return _this2.stopCount(2);
+        }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "radio3"
       }, "\u062F\u0648 \u062A\u0648\u0642\u0641 \u0648 \u0628\u06CC\u0634\u062A\u0631")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
@@ -72559,20 +72593,79 @@ function (_React$PureComponent) {
         className: "panel-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "checkbox",
-        name: "check1",
+        className: "CabinType",
+        name: "Economy",
         id: "Economy",
-        checked: true
+        value: "1",
+        onClick: function onClick() {
+          return _this2.chooseCabinType();
+        }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "Economy"
       }, "Economy"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "checkbox-spanner selected"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "checkbox",
-        name: "check1",
-        id: "Bussiness"
+        className: "CabinType",
+        name: "Premium Economy",
+        id: "Premium Economy",
+        value: "2",
+        onClick: function onClick() {
+          return _this2.chooseCabinType();
+        }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "Bussiness"
-      }, "Bussiness"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        htmlFor: "Premium Economy"
+      }, "Premium Economy"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "checkbox-spanner"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        className: "CabinType",
+        id: "Business",
+        name: "Business",
+        value: "3",
+        onClick: function onClick() {
+          return _this2.chooseCabinType();
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "Business"
+      }, "Business"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "checkbox-spanner selected"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        className: "CabinType",
+        id: "Premium Business",
+        name: "Premium Business",
+        value: "4",
+        onClick: function onClick() {
+          return _this2.chooseCabinType();
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "Premium Business"
+      }, "Premium Business"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "checkbox-spanner "
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", (_React$createElement = {
+        type: "checkbox",
+        className: "CabinType",
+        id: "First",
+        value: "First"
+      }, _defineProperty(_React$createElement, "value", "5"), _defineProperty(_React$createElement, "onClick", function onClick() {
+        return _this2.chooseCabinType();
+      }), _React$createElement)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "First"
+      }, "First"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "checkbox-spanner selected"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        className: "CabinType",
+        id: "Premium First",
+        name: "Premium First",
+        value: "6",
+        onClick: function onClick() {
+          return _this2.chooseCabinType();
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "Premium First"
+      }, "Premium First"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "checkbox-spanner"
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "panel"
@@ -72586,11 +72679,16 @@ function (_React$PureComponent) {
         className: "panel-body"
       }, this.props.airlines.map(function (item, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "airline-filter flex-between"
+          className: "airline-filter flex-between",
+          key: index
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "airlineCode",
           type: "checkbox",
-          name: "".concat(item),
-          id: "".concat(item)
+          value: "".concat(item),
+          id: "".concat(item),
+          onClick: function onClick() {
+            _this2.chooseAirline();
+          }
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "".concat(item),
           className: "flex"
@@ -72668,8 +72766,22 @@ function airlineName(code) {
   airlines['QR'] = 'Qatar Airways';
   airlines['TK'] = 'Turkish Airlines';
   airlines['VY'] = 'Vueling Airlines';
-  airlines['W5'] = 'Mahan Air';
-  airlines['WY'] = 'Oman Air';
+  airlines['WY'] = 'Oman Air'; //ایرلاینهای داخلی
+
+  airlines['W5'] = 'ماهان';
+  airlines['IV'] = 'کاسپین';
+  airlines['B9'] = 'ایرتور';
+  airlines['EP'] = 'آسمان';
+  airlines['JI'] = 'معراج';
+  airlines['I3'] = 'آتا';
+  airlines['ZV'] = 'زاگرس';
+  airlines['IR'] = 'ایران ایر';
+  airlines['HH'] = 'تابان';
+  airlines['AK'] = 'اترک';
+  airlines['QB'] = 'قشم ایر';
+  airlines['VR'] = 'وارش';
+  airlines['NV'] = 'کارون';
+  airlines['Y9'] = 'کیش ایر';
 
   if (code in airlines) {
     return airlines[code];
@@ -72789,6 +72901,227 @@ function ShowDay(miladiDate) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Results/InternalTicketResults.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/Results/InternalTicketResults.js ***!
+  \******************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _inlineOnWayTicket_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./inlineOnWayTicket.json */ "./resources/js/components/Results/inlineOnWayTicket.json");
+var _inlineOnWayTicket_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./inlineOnWayTicket.json */ "./resources/js/components/Results/inlineOnWayTicket.json", 1);
+/* harmony import */ var _Filters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Filters */ "./resources/js/components/Results/Filters.js");
+/* harmony import */ var _Results__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Results */ "./resources/js/components/Results/Results.js");
+/* harmony import */ var _TicketResults_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./TicketResults.json */ "./resources/js/components/Results/TicketResults.json");
+var _TicketResults_json__WEBPACK_IMPORTED_MODULE_5___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./TicketResults.json */ "./resources/js/components/Results/TicketResults.json", 1);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _LoadingModal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./LoadingModal */ "./resources/js/components/Results/LoadingModal.js");
+/* harmony import */ var _Functions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Functions */ "./resources/js/components/Results/Functions.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+
+var InternalTicketResults =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(InternalTicketResults, _React$Component);
+
+  function InternalTicketResults(props) {
+    var _this;
+
+    _classCallCheck(this, InternalTicketResults);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(InternalTicketResults).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "getAirlines", function () {
+      //لیست ایرلاینها رو هم جدا میکنیم
+      _this.setState({
+        airlines: _this.state.tickets.map(function (airline) {
+          return airline.OriginDestinationOptions[0].FlightSegments[0].MarketingAirlineCode;
+        }).filter(_Functions__WEBPACK_IMPORTED_MODULE_8__["onlyUnique"])
+      }); // لیست بلیط ها رو برای فیلتر کردن تو یک متغییر دیگه نگه میدارم
+
+
+      _this.setState({
+        tempTickets: _toConsumableArray(_this.state.tickets)
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getTickets", function () {
+      axios__WEBPACK_IMPORTED_MODULE_6___default.a.post('/checkTicket1', {
+        // PricingSourceType    :localStorage.getItem(''),
+        // RequestOption        :localStorage.getItem(''),
+        AdultCount: localStorage.getItem('international_adult'),
+        ChildCount: localStorage.getItem('international_child'),
+        InfantCount: localStorage.getItem('international_infant'),
+        // CabinType            :localStorage.getItem(''),
+        // MaxStopsQuantity     :localStorage.getItem(''),
+        // AirTripType          :localStorage.getItem(''),
+        DepartureDateTime: localStorage.getItem('international_departureTime'),
+        DestinationLocationCode: localStorage.getItem('international_destination'),
+        // DestinationType      :localStorage.getItem(''),
+        OriginLocationCode: localStorage.getItem('international_origin'),
+        // OriginType           :localStorage.getItem(''),
+        IsRoundTrip: localStorage.getItem('international_IsRoundTrip'),
+        ReturnTime: localStorage.getItem('international_returnTime')
+      }).then(function (response) {
+        // let myTickets=response.data;
+        // this.setState({tickets:myTickets.PricedItineraries})
+        _this.setState({
+          tickets: _inlineOnWayTicket_json__WEBPACK_IMPORTED_MODULE_2__.PricedItineraries,
+          isLoading: false
+        });
+
+        _this.getAirlines();
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "checkCharter", function (charter) {
+      _this.setState({
+        tickets: _this.state.tempTickets.filter(function (ticket) {
+          return ticket.OriginDestinationOptions[0].FlightSegments[0].IsCharter == charter ? ticket : null;
+        })
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "StopCount", function (count) {
+      _this.setState({
+        tickets: _this.state.tempTickets.filter(function (ticket) {
+          return ticket.OriginDestinationOptions[0].FlightSegments[0].StopQuantity == count ? ticket : null;
+        })
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "chooseAirline", function (airlines) {
+      if (airlines.length == 0) {
+        _this.setState({
+          tickets: _this.state.tempTickets
+        });
+      } else {
+        _this.setState({
+          tickets: _this.state.tempTickets.filter(function (ticket) {
+            return airlines.includes(ticket.OriginDestinationOptions[0].FlightSegments[0].MarketingAirlineCode);
+          })
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "chooseCabinType", function (cabinCodes) {
+      if (cabinCodes.length == 0) {
+        _this.setState({
+          tickets: _this.state.tempTickets
+        });
+      } else {
+        _this.setState({
+          tickets: _this.state.tempTickets.filter(function (ticket) {
+            return cabinCodes.includes(String(ticket.OriginDestinationOptions[0].FlightSegments[0].CabinClassCode));
+          })
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "render", function () {
+      var msg = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoadingModal__WEBPACK_IMPORTED_MODULE_7__["default"], null);
+      var error = "\u062C\u0633\u062A\u062C\u0648\u06CC \u0634\u0645\u0627 \u0646\u062A\u06CC\u062C\u0647 \u0627\u06CC \u062F\u0631 \u0628\u0631 \u0646\u062F\u0627\u0634\u062A.";
+
+      if (_this.state.tickets.length == 0) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+          className: "result-panel container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Filters__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          checkCharter: _this.checkCharter,
+          airlines: _this.state.airlines,
+          StopCount: _this.StopCount,
+          chooseAirline: _this.chooseAirline,
+          chooseCabinType: _this.chooseCabinType
+        }), _this.state.isLoading ? msg : error);
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+          className: "result-panel container"
+        }, _this.state.airlines.length > 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Filters__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          checkCharter: _this.checkCharter,
+          airlines: _this.state.airlines,
+          StopCount: _this.StopCount,
+          chooseAirline: _this.chooseAirline,
+          chooseCabinType: _this.chooseCabinType
+        }) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Results__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          tickets: _this.state.tickets
+        }));
+      } //else
+
+    });
+
+    _this.state = {
+      tickets: [],
+      isLoading: true,
+      airlines: [],
+      tempTickets: []
+    };
+    return _this;
+  } //###################################### بدست آوردن لیست ایرلاین ها برای بخش فیلتر #################
+
+
+  _createClass(InternalTicketResults, [{
+    key: "componentDidMount",
+    //######################## Component Did Mount ######################################################
+    value: function componentDidMount() {
+      this.getTickets();
+    } //###################### فیلتر بر پایه چارتر بودن یا نبودن پرواز ##################################
+
+  }]);
+
+  return InternalTicketResults;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); //end of class
+
+
+if (document.querySelector('#InternalTicketResults')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(InternalTicketResults, null), document.querySelector('#InternalTicketResults'));
+} // export default InternationalTicketResults;
+
+/***/ }),
+
 /***/ "./resources/js/components/Results/InternationalTicketResults.js":
 /*!***********************************************************************!*\
   !*** ./resources/js/components/Results/InternationalTicketResults.js ***!
@@ -72813,6 +73146,14 @@ var _TicketResults_json__WEBPACK_IMPORTED_MODULE_5___namespace = /*#__PURE__*/__
 /* harmony import */ var _LoadingModal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./LoadingModal */ "./resources/js/components/Results/LoadingModal.js");
 /* harmony import */ var _Functions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Functions */ "./resources/js/components/Results/Functions.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -72860,6 +73201,11 @@ function (_React$Component) {
         airlines: _this.state.tickets.map(function (airline) {
           return airline.OriginDestinationOptions[0].FlightSegments[0].MarketingAirlineCode;
         }).filter(_Functions__WEBPACK_IMPORTED_MODULE_8__["onlyUnique"])
+      }); // لیست بلیط ها رو برای فیلتر کردن تو یک متغییر دیگه نگه میدارم
+
+
+      _this.setState({
+        tempTickets: _toConsumableArray(_this.state.tickets)
       });
     });
 
@@ -72895,9 +73241,47 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "checkCharter", function (charter) {
-      _this.state.tickets.filter(function (ticket) {
-        return ticket.OriginDestinationOptions[0].FlightSegments[0].IsCharter == charter ? ticket : null;
+      _this.setState({
+        tickets: _this.state.tempTickets.filter(function (ticket) {
+          return ticket.OriginDestinationOptions[0].FlightSegments[0].IsCharter == charter ? ticket : null;
+        })
       });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "StopCount", function (count) {
+      _this.setState({
+        tickets: _this.state.tempTickets.filter(function (ticket) {
+          return ticket.OriginDestinationOptions[0].FlightSegments[0].StopQuantity == count ? ticket : null;
+        })
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "chooseAirline", function (airlines) {
+      if (airlines.length == 0) {
+        _this.setState({
+          tickets: _this.state.tempTickets
+        });
+      } else {
+        _this.setState({
+          tickets: _this.state.tempTickets.filter(function (ticket) {
+            return airlines.includes(ticket.OriginDestinationOptions[0].FlightSegments[0].MarketingAirlineCode);
+          })
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "chooseCabinType", function (cabinCodes) {
+      if (cabinCodes.length == 0) {
+        _this.setState({
+          tickets: _this.state.tempTickets
+        });
+      } else {
+        _this.setState({
+          tickets: _this.state.tempTickets.filter(function (ticket) {
+            return cabinCodes.includes(String(ticket.OriginDestinationOptions[0].FlightSegments[0].CabinClassCode));
+          })
+        });
+      }
     });
 
     _defineProperty(_assertThisInitialized(_this), "render", function () {
@@ -72907,13 +73291,22 @@ function (_React$Component) {
       if (_this.state.tickets.length == 0) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
           className: "result-panel container"
-        }, _this.state.isLoading ? msg : error);
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Filters__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          checkCharter: _this.checkCharter,
+          airlines: _this.state.airlines,
+          StopCount: _this.StopCount,
+          chooseAirline: _this.chooseAirline,
+          chooseCabinType: _this.chooseCabinType
+        }), _this.state.isLoading ? msg : error);
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
           className: "result-panel container"
         }, _this.state.airlines.length > 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Filters__WEBPACK_IMPORTED_MODULE_3__["default"], {
           checkCharter: _this.checkCharter,
-          airlines: _this.state.airlines
+          airlines: _this.state.airlines,
+          StopCount: _this.StopCount,
+          chooseAirline: _this.chooseAirline,
+          chooseCabinType: _this.chooseCabinType
         }) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Results__WEBPACK_IMPORTED_MODULE_4__["default"], {
           tickets: _this.state.tickets
         }));
@@ -72924,20 +73317,25 @@ function (_React$Component) {
     _this.state = {
       tickets: [],
       isLoading: true,
-      airlines: []
+      airlines: [],
+      tempTickets: []
     };
     return _this;
-  }
+  } //###################################### بدست آوردن لیست ایرلاین ها برای بخش فیلتر #################
+
 
   _createClass(InternationalTicketResults, [{
     key: "componentDidMount",
+    //######################## Component Did Mount ######################################################
     value: function componentDidMount() {
       this.getTickets();
-    }
+    } //###################### فیلتر بر پایه چارتر بودن یا نبودن پرواز ##################################
+
   }]);
 
   return InternationalTicketResults;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); //end of class
+
 
 if (document.querySelector('#InternationalTicketResults')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(InternationalTicketResults, null), document.querySelector('#InternationalTicketResults'));
@@ -72959,6 +73357,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment_jalaali__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment-jalaali */ "./node_modules/moment-jalaali/index.js");
 /* harmony import */ var moment_jalaali__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment_jalaali__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Functions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Functions */ "./resources/js/components/Results/Functions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -72968,16 +73368,15 @@ function Leg(_ref) {
       index = _ref.index;
   // console.log(OrginDestination.FlightSegments)
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "first-leg leg flex-between",
-    key: index
+    className: "first-leg leg flex-between"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "logoes "
   }, OrginDestination.FlightSegments.map(function (segment, index) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", _defineProperty({
       src: "img/airlines-logo/".concat(segment.MarketingAirlineCode, ".png"),
       key: index,
       alt: "".concat(segment.MarketingAirlineCode, " Airline")
-    });
+    }, "key", index));
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "destination"
   }, Object(_Functions__WEBPACK_IMPORTED_MODULE_2__["airportName"])(localStorage.getItem('international_origin')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, moment_jalaali__WEBPACK_IMPORTED_MODULE_1___default()(OrginDestination.FlightSegments[0].DepartureDateTime).format('jYYYY/jM/jD HH:mm'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -73223,6 +73622,7 @@ function (_React$PureComponent) {
         className: "tickets"
       }, this.props.tickets.map(function (ticket, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TwoWayInternationalTicket__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          key: index,
           index: index,
           ticket: ticket
         }); // return <TwoWayInternationalTicket index={index} AirItineraryPricingInfo={ticket.AirItineraryPricingInfo} OriginDestinationOptions={ticket.OriginDestinationOptions}/>
@@ -73244,7 +73644,7 @@ function (_React$PureComponent) {
 /*! exports provided: Success, Error, PricedItineraries, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"Success\":true,\"Error\":null,\"PricedItineraries\":[{\"IsPassportMandatory\":false,\"IsPassportIssueDateMandatory\":false,\"DirectionInd\":2,\"RefundMethod\":0,\"ValidatingAirlineCode\":\"W5\",\"FareSourceCode\":\"6566326431346339643432323438643261643635386539303138386463383463263130343726323935343933\",\"AirItineraryPricingInfo\":{\"FareType\":4,\"ItinTotalFare\":{\"BaseFare\":29971080,\"TotalFare\":30398760,\"TotalCommission\":0,\"TotalTax\":0,\"ServiceTax\":427680,\"Currency\":\"IRR\"},\"PtcFareBreakdown\":[{\"PassengerFare\":{\"BaseFare\":29971080,\"TotalFare\":30398760,\"Commission\":0,\"ServiceTax\":427680,\"Taxes\":[{\"Amount\":0,\"Currency\":\"IRR\"}],\"Currency\":\"IRR\"},\"PassengerTypeQuantity\":{\"PassengerType\":1,\"Quantity\":1}}],\"FareInfoes\":[]},\"OriginDestinationOptions\":[{\"JourneyDurationPerMinute\":120,\"ConnectionTimePerMinute\":0,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-09T17:00:00\",\"ArrivalDateTime\":\"2019-10-09T19:30:00\",\"StopQuantity\":0,\"FlightNumber\":\"065\",\"ResBookDesigCode\":\"Economy\",\"JourneyDuration\":\"02:00\",\"JourneyDurationPerMinute\":120,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"IKA\",\"ArrivalAirportLocationCode\":\"DXB\",\"MarketingAirlineCode\":\"W5\",\"CabinClassCode\":3,\"OperatingAirline\":{\"Code\":\"W5\",\"FlightNumber\":\"065\",\"Equipment\":\"\"},\"SeatsRemaining\":null,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":null,\"TechnicalStops\":[]}]},{\"JourneyDurationPerMinute\":120,\"ConnectionTimePerMinute\":0,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-13T21:00:00\",\"ArrivalDateTime\":\"2019-10-13T22:30:00\",\"StopQuantity\":0,\"FlightNumber\":\"064\",\"ResBookDesigCode\":\"Economy\",\"JourneyDuration\":\"02:00\",\"JourneyDurationPerMinute\":120,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"DXB\",\"ArrivalAirportLocationCode\":\"IKA\",\"MarketingAirlineCode\":\"W5\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"W5\",\"FlightNumber\":\"064\",\"Equipment\":\"\"},\"SeatsRemaining\":null,\"IsCharter\":false,\"IsReturn\":true,\"Baggage\":null,\"TechnicalStops\":[]}]}]},{\"IsPassportMandatory\":false,\"IsPassportIssueDateMandatory\":false,\"DirectionInd\":2,\"RefundMethod\":0,\"ValidatingAirlineCode\":\"W5\",\"FareSourceCode\":\"6234656631343831623434623466323062626635373237306635653739323031263130343726323935343933\",\"AirItineraryPricingInfo\":{\"FareType\":4,\"ItinTotalFare\":{\"BaseFare\":41600280,\"TotalFare\":42202200,\"TotalCommission\":0,\"TotalTax\":0,\"ServiceTax\":601920,\"Currency\":\"IRR\"},\"PtcFareBreakdown\":[{\"PassengerFare\":{\"BaseFare\":41600280,\"TotalFare\":42202200,\"Commission\":0,\"ServiceTax\":601920,\"Taxes\":[{\"Amount\":0,\"Currency\":\"IRR\"}],\"Currency\":\"IRR\"},\"PassengerTypeQuantity\":{\"PassengerType\":1,\"Quantity\":1}}],\"FareInfoes\":[]},\"OriginDestinationOptions\":[{\"JourneyDurationPerMinute\":120,\"ConnectionTimePerMinute\":0,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-09T07:00:00\",\"ArrivalDateTime\":\"2019-10-09T09:30:00\",\"StopQuantity\":0,\"FlightNumber\":\"061\",\"ResBookDesigCode\":\"Economy\",\"JourneyDuration\":\"02:00\",\"JourneyDurationPerMinute\":120,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"IKA\",\"ArrivalAirportLocationCode\":\"DXB\",\"MarketingAirlineCode\":\"W5\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"W5\",\"FlightNumber\":\"061\",\"Equipment\":\"\"},\"SeatsRemaining\":null,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":null,\"TechnicalStops\":[]}]},{\"JourneyDurationPerMinute\":120,\"ConnectionTimePerMinute\":0,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-13T21:00:00\",\"ArrivalDateTime\":\"2019-10-13T22:30:00\",\"StopQuantity\":0,\"FlightNumber\":\"064\",\"ResBookDesigCode\":\"Economy\",\"JourneyDuration\":\"02:00\",\"JourneyDurationPerMinute\":120,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"DXB\",\"ArrivalAirportLocationCode\":\"IKA\",\"MarketingAirlineCode\":\"W5\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"W5\",\"FlightNumber\":\"064\",\"Equipment\":\"\"},\"SeatsRemaining\":null,\"IsCharter\":false,\"IsReturn\":true,\"Baggage\":null,\"TechnicalStops\":[]}]}]},{\"IsPassportMandatory\":true,\"IsPassportIssueDateMandatory\":false,\"DirectionInd\":2,\"RefundMethod\":0,\"ValidatingAirlineCode\":\"J2\",\"FareSourceCode\":\"3930663438633862636165633433623439353031313339396132303366376365263230373326323935343933\",\"AirItineraryPricingInfo\":{\"FareType\":2,\"ItinTotalFare\":{\"BaseFare\":33120000,\"TotalFare\":43380000,\"TotalCommission\":0,\"TotalTax\":10260000,\"ServiceTax\":0,\"Currency\":\"IRR\"},\"PtcFareBreakdown\":[{\"PassengerFare\":{\"BaseFare\":33120000,\"TotalFare\":43380000,\"Commission\":0,\"ServiceTax\":0,\"Taxes\":[{\"Amount\":10260000,\"Currency\":\"IRR\"}],\"Currency\":\"IRR\"},\"PassengerTypeQuantity\":{\"PassengerType\":1,\"Quantity\":1}}],\"FareInfoes\":[]},\"OriginDestinationOptions\":[{\"JourneyDurationPerMinute\":260,\"ConnectionTimePerMinute\":340,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-09T01:25:00\",\"ArrivalDateTime\":\"2019-10-09T03:20:00\",\"StopQuantity\":0,\"FlightNumber\":\"9006\",\"ResBookDesigCode\":\"X\",\"JourneyDuration\":\"01:25\",\"JourneyDurationPerMinute\":85,\"ConnectionTimePerMinute\":340,\"DepartureAirportLocationCode\":\"IKA\",\"ArrivalAirportLocationCode\":\"GYD\",\"MarketingAirlineCode\":\"J2\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"J2\",\"FlightNumber\":\"9006\",\"Equipment\":\"E90\"},\"SeatsRemaining\":5,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":\"1 pieces\",\"TechnicalStops\":[]},{\"DepartureDateTime\":\"2019-10-09T09:00:00\",\"ArrivalDateTime\":\"2019-10-09T11:55:00\",\"StopQuantity\":0,\"FlightNumber\":\"9\",\"ResBookDesigCode\":\"X\",\"JourneyDuration\":\"02:55\",\"JourneyDurationPerMinute\":175,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"GYD\",\"ArrivalAirportLocationCode\":\"DXB\",\"MarketingAirlineCode\":\"J2\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"J2\",\"FlightNumber\":\"9\",\"Equipment\":\"345\"},\"SeatsRemaining\":9,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":\"1 pieces\",\"TechnicalStops\":[]}]},{\"JourneyDurationPerMinute\":265,\"ConnectionTimePerMinute\":440,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-13T13:10:00\",\"ArrivalDateTime\":\"2019-10-13T16:10:00\",\"StopQuantity\":0,\"FlightNumber\":\"12\",\"ResBookDesigCode\":\"X\",\"JourneyDuration\":\"03:00\",\"JourneyDurationPerMinute\":180,\"ConnectionTimePerMinute\":440,\"DepartureAirportLocationCode\":\"DXB\",\"ArrivalAirportLocationCode\":\"GYD\",\"MarketingAirlineCode\":\"J2\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"J2\",\"FlightNumber\":\"12\",\"Equipment\":\"345\"},\"SeatsRemaining\":9,\"IsCharter\":false,\"IsReturn\":true,\"Baggage\":\"1 pieces\",\"TechnicalStops\":[]},{\"DepartureDateTime\":\"2019-10-13T23:30:00\",\"ArrivalDateTime\":\"2019-10-14T00:25:00\",\"StopQuantity\":0,\"FlightNumber\":\"9005\",\"ResBookDesigCode\":\"X\",\"JourneyDuration\":\"01:25\",\"JourneyDurationPerMinute\":85,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"GYD\",\"ArrivalAirportLocationCode\":\"IKA\",\"MarketingAirlineCode\":\"J2\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"J2\",\"FlightNumber\":\"9005\",\"Equipment\":\"E90\"},\"SeatsRemaining\":5,\"IsCharter\":false,\"IsReturn\":true,\"Baggage\":\"1 pieces\",\"TechnicalStops\":[]}]}]},{\"IsPassportMandatory\":true,\"IsPassportIssueDateMandatory\":false,\"DirectionInd\":2,\"RefundMethod\":0,\"ValidatingAirlineCode\":\"J2\",\"FareSourceCode\":\"3933663334303333623137333464363539353762363030643737356161623035263230373326323935343933\",\"AirItineraryPricingInfo\":{\"FareType\":2,\"ItinTotalFare\":{\"BaseFare\":33120000,\"TotalFare\":43380000,\"TotalCommission\":0,\"TotalTax\":10260000,\"ServiceTax\":0,\"Currency\":\"IRR\"},\"PtcFareBreakdown\":[{\"PassengerFare\":{\"BaseFare\":33120000,\"TotalFare\":43380000,\"Commission\":0,\"ServiceTax\":0,\"Taxes\":[{\"Amount\":10260000,\"Currency\":\"IRR\"}],\"Currency\":\"IRR\"},\"PassengerTypeQuantity\":{\"PassengerType\":1,\"Quantity\":1}}],\"FareInfoes\":[]},\"OriginDestinationOptions\":[{\"JourneyDurationPerMinute\":260,\"ConnectionTimePerMinute\":340,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-09T01:25:00\",\"ArrivalDateTime\":\"2019-10-09T03:20:00\",\"StopQuantity\":0,\"FlightNumber\":\"9006\",\"ResBookDesigCode\":\"X\",\"JourneyDuration\":\"01:25\",\"JourneyDurationPerMinute\":85,\"ConnectionTimePerMinute\":340,\"DepartureAirportLocationCode\":\"IKA\",\"ArrivalAirportLocationCode\":\"GYD\",\"MarketingAirlineCode\":\"J2\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"J2\",\"FlightNumber\":\"9006\",\"Equipment\":\"E90\"},\"SeatsRemaining\":5,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":\"1 pieces\",\"TechnicalStops\":[]},{\"DepartureDateTime\":\"2019-10-09T09:00:00\",\"ArrivalDateTime\":\"2019-10-09T11:55:00\",\"StopQuantity\":0,\"FlightNumber\":\"11\",\"ResBookDesigCode\":\"X\",\"JourneyDuration\":\"02:55\",\"JourneyDurationPerMinute\":175,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"GYD\",\"ArrivalAirportLocationCode\":\"DXB\",\"MarketingAirlineCode\":\"J2\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"J2\",\"FlightNumber\":\"11\",\"Equipment\":\"345\"},\"SeatsRemaining\":9,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":\"1 pieces\",\"TechnicalStops\":[]}]},{\"JourneyDurationPerMinute\":265,\"ConnectionTimePerMinute\":440,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-13T13:10:00\",\"ArrivalDateTime\":\"2019-10-13T16:10:00\",\"StopQuantity\":0,\"FlightNumber\":\"12\",\"ResBookDesigCode\":\"X\",\"JourneyDuration\":\"03:00\",\"JourneyDurationPerMinute\":180,\"ConnectionTimePerMinute\":440,\"DepartureAirportLocationCode\":\"DXB\",\"ArrivalAirportLocationCode\":\"GYD\",\"MarketingAirlineCode\":\"J2\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"J2\",\"FlightNumber\":\"12\",\"Equipment\":\"345\"},\"SeatsRemaining\":9,\"IsCharter\":false,\"IsReturn\":true,\"Baggage\":\"1 pieces\",\"TechnicalStops\":[]},{\"DepartureDateTime\":\"2019-10-13T23:30:00\",\"ArrivalDateTime\":\"2019-10-14T00:25:00\",\"StopQuantity\":0,\"FlightNumber\":\"9005\",\"ResBookDesigCode\":\"X\",\"JourneyDuration\":\"01:25\",\"JourneyDurationPerMinute\":85,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"GYD\",\"ArrivalAirportLocationCode\":\"IKA\",\"MarketingAirlineCode\":\"J2\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"J2\",\"FlightNumber\":\"9005\",\"Equipment\":\"E90\"},\"SeatsRemaining\":5,\"IsCharter\":false,\"IsReturn\":true,\"Baggage\":\"1 pieces\",\"TechnicalStops\":[]}]}]},{\"IsPassportMandatory\":true,\"IsPassportIssueDateMandatory\":false,\"DirectionInd\":2,\"RefundMethod\":0,\"ValidatingAirlineCode\":\"TK\",\"FareSourceCode\":\"6563356663393164383861633464646662616164383138366664643133393936263230373326323935343933\",\"AirItineraryPricingInfo\":{\"FareType\":2,\"ItinTotalFare\":{\"BaseFare\":69123600,\"TotalFare\":111423600,\"TotalCommission\":0,\"TotalTax\":42300000,\"ServiceTax\":0,\"Currency\":\"IRR\"},\"PtcFareBreakdown\":[{\"PassengerFare\":{\"BaseFare\":69123600,\"TotalFare\":111423600,\"Commission\":0,\"ServiceTax\":0,\"Taxes\":[{\"Amount\":42300000,\"Currency\":\"IRR\"}],\"Currency\":\"IRR\"},\"PassengerTypeQuantity\":{\"PassengerType\":1,\"Quantity\":1}}],\"FareInfoes\":[]},\"OriginDestinationOptions\":[{\"JourneyDurationPerMinute\":475,\"ConnectionTimePerMinute\":935,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-09T02:00:00\",\"ArrivalDateTime\":\"2019-10-09T04:55:00\",\"StopQuantity\":0,\"FlightNumber\":\"875\",\"ResBookDesigCode\":\"A\",\"JourneyDuration\":\"03:25\",\"JourneyDurationPerMinute\":205,\"ConnectionTimePerMinute\":935,\"DepartureAirportLocationCode\":\"IKA\",\"ArrivalAirportLocationCode\":\"IST\",\"MarketingAirlineCode\":\"TK\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"TK\",\"FlightNumber\":\"875\",\"Equipment\":\"321\"},\"SeatsRemaining\":9,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":\"30K\",\"TechnicalStops\":[]},{\"DepartureDateTime\":\"2019-10-09T20:30:00\",\"ArrivalDateTime\":\"2019-10-10T02:00:00\",\"StopQuantity\":0,\"FlightNumber\":\"758\",\"ResBookDesigCode\":\"A\",\"JourneyDuration\":\"04:30\",\"JourneyDurationPerMinute\":270,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"SAW\",\"ArrivalAirportLocationCode\":\"DXB\",\"MarketingAirlineCode\":\"TK\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"TK\",\"FlightNumber\":\"758\",\"Equipment\":\"73H\"},\"SeatsRemaining\":9,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":\"30K\",\"TechnicalStops\":[]}]},{\"JourneyDurationPerMinute\":470,\"ConnectionTimePerMinute\":1370,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-13T07:15:00\",\"ArrivalDateTime\":\"2019-10-13T11:00:00\",\"StopQuantity\":0,\"FlightNumber\":\"763\",\"ResBookDesigCode\":\"V\",\"JourneyDuration\":\"04:45\",\"JourneyDurationPerMinute\":285,\"ConnectionTimePerMinute\":1370,\"DepartureAirportLocationCode\":\"DXB\",\"ArrivalAirportLocationCode\":\"IST\",\"MarketingAirlineCode\":\"TK\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"TK\",\"FlightNumber\":\"763\",\"Equipment\":\"77W\"},\"SeatsRemaining\":9,\"IsCharter\":false,\"IsReturn\":true,\"Baggage\":\"30K\",\"TechnicalStops\":[]},{\"DepartureDateTime\":\"2019-10-14T09:50:00\",\"ArrivalDateTime\":\"2019-10-14T13:25:00\",\"StopQuantity\":0,\"FlightNumber\":\"870\",\"ResBookDesigCode\":\"V\",\"JourneyDuration\":\"03:05\",\"JourneyDurationPerMinute\":185,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"IST\",\"ArrivalAirportLocationCode\":\"IKA\",\"MarketingAirlineCode\":\"TK\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"TK\",\"FlightNumber\":\"870\",\"Equipment\":\"32B\"},\"SeatsRemaining\":9,\"IsCharter\":false,\"IsReturn\":true,\"Baggage\":\"30K\",\"TechnicalStops\":[]}]}]}]}");
+module.exports = JSON.parse("{\"Success\":true,\"Error\":null,\"PricedItineraries\":[{\"IsPassportMandatory\":false,\"IsPassportIssueDateMandatory\":false,\"DirectionInd\":2,\"RefundMethod\":0,\"ValidatingAirlineCode\":\"W5\",\"FareSourceCode\":\"6566326431346339643432323438643261643635386539303138386463383463263130343726323935343933\",\"AirItineraryPricingInfo\":{\"FareType\":4,\"ItinTotalFare\":{\"BaseFare\":29971080,\"TotalFare\":30398760,\"TotalCommission\":0,\"TotalTax\":0,\"ServiceTax\":427680,\"Currency\":\"IRR\"},\"PtcFareBreakdown\":[{\"PassengerFare\":{\"BaseFare\":29971080,\"TotalFare\":30398760,\"Commission\":0,\"ServiceTax\":427680,\"Taxes\":[{\"Amount\":0,\"Currency\":\"IRR\"}],\"Currency\":\"IRR\"},\"PassengerTypeQuantity\":{\"PassengerType\":1,\"Quantity\":1}}],\"FareInfoes\":[]},\"OriginDestinationOptions\":[{\"JourneyDurationPerMinute\":120,\"ConnectionTimePerMinute\":0,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-09T17:00:00\",\"ArrivalDateTime\":\"2019-10-09T19:30:00\",\"StopQuantity\":0,\"FlightNumber\":\"065\",\"ResBookDesigCode\":\"Economy\",\"JourneyDuration\":\"02:00\",\"JourneyDurationPerMinute\":120,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"IKA\",\"ArrivalAirportLocationCode\":\"DXB\",\"MarketingAirlineCode\":\"W5\",\"CabinClassCode\":3,\"OperatingAirline\":{\"Code\":\"W5\",\"FlightNumber\":\"065\",\"Equipment\":\"\"},\"SeatsRemaining\":null,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":null,\"TechnicalStops\":[]}]},{\"JourneyDurationPerMinute\":120,\"ConnectionTimePerMinute\":0,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-13T21:00:00\",\"ArrivalDateTime\":\"2019-10-13T22:30:00\",\"StopQuantity\":0,\"FlightNumber\":\"064\",\"ResBookDesigCode\":\"Economy\",\"JourneyDuration\":\"02:00\",\"JourneyDurationPerMinute\":120,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"DXB\",\"ArrivalAirportLocationCode\":\"IKA\",\"MarketingAirlineCode\":\"W5\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"W5\",\"FlightNumber\":\"064\",\"Equipment\":\"\"},\"SeatsRemaining\":null,\"IsCharter\":false,\"IsReturn\":true,\"Baggage\":null,\"TechnicalStops\":[]}]}]},{\"IsPassportMandatory\":false,\"IsPassportIssueDateMandatory\":false,\"DirectionInd\":2,\"RefundMethod\":0,\"ValidatingAirlineCode\":\"W5\",\"FareSourceCode\":\"6234656631343831623434623466323062626635373237306635653739323031263130343726323935343933\",\"AirItineraryPricingInfo\":{\"FareType\":4,\"ItinTotalFare\":{\"BaseFare\":41600280,\"TotalFare\":42202200,\"TotalCommission\":0,\"TotalTax\":0,\"ServiceTax\":601920,\"Currency\":\"IRR\"},\"PtcFareBreakdown\":[{\"PassengerFare\":{\"BaseFare\":41600280,\"TotalFare\":42202200,\"Commission\":0,\"ServiceTax\":601920,\"Taxes\":[{\"Amount\":0,\"Currency\":\"IRR\"}],\"Currency\":\"IRR\"},\"PassengerTypeQuantity\":{\"PassengerType\":1,\"Quantity\":1}}],\"FareInfoes\":[]},\"OriginDestinationOptions\":[{\"JourneyDurationPerMinute\":120,\"ConnectionTimePerMinute\":0,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-09T07:00:00\",\"ArrivalDateTime\":\"2019-10-09T09:30:00\",\"StopQuantity\":0,\"FlightNumber\":\"061\",\"ResBookDesigCode\":\"Economy\",\"JourneyDuration\":\"02:00\",\"JourneyDurationPerMinute\":120,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"IKA\",\"ArrivalAirportLocationCode\":\"DXB\",\"MarketingAirlineCode\":\"W5\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"W5\",\"FlightNumber\":\"061\",\"Equipment\":\"\"},\"SeatsRemaining\":null,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":null,\"TechnicalStops\":[]}]},{\"JourneyDurationPerMinute\":120,\"ConnectionTimePerMinute\":0,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-13T21:00:00\",\"ArrivalDateTime\":\"2019-10-13T22:30:00\",\"StopQuantity\":0,\"FlightNumber\":\"064\",\"ResBookDesigCode\":\"Economy\",\"JourneyDuration\":\"02:00\",\"JourneyDurationPerMinute\":120,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"DXB\",\"ArrivalAirportLocationCode\":\"IKA\",\"MarketingAirlineCode\":\"W5\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"W5\",\"FlightNumber\":\"064\",\"Equipment\":\"\"},\"SeatsRemaining\":null,\"IsCharter\":false,\"IsReturn\":true,\"Baggage\":null,\"TechnicalStops\":[]}]}]},{\"IsPassportMandatory\":true,\"IsPassportIssueDateMandatory\":false,\"DirectionInd\":2,\"RefundMethod\":0,\"ValidatingAirlineCode\":\"J2\",\"FareSourceCode\":\"3930663438633862636165633433623439353031313339396132303366376365263230373326323935343933\",\"AirItineraryPricingInfo\":{\"FareType\":2,\"ItinTotalFare\":{\"BaseFare\":33120000,\"TotalFare\":43380000,\"TotalCommission\":0,\"TotalTax\":10260000,\"ServiceTax\":0,\"Currency\":\"IRR\"},\"PtcFareBreakdown\":[{\"PassengerFare\":{\"BaseFare\":33120000,\"TotalFare\":43380000,\"Commission\":0,\"ServiceTax\":0,\"Taxes\":[{\"Amount\":10260000,\"Currency\":\"IRR\"}],\"Currency\":\"IRR\"},\"PassengerTypeQuantity\":{\"PassengerType\":1,\"Quantity\":1}}],\"FareInfoes\":[]},\"OriginDestinationOptions\":[{\"JourneyDurationPerMinute\":260,\"ConnectionTimePerMinute\":340,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-09T01:25:00\",\"ArrivalDateTime\":\"2019-10-09T03:20:00\",\"StopQuantity\":0,\"FlightNumber\":\"9006\",\"ResBookDesigCode\":\"X\",\"JourneyDuration\":\"01:25\",\"JourneyDurationPerMinute\":85,\"ConnectionTimePerMinute\":340,\"DepartureAirportLocationCode\":\"IKA\",\"ArrivalAirportLocationCode\":\"GYD\",\"MarketingAirlineCode\":\"J2\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"J2\",\"FlightNumber\":\"9006\",\"Equipment\":\"E90\"},\"SeatsRemaining\":5,\"IsCharter\":true,\"IsReturn\":false,\"Baggage\":\"1 pieces\",\"TechnicalStops\":[]},{\"DepartureDateTime\":\"2019-10-09T09:00:00\",\"ArrivalDateTime\":\"2019-10-09T11:55:00\",\"StopQuantity\":0,\"FlightNumber\":\"9\",\"ResBookDesigCode\":\"X\",\"JourneyDuration\":\"02:55\",\"JourneyDurationPerMinute\":175,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"GYD\",\"ArrivalAirportLocationCode\":\"DXB\",\"MarketingAirlineCode\":\"J2\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"J2\",\"FlightNumber\":\"9\",\"Equipment\":\"345\"},\"SeatsRemaining\":9,\"IsCharter\":true,\"IsReturn\":false,\"Baggage\":\"1 pieces\",\"TechnicalStops\":[]}]},{\"JourneyDurationPerMinute\":265,\"ConnectionTimePerMinute\":440,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-13T13:10:00\",\"ArrivalDateTime\":\"2019-10-13T16:10:00\",\"StopQuantity\":0,\"FlightNumber\":\"12\",\"ResBookDesigCode\":\"X\",\"JourneyDuration\":\"03:00\",\"JourneyDurationPerMinute\":180,\"ConnectionTimePerMinute\":440,\"DepartureAirportLocationCode\":\"DXB\",\"ArrivalAirportLocationCode\":\"GYD\",\"MarketingAirlineCode\":\"J2\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"J2\",\"FlightNumber\":\"12\",\"Equipment\":\"345\"},\"SeatsRemaining\":9,\"IsCharter\":false,\"IsReturn\":true,\"Baggage\":\"1 pieces\",\"TechnicalStops\":[]},{\"DepartureDateTime\":\"2019-10-13T23:30:00\",\"ArrivalDateTime\":\"2019-10-14T00:25:00\",\"StopQuantity\":0,\"FlightNumber\":\"9005\",\"ResBookDesigCode\":\"X\",\"JourneyDuration\":\"01:25\",\"JourneyDurationPerMinute\":85,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"GYD\",\"ArrivalAirportLocationCode\":\"IKA\",\"MarketingAirlineCode\":\"J2\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"J2\",\"FlightNumber\":\"9005\",\"Equipment\":\"E90\"},\"SeatsRemaining\":5,\"IsCharter\":false,\"IsReturn\":true,\"Baggage\":\"1 pieces\",\"TechnicalStops\":[]}]}]},{\"IsPassportMandatory\":true,\"IsPassportIssueDateMandatory\":false,\"DirectionInd\":2,\"RefundMethod\":0,\"ValidatingAirlineCode\":\"J2\",\"FareSourceCode\":\"3933663334303333623137333464363539353762363030643737356161623035263230373326323935343933\",\"AirItineraryPricingInfo\":{\"FareType\":2,\"ItinTotalFare\":{\"BaseFare\":33120000,\"TotalFare\":43380000,\"TotalCommission\":0,\"TotalTax\":10260000,\"ServiceTax\":0,\"Currency\":\"IRR\"},\"PtcFareBreakdown\":[{\"PassengerFare\":{\"BaseFare\":33120000,\"TotalFare\":43380000,\"Commission\":0,\"ServiceTax\":0,\"Taxes\":[{\"Amount\":10260000,\"Currency\":\"IRR\"}],\"Currency\":\"IRR\"},\"PassengerTypeQuantity\":{\"PassengerType\":1,\"Quantity\":1}}],\"FareInfoes\":[]},\"OriginDestinationOptions\":[{\"JourneyDurationPerMinute\":260,\"ConnectionTimePerMinute\":340,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-09T01:25:00\",\"ArrivalDateTime\":\"2019-10-09T03:20:00\",\"StopQuantity\":0,\"FlightNumber\":\"9006\",\"ResBookDesigCode\":\"X\",\"JourneyDuration\":\"01:25\",\"JourneyDurationPerMinute\":85,\"ConnectionTimePerMinute\":340,\"DepartureAirportLocationCode\":\"IKA\",\"ArrivalAirportLocationCode\":\"GYD\",\"MarketingAirlineCode\":\"J2\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"J2\",\"FlightNumber\":\"9006\",\"Equipment\":\"E90\"},\"SeatsRemaining\":5,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":\"1 pieces\",\"TechnicalStops\":[]},{\"DepartureDateTime\":\"2019-10-09T09:00:00\",\"ArrivalDateTime\":\"2019-10-09T11:55:00\",\"StopQuantity\":0,\"FlightNumber\":\"11\",\"ResBookDesigCode\":\"X\",\"JourneyDuration\":\"02:55\",\"JourneyDurationPerMinute\":175,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"GYD\",\"ArrivalAirportLocationCode\":\"DXB\",\"MarketingAirlineCode\":\"J2\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"J2\",\"FlightNumber\":\"11\",\"Equipment\":\"345\"},\"SeatsRemaining\":9,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":\"1 pieces\",\"TechnicalStops\":[]}]},{\"JourneyDurationPerMinute\":265,\"ConnectionTimePerMinute\":440,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-13T13:10:00\",\"ArrivalDateTime\":\"2019-10-13T16:10:00\",\"StopQuantity\":0,\"FlightNumber\":\"12\",\"ResBookDesigCode\":\"X\",\"JourneyDuration\":\"03:00\",\"JourneyDurationPerMinute\":180,\"ConnectionTimePerMinute\":440,\"DepartureAirportLocationCode\":\"DXB\",\"ArrivalAirportLocationCode\":\"GYD\",\"MarketingAirlineCode\":\"J2\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"J2\",\"FlightNumber\":\"12\",\"Equipment\":\"345\"},\"SeatsRemaining\":9,\"IsCharter\":false,\"IsReturn\":true,\"Baggage\":\"1 pieces\",\"TechnicalStops\":[]},{\"DepartureDateTime\":\"2019-10-13T23:30:00\",\"ArrivalDateTime\":\"2019-10-14T00:25:00\",\"StopQuantity\":0,\"FlightNumber\":\"9005\",\"ResBookDesigCode\":\"X\",\"JourneyDuration\":\"01:25\",\"JourneyDurationPerMinute\":85,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"GYD\",\"ArrivalAirportLocationCode\":\"IKA\",\"MarketingAirlineCode\":\"J2\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"J2\",\"FlightNumber\":\"9005\",\"Equipment\":\"E90\"},\"SeatsRemaining\":5,\"IsCharter\":false,\"IsReturn\":true,\"Baggage\":\"1 pieces\",\"TechnicalStops\":[]}]}]},{\"IsPassportMandatory\":true,\"IsPassportIssueDateMandatory\":false,\"DirectionInd\":2,\"RefundMethod\":0,\"ValidatingAirlineCode\":\"TK\",\"FareSourceCode\":\"6563356663393164383861633464646662616164383138366664643133393936263230373326323935343933\",\"AirItineraryPricingInfo\":{\"FareType\":2,\"ItinTotalFare\":{\"BaseFare\":69123600,\"TotalFare\":111423600,\"TotalCommission\":0,\"TotalTax\":42300000,\"ServiceTax\":0,\"Currency\":\"IRR\"},\"PtcFareBreakdown\":[{\"PassengerFare\":{\"BaseFare\":69123600,\"TotalFare\":111423600,\"Commission\":0,\"ServiceTax\":0,\"Taxes\":[{\"Amount\":42300000,\"Currency\":\"IRR\"}],\"Currency\":\"IRR\"},\"PassengerTypeQuantity\":{\"PassengerType\":1,\"Quantity\":1}}],\"FareInfoes\":[]},\"OriginDestinationOptions\":[{\"JourneyDurationPerMinute\":475,\"ConnectionTimePerMinute\":935,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-09T02:00:00\",\"ArrivalDateTime\":\"2019-10-09T04:55:00\",\"StopQuantity\":0,\"FlightNumber\":\"875\",\"ResBookDesigCode\":\"A\",\"JourneyDuration\":\"03:25\",\"JourneyDurationPerMinute\":205,\"ConnectionTimePerMinute\":935,\"DepartureAirportLocationCode\":\"IKA\",\"ArrivalAirportLocationCode\":\"IST\",\"MarketingAirlineCode\":\"TK\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"TK\",\"FlightNumber\":\"875\",\"Equipment\":\"321\"},\"SeatsRemaining\":9,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":\"30K\",\"TechnicalStops\":[]},{\"DepartureDateTime\":\"2019-10-09T20:30:00\",\"ArrivalDateTime\":\"2019-10-10T02:00:00\",\"StopQuantity\":0,\"FlightNumber\":\"758\",\"ResBookDesigCode\":\"A\",\"JourneyDuration\":\"04:30\",\"JourneyDurationPerMinute\":270,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"SAW\",\"ArrivalAirportLocationCode\":\"DXB\",\"MarketingAirlineCode\":\"TK\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"TK\",\"FlightNumber\":\"758\",\"Equipment\":\"73H\"},\"SeatsRemaining\":9,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":\"30K\",\"TechnicalStops\":[]}]},{\"JourneyDurationPerMinute\":470,\"ConnectionTimePerMinute\":1370,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-13T07:15:00\",\"ArrivalDateTime\":\"2019-10-13T11:00:00\",\"StopQuantity\":0,\"FlightNumber\":\"763\",\"ResBookDesigCode\":\"V\",\"JourneyDuration\":\"04:45\",\"JourneyDurationPerMinute\":285,\"ConnectionTimePerMinute\":1370,\"DepartureAirportLocationCode\":\"DXB\",\"ArrivalAirportLocationCode\":\"IST\",\"MarketingAirlineCode\":\"TK\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"TK\",\"FlightNumber\":\"763\",\"Equipment\":\"77W\"},\"SeatsRemaining\":9,\"IsCharter\":false,\"IsReturn\":true,\"Baggage\":\"30K\",\"TechnicalStops\":[]},{\"DepartureDateTime\":\"2019-10-14T09:50:00\",\"ArrivalDateTime\":\"2019-10-14T13:25:00\",\"StopQuantity\":0,\"FlightNumber\":\"870\",\"ResBookDesigCode\":\"V\",\"JourneyDuration\":\"03:05\",\"JourneyDurationPerMinute\":185,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"IST\",\"ArrivalAirportLocationCode\":\"IKA\",\"MarketingAirlineCode\":\"TK\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"TK\",\"FlightNumber\":\"870\",\"Equipment\":\"32B\"},\"SeatsRemaining\":9,\"IsCharter\":false,\"IsReturn\":true,\"Baggage\":\"30K\",\"TechnicalStops\":[]}]}]}]}");
 
 /***/ }),
 
@@ -73361,7 +73761,8 @@ function (_React$Component) {
       }, this.props.ticket.OriginDestinationOptions.map(function (OrginDestination, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Leg__WEBPACK_IMPORTED_MODULE_3__["default"], {
           OrginDestination: OrginDestination,
-          index: index
+          index: index,
+          key: index
         });
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "ticket-choose"
@@ -73404,6 +73805,17 @@ function (_React$Component) {
 
 
 /* harmony default export */ __webpack_exports__["default"] = (TwoWayInternationalTicket);
+
+/***/ }),
+
+/***/ "./resources/js/components/Results/inlineOnWayTicket.json":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/Results/inlineOnWayTicket.json ***!
+  \****************************************************************/
+/*! exports provided: Success, Error, PricedItineraries, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"Success\":true,\"Error\":null,\"PricedItineraries\":[{\"IsPassportMandatory\":true,\"IsPassportIssueDateMandatory\":false,\"DirectionInd\":1,\"RefundMethod\":2,\"ValidatingAirlineCode\":\"IR\",\"FareSourceCode\":\"3865396261663738326331653433663139353831383332613337356662663831263230373026323938373332\",\"AirItineraryPricingInfo\":{\"FareType\":4,\"ItinTotalFare\":{\"BaseFare\":4978000,\"TotalFare\":4978000,\"TotalCommission\":0,\"TotalTax\":0,\"ServiceTax\":0,\"Currency\":\"IRR\"},\"PtcFareBreakdown\":[{\"PassengerFare\":{\"BaseFare\":4978000,\"TotalFare\":4978000,\"Commission\":0,\"ServiceTax\":0,\"Taxes\":[{\"Amount\":0,\"Currency\":\"IRR\"}],\"Currency\":\"IRR\"},\"PassengerTypeQuantity\":{\"PassengerType\":1,\"Quantity\":1}}],\"FareInfoes\":[]},\"OriginDestinationOptions\":[{\"JourneyDurationPerMinute\":85,\"ConnectionTimePerMinute\":0,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-15T05:40:00\",\"ArrivalDateTime\":\"2019-10-15T07:05:00\",\"StopQuantity\":0,\"FlightNumber\":\"3310\",\"ResBookDesigCode\":\"Y\",\"JourneyDuration\":\"01:25\",\"JourneyDurationPerMinute\":85,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"THR\",\"ArrivalAirportLocationCode\":\"IFN\",\"MarketingAirlineCode\":\"IR\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"IR\",\"FlightNumber\":\"3310\",\"Equipment\":\"ATR 72\"},\"SeatsRemaining\":5,\"IsCharter\":true,\"IsReturn\":false,\"Baggage\":null,\"TechnicalStops\":[]}]}]},{\"IsPassportMandatory\":true,\"IsPassportIssueDateMandatory\":false,\"DirectionInd\":1,\"RefundMethod\":1,\"ValidatingAirlineCode\":\"IR\",\"FareSourceCode\":\"6438636131303432396132613436303161653463643166383664646266623337263230373026323938373332\",\"AirItineraryPricingInfo\":{\"FareType\":2,\"ItinTotalFare\":{\"BaseFare\":4978000,\"TotalFare\":4978000,\"TotalCommission\":0,\"TotalTax\":0,\"ServiceTax\":0,\"Currency\":\"IRR\"},\"PtcFareBreakdown\":[{\"PassengerFare\":{\"BaseFare\":4978000,\"TotalFare\":4978000,\"Commission\":0,\"ServiceTax\":0,\"Taxes\":[{\"Amount\":0,\"Currency\":\"IRR\"}],\"Currency\":\"IRR\"},\"PassengerTypeQuantity\":{\"PassengerType\":1,\"Quantity\":1}}],\"FareInfoes\":[]},\"OriginDestinationOptions\":[{\"JourneyDurationPerMinute\":85,\"ConnectionTimePerMinute\":0,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-15T05:40:00\",\"ArrivalDateTime\":\"2019-10-15T07:05:00\",\"StopQuantity\":0,\"FlightNumber\":\"3310\",\"ResBookDesigCode\":\"Y \",\"JourneyDuration\":\"01:25\",\"JourneyDurationPerMinute\":85,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"THR\",\"ArrivalAirportLocationCode\":\"IFN\",\"MarketingAirlineCode\":\"IR\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"IR\",\"FlightNumber\":\"3310\",\"Equipment\":\"ATR 72\"},\"SeatsRemaining\":9,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":null,\"TechnicalStops\":[]}]}]},{\"IsPassportMandatory\":false,\"IsPassportIssueDateMandatory\":false,\"DirectionInd\":1,\"RefundMethod\":0,\"ValidatingAirlineCode\":\"W5\",\"FareSourceCode\":\"3534633433633032343761373463336462613263303436383332643339663236263130343726323938373332\",\"AirItineraryPricingInfo\":{\"FareType\":4,\"ItinTotalFare\":{\"BaseFare\":6650640,\"TotalFare\":6728520,\"TotalCommission\":0,\"TotalTax\":0,\"ServiceTax\":77880,\"Currency\":\"IRR\"},\"PtcFareBreakdown\":[{\"PassengerFare\":{\"BaseFare\":6650640,\"TotalFare\":6728520,\"Commission\":0,\"ServiceTax\":77880,\"Taxes\":[{\"Amount\":0,\"Currency\":\"IRR\"}],\"Currency\":\"IRR\"},\"PassengerTypeQuantity\":{\"PassengerType\":1,\"Quantity\":1}}],\"FareInfoes\":[]},\"OriginDestinationOptions\":[{\"JourneyDurationPerMinute\":70,\"ConnectionTimePerMinute\":0,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-15T22:10:00\",\"ArrivalDateTime\":\"2019-10-15T23:20:00\",\"StopQuantity\":0,\"FlightNumber\":\"4531\",\"ResBookDesigCode\":\"Economy\",\"JourneyDuration\":\"01:10\",\"JourneyDurationPerMinute\":70,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"THR\",\"ArrivalAirportLocationCode\":\"IFN\",\"MarketingAirlineCode\":\"W5\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"W5\",\"FlightNumber\":\"4531\",\"Equipment\":\"\"},\"SeatsRemaining\":null,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":null,\"TechnicalStops\":[]}]}]},{\"IsPassportMandatory\":false,\"IsPassportIssueDateMandatory\":false,\"DirectionInd\":1,\"RefundMethod\":0,\"ValidatingAirlineCode\":\"W5\",\"FareSourceCode\":\"6138656533323035616136313430636562663730383631333230346232623939263130343726323938373332\",\"AirItineraryPricingInfo\":{\"FareType\":4,\"ItinTotalFare\":{\"BaseFare\":8103960,\"TotalFare\":8202960,\"TotalCommission\":0,\"TotalTax\":0,\"ServiceTax\":99000,\"Currency\":\"IRR\"},\"PtcFareBreakdown\":[{\"PassengerFare\":{\"BaseFare\":8103960,\"TotalFare\":8202960,\"Commission\":0,\"ServiceTax\":99000,\"Taxes\":[{\"Amount\":0,\"Currency\":\"IRR\"}],\"Currency\":\"IRR\"},\"PassengerTypeQuantity\":{\"PassengerType\":1,\"Quantity\":1}}],\"FareInfoes\":[]},\"OriginDestinationOptions\":[{\"JourneyDurationPerMinute\":65,\"ConnectionTimePerMinute\":0,\"FlightSegments\":[{\"DepartureDateTime\":\"2019-10-15T07:35:00\",\"ArrivalDateTime\":\"2019-10-15T08:40:00\",\"StopQuantity\":0,\"FlightNumber\":\"4533\",\"ResBookDesigCode\":\"Economy\",\"JourneyDuration\":\"01:05\",\"JourneyDurationPerMinute\":65,\"ConnectionTimePerMinute\":0,\"DepartureAirportLocationCode\":\"THR\",\"ArrivalAirportLocationCode\":\"IFN\",\"MarketingAirlineCode\":\"W5\",\"CabinClassCode\":1,\"OperatingAirline\":{\"Code\":\"W5\",\"FlightNumber\":\"4533\",\"Equipment\":\"\"},\"SeatsRemaining\":null,\"IsCharter\":false,\"IsReturn\":false,\"Baggage\":null,\"TechnicalStops\":[]}]}]}]}");
 
 /***/ }),
 

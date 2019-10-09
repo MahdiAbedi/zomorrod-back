@@ -1,7 +1,5 @@
 import moment from 'moment-jalaali';
 import fa from "moment/locale/fa";
-
-
 //نام ایرلاین ها بر اساس کد یاتا
 export function airlineName(code){
     
@@ -34,8 +32,23 @@ export function airlineName(code){
     airlines['QR']='Qatar Airways';
     airlines['TK']='Turkish Airlines';
     airlines['VY']='Vueling Airlines';
-    airlines['W5']='Mahan Air';
     airlines['WY']='Oman Air';
+    
+    //ایرلاینهای داخلی
+    airlines['W5']='ماهان';
+    airlines['IV']='کاسپین';
+    airlines['B9']='ایرتور';
+    airlines['EP']='آسمان';
+    airlines['JI']='معراج';
+    airlines['I3']='آتا';
+    airlines['ZV']='زاگرس';
+    airlines['IR']='ایران ایر';
+    airlines['HH']='تابان';
+    airlines['AK']='اترک';
+    airlines['QB']='قشم ایر';
+    airlines['VR']='وارش';
+    airlines['NV']='کارون';
+    airlines['Y9']='کیش ایر';
 
     if(code in airlines){
         return airlines[code];

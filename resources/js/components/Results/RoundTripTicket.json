@@ -245,7 +245,7 @@
                     "Equipment": "E90"
                 },
                 "SeatsRemaining": 5,
-                "IsCharter": false,
+                "IsCharter": true,
                 "IsReturn": false,
                 "Baggage": "1 pieces",
                 "TechnicalStops": []
@@ -268,7 +268,7 @@
                     "Equipment": "345"
                 },
                 "SeatsRemaining": 9,
-                "IsCharter": false,
+                "IsCharter": true,
                 "IsReturn": false,
                 "Baggage": "1 pieces",
                 "TechnicalStops": []

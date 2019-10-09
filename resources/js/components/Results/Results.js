@@ -34,7 +34,7 @@ class Results extends React.PureComponent{
                     <section className="tickets">
             
                     {this.props.tickets.map((ticket,index)=>{
-                            return <TwoWayInternationalTicket index={index} ticket={ticket}/>
+                            return <TwoWayInternationalTicket key={index} index={index} ticket={ticket}/>
                             // return <TwoWayInternationalTicket index={index} AirItineraryPricingInfo={ticket.AirItineraryPricingInfo} OriginDestinationOptions={ticket.OriginDestinationOptions}/>
                         })}
                         {/*<!-- یک تیکت تک --> */}

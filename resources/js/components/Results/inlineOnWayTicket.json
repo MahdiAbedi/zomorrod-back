@@ -1,0 +1,261 @@
+{
+    "Success": true,
+    "Error": null,
+    "PricedItineraries": [{
+        "IsPassportMandatory": true,
+        "IsPassportIssueDateMandatory": false,
+        "DirectionInd": 1,
+        "RefundMethod": 2,
+        "ValidatingAirlineCode": "IR",
+        "FareSourceCode": "3865396261663738326331653433663139353831383332613337356662663831263230373026323938373332",
+        "AirItineraryPricingInfo": {
+            "FareType": 4,
+            "ItinTotalFare": {
+                "BaseFare": 4978000.00,
+                "TotalFare": 4978000.00,
+                "TotalCommission": 0.0,
+                "TotalTax": 0.0,
+                "ServiceTax": 0.00,
+                "Currency": "IRR"
+            },
+            "PtcFareBreakdown": [{
+                "PassengerFare": {
+                    "BaseFare": 4978000.00,
+                    "TotalFare": 4978000.00,
+                    "Commission": 0.0,
+                    "ServiceTax": 0.00,
+                    "Taxes": [{
+                        "Amount": 0.0,
+                        "Currency": "IRR"
+                    }],
+                    "Currency": "IRR"
+                },
+                "PassengerTypeQuantity": {
+                    "PassengerType": 1,
+                    "Quantity": 1
+                }
+            }],
+            "FareInfoes": []
+        },
+        "OriginDestinationOptions": [{
+            "JourneyDurationPerMinute": 85,
+            "ConnectionTimePerMinute": 0,
+            "FlightSegments": [{
+                "DepartureDateTime": "2019-10-15T05:40:00",
+                "ArrivalDateTime": "2019-10-15T07:05:00",
+                "StopQuantity": 0,
+                "FlightNumber": "3310",
+                "ResBookDesigCode": "Y",
+                "JourneyDuration": "01:25",
+                "JourneyDurationPerMinute": 85,
+                "ConnectionTimePerMinute": 0,
+                "DepartureAirportLocationCode": "THR",
+                "ArrivalAirportLocationCode": "IFN",
+                "MarketingAirlineCode": "IR",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "IR",
+                    "FlightNumber": "3310",
+                    "Equipment": "ATR 72"
+                },
+                "SeatsRemaining": 5,
+                "IsCharter": true,
+                "IsReturn": false,
+                "Baggage": null,
+                "TechnicalStops": []
+            }]
+        }]
+    }, {
+        "IsPassportMandatory": true,
+        "IsPassportIssueDateMandatory": false,
+        "DirectionInd": 1,
+        "RefundMethod": 1,
+        "ValidatingAirlineCode": "IR",
+        "FareSourceCode": "6438636131303432396132613436303161653463643166383664646266623337263230373026323938373332",
+        "AirItineraryPricingInfo": {
+            "FareType": 2,
+            "ItinTotalFare": {
+                "BaseFare": 4978000.00,
+                "TotalFare": 4978000.00,
+                "TotalCommission": 0.0,
+                "TotalTax": 0.0,
+                "ServiceTax": 0.00,
+                "Currency": "IRR"
+            },
+            "PtcFareBreakdown": [{
+                "PassengerFare": {
+                    "BaseFare": 4978000.00,
+                    "TotalFare": 4978000.00,
+                    "Commission": 0.0,
+                    "ServiceTax": 0.00,
+                    "Taxes": [{
+                        "Amount": 0.0,
+                        "Currency": "IRR"
+                    }],
+                    "Currency": "IRR"
+                },
+                "PassengerTypeQuantity": {
+                    "PassengerType": 1,
+                    "Quantity": 1
+                }
+            }],
+            "FareInfoes": []
+        },
+        "OriginDestinationOptions": [{
+            "JourneyDurationPerMinute": 85,
+            "ConnectionTimePerMinute": 0,
+            "FlightSegments": [{
+                "DepartureDateTime": "2019-10-15T05:40:00",
+                "ArrivalDateTime": "2019-10-15T07:05:00",
+                "StopQuantity": 0,
+                "FlightNumber": "3310",
+                "ResBookDesigCode": "Y ",
+                "JourneyDuration": "01:25",
+                "JourneyDurationPerMinute": 85,
+                "ConnectionTimePerMinute": 0,
+                "DepartureAirportLocationCode": "THR",
+                "ArrivalAirportLocationCode": "IFN",
+                "MarketingAirlineCode": "IR",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "IR",
+                    "FlightNumber": "3310",
+                    "Equipment": "ATR 72"
+                },
+                "SeatsRemaining": 9,
+                "IsCharter": false,
+                "IsReturn": false,
+                "Baggage": null,
+                "TechnicalStops": []
+            }]
+        }]
+    }, {
+        "IsPassportMandatory": false,
+        "IsPassportIssueDateMandatory": false,
+        "DirectionInd": 1,
+        "RefundMethod": 0,
+        "ValidatingAirlineCode": "W5",
+        "FareSourceCode": "3534633433633032343761373463336462613263303436383332643339663236263130343726323938373332",
+        "AirItineraryPricingInfo": {
+            "FareType": 4,
+            "ItinTotalFare": {
+                "BaseFare": 6650640.00,
+                "TotalFare": 6728520.00,
+                "TotalCommission": 0.0,
+                "TotalTax": 0.0,
+                "ServiceTax": 77880.00,
+                "Currency": "IRR"
+            },
+            "PtcFareBreakdown": [{
+                "PassengerFare": {
+                    "BaseFare": 6650640.00,
+                    "TotalFare": 6728520.00,
+                    "Commission": 0.0,
+                    "ServiceTax": 77880.00,
+                    "Taxes": [{
+                        "Amount": 0.0,
+                        "Currency": "IRR"
+                    }],
+                    "Currency": "IRR"
+                },
+                "PassengerTypeQuantity": {
+                    "PassengerType": 1,
+                    "Quantity": 1
+                }
+            }],
+            "FareInfoes": []
+        },
+        "OriginDestinationOptions": [{
+            "JourneyDurationPerMinute": 70,
+            "ConnectionTimePerMinute": 0,
+            "FlightSegments": [{
+                "DepartureDateTime": "2019-10-15T22:10:00",
+                "ArrivalDateTime": "2019-10-15T23:20:00",
+                "StopQuantity": 0,
+                "FlightNumber": "4531",
+                "ResBookDesigCode": "Economy",
+                "JourneyDuration": "01:10",
+                "JourneyDurationPerMinute": 70,
+                "ConnectionTimePerMinute": 0,
+                "DepartureAirportLocationCode": "THR",
+                "ArrivalAirportLocationCode": "IFN",
+                "MarketingAirlineCode": "W5",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "W5",
+                    "FlightNumber": "4531",
+                    "Equipment": ""
+                },
+                "SeatsRemaining": null,
+                "IsCharter": false,
+                "IsReturn": false,
+                "Baggage": null,
+                "TechnicalStops": []
+            }]
+        }]
+    }, {
+        "IsPassportMandatory": false,
+        "IsPassportIssueDateMandatory": false,
+        "DirectionInd": 1,
+        "RefundMethod": 0,
+        "ValidatingAirlineCode": "W5",
+        "FareSourceCode": "6138656533323035616136313430636562663730383631333230346232623939263130343726323938373332",
+        "AirItineraryPricingInfo": {
+            "FareType": 4,
+            "ItinTotalFare": {
+                "BaseFare": 8103960.00,
+                "TotalFare": 8202960.00,
+                "TotalCommission": 0.0,
+                "TotalTax": 0.0,
+                "ServiceTax": 99000.00,
+                "Currency": "IRR"
+            },
+            "PtcFareBreakdown": [{
+                "PassengerFare": {
+                    "BaseFare": 8103960.00,
+                    "TotalFare": 8202960.00,
+                    "Commission": 0.0,
+                    "ServiceTax": 99000.00,
+                    "Taxes": [{
+                        "Amount": 0.0,
+                        "Currency": "IRR"
+                    }],
+                    "Currency": "IRR"
+                },
+                "PassengerTypeQuantity": {
+                    "PassengerType": 1,
+                    "Quantity": 1
+                }
+            }],
+            "FareInfoes": []
+        },
+        "OriginDestinationOptions": [{
+            "JourneyDurationPerMinute": 65,
+            "ConnectionTimePerMinute": 0,
+            "FlightSegments": [{
+                "DepartureDateTime": "2019-10-15T07:35:00",
+                "ArrivalDateTime": "2019-10-15T08:40:00",
+                "StopQuantity": 0,
+                "FlightNumber": "4533",
+                "ResBookDesigCode": "Economy",
+                "JourneyDuration": "01:05",
+                "JourneyDurationPerMinute": 65,
+                "ConnectionTimePerMinute": 0,
+                "DepartureAirportLocationCode": "THR",
+                "ArrivalAirportLocationCode": "IFN",
+                "MarketingAirlineCode": "W5",
+                "CabinClassCode": 1,
+                "OperatingAirline": {
+                    "Code": "W5",
+                    "FlightNumber": "4533",
+                    "Equipment": ""
+                },
+                "SeatsRemaining": null,
+                "IsCharter": false,
+                "IsReturn": false,
+                "Baggage": null,
+                "TechnicalStops": []
+            }]
+        }]
+    }]
+}

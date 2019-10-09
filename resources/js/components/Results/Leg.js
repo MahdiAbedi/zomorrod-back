@@ -14,7 +14,7 @@ import {
 function Leg({OrginDestination, index}) {
   // console.log(OrginDestination.FlightSegments)
   return (
-    <div className="first-leg leg flex-between" key={index}>
+    <div className="first-leg leg flex-between">
       <div className="logoes ">
         {OrginDestination
           .FlightSegments
@@ -22,7 +22,7 @@ function Leg({OrginDestination, index}) {
             return <img
               src={`img/airlines-logo/${segment.MarketingAirlineCode}.png`}
               key={index}
-              alt={`${segment.MarketingAirlineCode} Airline`}/>
+              alt={`${segment.MarketingAirlineCode} Airline`} key={index}/>
           })}
           {/* end of map  */}
       </div>{/* end of logoes  */}

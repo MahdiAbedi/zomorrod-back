@@ -53,7 +53,7 @@ class TwoWayInternationalTicket extends React.Component {
                     : 'سیستمی'}</div>
                 <div className="legs">
                   {this.props.ticket.OriginDestinationOptions.map((OrginDestination, index) => {
-                      return <Leg  OrginDestination={OrginDestination} index={index} />
+                      return <Leg  OrginDestination={OrginDestination} index={index} key={index} />
                     })}
                 </div>
                 <div className="ticket-choose">

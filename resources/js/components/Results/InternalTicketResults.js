@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import myTickets from './RoundTripTicket.json';
+import myTickets from './inlineOnWayTicket.json';
 import Filters from './Filters';
 import Results from './Results';
 import myTickets2 from './TicketResults.json';
@@ -8,7 +8,7 @@ import axios from 'axios';
 import LoadingModal from './LoadingModal';
 import {onlyUnique} from './Functions'
 
-class InternationalTicketResults extends React.Component{
+class InternalTicketResults extends React.Component{
 
     constructor(props){
         super(props);
@@ -142,9 +142,9 @@ class InternationalTicketResults extends React.Component{
 
 }//end of class
 
-if(document.querySelector('#InternationalTicketResults')){
+if(document.querySelector('#InternalTicketResults')){
 
-    ReactDOM.render(<InternationalTicketResults/> , document.querySelector('#InternationalTicketResults'));
+    ReactDOM.render(<InternalTicketResults/> , document.querySelector('#InternalTicketResults'));
 }
 
 // export default InternationalTicketResults;

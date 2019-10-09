@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 //#################################### بلیط سفر خارجی ######################################
 Route::get('/international', function () {
-    return view('pages/international');
+    return view('pages/international-ticket/results');
 });
 
 //ارسال اطلاعات پرواز و گرفتن تیکتها
@@ -35,12 +35,14 @@ Route::get('/international/book',function(){
 
 //################################## بلیط سفر داخلی ########################################
 Route::get('/flights', function () {
-    return view('pages/flights');
+    return view('pages/internal-ticket/results');
 });
-Route::post('/flights', function () {
+// Route::post('/flights', function () {
     
-    return view('pages/flights');
-});
+//     return view('pages/flights');
+// });
+
+Route::post('/checkInlineTickets','TicketController@checkInlineTickets');
 
 
 
