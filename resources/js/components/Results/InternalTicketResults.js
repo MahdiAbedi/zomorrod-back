@@ -120,7 +120,7 @@ class InternalTicketResults extends React.Component{
             if(this.state.tickets.length==0){
                 return(
                     <section className="result-panel container">
-                         <Filters checkCharter={this.checkCharter} airlines={this.state.airlines} StopCount = {this.StopCount} chooseAirline = {this.chooseAirline} chooseCabinType= {this.chooseCabinType}/> 
+                         <Filters checkCharter={this.checkCharter} airlines={this.state.airlines} StopCount = {this.StopCount} chooseAirline = {this.chooseAirline} chooseCabinType= {this.chooseCabinType} inline="true"/> 
                         
                         {(this.state.isLoading) ? msg :error}
                     </section>
@@ -132,7 +132,7 @@ class InternalTicketResults extends React.Component{
             return (  
                 <section className="result-panel container">
                     {(this.state.airlines.length > 0) ? 
-                    <Filters checkCharter={this.checkCharter} airlines={this.state.airlines} StopCount = {this.StopCount} chooseAirline = {this.chooseAirline}  chooseCabinType= {this.chooseCabinType}/> :null}                    
+                    <Filters checkCharter={this.checkCharter} airlines={this.state.airlines} StopCount = {this.StopCount} chooseAirline = {this.chooseAirline}  chooseCabinType= {this.chooseCabinType} inline="true"/> :null}                    
                     <Results tickets={this.state.tickets}/>
             </section>     
             );

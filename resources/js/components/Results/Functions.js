@@ -60,7 +60,7 @@ export function airlineName(code){
 export function airportName(code){
     
     let airports = [];
-    //فرودگاه های ایران
+    //فرودگاه های بین المللی ایران
     airports['IKA']='امام خمینی';
     airports['ABD']='آبادان';
     airports['ACP']='سهند';
@@ -81,6 +81,42 @@ export function airportName(code){
     airports['BXR']='بام';
     airports['CKT']='سرخس';
 
+    //فرودگاه های داخلی ایران
+    airports['CQD']='شهرکرد';
+    airports['DEF']='دزفول';
+    airports['GBT']='گرگان';
+    airports['GCH']='گچساران';
+    airports['GZW']='قزوین';
+    airports['HDM']='همدان';
+    airports['IFN']='اصفهان';
+    airports['IHR']='ایرانشهر';
+    airports['IIL']='ایلام';
+    airports['JAR']='جهرم';
+    airports['JWN']='زنجان';
+    airports['JYR']='جیرفت';
+    airports['KER']='کرمان';
+    airports['KHD']='خرم آباد';
+    airports['KHK']='خارک';
+    airports['KHY']='خوی';
+    airports['KIH']='کیش';
+    airports['MHD']='مشهد';
+    airports['NSH']='نوشهر';
+    airports['OMH']='ارومیه';
+    airports['PGU']='فرودگاه خلیج فارس';
+    airports['PYK']='فرودگاه پیام';
+    airports['QMJ']='مسجد سلیمان';
+    airports['RAS']='رشت';
+    airports['RJN']='رفسنجان';
+    airports['RUD']='شاهرود';
+    airports['RZR']='رامسر';
+    airports['SDG']='سنندج';
+    airports['SYZ']='شیراز';
+    airports['TBZ']='تبریز';
+    airports['TCX']='طبس';
+    airports['THR']='مهرآباد';
+    airports['XBJ']='بیرجند';
+    airports['YES']='یاسوج';
+    airports['ZAH']='زاهدان';
 
     //فرودگاه های بین المللی
     airports['DXB']='دبی';

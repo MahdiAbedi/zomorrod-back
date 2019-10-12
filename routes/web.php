@@ -31,6 +31,8 @@ Route::post('/checkTicket1',function(){
 Route::get('/international/book',function(){
     return view('pages/international-ticket/book');
 });
+//نمایش فاکتور قبل از رزو کامل
+Route::post('/international/factor','TicketController@factor');
 
 
 //################################## بلیط سفر داخلی ########################################

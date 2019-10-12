@@ -15,9 +15,10 @@ class PassengersInfo extends React.Component{
 
     }
 
-    filedMaker=(count,title)=>{
+    // passengerType adt=1,chd=2,inf=3 
+    filedMaker=(count,title,passengerType)=>{
         for (let index = 0; index < count; index++) {
-            this.passengers.push(<PassengerInfo title={title} />);
+            this.passengers.push(<PassengerInfo title={title} passengerType={passengerType}/>);
            
        }
     }
@@ -25,9 +26,9 @@ class PassengersInfo extends React.Component{
 
     render(){
         
-            this.filedMaker(this.adult,'بزرگسال');
-            this.filedMaker(this.child,'کودک');
-            this.filedMaker(this.infant,'نوزاد');
+            this.filedMaker(this.adult,'بزرگسال',1);
+            this.filedMaker(this.child,'کودک',2);
+            this.filedMaker(this.infant,'نوزاد',3);
         
             
             return(
