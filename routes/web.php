@@ -50,6 +50,7 @@ Route::post('/checkInlineTickets','TicketController@checkInlineTickets');
 
 //################################## فرودگاه های بین اللملی ########################################
 
+Route::post('/airports','AirportController@find');
 Route::get('/airports','AirportController@find');
 
 

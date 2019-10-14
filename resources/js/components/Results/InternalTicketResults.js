@@ -1,12 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import myTickets from './inlineOnWayTicket.json';
 import Filters from './Filters';
 import Results from './Results';
-import myTickets2 from './TicketResults.json';
-import axios from 'axios';
+// import myTickets2 from './TicketResults.json';
 import LoadingModal from './LoadingModal';
-import {onlyUnique} from './Functions'
 
 class InternalTicketResults extends React.Component{
 

@@ -1,8 +1,9 @@
-import React from 'react';
 import DateSelector from '../components/DateSelector';
 
 
 function PassengerInfo({title="بزرگسال",passengerType=1}){
+    //گرفتن اطلاعات تیکت که در مرحله انتخاب بلیط تو مرورگر ذخیره شده
+    
     return(
         <section className="tabs">
         <div className="tabs-title">

@@ -1,8 +1,9 @@
 @extends('master')
 
 @section('body')
-    <!-- ورود اطلاعات مسافران -->
-   
+<!-- ################################### صفحه وارد کردن اطلاعات مسافران ######################## -->
+
+    <!-- ورود اطلاعات مسافران -->  
     <main id="passengerInfos">
 
         <!-- نمایش مراحل انتخاب و خرید -->
@@ -40,150 +41,8 @@
         @csrf
         <div class="container">
             <!-- بخش نمایش بلیط رفت انتخاب شده و انتظار برای انتخاب بلیط برگشت -->
-            <div class="ticket-preview">
-                <div class="went-ticket">
-                    <div class="inner-ticket ticket-container">
-                        <section class="single-ticket flex-between">
-                            <div class="ticket_type">چارتری</div>
-                            <div class="legs">
-                                <!-- لگ رفت و برگشت -->
-                                <!-- لگ رفت -->
-                                <div class="first-leg leg flex-between">
-                                    <div class="logoes ">
-                                        <img src="/img/airlines-logo/aseman.png" alt="">
-                                    </div>
-                                    <p class="destination">05:20 Tehran <span>1398/7/25</span></p>
-
-                                    <i class="fa fa-plane rotate-right green"></i>
-                                    <p class="destination">06:20 Vancouver <span>1398/7/25</span></p>
-                                    <div class="ticket-choose">
-                                        <p class="price">4,880,000 <span>ریال</span></p>
-                                        <button class="btn btn-zgreen">انتخاب بلیط</button>
-                                    </div>
-                                </div>
-
-                                <section class="inner-flight-detail ticket-detail">
-                                    <!-- جزییات پرواز داخلی -->
-                                    <div class="flight-detail">
-                                        <div class="row">
-                                            <span>پرواز از ترمینال شماره:</span>
-                                            <span>4</span>
-                                        </div>
-                                        <div class="row">
-                                            <span>شماره پرواز:</span>
-                                            <span>EP3796</span>
-                                        </div>
-                                        <div class="row">
-                                            <span>مقدار بار مجاز:</span>
-                                            <span>20 کیلوگرم</span>
-                                        </div>
-                                        <div class="row">
-                                            <span>طول پرواز:</span>
-                                            <span>1:23</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- قیمت هر بلیط -->
-                                    <table class="ticket-price">
-                                        <tbody><tr>
-                                            <td>1 نفر بزرگسال</td>
-                                            <td>7/200/000 ریال</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 نفر کودک</td>
-                                            <td>5/200/000 ریال</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 نفر نوزاد</td>
-                                            <td>785/000 ریال</td>
-                                        </tr>
-                                        <tr class="green">
-                                            <td>جمع مبلغ</td>
-                                            <td>13/200/000 ریال</td>
-                                        </tr>
-                                    </tbody></table>
-
-                                </section>
-
-                            </div>
-                        </section>
-
-
-
-                    </div>
-                </div>
-
-                <div class="back-ticket">
-                    <div class="inner-ticket ticket-container">
-                        <section class="single-ticket flex-between">
-                            <div class="ticket_type">چارتری</div>
-                            <div class="legs">
-                                <!-- لگ رفت و برگشت -->
-                                <!-- لگ رفت -->
-                                <div class="first-leg leg flex-between">
-                                    <div class="logoes ">
-                                        <img src="/img/airlines-logo/kaspian.png" alt="">
-                                    </div>
-                                    <p class="destination">05:20 Tehran <span>1398/7/25</span></p>
-
-                                    <i class="fa fa-plane rotate-right green"></i>
-                                    <p class="destination">06:20 Vancouver <span>1398/7/25</span></p>
-                                    <div class="ticket-choose">
-                                        <p class="price">4,880,000 <span>ریال</span></p>
-                                        <button class="btn btn-zgreen">انتخاب بلیط</button>
-                                    </div>
-                                </div>
-
-                                <section class="inner-flight-detail ticket-detail">
-                                    <!-- جزییات پرواز داخلی -->
-                                    <div class="flight-detail">
-                                        <div class="row">
-                                            <span>پرواز از ترمینال شماره:</span>
-                                            <span>4</span>
-                                        </div>
-                                        <div class="row">
-                                            <span>شماره پرواز:</span>
-                                            <span>EP3796</span>
-                                        </div>
-                                        <div class="row">
-                                            <span>مقدار بار مجاز:</span>
-                                            <span>20 کیلوگرم</span>
-                                        </div>
-                                        <div class="row">
-                                            <span>طول پرواز:</span>
-                                            <span>1:23</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- قیمت هر بلیط -->
-                                    <table class="ticket-price">
-                                        <tbody><tr>
-                                            <td>1 نفر بزرگسال</td>
-                                            <td>7/200/000 ریال</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 نفر کودک</td>
-                                            <td>5/200/000 ریال</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 نفر نوزاد</td>
-                                            <td>785/000 ریال</td>
-                                        </tr>
-                                        <tr class="green">
-                                            <td>جمع مبلغ</td>
-                                            <td>13/200/000 ریال</td>
-                                        </tr>
-                                    </tbody></table>
-
-                                </section>
-
-                            </div>
-                        </section>
-
-
-
-                    </div>
-                </div>
+            <div class="ticket-preview" id="ticketPreview">
+                <!-- اطلاعات بلیط رفت و برگشت -->
             </div>
             <!-- قسمتی که دکمه های اضافه کردن اطلاعات مسافران هست -->
             <section class="btn-container">
@@ -191,15 +50,15 @@
                     را وارد نمایید.</a>
 
                 <div class="add-btn">
-                    <a href="#" class="title"><span>1</span>بزرگسال</a>
+                    <a href="#" class="title"><span name="adult">1</span> بزرگسال</a>
                     <a href="#" class="action"><i class="fas fa-plus"></i></a>
                 </div>
                 <div class="add-btn">
-                    <a href="#" class="title"><span>0</span>کودک</a>
+                    <a href="#" class="title"><span name="child">0</span> کودک</a>
                     <a href="#" class="action"><i class="fas fa-plus"></i></a>
                 </div>
                 <div class="add-btn">
-                    <a href="#" class="title"><span>0</span>نوزاد</a>
+                    <a href="#" class="title"><span name="infant">0</span> نوزاد</a>
                     <a href="#" class="action"><i class="fas fa-plus"></i></a>
                 </div>
             </section>
@@ -228,9 +87,8 @@
         </div>
 
 
-
     </main>
-
+<!-- ######################################## صفحه تایید اطلاعات ################################ -->
         <!-- تایید اطلاعات کاربر -->
         <main id="confirmData" style="display:none">
             <!-- نمایش مراحل انتخاب و خرید -->
@@ -479,6 +337,7 @@
         </main>
     </form>
 <script>
+let ticket = JSON.parse(localStorage.getItem('ticket'));
 function showConfirmDate(){
     document.getElementById("passengerInfos").style.display = "none";    
     document.getElementById("confirmData").style.display = "block";    
@@ -487,6 +346,93 @@ function hideConfirmDate(){
     document.getElementById("confirmData").style.display = "none";    
     document.getElementById("passengerInfos").style.display = "block";    
 }
+//################################### پیش نمایش اطلاعات پرواز #############################################
+function CreateTicketPreview(){
+    //if ticketPreview does not have '' value it's print undefinde on the screen (MahdiAbedi220@yahoo.com)
+    let ticketPreview='';
+    // alert(ticket.OriginDestinationOptions.length)
+    ticket.OriginDestinationOptions.map((item,index)=>{
+        //برای اینکه اگر توقفی در مسیر بود فقط بلیط مسیر رفت و بلیط آخرین مسیر را نشون بده
+        // if(index==0 || index == ticket.OriginDestinationOptions.length-1){
+
+            ticketPreview += `
+                <div class="went-ticket">
+                    <div class="inner-ticket ticket-container">
+                        <section class="single-ticket flex-between">
+                            <div class="ticket_type">${item.FlightSegments[0].IsCharter ? 'چارتر': 'سیستمی'}</div>
+                            <div class="legs">
+                                <!-- لگ رفت و برگشت -->
+                                <!-- لگ رفت -->
+                                <div class="first-leg leg flex-between">
+                                    <div class="logoes ">
+                                        <img src="/img/airlines-logo/${item.FlightSegments[0].MarketingAirlineCode}.png" alt="">
+                                    </div>
+                                    <p class="destination">${airportName(item.FlightSegments[0].DepartureAirportLocationCode)} <span>${moment(item.FlightSegments[0].DepartureDateTime).format('jYYYY/jM/jD HH:mm')}</span></p>
+
+                                    <i class="fa fa-plane rotate-right green"></i>
+                                    <p class="destination">${airportName(item.FlightSegments[0].ArrivalAirportLocationCode)} <span>${moment(item.FlightSegments[0].ArrivalDateTime).format('jYYYY/jM/jD HH:mm')}</span></p>
+                                    
+                                </div>
+
+                                <section class="inner-flight-detail ticket-detail">
+                                    <!-- جزییات پرواز داخلی -->
+                                    <div class="flight-detail">
+                                        <div class="row">
+                                            <span>کلاس پروازی : </span>
+                                            <span>${checkCabinType(item.FlightSegments[0].CabinClassCode)}</span>
+                                        </div>
+                                        <div class="row">
+                                            <span>شماره پرواز : </span>
+                                            <span>${item.FlightSegments[0].FlightNumber}</span>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <span>طول پرواز : </span>
+                                            <span>${item.FlightSegments[0].JourneyDuration}</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- قیمت هر بلیط -->
+                                    <table class="ticket-price">
+                                        <tbody><tr>
+                                            <td>تعداد بزرگسال</td>
+                                            <td ><span name="adult"></span> نفر</td>
+                                        </tr>
+                                        <tr>
+                                            <td>تعداد خردسال</td>
+                                            <td ><span name="child"></span> نفر</td>
+                                        </tr>
+                                        <tr>
+                                            <td>تعداد نوزاد</td>
+                                            <td ><span name="infant"></span> نفر</td>
+                                        </tr>
+                                        
+                                    </tbody></table>
+
+                                </section>
+
+                            </div>
+                        </section>
+
+
+
+                    </div>
+                </div>`;
+
+    })//map
+    document.getElementById('ticketPreview').innerHTML = ticketPreview;
+}//CreateTicketPreview
+
+//#################################### ایجاد پنل ورود اطلاعات مسافران ######################################
+function createPassengerInfo(){
+
+}
+//#################################### اجرای توابع بعد از بارگزاری صفحه####################################
+window.onload =()=>{
+    CreateTicketPreview();
+    passengersCount();
+}
+
 
 </script>
 @endsection

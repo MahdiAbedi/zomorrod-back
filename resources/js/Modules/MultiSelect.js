@@ -1,10 +1,8 @@
-import React from 'react'
 import './MultiSelect.css'
-
 function MultiSelect(props){
         return(
            <React.Fragment>
-                <input type="text" id={props.name +'_myInput'} onClick={()=>Search()} onKeyUp={()=>Search()} className={props.className} placeholder={props.Placeholder} autocomplete="off"/>
+                <input type="text" id={props.name +'_myInput'} onKeyUp={Search} className={props.className} placeholder={props.Placeholder} autocomplete="off"/>
 
                 <input type="hidden"  name={props.name} id={props.prefix +'_'+props.name} />
 
@@ -31,16 +29,35 @@ function MultiSelect(props){
             li      =    ul.getElementsByTagName('li');
         
             // Loop through all list items, and hide those who don't match the search query
-            let counter = li.length;
-            let counter1=1;
+            let liLength = li.length;
+            let hidenLiCount=1;
 
             for (i = 0; i < li.length; i++) {
-                counter1= $('#myUL li').filter(function() {
+                hidenLiCount= $('#myUL li').filter(function() {
                     return $(this).css('display') == 'none';
                 }).length
+                //################## اگر لیست خالی شد از دیتابیس بخونه #########################
+                if(liLength - hidenLiCount<=0){
+                    let term = document.getElementById(props.name +'_myInput').value;
+                    let child='';
+                    if(term.length >= 3){
+                        axios.post('/airports', {
+                            term:term 
+                          })
+                          .then(function (response) {
+                              console.log(response.data)
+                            // response.data.map((airport)=>{
+                            //    child =`<li><a id="${airport.iata}">${airport.farsi}-${airport.iata}-${airport.city}</a></li>`
+                            //    $("#myUL").append(child);
+                            // //    console.log(child)
+                            // })
+                          })
+                          .catch(function (error) {
+                            console.log(error);
+                          });
+                    }
+                    
 
-                if(counter - counter1==0){
-                    alert('alla')
                 }
 
                 
@@ -56,7 +73,6 @@ function MultiSelect(props){
             }//for
         }//Search
 
-
         function getEventTarget(e)
         {
             e = e || window.event;
@@ -71,10 +87,7 @@ function MultiSelect(props){
             document.getElementById("myUL").style.display="none";
             document.getElementById(props.prefix +'_'+props.name).value=target.getAttribute('id');
         };
-
-
-
 }//component function 
 
     
-export default MultiSelect;
+export default React.memo(MultiSelect);

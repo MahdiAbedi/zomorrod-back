@@ -1,5 +1,3 @@
-import moment from 'moment-jalaali';
-import fa from "moment/locale/fa";
 //نام ایرلاین ها بر اساس کد یاتا
 export function airlineName(code){
     

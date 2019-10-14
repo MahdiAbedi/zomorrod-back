@@ -1,5 +1,3 @@
-import React from 'react';
-import {airlineName} from './Functions'
 
 class Filters extends React.PureComponent{
     constructor(props){

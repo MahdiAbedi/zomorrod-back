@@ -1,14 +1,3 @@
-import React from 'react' 
-import {
-    airportName,
-    checkCabinType,
-    formatCurrency,
-    calcaulateTravelTime,
-    shamsiDate,
-    FormatMiladiDate,
-    FormatMiladiDateHour,
-    ShowDay
-  } from './Functions';
 
 function LegDetail({OriginDestinationOptions,index}){
     return (

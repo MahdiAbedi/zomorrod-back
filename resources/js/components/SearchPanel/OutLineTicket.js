@@ -1,4 +1,3 @@
-import React from 'react';
 import DateSelector from '../DateSelector';
 import PassengerCount from './PassengerCount';
 import InternationalAirlines from './InternationalAirlines';
@@ -21,14 +20,14 @@ class OutLineTicket extends React.Component{
     submitForm=(event)=>{
         // alert(this.state.toWay)
         event.preventDefault();
-        localStorage.setItem("international_origin"         , $('#international_origin').val());                                        //مسیر رفت
-        localStorage.setItem("international_destination"    , $('#international_destination').val());                             //مسیر برگشت
-        localStorage.setItem("international_departureTime"  , document.getElementById('international_departureTime').value);   //زمان رفت
-        localStorage.setItem("international_returnTime"     , document.getElementById('international_returnTime').value);        //زمان برگشت
-        localStorage.setItem("international_adult"          , document.getElementById('international_adult').value);                 //زمان برگشت
-        localStorage.setItem("international_child"          , document.getElementById('international_child').value);                //زمان برگشت
-        localStorage.setItem("international_infant"         , document.getElementById('international_infant').value);             //زمان برگشت
-        localStorage.setItem("international_IsRoundTrip"    , !this.state.toWay);          //آیا دو مسیره است یا نه؟ 
+        localStorage.setItem("origin"         , $('#international_origin').val());                                        //مسیر رفت
+        localStorage.setItem("destination"    , $('#international_destination').val());                             //مسیر برگشت
+        localStorage.setItem("departureTime"  , document.getElementById('international_departureTime').value);   //زمان رفت
+        localStorage.setItem("returnTime"     , document.getElementById('international_returnTime').value);        //زمان برگشت
+        localStorage.setItem("child"                        , document.getElementById('international_child').value);                //زمان برگشت
+        localStorage.setItem("adult"                        , document.getElementById('international_adult').value);                 //زمان برگشت
+        localStorage.setItem("infant"                       , document.getElementById('international_infant').value);             //زمان برگشت
+        localStorage.setItem("IsRoundTrip"    , !this.state.toWay);          //آیا دو مسیره است یا نه؟ 
 
         window.location.replace("/international");
 
@@ -56,12 +55,11 @@ class OutLineTicket extends React.Component{
                     <input type="hidden" id="csrf" name="_token" />
                     <input type="hidden" name="toWay" value={!this.state.toWay}/>
 
-                    {/* <InternationalAirlines className="right-border airports-select2" Placeholder="فرودگاه مبدا" name="origin" prefix="international" /> */}
+                    <InternationalAirlines className="right-border airports-select2" Placeholder="فرودگاه مبدا" name="origin" prefix="international" />
 
-                    <MultiSelect className="right-border airports-select2" Placeholder="فرودگاه مبدا">
-                        {/* <li><a>تهران</a></li>
-                        <li><a>تبریز</a></li> */}
-                    </MultiSelect>
+                    {/* <MultiSelect className="right-border airports-select2" Placeholder="فرودگاه مبدا">
+                        
+                    </MultiSelect> */}
                     
                     <button className="round-btn"><i className="icon-transfer"><img src="img/change-way.png"
                                 alt=""/></i></button>

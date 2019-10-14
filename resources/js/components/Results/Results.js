@@ -1,6 +1,4 @@
-import React from 'react';
 import TwoWayInternationalTicket from './TwoWayInternationalTicket';
-import moment from 'moment-jalaali';
 class Results extends React.PureComponent{
     constructor(props){
         super(props);

@@ -1,5 +1,3 @@
-import React from 'react';
-
 const IranAirports = props =>(
     <select className={props.className} title="فرودگاه مبدا" name={props.name}>
     <optgroup label="شهرهای پرتردد">

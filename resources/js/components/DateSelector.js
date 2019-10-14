@@ -1,6 +1,4 @@
 
-import React from 'react';
-import moment from 'moment-jalaali';
 import DatePicker from 'react-datepicker2';
 
 

@@ -1,4 +1,3 @@
-import React from 'react';
 class PassengerCount extends React.Component{
     constructor(props){
         super(props);

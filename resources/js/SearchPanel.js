@@ -1,5 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+
 import InlineTicket from './components/SearchPanel/InlineTicket';
 import OutLineTicket from './components/SearchPanel/OutLineTicket';
 import HotelTicket from './components/SearchPanel/HotelTicket';

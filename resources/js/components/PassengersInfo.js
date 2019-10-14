@@ -1,6 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
 import PassengerInfo from './PassengerInfo';
 
 class PassengersInfo extends React.Component{
@@ -18,7 +15,7 @@ class PassengersInfo extends React.Component{
     // passengerType adt=1,chd=2,inf=3 
     filedMaker=(count,title,passengerType)=>{
         for (let index = 0; index < count; index++) {
-            this.passengers.push(<PassengerInfo title={title} passengerType={passengerType}/>);
+            this.passengers.push(<PassengerInfo title={title} passengerType={passengerType} key={index}/>);
            
        }
     }

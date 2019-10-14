@@ -1,14 +1,5 @@
-import React from 'react';
-import moment from 'moment-jalaali';
-import {
-  airportName,
-  checkCabinType,
-  formatCurrency,
-  calcaulateTravelTime,
-  shamsiDate,
-  FormatMiladiDate,
-  FormatMiladiDateHour
-} from './Functions';
+
+
 import Leg from './Leg';
 import LegDetail from './LegDetail';
 
@@ -21,9 +12,9 @@ class TwoWayInternationalTicket extends React.Component {
       displayTitle: "مشاهده جزییات",
       travelTime: ''
     };
-    this.adult = localStorage.getItem('international_adult', 0);
-    this.child = localStorage.getItem('international_child', 0);
-    this.infant = localStorage.getItem('international_infant', 0);
+    this.adult  = localStorage.getItem('adult', 0);
+    this.child  = localStorage.getItem('child', 0);
+    this.infant = localStorage.getItem('infant', 0);
     this.OriginDestinationOptions = this.props.ticket.OriginDestinationOptions[0];
   }
   //نمایش و یا پنهان کردن جزییات
@@ -36,13 +27,16 @@ class TwoWayInternationalTicket extends React.Component {
   }//checkDisplay
   //انتخاب بلیط
   chooseTicket = () => {
+    //ذخیره سازی کل اطلاعات تیکت
+    // localStorage.setItem('ticket',JSON.stringify(this.props.ticket));
     // ارجاع به صفحه وارد کردن اطلاعات مسافر
     localStorage.setItem('FareSourceCode',this.props.ticket.FareSourceCode);
+//################################################## اطلاعات لگ رفت ###############################################
+    localStorage.setItem('first_let_charter',this.OriginDestinationOptions.FlightSegments[0].IsCharter? 'چارتر': 'سیستمی')
+
+
     window.location.replace("/international/book");
-    // alert(this.props.ticket.FareSourceCode);
   }//chooseTicket
-
-
 
   render() {
     return (
@@ -80,10 +74,10 @@ class TwoWayInternationalTicket extends React.Component {
                 </div>
       
                 <ul className="flex">
-                    <li>{this.adult}نفر بزرگسال :<strong>{this.adult}</strong>Adult</li>
-                    <li>{this.child}نفر کودک :<strong>{this.child}</strong>Child</li>
-                    <li>{this.infant}نفر نوزاد :<strong>{this.infant}</strong>Infant</li>
-                    <li>جمع مبلغ:<strong>{formatCurrency(this.props.ticket.AirItineraryPricingInfo.ItinTotalFare.TotalFare)}</strong>ریال
+                    <li>تعداد بزرگسال : <strong>{this.adult}</strong> نفر</li>
+                    <li>تعداد کودک: <strong>{this.child}</strong> نفر</li>
+                    <li>تعداد نوزاد: <strong>{this.infant}</strong> نفر</li>
+                    <li>جمع مبلغ : <strong>{formatCurrency(this.props.ticket.AirItineraryPricingInfo.ItinTotalFare.TotalFare)}</strong> ریال
                     </li>
       
                 </ul>

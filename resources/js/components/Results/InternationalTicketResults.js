@@ -1,12 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import myTickets from './RoundTripTicket.json';
 import Filters from './Filters';
 import Results from './Results';
-import myTickets2 from './TicketResults.json';
-import axios from 'axios';
+// import myTickets2 from './TicketResults.json';
 import LoadingModal from './LoadingModal';
-import {onlyUnique} from './Functions'
 
 class InternationalTicketResults extends React.Component{
 
@@ -36,21 +32,21 @@ class InternationalTicketResults extends React.Component{
             // PricingSourceType    :localStorage.getItem(''),
             // RequestOption        :localStorage.getItem(''),
 
-            AdultCount              :localStorage.getItem('international_adult'),
-            ChildCount              :localStorage.getItem('international_child'),
-            InfantCount             :localStorage.getItem('international_infant'),
+            AdultCount              :localStorage.getItem('adult'),
+            ChildCount              :localStorage.getItem('child'),
+            InfantCount             :localStorage.getItem('infant'),
 
             // CabinType            :localStorage.getItem(''),
             // MaxStopsQuantity     :localStorage.getItem(''),
             // AirTripType          :localStorage.getItem(''),
 
-            DepartureDateTime       :localStorage.getItem('international_departureTime'),
-            DestinationLocationCode :localStorage.getItem('international_destination'),
+            DepartureDateTime       :localStorage.getItem('departureTime'),
+            DestinationLocationCode :localStorage.getItem('destination'),
             // DestinationType      :localStorage.getItem(''),
-            OriginLocationCode      :localStorage.getItem('international_origin'),
+            OriginLocationCode      :localStorage.getItem('origin'),
             // OriginType           :localStorage.getItem(''),
-            IsRoundTrip             :localStorage.getItem('international_IsRoundTrip'),
-            ReturnTime              :localStorage.getItem('international_returnTime'),
+            IsRoundTrip             :localStorage.getItem('IsRoundTrip'),
+            ReturnTime              :localStorage.getItem('returnTime'),
         })
         .then(response => {
             // let myTickets=response.data;

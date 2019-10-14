@@ -1,18 +1,7 @@
-import React from 'react';
-import moment from 'moment-jalaali';
-
-import {
-  airportName,
-  checkCabinType,
-  formatCurrency,
-  calcaulateTravelTime,
-  shamsiDate,
-  FormatMiladiDate,
-  FormatMiladiDateHour
-} from './Functions';
-
 function Leg({OrginDestination, index}) {
   // console.log(OrginDestination.FlightSegments)
+  localStorage.setItem('origin_name',airportName(localStorage.getItem('origin')));
+  localStorage.setItem('destination_name',airportName(localStorage.getItem('destination')));
   return (
     <div className="first-leg leg flex-between">
       <div className="logoes ">
@@ -28,7 +17,7 @@ function Leg({OrginDestination, index}) {
       </div>{/* end of logoes  */}
       {/* مبدا */}
       <p className="destination">
-        {airportName(localStorage.getItem('international_origin'))}
+        {localStorage.getItem('origin_name')}
         {/* زمان حرکت  */}
         <span>{moment(OrginDestination.FlightSegments[0].DepartureDateTime).format('jYYYY/jM/jD HH:mm')}</span>
       </p>
@@ -54,7 +43,7 @@ function Leg({OrginDestination, index}) {
         </span>
       </div>
       <p className="destination">
-        {airportName(localStorage.getItem('international_destination'))}
+        {localStorage.getItem('destination_name')}
         {/* زمان رسیدن */}
         <span>{moment(OrginDestination.FlightSegments[0].ArrivalDateTime).format('jYYYY/jM/jD HH:mm')}</span>
       </p>
