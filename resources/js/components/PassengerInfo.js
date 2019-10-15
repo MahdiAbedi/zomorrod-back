@@ -22,26 +22,26 @@ function PassengerInfo({title="بزرگسال",passengerType=1}){
                     <input type="hidden" name="PassengerType[]" value={passengerType}/>
                     <div className="field">
                         <label >نام(لاتین)</label>
-                        <input type="text" name="PassengerFirstName[]" id="fa-name"/>
+                        <input type="text" name="PassengerFirstName[]"  className="PassengerFirstName"/>
                     </div>
                     <div className="field">
                         <label >نام خانوادگی(لاتین)</label>
-                        <input type="text" name="PassengerLastName[]" id="fa-name"/>
+                        <input type="text" name="PassengerLastName[]"  className="PassengerLastName"/>
                     </div>
                     <div className="field">
                         <label >جنسیت</label>
-                        <select name="gender[]" id="gender1">
+                        <select name="gender[]" className="gender">
                             <option value="0">آقا</option>
                             <option value="1">خانم</option>
                         </select>
                     </div>
                     <div className="field">
                         <label >تاریخ تولد</label>
-                        <DateSelector name="DateOfBirth[]" />
+                        <DateSelector name="DateOfBirth[]"  className="DateOfBirth"/>
                     </div>
                     <div className="field">
                         <label >کشور صادر کننده پاسپورت</label>
-                        <select className="select2" name="Country[]">
+                        <select className="select2" name="Country[]" className="Country">
                             <option value="IRN">
                                         ایران
                                     </option><option value="AZE">
@@ -485,16 +485,16 @@ function PassengerInfo({title="بزرگسال",passengerType=1}){
                 
                     <div className="field">
                         <label >شماره پاسپورت</label>
-                        <input type="text" name="PassportNumber[]"/>
+                        <input type="text" name="PassportNumber[]" className="PassportNumber"/>
                     </div>
 
                     <div className="field">
                         <label >تاریخ صدور پاسپورت</label>
-                        <DateSelector name="IssueDate[]" />
+                        <DateSelector name="IssueDate[]" className="IssueDate" />
                     </div>
                     <div className="field">
                         <label >تاریخ انقضا پاسپورت</label>
-                        <DateSelector name="ExpiryDate[]" />
+                        <DateSelector name="ExpiryDate[]" className="ExpireDate" />
                     </div>
 
                 </div>

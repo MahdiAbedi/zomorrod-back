@@ -20,7 +20,7 @@ class DateSelector extends React.Component {
 
 
   render() {
-    return <div className={"DatePicker " + (this.props.disabled ? 'disabled' : '')}>
+    return <div className={"DatePicker " + (this.props.disabled ? 'disabled' : '') }>
       
             <DatePicker
               name="testTime"
@@ -32,7 +32,7 @@ class DateSelector extends React.Component {
               onChange={value => this.setState({ value })}
             />
 
-            <input type="hidden" name={this.props.name} id={this.props.prefix +'_'+this.props.name} value={this.MiladiFormat(this.state.value)}/>
+            <input type="hidden" name={this.props.name} id={(this.props.prefix ? this.props.prefix :'') +'_'+this.props.name} value={this.MiladiFormat(this.state.value)} className={this.props.className}/>
 
 
             <br />

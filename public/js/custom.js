@@ -354,6 +354,7 @@ function Toggle(tagId) {
       function shamsiDate(Date){
         return moment(Date).format('jYYYY/jM/jD HH:mm')
       }
+
     
     //فرمت بندی تاریخ میلادی
     function FormatMiladiDate(requestedDate){

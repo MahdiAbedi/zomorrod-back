@@ -5,9 +5,9 @@ class PassengersInfo extends React.Component{
     constructor(props){
         super(props);
       
-        this.adult  =   localStorage.getItem('international_adult',0);
-        this.child  =   localStorage.getItem('international_child',0);
-        this.infant =   localStorage.getItem('international_infant',0);
+        this.adult  =   localStorage.getItem('adult',0);
+        this.child  =   localStorage.getItem('child',0);
+        this.infant =   localStorage.getItem('infant',0);
         this.passengers = [];
 
     }

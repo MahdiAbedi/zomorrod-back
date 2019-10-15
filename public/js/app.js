@@ -68707,8 +68707,9 @@ function (_React$Component) {
       }), React.createElement("input", {
         type: "hidden",
         name: this.props.name,
-        id: this.props.prefix + '_' + this.props.name,
-        value: this.MiladiFormat(this.state.value)
+        id: (this.props.prefix ? this.props.prefix : '') + '_' + this.props.name,
+        value: this.MiladiFormat(this.state.value),
+        className: this.props.className
       }), React.createElement("br", null), React.createElement("a", {
         onClick: function onClick() {
           return _this2.setState({
@@ -68737,6 +68738,8 @@ function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_DateSelector__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/DateSelector */ "./resources/js/components/DateSelector.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 function PassengerInfo(_ref) {
@@ -68766,18 +68769,18 @@ function PassengerInfo(_ref) {
   }, React.createElement("label", null, "\u0646\u0627\u0645(\u0644\u0627\u062A\u06CC\u0646)"), React.createElement("input", {
     type: "text",
     name: "PassengerFirstName[]",
-    id: "fa-name"
+    className: "PassengerFirstName"
   })), React.createElement("div", {
     className: "field"
   }, React.createElement("label", null, "\u0646\u0627\u0645 \u062E\u0627\u0646\u0648\u0627\u062F\u06AF\u06CC(\u0644\u0627\u062A\u06CC\u0646)"), React.createElement("input", {
     type: "text",
     name: "PassengerLastName[]",
-    id: "fa-name"
+    className: "PassengerLastName"
   })), React.createElement("div", {
     className: "field"
   }, React.createElement("label", null, "\u062C\u0646\u0633\u06CC\u062A"), React.createElement("select", {
     name: "gender[]",
-    id: "gender1"
+    className: "gender"
   }, React.createElement("option", {
     value: "0"
   }, "\u0622\u0642\u0627"), React.createElement("option", {
@@ -68785,13 +68788,14 @@ function PassengerInfo(_ref) {
   }, "\u062E\u0627\u0646\u0645"))), React.createElement("div", {
     className: "field"
   }, React.createElement("label", null, "\u062A\u0627\u0631\u06CC\u062E \u062A\u0648\u0644\u062F"), React.createElement(_components_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], {
-    name: "DateOfBirth[]"
+    name: "DateOfBirth[]",
+    className: "DateOfBirth"
   })), React.createElement("div", {
     className: "field"
-  }, React.createElement("label", null, "\u06A9\u0634\u0648\u0631 \u0635\u0627\u062F\u0631 \u06A9\u0646\u0646\u062F\u0647 \u067E\u0627\u0633\u067E\u0648\u0631\u062A"), React.createElement("select", {
+  }, React.createElement("label", null, "\u06A9\u0634\u0648\u0631 \u0635\u0627\u062F\u0631 \u06A9\u0646\u0646\u062F\u0647 \u067E\u0627\u0633\u067E\u0648\u0631\u062A"), React.createElement("select", _defineProperty({
     className: "select2",
     name: "Country[]"
-  }, React.createElement("option", {
+  }, "className", "Country"), React.createElement("option", {
     value: "IRN"
   }, "\u0627\u06CC\u0631\u0627\u0646"), React.createElement("option", {
     value: "AZE"
@@ -69233,15 +69237,18 @@ function PassengerInfo(_ref) {
     className: "field"
   }, React.createElement("label", null, "\u0634\u0645\u0627\u0631\u0647 \u067E\u0627\u0633\u067E\u0648\u0631\u062A"), React.createElement("input", {
     type: "text",
-    name: "PassportNumber[]"
+    name: "PassportNumber[]",
+    className: "PassportNumber"
   })), React.createElement("div", {
     className: "field"
   }, React.createElement("label", null, "\u062A\u0627\u0631\u06CC\u062E \u0635\u062F\u0648\u0631 \u067E\u0627\u0633\u067E\u0648\u0631\u062A"), React.createElement(_components_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], {
-    name: "IssueDate[]"
+    name: "IssueDate[]",
+    className: "IssueDate"
   })), React.createElement("div", {
     className: "field"
   }, React.createElement("label", null, "\u062A\u0627\u0631\u06CC\u062E \u0627\u0646\u0642\u0636\u0627 \u067E\u0627\u0633\u067E\u0648\u0631\u062A"), React.createElement(_components_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], {
-    name: "ExpiryDate[]"
+    name: "ExpiryDate[]",
+    className: "ExpireDate"
   })))));
 }
 
@@ -69303,9 +69310,9 @@ function (_React$Component) {
       }
     });
 
-    _this.adult = localStorage.getItem('international_adult', 0);
-    _this.child = localStorage.getItem('international_child', 0);
-    _this.infant = localStorage.getItem('international_infant', 0);
+    _this.adult = localStorage.getItem('adult', 0);
+    _this.child = localStorage.getItem('child', 0);
+    _this.infant = localStorage.getItem('infant', 0);
     _this.passengers = [];
     return _this;
   } // passengerType adt=1,chd=2,inf=3 

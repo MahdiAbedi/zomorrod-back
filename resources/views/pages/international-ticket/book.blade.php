@@ -4,7 +4,7 @@
 <!-- ################################### صفحه وارد کردن اطلاعات مسافران ######################## -->
 
     <!-- ورود اطلاعات مسافران -->  
-    <main id="passengerInfos">
+    <main id="passengerInfos"  style="display:block">
 
         <!-- نمایش مراحل انتخاب و خرید -->
         <div class="order-steps container">
@@ -64,17 +64,17 @@
             </section>
 
             <!-- تب اطلاعات مسافران -->
+            <div id="PassengerInfo">
+            <!-- ############################ ورود اطلاعات مسافران ################################## -->
 
-            <!-- خرید با کد ملی -->
-            
-            <div id="PassengerInfo"></div>
+            </div>
 
             <!-- اطلاعات تماس -->
             <div class="contact-info">
 
                 <a href="#" class="info btn btn-green"><i class="fas fa-chevron-circle-left"></i>اطلاعات تماس</a>
-                <input type="text" placeholder="ایمیل" name="fa-name" id="fa-name">
-                <input type="text" name="fa-name" placeholder="تلفن همراه" id="fa-name">
+                <input type="text" placeholder="ایمیل" name="passengerEmail" id="passengerEmail">
+                <input type="text" name="passengerTel" placeholder="تلفن همراه" id="passengerTel">
                 <div class="info">
                     <input type="checkbox" name="confirm" id="confirm">
                     <label for="confirm">
@@ -89,268 +89,145 @@
 
     </main>
 <!-- ######################################## صفحه تایید اطلاعات ################################ -->
-        <!-- تایید اطلاعات کاربر -->
-        <main id="confirmData" style="display:none">
-            <!-- نمایش مراحل انتخاب و خرید -->
-            <div class="order-steps container">
-                <ul class="flex-between confirm-info">
-                    <li>
-                        <span>جستجو</span>
-                        <!-- <i class="fa fa-check circle"></i> -->
-                        <i class="far fa-check-circle circle"></i>
-                    </li>
-                    <li>
-                        <span>انتخاب پرواز</span>
-                        <i class="far fa-check-circle circle green"></i>
-                    </li>
-                    <li>
-                        <span>اطلاعات مسافران</span>
-                        <i class="far fa-check-circle circle green"></i>
+    <!-- تایید اطلاعات کاربر -->
+    <main id="confirmData" style="display:none">
+        <!-- نمایش مراحل انتخاب و خرید -->
+        <div class="order-steps container">
+            <ul class="flex-between confirm-info">
+                <li>
+                    <span>جستجو</span>
+                    <!-- <i class="fa fa-check circle"></i> -->
+                    <i class="far fa-check-circle circle"></i>
+                </li>
+                <li>
+                    <span>انتخاب پرواز</span>
+                    <i class="far fa-check-circle circle green"></i>
+                </li>
+                <li>
+                    <span>اطلاعات مسافران</span>
+                    <i class="far fa-check-circle circle green"></i>
 
-                    </li>
-                    <li>
-                        <span>تائید اطلاعات</span>
-                        <i class="fa fa-plane choose-plane"></i>
-                    </li>
-                    <li>
-                        <span>پرداخت</span>
-                        <i class="circle"></i>
-                    </li>
-                    <li>
-                        <span>صدور بلیط</span>
-                        <i class="circle"></i>
-                    </li>
-                </ul>
+                </li>
+                <li>
+                    <span>تائید اطلاعات</span>
+                    <i class="fa fa-plane choose-plane"></i>
+                </li>
+                <li>
+                    <span>پرداخت</span>
+                    <i class="circle"></i>
+                </li>
+                <li>
+                    <span>صدور بلیط</span>
+                    <i class="circle"></i>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <!-- اطلاعیه و هشدار بالای صفحه -->
+            <div class="notices">
+                <p><i class="fas fa-chevron-circle-left green"></i>لطفا اطلاعات وارد شده را کنترل کرده و پس از اطمینان
+                    از درستی آنها،برای پرداخت هزینه اقدام نمایید.</p>
+                <div class="flex-between">
+                    <p><i class="fas fa-chevron-circle-left green"></i>توجه فرمایید:در صورتی که اطلاعات زیر را اشتباه
+                        وارد نموده اید و یا نیاز به تغییر آن دارید،میتوانید از دکمه بازگشت استفاده کنید.</p>
+                    <a onclick="hideConfirmDate()" class="btn btn-zgreen">بازگشت</a>
+                </div>
             </div>
 
-            <div class="container">
-                <!-- اطلاعیه و هشدار بالای صفحه -->
-                <div class="notices">
-                    <p><i class="fas fa-chevron-circle-left green"></i>لطفا اطلاعات وارد شده را کنترل کرده و پس از اطمینان
-                        از درستی آنها،برای پرداخت هزینه اقدام نمایید.</p>
-                    <div class="flex-between">
-                        <p><i class="fas fa-chevron-circle-left green"></i>توجه فرمایید:در صورتی که اطلاعات زیر را اشتباه
-                            وارد نموده اید و یا نیاز به تغییر آن دارید،میتوانید از دکمه بازگشت استفاده کنید.</p>
-                        <a onclick="hideConfirmDate()" class="btn btn-zgreen">بازگشت</a>
-                    </div>
+            <!-- پنل -->
+            <!-- اطلاعات بلیط -->
+            <div class="panel">
+                <div class="title">اطلاعات بلیط</div>
+                <div class="body  ticket-info-confirm" id="ticketConfirm">
+                <!-- #################### نمایش اطلاعات بلیط رفت و برگشت هنگام تایید اطلاعات مسافر ############################### -->
+
                 </div>
+            </div>
 
-                <!-- پنل -->
-                <!-- اطلاعات بلیط -->
-                <div class="panel">
-                    <div class="title">اطلاعات بلیط</div>
-                    <div class="body  ticket-info-confirm">
+            <!-- درخواست دهنده -->
+            <div class="panel">
+                <div class="title">درخواست دهنده</div>
+                <div class="body">
 
-
-                        <div class="half">
-                            <h3 class="green"><span>&#11044 </span>بلیط رفت</h3>
-
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>شرکت هواپیمایی</th>
-                                        <th>قشم ایر</th>
-
-                                    </tr>
-                                </thead>
-                                <tr>
-                                    <td>مبدا</td>
-                                    <td>تهران</td>
-
-                                </tr>
-                                <tr>
-                                    <td>مقصد</td>
-                                    <td>اصفهان</td>
-                                </tr>
-                                <tr>
-                                    <td>تاریخ و ساعت پرواز</td>
-                                    <td>سه شنبه 22 مرداد-06:10</td>
-                                </tr>
-                                <tr>
-                                    <td>شماره پرواز</td>
-                                    <td>QB 1280</td>
-                                </tr>
-                                <tr>
-                                    <td>کلاس پروازی</td>
-                                    <td>اکونومی</td>
-                                </tr>
-                                <tr>
-                                    <td>مقدار بار مجاز</td>
-                                    <td>20 کیلو گرم</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="half">
-                            <h3 class="green"><span>&#11044 </span>بلیط برگشت</h3>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>شرکت هواپیمایی</th>
-                                        <th>قشم ایر</th>
-
-                                    </tr>
-                                </thead>
-                                <tr>
-                                    <td>مبدا</td>
-                                    <td>تهران</td>
-
-                                </tr>
-                                <tr>
-                                    <td>مقصد</td>
-                                    <td>اصفهان</td>
-                                </tr>
-                                <tr>
-                                    <td>تاریخ و ساعت پرواز</td>
-                                    <td>سه شنبه 22 مرداد-06:10</td>
-                                </tr>
-                                <tr>
-                                    <td>شماره پرواز</td>
-                                    <td>QB 1280</td>
-                                </tr>
-                                <tr>
-                                    <td>کلاس پروازی</td>
-                                    <td>اکونومی</td>
-                                </tr>
-                                <tr>
-                                    <td>مقدار بار مجاز</td>
-                                    <td>20 کیلو گرم</td>
-                                </tr>
-                            </table>
-                        </div>
-
-
-                    </div>
-                </div>
-
-                <!-- درخواست دهنده -->
-                <div class="panel">
-                    <div class="title">درخواست دهنده</div>
-                    <div class="body">
-
-                        <table class="gray-title">
-                            <thead>
-                                <tr>
-                                    <th>نام کاربری</th>
-                                    <th>ایمیل</th>
-                                    <th>شماره موبایل</th>
-                                    <th>موجودی حساب</th>
-
-                                </tr>
-                            </thead>
+                    <table class="gray-title">
+                        <thead>
                             <tr>
-                                <td>-</td>
-                                <td>MahdiAbedi220@Yahoo.com</td>
-                                <td>09395187902</td>
-                                <td>1000000 <span>ریال</span></td>
+                                <th>نام کاربری</th>
+                                <th>ایمیل</th>
+                                <th>شماره موبایل</th>
+                                <th>موجودی حساب</th>
 
                             </tr>
+                        </thead>
+                        <tr>
+                            <td>{{(Auth::check()) ? Auth::user()->name : '-'}}</td>
+                            <td id="emailPreview">-</td>
+                            <td id="telPreview">-</td>
+                            <td>0 <span>ریال</span></td>
 
-                        </table>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+
+            <!-- مشخصات مسافران -->
+            <div class="panel">
+                <div class="title">مشخصات مسافران </div>
+                <div class="body">
+                    
+                    <div class="passenger-info" id="passengerInfoConfirm">
+                    <!-- ######################### تایید اطلاعات مسافران #############################   -->
+                            
                     </div>
                 </div>
+            </div>
 
-                <!-- مشخصات مسافران -->
-                <div class="panel">
-                    <div class="title">مشخصات مسافران </div>
-                    <div class="body">
-                        
-                        <div class="passenger-info">
-                                <h3 class="green"><span>&#11044 </span>بزرگسال</h3>
-                                <table class="gray-title">
-                                        <thead>
-                                            <tr>
-                                                <th>نام و نام خانوادگی</th>
-                                                <th>نام و نام خانوادگی (لاتین)</th>
-                                                <th>جنسیت</th>
-                                                <th>کد ملی</th>
-                                                <th>تاریخ تولد</th>
-                                                <th>قیمت</th>
-                                                <th>عملیات</th>
-                
-                                            </tr>
-                                        </thead>
-                                        <tr>
-                                            <td>حسین قاسمی</td>
-                                            <td>hossein ghassemi</td>
-                                            <td>مرد</td>
-                                            <td>0016183455</td>
-                                            <td>1365/1/1</td>
-                                            <td>12,244,000 <span>ریال</span></td>
-                                            <td>ویرایش</td>
-
-                                        </tr>
-                
-                                </table>
-                                <h3 class="green"><span>&#11044 </span>کودک</h3>
-                                <table class="gray-title">
-                                        <thead>
-                                            <tr>
-                                                <th>نام و نام خانوادگی</th>
-                                                <th>نام و نام خانوادگی (لاتین)</th>
-                                                <th>جنسیت</th>
-                                                <th>کد ملی</th>
-                                                <th>تاریخ تولد</th>
-                                                <th>قیمت</th>
-                                                <th>عملیات</th>
-                
-                                            </tr>
-                                        </thead>
-                                        <tr>
-                                            <td>حسین قاسمی</td>
-                                            <td>hossein ghassemi</td>
-                                            <td>مرد</td>
-                                            <td>0016183455</td>
-                                            <td>1365/1/1</td>
-                                            <td>12,244,000 <span>ریال</span></td>
-                                            <td>ویرایش</td>
-
-                                        </tr>
-                
-                                </table>
-                        </div>
+            <!-- کد تخفیف -->
+            <div class="panel">
+                <div class="title">کد تخفیف</div>
+                <div class="body flex-between">
+                    
+                    <p>لطفا جهت اعمال تخفیف روی بلیط،کد تخفیف خود را وارد کنید و دکمه <<بررسی و اعمال کد>>  برای بزنید</p>
+                    <div class="flex coupon">
+                        <input type="text" name="" id="coupon">
+                        <a href="#" class="btn btn-zgreen">بررسی و اعمال کد</a>
                     </div>
                 </div>
-
-                <!-- کد تخفیف -->
-                <div class="panel">
-                    <div class="title">کد تخفیف</div>
-                    <div class="body flex-between">
-                        
-                        <p>لطفا جهت اعمال تخفیف روی بلیط،کد تخفیف خود را وارد کنید و دکمه <<بررسی و اعمال کد>>  برای بزنید</p>
-                        <div class="flex coupon">
-                            <input type="text" name="" id="coupon">
-                            <a href="#" class="btn btn-zgreen">بررسی و اعمال کد</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="pay">
-                    <a href="#" class="btn btn-transparent">مبلغ قابل پرداخت:22,488,000 <span>ریال</span></a>
-                    <button href="#" class="btn btn-zgreen" type="submit">پرداخت آنلاین</button>
-                </div>
-
             </div>
 
 
+            <div class="pay">
+                <a href="#" class="btn btn-transparent">مبلغ قابل پرداخت:22,488,000 <span>ریال</span></a>
+                <button href="#" class="btn btn-zgreen" type="submit">پرداخت آنلاین</button>
+            </div>
 
-        </main>
+        </div>
+
+
+
+    </main>
     </form>
 <script>
 let ticket = JSON.parse(localStorage.getItem('ticket'));
 function showConfirmDate(){
-    document.getElementById("passengerInfos").style.display = "none";    
-    document.getElementById("confirmData").style.display = "block";    
+    passengerInfoConfirm();
+    //ثبت اطلاعات اتوماتیک برای تایید
+    document.getElementById('emailPreview').innerText=document.getElementById('passengerEmail').value;
+    document.getElementById('telPreview').innerText=document.getElementById('passengerTel').value;
+    
+    document.getElementById("passengerInfos").style.display = "none";    //نمایش صفحه تایید
+    document.getElementById("confirmData").style.display = "block";     //محفی کردن صفحه ورود اطلاعات
 }
 function hideConfirmDate(){
     document.getElementById("confirmData").style.display = "none";    
     document.getElementById("passengerInfos").style.display = "block";    
 }
-//################################### پیش نمایش اطلاعات پرواز #############################################
+//################################### پیش نمایش اطلاعات پرواز ####################################################
 function CreateTicketPreview(){
     //if ticketPreview does not have '' value it's print undefinde on the screen (MahdiAbedi220@yahoo.com)
     let ticketPreview='';
-    // alert(ticket.OriginDestinationOptions.length)
     ticket.OriginDestinationOptions.map((item,index)=>{
         //برای اینکه اگر توقفی در مسیر بود فقط بلیط مسیر رفت و بلیط آخرین مسیر را نشون بده
         // if(index==0 || index == ticket.OriginDestinationOptions.length-1){
@@ -423,14 +300,107 @@ function CreateTicketPreview(){
     document.getElementById('ticketPreview').innerHTML = ticketPreview;
 }//CreateTicketPreview
 
-//#################################### ایجاد پنل ورود اطلاعات مسافران ######################################
-function createPassengerInfo(){
+//################################### تایید اطلاعات بلیط رفت و برگشت #############################################
+function ticketConfirm(){
+    let ticketConfirm='';
+    ticket.OriginDestinationOptions.map((item,index)=>{
+        //برای اینکه اگر توقفی در مسیر بود فقط بلیط مسیر رفت و بلیط آخرین مسیر را نشون بده
+        // if(index==0 || index == ticket.OriginDestinationOptions.length-1){
 
-}
-//#################################### اجرای توابع بعد از بارگزاری صفحه####################################
+            ticketConfirm += `
+                    <div class="half">
+                        <h3 class="green"><span>&#11044 </span>بلیط رفت</h3>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>شرکت هواپیمایی</th>
+                                    <th>${airlineName(item.FlightSegments[0].MarketingAirlineCode)}</th>
+
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td>مبدا</td>
+                                <td>${airportName(item.FlightSegments[0].DepartureAirportLocationCode)}</td>
+
+                            </tr>
+                            <tr>
+                                <td>مقصد</td>
+                                <td>${airportName(item.FlightSegments[0].ArrivalAirportLocationCode)}</td>
+                            </tr>
+                            <tr>
+                                <td>تاریخ و ساعت پرواز</td>
+                                <td>${ShowDay(item.FlightSegments[0].DepartureDateTime)} ساعت ${moment(item.FlightSegments[0].DepartureDateTime).format('HH:mm')}</td>
+                            </tr>
+                            <tr>
+                                <td>شماره پرواز</td>
+                                <td>${item.FlightSegments[0].FlightNumber}</td>
+                            </tr>
+                            <tr>
+                                <td>کلاس پروازی</td>
+                                <td>${checkCabinType(item.FlightSegments[0].CabinClassCode)}</td>
+                            </tr>
+                            <tr>
+                                <td>طول پرواز</td>
+                                <td>${item.FlightSegments[0].JourneyDuration} ساعت</td>
+                            </tr>
+                        </table>
+                    </div>`;
+
+    })//map
+    document.getElementById('ticketConfirm').innerHTML = ticketConfirm;
+}//CreateTicketPreview
+//###################################تایید اطلاعات کاربران  #######################################################
+function passengerInfoConfirm(){
+    let ticketConfirm   ='';
+    var PassengerFirstName  = document.getElementsByClassName("PassengerFirstName");
+    var PassengerLastName   = document.getElementsByClassName("PassengerLastName");
+    var gender              = document.getElementsByClassName("gender");
+    var DateOfBirth         = document.getElementsByClassName("DateOfBirth");
+    var Country             = document.getElementsByClassName("Country");
+    var PassportNumber      = document.getElementsByClassName("PassportNumber");
+    var IssueDate           = document.getElementsByClassName("IssueDate");
+    var ExpireDate          = document.getElementsByClassName("ExpireDate");
+
+        
+        for (let index = 0; index < PassengerFirstName.length; index++) {
+            ticketConfirm += `
+                    <h3 class="green"><span>&#11044 </span>بزرگسال</h3>
+                    <table class="gray-title">
+                            <thead>
+                                <tr>
+                                    <th>نام</th>
+                                    <th>نام خانوادگی</th>
+                                    <th>جنسیت</th>
+                                    <th>تاریخ تولد</th>
+                                    <th>شماره پاسپورت</th>
+                                    <th>اعتبار پاسپورت</th>
+                                    <th>عملیات</th>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td>${PassengerFirstName[index].value}</td>
+                                <td>${PassengerLastName[index].value}</td>
+                                <td>${gender[index].options[gender[index].selectedIndex].text}</td>
+                                <td>${(DateOfBirth[index].value)}</td>
+                                <td>${PassportNumber[index].value}</td>
+                                <td>${(ExpireDate[index].value)}</td>
+                                <td><a href="#" onclick="hideConfirmDate('hello')">ویرایش</a></td>
+
+                            </tr>
+    
+                    </table>`;
+        }
+   
+    document.getElementById('passengerInfoConfirm').innerHTML = ticketConfirm;
+}//CreateTicketPreview
+
+//#################################### اجرای توابع بعد از بارگزاری صفحه###########################################
 window.onload =()=>{
     CreateTicketPreview();
     passengersCount();
+    ticketConfirm();
+    
 }
 
 
