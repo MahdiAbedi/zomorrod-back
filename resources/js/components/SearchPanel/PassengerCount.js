@@ -21,7 +21,7 @@ class PassengerCount extends React.Component{
             <input type="hidden" name={this.props.prefix + '_infant'} id={this.props.prefix + '_infant'} value={this.state.infant} />
 
 
-            <input type="text"  className="left-border" id="mosafer" placeholder="تعداد مسافر" value={this.state.child + this.state.adult + this.state.infant +" مسافر "} contenteditable="false" onClick={()=>{this.setState({display:!this.state.display})}}/>
+            <input type="text"  className="left-border"  placeholder="تعداد مسافر" value={this.state.child + this.state.adult + this.state.infant +" مسافر "} contenteditable="false" onClick={()=>{this.setState({display:!this.state.display})}}/>
 
             <div className="passengers_count_container" style={{display:(this.state.display ? 'block' :'none')}}>
                 <div className="passengers_count">

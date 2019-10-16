@@ -68676,16 +68676,9 @@ function (_React$Component) {
       isGregorian: false
     };
     return _this;
-  } //کلا باید تاریخ میلادی به وب سرویس ارسال بشه
-
+  }
 
   _createClass(DateSelector, [{
-    key: "MiladiFormat",
-    value: function MiladiFormat(inputValue) {
-      if (!inputValue) return '';
-      return inputValue.locale('es').format('YYYY-MM-DDThh:mm:ss');
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -68708,7 +68701,7 @@ function (_React$Component) {
         type: "hidden",
         name: this.props.name,
         id: (this.props.prefix ? this.props.prefix : '') + '_' + this.props.name,
-        value: this.MiladiFormat(this.state.value),
+        value: MiladiFormat(this.state.value),
         className: this.props.className
       }), React.createElement("br", null), React.createElement("a", {
         onClick: function onClick() {
@@ -69732,19 +69725,19 @@ function (_React$Component) {
       axios.post('/checkTicket1', {
         // PricingSourceType    :localStorage.getItem(''),
         // RequestOption        :localStorage.getItem(''),
-        AdultCount: localStorage.getItem('international_adult'),
-        ChildCount: localStorage.getItem('international_child'),
-        InfantCount: localStorage.getItem('international_infant'),
+        AdultCount: localStorage.getItem('adult'),
+        ChildCount: localStorage.getItem('child'),
+        InfantCount: localStorage.getItem('infant'),
         // CabinType            :localStorage.getItem(''),
         // MaxStopsQuantity     :localStorage.getItem(''),
         // AirTripType          :localStorage.getItem(''),
-        DepartureDateTime: localStorage.getItem('international_departureTime'),
-        DestinationLocationCode: localStorage.getItem('international_destination'),
+        DepartureDateTime: PartoDateFormat(localStorage.getItem('departureTime')),
+        DestinationLocationCode: localStorage.getItem('destination'),
         // DestinationType      :localStorage.getItem(''),
-        OriginLocationCode: localStorage.getItem('international_origin'),
+        OriginLocationCode: localStorage.getItem('origin'),
         // OriginType           :localStorage.getItem(''),
-        IsRoundTrip: localStorage.getItem('international_IsRoundTrip'),
-        ReturnTime: localStorage.getItem('international_returnTime')
+        IsRoundTrip: localStorage.getItem('IsRoundTrip'),
+        ReturnTime: PartoDateFormat(localStorage.getItem('returnTime'))
       }).then(function (response) {
         // let myTickets=response.data;
         // this.setState({tickets:myTickets.PricedItineraries})
@@ -69829,7 +69822,8 @@ function (_React$Component) {
           chooseCabinType: _this.chooseCabinType,
           inline: "true"
         }) : null, React.createElement(_Results__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          tickets: _this.state.tickets
+          tickets: _this.state.tickets,
+          isInline: true
         }));
       } //else
 
@@ -69948,13 +69942,13 @@ function (_React$Component) {
         // CabinType            :localStorage.getItem(''),
         // MaxStopsQuantity     :localStorage.getItem(''),
         // AirTripType          :localStorage.getItem(''),
-        DepartureDateTime: localStorage.getItem('departureTime'),
+        DepartureDateTime: PartoDateFormat(localStorage.getItem('departureTime')),
         DestinationLocationCode: localStorage.getItem('destination'),
         // DestinationType      :localStorage.getItem(''),
         OriginLocationCode: localStorage.getItem('origin'),
         // OriginType           :localStorage.getItem(''),
         IsRoundTrip: localStorage.getItem('IsRoundTrip'),
-        ReturnTime: localStorage.getItem('returnTime')
+        ReturnTime: PartoDateFormat(localStorage.getItem('returnTime'))
       }).then(function (response) {
         // let myTickets=response.data;
         // this.setState({tickets:myTickets.PricedItineraries})
@@ -70037,7 +70031,8 @@ function (_React$Component) {
           chooseAirline: _this.chooseAirline,
           chooseCabinType: _this.chooseCabinType
         }) : null, React.createElement(_Results__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          tickets: _this.state.tickets
+          tickets: _this.state.tickets,
+          isInline: false
         }));
       } //else
 
@@ -70250,7 +70245,7 @@ function LoadingModal() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _TwoWayInternationalTicket__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TwoWayInternationalTicket */ "./resources/js/components/Results/TwoWayInternationalTicket.js");
+/* harmony import */ var _Ticket__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Ticket */ "./resources/js/components/Results/Ticket.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -70285,6 +70280,8 @@ function (_React$PureComponent) {
   _createClass(Results, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       return React.createElement("section", {
         className: "results "
       }, React.createElement("section", {
@@ -70321,17 +70318,18 @@ function (_React$PureComponent) {
         className: "current-date"
       }, React.createElement("a", {
         href: "#"
-      }, moment(localStorage.getItem('international_departureTime')).format('jYYYY/jMM/jDD'))), React.createElement("li", null, React.createElement("a", {
+      }, moment(localStorage.getItem('departureTime')).format('jYYYY/jMM/jDD'))), React.createElement("li", null, React.createElement("a", {
         href: "#"
       }, "\u0631\u0648\u0632 \u0628\u0639\u062F", React.createElement("i", {
         className: "fas fa-angle-left"
       })))))), React.createElement("section", {
         className: "tickets"
       }, this.props.tickets.map(function (ticket, index) {
-        return React.createElement(_TwoWayInternationalTicket__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        return React.createElement(_Ticket__WEBPACK_IMPORTED_MODULE_0__["default"], {
           key: index,
           index: index,
-          ticket: ticket
+          ticket: ticket,
+          isInline: _this.props.isInline
         }); // return <TwoWayInternationalTicket index={index} AirItineraryPricingInfo={ticket.AirItineraryPricingInfo} OriginDestinationOptions={ticket.OriginDestinationOptions}/>
       })));
     }
@@ -70355,10 +70353,10 @@ module.exports = JSON.parse("{\"Success\":true,\"Error\":null,\"PricedItinerarie
 
 /***/ }),
 
-/***/ "./resources/js/components/Results/TwoWayInternationalTicket.js":
-/*!**********************************************************************!*\
-  !*** ./resources/js/components/Results/TwoWayInternationalTicket.js ***!
-  \**********************************************************************/
+/***/ "./resources/js/components/Results/Ticket.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/Results/Ticket.js ***!
+  \***************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -70389,17 +70387,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var TwoWayInternationalTicket =
+var Ticket =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(TwoWayInternationalTicket, _React$Component);
+  _inherits(Ticket, _React$Component);
 
-  function TwoWayInternationalTicket(props) {
+  function Ticket(props) {
     var _this;
 
-    _classCallCheck(this, TwoWayInternationalTicket);
+    _classCallCheck(this, Ticket);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(TwoWayInternationalTicket).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Ticket).call(this, props));
 
     _defineProperty(_assertThisInitialized(_this), "checkDisplay", function () {
       if (_this.state.display == "none") {
@@ -70422,7 +70420,13 @@ function (_React$Component) {
       localStorage.setItem('FareSourceCode', _this.props.ticket.FareSourceCode); //################################################## اطلاعات لگ رفت ###############################################
 
       localStorage.setItem('first_let_charter', _this.OriginDestinationOptions.FlightSegments[0].IsCharter ? 'چارتر' : 'سیستمی');
-      window.location.replace("/international/book");
+
+      if (_this.props.isInline) {
+        //اگر بلیط داخلی بود
+        window.location.replace("/internal/book");
+      } else {
+        window.location.replace("/international/book");
+      }
     });
 
     _this.state = {
@@ -70438,7 +70442,7 @@ function (_React$Component) {
   } //نمایش و یا پنهان کردن جزییات
 
 
-  _createClass(TwoWayInternationalTicket, [{
+  _createClass(Ticket, [{
     key: "render",
     //chooseTicket
     value: function render() {
@@ -70492,11 +70496,11 @@ function (_React$Component) {
 
   }]);
 
-  return TwoWayInternationalTicket;
+  return Ticket;
 }(React.Component); //Class
 
 
-/* harmony default export */ __webpack_exports__["default"] = (TwoWayInternationalTicket);
+/* harmony default export */ __webpack_exports__["default"] = (Ticket);
 
 /***/ }),
 
@@ -70726,21 +70730,21 @@ function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "submitForm", function (event) {
       // alert(this.state.toWay)
       event.preventDefault();
-      localStorage.setItem("inline_origin", $('#inline_origin').val()); //مسیر رفت
+      localStorage.setItem("origin", $('#inline_origin').val()); //مسیر رفت
 
-      localStorage.setItem("inline_destination", $('#inline_destination').val()); //مسیر برگشت
+      localStorage.setItem("destination", $('#inline_destination').val()); //مسیر برگشت
 
-      localStorage.setItem("inline_departureTime", document.getElementById('inline_departureTime').value); //زمان رفت
+      localStorage.setItem("departureTime", document.getElementById('inline_departureTime').value); //زمان رفت
 
-      localStorage.setItem("inline_returnTime", document.getElementById('inline_returnTime').value); //زمان برگشت
+      localStorage.setItem("returnTime", document.getElementById('inline_returnTime').value); //زمان برگشت
 
-      localStorage.setItem("inline_adult", document.getElementById('inline_adult').value); //زمان برگشت
+      localStorage.setItem("adult", document.getElementById('inline_adult').value); //زمان برگشت
 
-      localStorage.setItem("inline_child", document.getElementById('inline_child').value); //زمان برگشت
+      localStorage.setItem("child", document.getElementById('inline_child').value); //زمان برگشت
 
-      localStorage.setItem("inline_infant", document.getElementById('inline_infant').value); //زمان برگشت
+      localStorage.setItem("infant", document.getElementById('inline_infant').value); //زمان برگشت
 
-      localStorage.setItem("inline_IsRoundTrip", !_this.state.toWay); //آیا دو مسیره است یا نه؟ 
+      localStorage.setItem("IsRoundTrip", !_this.state.toWay); //آیا دو مسیره است یا نه؟ 
 
       window.location.replace("/flights");
     });
@@ -70794,7 +70798,7 @@ function (_React$Component) {
       }, React.createElement(_IranAirports__WEBPACK_IMPORTED_MODULE_2__["default"], {
         className: "right-border select2",
         Placeholder: "\u0641\u0631\u0648\u062F\u06AF\u0627\u0647 \u0645\u0628\u062F\u0627",
-        name: "inline-origin"
+        id: "inline_origin"
       }), React.createElement("button", {
         className: "round-btn"
       }, React.createElement("i", {
@@ -70807,7 +70811,7 @@ function (_React$Component) {
       }, React.createElement(_IranAirports__WEBPACK_IMPORTED_MODULE_2__["default"], {
         className: "left-border select2",
         Placeholder: "\u0641\u0631\u0648\u062F\u06AF\u0627\u0647 \u0645\u0642\u0635\u062F",
-        name: "inline-destination"
+        id: "inline_destination"
       })), React.createElement("div", {
         className: "group margin-right"
       }, React.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], {
@@ -71061,7 +71065,7 @@ var IranAirports = function IranAirports(props) {
   return React.createElement("select", {
     className: props.className,
     title: "\u0641\u0631\u0648\u062F\u06AF\u0627\u0647 \u0645\u0628\u062F\u0627",
-    name: props.name
+    id: props.id
   }, React.createElement("optgroup", {
     label: "\u0634\u0647\u0631\u0647\u0627\u06CC \u067E\u0631\u062A\u0631\u062F\u062F"
   }, React.createElement("option", {
@@ -71290,7 +71294,7 @@ function (_React$Component) {
 
       localStorage.setItem("IsRoundTrip", !_this.state.toWay); //آیا دو مسیره است یا نه؟ 
 
-      window.location.replace("/international");
+      window.location.replace("/international"); // alert(document.getElementById('international_departureTime').value)
     });
 
     _defineProperty(_assertThisInitialized(_this), "hideReturnDate", function () {
@@ -71474,7 +71478,6 @@ function (_React$Component) {
       }), React.createElement("input", {
         type: "text",
         className: "left-border",
-        id: "mosafer",
         placeholder: "\u062A\u0639\u062F\u0627\u062F \u0645\u0633\u0627\u0641\u0631",
         value: this.state.child + this.state.adult + this.state.infant + " مسافر ",
         contenteditable: "false",

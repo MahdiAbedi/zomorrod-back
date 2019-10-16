@@ -32,21 +32,21 @@ class InternalTicketResults extends React.Component{
             // PricingSourceType    :localStorage.getItem(''),
             // RequestOption        :localStorage.getItem(''),
 
-            AdultCount              :localStorage.getItem('international_adult'),
-            ChildCount              :localStorage.getItem('international_child'),
-            InfantCount             :localStorage.getItem('international_infant'),
+            AdultCount              :localStorage.getItem('adult'),
+            ChildCount              :localStorage.getItem('child'),
+            InfantCount             :localStorage.getItem('infant'),
 
             // CabinType            :localStorage.getItem(''),
             // MaxStopsQuantity     :localStorage.getItem(''),
             // AirTripType          :localStorage.getItem(''),
 
-            DepartureDateTime       :localStorage.getItem('international_departureTime'),
-            DestinationLocationCode :localStorage.getItem('international_destination'),
+            DepartureDateTime       :PartoDateFormat(localStorage.getItem('departureTime')),
+            DestinationLocationCode :localStorage.getItem('destination'),
             // DestinationType      :localStorage.getItem(''),
-            OriginLocationCode      :localStorage.getItem('international_origin'),
+            OriginLocationCode      :localStorage.getItem('origin'),
             // OriginType           :localStorage.getItem(''),
-            IsRoundTrip             :localStorage.getItem('international_IsRoundTrip'),
-            ReturnTime              :localStorage.getItem('international_returnTime'),
+            IsRoundTrip             :localStorage.getItem('IsRoundTrip'),
+            ReturnTime              :PartoDateFormat(localStorage.getItem('returnTime')),
         })
         .then(response => {
             // let myTickets=response.data;
@@ -129,7 +129,7 @@ class InternalTicketResults extends React.Component{
                 <section className="result-panel container">
                     {(this.state.airlines.length > 0) ? 
                     <Filters checkCharter={this.checkCharter} airlines={this.state.airlines} StopCount = {this.StopCount} chooseAirline = {this.chooseAirline}  chooseCabinType= {this.chooseCabinType} inline="true"/> :null}                    
-                    <Results tickets={this.state.tickets}/>
+                    <Results tickets={this.state.tickets} isInline={true}/>
             </section>     
             );
 

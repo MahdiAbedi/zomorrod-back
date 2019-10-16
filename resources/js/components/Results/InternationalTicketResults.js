@@ -14,6 +14,7 @@ class InternationalTicketResults extends React.Component{
             airlines:[],
             tempTickets:[]
         };
+
     }
 
     //###################################### بدست آوردن لیست ایرلاین ها برای بخش فیلتر #################
@@ -40,13 +41,13 @@ class InternationalTicketResults extends React.Component{
             // MaxStopsQuantity     :localStorage.getItem(''),
             // AirTripType          :localStorage.getItem(''),
 
-            DepartureDateTime       :localStorage.getItem('departureTime'),
+            DepartureDateTime       :PartoDateFormat(localStorage.getItem('departureTime')),
             DestinationLocationCode :localStorage.getItem('destination'),
             // DestinationType      :localStorage.getItem(''),
             OriginLocationCode      :localStorage.getItem('origin'),
             // OriginType           :localStorage.getItem(''),
             IsRoundTrip             :localStorage.getItem('IsRoundTrip'),
-            ReturnTime              :localStorage.getItem('returnTime'),
+            ReturnTime              :PartoDateFormat(localStorage.getItem('returnTime')),
         })
         .then(response => {
             // let myTickets=response.data;
@@ -129,7 +130,7 @@ class InternationalTicketResults extends React.Component{
                 <section className="result-panel container">
                     {(this.state.airlines.length > 0) ? 
                     <Filters checkCharter={this.checkCharter} airlines={this.state.airlines} StopCount = {this.StopCount} chooseAirline = {this.chooseAirline}  chooseCabinType= {this.chooseCabinType}/> :null}                    
-                    <Results tickets={this.state.tickets}/>
+                    <Results tickets={this.state.tickets} isInline={false}/>
             </section>     
             );
 

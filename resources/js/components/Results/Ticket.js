@@ -4,7 +4,7 @@ import Leg from './Leg';
 import LegDetail from './LegDetail';
 
 
-class TwoWayInternationalTicket extends React.Component {
+class Ticket extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,8 +34,12 @@ class TwoWayInternationalTicket extends React.Component {
 //################################################## اطلاعات لگ رفت ###############################################
     localStorage.setItem('first_let_charter',this.OriginDestinationOptions.FlightSegments[0].IsCharter? 'چارتر': 'سیستمی')
 
-
-    window.location.replace("/international/book");
+    if(this.props.isInline){
+      //اگر بلیط داخلی بود
+      window.location.replace("/internal/book");
+    }else{
+      window.location.replace("/international/book");
+    }
   }//chooseTicket
 
   render() {
@@ -105,4 +109,4 @@ class TwoWayInternationalTicket extends React.Component {
 
 
 }//Class
-export default TwoWayInternationalTicket;
+export default Ticket;

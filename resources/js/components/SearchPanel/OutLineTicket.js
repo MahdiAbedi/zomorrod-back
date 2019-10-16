@@ -30,6 +30,7 @@ class OutLineTicket extends React.Component{
         localStorage.setItem("IsRoundTrip"    , !this.state.toWay);          //آیا دو مسیره است یا نه؟ 
 
         window.location.replace("/international");
+        // alert(document.getElementById('international_departureTime').value)
 
     }
 

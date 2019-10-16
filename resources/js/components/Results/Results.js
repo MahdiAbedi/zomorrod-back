@@ -1,4 +1,4 @@
-import TwoWayInternationalTicket from './TwoWayInternationalTicket';
+import Ticket from './Ticket';
 class Results extends React.PureComponent{
     constructor(props){
         super(props);
@@ -22,7 +22,7 @@ class Results extends React.PureComponent{
                         <section className="date">
                             <ul className="flex">
                                 <li><a href="#"><i className="fas fa-angle-right"></i>روز قبل</a></li>
-                                <li className="current-date"><a href="#">{moment(localStorage.getItem('international_departureTime')).format('jYYYY/jMM/jDD')}</a></li>
+                                <li className="current-date"><a href="#">{moment(localStorage.getItem('departureTime')).format('jYYYY/jMM/jDD')}</a></li>
                                 <li><a href="#">روز بعد<i className="fas fa-angle-left"></i></a></li>
                             </ul>
                         </section>
@@ -32,7 +32,7 @@ class Results extends React.PureComponent{
                     <section className="tickets">
             
                     {this.props.tickets.map((ticket,index)=>{
-                            return <TwoWayInternationalTicket key={index} index={index} ticket={ticket}/>
+                            return <Ticket key={index} index={index} ticket={ticket} isInline={this.props.isInline}/>
                             // return <TwoWayInternationalTicket index={index} AirItineraryPricingInfo={ticket.AirItineraryPricingInfo} OriginDestinationOptions={ticket.OriginDestinationOptions}/>
                         })}
                         {/*<!-- یک تیکت تک --> */}

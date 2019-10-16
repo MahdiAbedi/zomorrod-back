@@ -45,7 +45,10 @@ Route::get('/flights', function () {
 // });
 
 Route::post('/checkInlineTickets','TicketController@checkInlineTickets');
-
+//روز بلیط داخلی
+Route::get('/internal/book',function(){
+    return view('pages/internal-ticket/book');
+});
 
 
 //################################## فرودگاه های بین اللملی ########################################

@@ -5,7 +5,7 @@ function PassengerInfo({title="بزرگسال",passengerType=1}){
     //گرفتن اطلاعات تیکت که در مرحله انتخاب بلیط تو مرورگر ذخیره شده
     
     return(
-        <section className="tabs">
+    <section className="tabs">
         <div className="tabs-title">
             <div className="tab-title">
                 <i className="green fas fa-times-circle"></i>

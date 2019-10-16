@@ -1,6 +1,6 @@
 import DateSelector from '../DateSelector';
 import PassengerCount from './PassengerCount';
-import IranAirlines from './IranAirports';
+import IranAirports from './IranAirports';
 
 class InlineTicket extends React.Component{
 
@@ -17,14 +17,14 @@ class InlineTicket extends React.Component{
     submitForm=(event)=>{
         // alert(this.state.toWay)
         event.preventDefault();
-        localStorage.setItem("inline_origin"         , $('#inline_origin').val());                                        //مسیر رفت
-        localStorage.setItem("inline_destination"    , $('#inline_destination').val());                             //مسیر برگشت
-        localStorage.setItem("inline_departureTime"  , document.getElementById('inline_departureTime').value);   //زمان رفت
-        localStorage.setItem("inline_returnTime"     , document.getElementById('inline_returnTime').value);        //زمان برگشت
-        localStorage.setItem("inline_adult"          , document.getElementById('inline_adult').value);                 //زمان برگشت
-        localStorage.setItem("inline_child"          , document.getElementById('inline_child').value);                //زمان برگشت
-        localStorage.setItem("inline_infant"         , document.getElementById('inline_infant').value);             //زمان برگشت
-        localStorage.setItem("inline_IsRoundTrip"    , !this.state.toWay);          //آیا دو مسیره است یا نه؟ 
+        localStorage.setItem("origin"         , $('#inline_origin').val());                               //مسیر رفت
+        localStorage.setItem("destination"    , $('#inline_destination').val());                          //مسیر برگشت
+        localStorage.setItem("departureTime"  , document.getElementById('inline_departureTime').value);   //زمان رفت
+        localStorage.setItem("returnTime"     , document.getElementById('inline_returnTime').value);      //زمان برگشت
+        localStorage.setItem("adult"          , document.getElementById('inline_adult').value);           //زمان برگشت
+        localStorage.setItem("child"          , document.getElementById('inline_child').value);           //زمان برگشت
+        localStorage.setItem("infant"         , document.getElementById('inline_infant').value);          //زمان برگشت
+        localStorage.setItem("IsRoundTrip"    , !this.state.toWay);                                       //آیا دو مسیره است یا نه؟ 
 
         window.location.replace("/flights");
 
@@ -52,7 +52,7 @@ class InlineTicket extends React.Component{
             <form  className="search" onSubmit={this.submitForm}> 
                 <div className="group margin-right">
 
-                    <IranAirlines className="right-border select2" Placeholder="فرودگاه مبدا" name="inline-origin"/>
+                    <IranAirports className="right-border select2" Placeholder="فرودگاه مبدا" id="inline_origin"/>
 
                     <button className="round-btn"><i className="icon-transfer"><img src="img/change-way.png"
                                 alt=""/></i>
@@ -60,7 +60,7 @@ class InlineTicket extends React.Component{
 
                 </div>
                 <div className="group">
-                <IranAirlines className="left-border select2" Placeholder="فرودگاه مقصد" name="inline-destination"/>
+                <IranAirports className="left-border select2" Placeholder="فرودگاه مقصد" id="inline_destination"/>
 
                 </div>
                 <div className="group margin-right">

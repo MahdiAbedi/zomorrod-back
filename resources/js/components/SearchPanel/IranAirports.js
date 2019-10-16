@@ -1,5 +1,5 @@
 const IranAirports = props =>(
-    <select className={props.className} title="فرودگاه مبدا" name={props.name}>
+    <select className={props.className} title="فرودگاه مبدا" id={props.id}>
     <optgroup label="شهرهای پرتردد">
     <option value="THR">تهران</option>
     <option value="MHD">مشهد</option>

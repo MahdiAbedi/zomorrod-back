@@ -11,12 +11,7 @@ class DateSelector extends React.Component {
     };
   }
 
-  //کلا باید تاریخ میلادی به وب سرویس ارسال بشه
-  MiladiFormat(inputValue) {
-    if (!inputValue)
-      return '';
-    return inputValue.locale('es').format('YYYY-MM-DDThh:mm:ss');
-  }
+
 
 
   render() {
@@ -32,7 +27,7 @@ class DateSelector extends React.Component {
               onChange={value => this.setState({ value })}
             />
 
-            <input type="hidden" name={this.props.name} id={(this.props.prefix ? this.props.prefix :'') +'_'+this.props.name} value={this.MiladiFormat(this.state.value)} className={this.props.className}/>
+            <input type="hidden" name={this.props.name} id={(this.props.prefix ? this.props.prefix :'') +'_'+this.props.name} value={MiladiFormat(this.state.value)} className={this.props.className}/>
 
 
             <br />

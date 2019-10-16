@@ -4,9 +4,7 @@ $(document).ready(function () {
 
     // showSearchPanel("OutLineTicket");
     //درخواست لیست فرودگاه های بین المللی
-    
-
-    
+        
 
     //#################### حرکت بین فیلدهای جستجو در صفحه اول ########################
 
@@ -378,8 +376,8 @@ function Toggle(tagId) {
     
     //نمایش روز و ماه شمسی
     function ShowDay(miladiDate){
-        moment.locale("fa");
-        moment.loadPersian();
+        // moment.locale("fa");
+        // moment.loadPersian();
         return moment(miladiDate).format(' Do jMMMM jYYYY');
     }
 
@@ -394,6 +392,22 @@ function passengersCount() {
         } //for
     })
 
-    
-
 }//function
+
+ //تبدیل کد رشته زمان به تاریخ میلادی
+ //1254452541=2015/01/17
+ function MiladiFormat(inputValue) {
+    if (!inputValue)
+      return '';
+    return inputValue.locale('es').format('YYYY/MM/DD hh:mm:ss');
+}
+
+//تغییر فرمت میلادی به فرمت قابل فهم برای وب سرویس
+  //کلا باید تاریخ میلادی به وب سرویس ارسال بشه
+function PartoDateFormat(inputValue) {
+
+    if (!inputValue)
+      return '';
+    return moment(inputValue).format('YYYY-MM-DDThh:mm:ss');
+  }
+  
