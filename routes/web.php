@@ -65,3 +65,9 @@ Route::get('/register',function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//#################################### هتل ها ###########################################
+Route::get('/hotels',function(){
+    return view('pages/hotels/results');
+});

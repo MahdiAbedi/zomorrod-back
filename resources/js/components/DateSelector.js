@@ -16,7 +16,7 @@ class DateSelector extends React.Component {
 
   render() {
     return <div className={"DatePicker " + (this.props.disabled ? 'disabled' : '') }>
-      
+            <label className="dateTitle">{this.props.title}</label>
             <DatePicker
               name="testTime"
               timePicker={false}

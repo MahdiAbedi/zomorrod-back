@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="author" content="MahdiAbedi220@yahoo.com">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/mahdi.css">
     <title>آژانس هواپیمایی ستاره زمرد</title>
 <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />

@@ -68685,7 +68685,9 @@ function (_React$Component) {
 
       return React.createElement("div", {
         className: "DatePicker " + (this.props.disabled ? 'disabled' : '')
-      }, React.createElement(react_datepicker2__WEBPACK_IMPORTED_MODULE_0___default.a, {
+      }, React.createElement("label", {
+        className: "dateTitle"
+      }, this.props.title), React.createElement(react_datepicker2__WEBPACK_IMPORTED_MODULE_0___default.a, {
         name: "testTime",
         timePicker: false,
         value: this.state.value,
@@ -70515,6 +70517,140 @@ module.exports = JSON.parse("{\"Success\":true,\"Error\":null,\"PricedItinerarie
 
 /***/ }),
 
+/***/ "./resources/js/components/SearchPanel/HotelPassengerCount.js":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/SearchPanel/HotelPassengerCount.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var PassengerCount =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(PassengerCount, _React$Component);
+
+  function PassengerCount(props) {
+    var _this;
+
+    _classCallCheck(this, PassengerCount);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(PassengerCount).call(this, props));
+    _this.state = {
+      adult: 1,
+      child: 0,
+      infant: 0,
+      display: 0
+    };
+    return _this;
+  }
+
+  _createClass(PassengerCount, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return React.createElement("span", null, React.createElement("input", {
+        type: "hidden",
+        name: this.props.prefix + '_adult',
+        id: this.props.prefix + '_adult',
+        value: this.state.adult
+      }), React.createElement("input", {
+        type: "hidden",
+        name: this.props.prefix + '_child',
+        id: this.props.prefix + '_child',
+        value: this.state.child
+      }), React.createElement("input", {
+        type: "hidden",
+        name: this.props.prefix + '_infant',
+        id: this.props.prefix + '_infant',
+        value: this.state.infant
+      }), React.createElement("input", {
+        type: "text",
+        className: "left-border",
+        placeholder: "\u062A\u0639\u062F\u0627\u062F \u0645\u0633\u0627\u0641\u0631",
+        value: this.state.child + this.state.adult + this.state.infant + " مسافر ",
+        contenteditable: "false",
+        onClick: function onClick() {
+          _this2.setState({
+            display: !_this2.state.display
+          });
+        }
+      }), React.createElement("div", {
+        className: "passengers_count_container",
+        style: {
+          display: this.state.display ? 'block' : 'none'
+        }
+      }, React.createElement("div", {
+        className: "passengers_count"
+      }, React.createElement("label", null, "\u0628\u0632\u0631\u06AF\u0633\u0627\u0644"), React.createElement("span", {
+        className: "count"
+      }, React.createElement("button", {
+        type: "button",
+        className: "plus-btn",
+        onClick: function onClick() {
+          return _this2.setState({
+            adult: _this2.state.adult + 1
+          });
+        }
+      }, "+"), React.createElement("span", null, this.state.adult), React.createElement("button", {
+        type: "button",
+        className: "plus-btn",
+        onClick: function onClick() {
+          return _this2.setState({
+            adult: _this2.state.adult > 0 ? _this2.state.adult - 1 : _this2.state.adult
+          });
+        }
+      }, "-"))), React.createElement("div", {
+        className: "passengers_count"
+      }, React.createElement("label", null, "\u06A9\u0648\u062F\u06A9"), React.createElement("span", {
+        className: "count"
+      }, React.createElement("button", {
+        type: "button",
+        className: "plus-btn",
+        onClick: function onClick() {
+          return _this2.setState({
+            child: _this2.state.child + 1
+          });
+        }
+      }, "+"), React.createElement("span", null, this.state.child), React.createElement("button", {
+        type: "button",
+        className: "plus-btn",
+        onClick: function onClick() {
+          return _this2.setState({
+            child: _this2.state.child > 0 ? _this2.state.child - 1 : _this2.state.child
+          });
+        }
+      }, "-")))));
+    }
+  }]);
+
+  return PassengerCount;
+}(React.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (PassengerCount);
+
+/***/ }),
+
 /***/ "./resources/js/components/SearchPanel/HotelTicket.js":
 /*!************************************************************!*\
   !*** ./resources/js/components/SearchPanel/HotelTicket.js ***!
@@ -70525,7 +70661,7 @@ module.exports = JSON.parse("{\"Success\":true,\"Error\":null,\"PricedItinerarie
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DateSelector__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DateSelector */ "./resources/js/components/DateSelector.js");
-/* harmony import */ var _PassengerCount__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PassengerCount */ "./resources/js/components/SearchPanel/PassengerCount.js");
+/* harmony import */ var _HotelPassengerCount__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HotelPassengerCount */ "./resources/js/components/SearchPanel/HotelPassengerCount.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -70571,63 +70707,26 @@ function (_React$Component) {
         className: "filters"
       }, React.createElement("input", {
         type: "radio",
-        value: "value1",
-        id: "group1",
-        name: "group1",
+        value: "0",
+        id: "iranHotels",
+        name: "hotels",
         checked: true
       }), React.createElement("label", {
-        "for": "group1"
-      }, "\u06CC\u06A9 \u0637\u0631\u0641\u0647"), React.createElement("input", {
+        "for": "iranHotels"
+      }, "\u062F\u0627\u062E\u0644\u06CC"), React.createElement("input", {
         type: "radio",
-        value: "value2",
-        id: "group2",
-        name: "group1"
+        value: "1",
+        id: "Hotels",
+        name: "hotels",
+        checked: true
       }), React.createElement("label", {
-        "for": "group2"
-      }, "\u0631\u0641\u062A \u0648 \u0628\u0631\u06AF\u0634\u062A"), React.createElement("input", {
-        type: "radio",
-        value: "value2",
-        id: "group3",
-        name: "group1"
-      }), React.createElement("label", {
-        "for": "group3"
-      }, "\u0686\u0646\u062F \u0645\u0633\u06CC\u0631\u0647")), React.createElement("form", {
+        "for": "Hotels"
+      }, "\u062E\u0627\u0631\u062C\u06CC")), React.createElement("form", {
         className: "search"
       }, React.createElement("div", {
-        className: "group margin-right"
-      }, React.createElement("select", {
-        className: "right-border select2"
-      }, React.createElement("option", null, "\u0645\u0628\u062F\u0627\u0621"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632")), React.createElement("button", {
-        className: "round-btn"
-      }, React.createElement("i", {
-        className: "icon-transfer"
-      }, React.createElement("img", {
-        src: "img/change-way.png",
-        alt: ""
-      })))), React.createElement("div", {
         className: "group"
       }, React.createElement("select", {
-        className: "left-border select2"
+        className: "left-border right-border select2"
       }, React.createElement("option", null, "\u0645\u0642\u0635\u062F"), React.createElement("option", {
         value: ""
       }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
@@ -70650,11 +70749,19 @@ function (_React$Component) {
         value: ""
       }, "\u0634\u06CC\u0631\u0627\u0632"))), React.createElement("div", {
         className: "group margin-right"
-      }, React.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], null)), React.createElement("div", {
+      }, React.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        name: "checkIn",
+        prefix: "hotel",
+        title: "\u062A\u0627\u0631\u06CC\u062E \u0648\u0631\u0648\u062F"
+      })), React.createElement("div", {
         className: "group"
-      }, React.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], null)), React.createElement("div", {
+      }, React.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        name: "checkOut",
+        prefix: "hotel",
+        title: "\u062A\u0627\u0631\u06CC\u062E \u062E\u0631\u0648\u062C"
+      })), React.createElement("div", {
         className: "group"
-      }, React.createElement(_PassengerCount__WEBPACK_IMPORTED_MODULE_1__["default"], null)), React.createElement("div", {
+      }, React.createElement(_HotelPassengerCount__WEBPACK_IMPORTED_MODULE_1__["default"], null)), React.createElement("div", {
         className: "group"
       }, React.createElement("input", {
         type: "button",
@@ -70816,13 +70923,15 @@ function (_React$Component) {
         className: "group margin-right"
       }, React.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], {
         name: "departureTime",
-        prefix: "inline"
+        prefix: "inline",
+        title: "\u062A\u0627\u0631\u06CC\u062E \u0631\u0641\u062A"
       })), React.createElement("div", {
         className: "group"
       }, React.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], {
         name: "returnTime",
         prefix: "inline",
-        disabled: this.state.toWay
+        disabled: this.state.toWay,
+        title: "\u062A\u0627\u0631\u06CC\u062E \u0628\u0627\u0632\u06AF\u0634\u062A"
       })), React.createElement("div", {
         className: "group"
       }, React.createElement(_PassengerCount__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -70855,8 +70964,6 @@ function (_React$Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _DateSelector__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DateSelector */ "./resources/js/components/DateSelector.js");
-/* harmony import */ var _PassengerCount__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PassengerCount */ "./resources/js/components/SearchPanel/PassengerCount.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -70874,9 +70981,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
 
 var InsuranceTicket =
 /*#__PURE__*/
@@ -70898,102 +71002,7 @@ function (_React$Component) {
         style: {
           display: 'none'
         }
-      }, React.createElement("div", {
-        className: "filters"
-      }, React.createElement("input", {
-        type: "radio",
-        value: "value1",
-        id: "group1",
-        name: "group1",
-        checked: true
-      }), React.createElement("label", {
-        "for": "group1"
-      }, "\u06CC\u06A9 \u0637\u0631\u0641\u0647"), React.createElement("input", {
-        type: "radio",
-        value: "value2",
-        id: "group2",
-        name: "group1"
-      }), React.createElement("label", {
-        "for": "group2"
-      }, "\u0631\u0641\u062A \u0648 \u0628\u0631\u06AF\u0634\u062A"), React.createElement("input", {
-        type: "radio",
-        value: "value2",
-        id: "group3",
-        name: "group1"
-      }), React.createElement("label", {
-        "for": "group3"
-      }, "\u0686\u0646\u062F \u0645\u0633\u06CC\u0631\u0647")), React.createElement("form", {
-        className: "search"
-      }, React.createElement("div", {
-        className: "group margin-right"
-      }, React.createElement("select", {
-        className: "right-border select2"
-      }, React.createElement("option", null, "\u0645\u0628\u062F\u0627\u0621"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632")), React.createElement("button", {
-        className: "round-btn"
-      }, React.createElement("i", {
-        className: "icon-transfer"
-      }, React.createElement("img", {
-        src: "img/change-way.png",
-        alt: ""
-      })))), React.createElement("div", {
-        className: "group"
-      }, React.createElement("select", {
-        className: "left-border select2"
-      }, React.createElement("option", null, "\u0645\u0642\u0635\u062F"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"))), React.createElement("div", {
-        className: "group margin-right"
-      }, React.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], null)), React.createElement("div", {
-        className: "group"
-      }, React.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], null)), React.createElement("div", {
-        className: "group"
-      }, React.createElement(_PassengerCount__WEBPACK_IMPORTED_MODULE_1__["default"], null)), React.createElement("div", {
-        className: "group"
-      }, React.createElement("input", {
-        type: "button",
-        className: "btn btn-zgreen",
-        value: "\u062C\u0633\u062A\u062C\u0648"
-      }), React.createElement("i", {
-        className: "icon-search"
-      }))));
+      }, React.createElement("h2", null, "\u0628\u0647 \u0632\u0648\u062F\u06CC...."));
     }
   }]);
 
@@ -71378,13 +71387,15 @@ function (_React$Component) {
         className: "group margin-right"
       }, React.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], {
         name: "departureTime",
-        prefix: "international"
+        prefix: "international",
+        title: "\u062A\u0627\u0631\u06CC\u062E \u0631\u0641\u062A"
       })), React.createElement("div", {
         className: "group"
       }, React.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], {
         name: "returnTime",
         disabled: this.state.toWay,
-        prefix: "international"
+        prefix: "international",
+        title: "\u062A\u0627\u0631\u06CC\u062E \u0628\u0631\u06AF\u0634\u062A"
       })), React.createElement("div", {
         className: "group"
       }, React.createElement(_PassengerCount__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -71571,8 +71582,6 @@ function (_React$Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _DateSelector__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DateSelector */ "./resources/js/components/DateSelector.js");
-/* harmony import */ var _PassengerCount__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PassengerCount */ "./resources/js/components/SearchPanel/PassengerCount.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -71590,9 +71599,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
 
 var TourTicket =
 /*#__PURE__*/
@@ -71614,102 +71620,7 @@ function (_React$Component) {
         style: {
           display: 'none'
         }
-      }, React.createElement("div", {
-        className: "filters"
-      }, React.createElement("input", {
-        type: "radio",
-        value: "value1",
-        id: "group1",
-        name: "group1",
-        checked: true
-      }), React.createElement("label", {
-        "for": "group1"
-      }, "\u06CC\u06A9 \u0637\u0631\u0641\u0647"), React.createElement("input", {
-        type: "radio",
-        value: "value2",
-        id: "group2",
-        name: "group1"
-      }), React.createElement("label", {
-        "for": "group2"
-      }, "\u0631\u0641\u062A \u0648 \u0628\u0631\u06AF\u0634\u062A"), React.createElement("input", {
-        type: "radio",
-        value: "value2",
-        id: "group3",
-        name: "group1"
-      }), React.createElement("label", {
-        "for": "group3"
-      }, "\u0686\u0646\u062F \u0645\u0633\u06CC\u0631\u0647")), React.createElement("form", {
-        className: "search"
-      }, React.createElement("div", {
-        className: "group margin-right"
-      }, React.createElement("select", {
-        className: "right-border select2"
-      }, React.createElement("option", null, "\u0645\u0628\u062F\u0627\u0621"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632")), React.createElement("button", {
-        className: "round-btn"
-      }, React.createElement("i", {
-        className: "icon-transfer"
-      }, React.createElement("img", {
-        src: "img/change-way.png",
-        alt: ""
-      })))), React.createElement("div", {
-        className: "group"
-      }, React.createElement("select", {
-        className: "left-border select2"
-      }, React.createElement("option", null, "\u0645\u0642\u0635\u062F"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"))), React.createElement("div", {
-        className: "group margin-right"
-      }, React.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], null)), React.createElement("div", {
-        className: "group"
-      }, React.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], null)), React.createElement("div", {
-        className: "group"
-      }, React.createElement(_PassengerCount__WEBPACK_IMPORTED_MODULE_1__["default"], null)), React.createElement("div", {
-        className: "group"
-      }, React.createElement("input", {
-        type: "button",
-        className: "btn btn-zgreen",
-        value: "\u062C\u0633\u062A\u062C\u0648"
-      }), React.createElement("i", {
-        className: "icon-search"
-      }))));
+      }, React.createElement("h2", null, "\u0628\u0647 \u0632\u0648\u062F\u06CC...."));
     }
   }]);
 
@@ -71729,8 +71640,6 @@ function (_React$Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _DateSelector__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DateSelector */ "./resources/js/components/DateSelector.js");
-/* harmony import */ var _PassengerCount__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PassengerCount */ "./resources/js/components/SearchPanel/PassengerCount.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -71748,9 +71657,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
 
 var TrainTicket =
 /*#__PURE__*/
@@ -71772,102 +71678,7 @@ function (_React$Component) {
         style: {
           display: 'none'
         }
-      }, React.createElement("div", {
-        className: "filters"
-      }, React.createElement("input", {
-        type: "radio",
-        value: "value1",
-        id: "group1",
-        name: "group1",
-        checked: true
-      }), React.createElement("label", {
-        "for": "group1"
-      }, "\u06CC\u06A9 \u0637\u0631\u0641\u0647"), React.createElement("input", {
-        type: "radio",
-        value: "value2",
-        id: "group2",
-        name: "group1"
-      }), React.createElement("label", {
-        "for": "group2"
-      }, "\u0631\u0641\u062A \u0648 \u0628\u0631\u06AF\u0634\u062A"), React.createElement("input", {
-        type: "radio",
-        value: "value2",
-        id: "group3",
-        name: "group1"
-      }), React.createElement("label", {
-        "for": "group3"
-      }, "\u0686\u0646\u062F \u0645\u0633\u06CC\u0631\u0647")), React.createElement("form", {
-        className: "search"
-      }, React.createElement("div", {
-        className: "group margin-right"
-      }, React.createElement("select", {
-        className: "right-border select2"
-      }, React.createElement("option", null, "\u0645\u0628\u062F\u0627\u0621"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632")), React.createElement("button", {
-        className: "round-btn"
-      }, React.createElement("i", {
-        className: "icon-transfer"
-      }, React.createElement("img", {
-        src: "img/change-way.png",
-        alt: ""
-      })))), React.createElement("div", {
-        className: "group"
-      }, React.createElement("select", {
-        className: "left-border select2"
-      }, React.createElement("option", null, "\u0645\u0642\u0635\u062F"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"), React.createElement("option", {
-        value: ""
-      }, "\u062A\u0647\u0631\u0627\u0646"), React.createElement("option", {
-        value: ""
-      }, "\u0634\u06CC\u0631\u0627\u0632"))), React.createElement("div", {
-        className: "group margin-right"
-      }, React.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], null)), React.createElement("div", {
-        className: "group"
-      }, React.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], null)), React.createElement("div", {
-        className: "group"
-      }, React.createElement(_PassengerCount__WEBPACK_IMPORTED_MODULE_1__["default"], null)), React.createElement("div", {
-        className: "group"
-      }, React.createElement("input", {
-        type: "button",
-        className: "btn btn-zgreen",
-        value: "\u062C\u0633\u062A\u062C\u0648"
-      }), React.createElement("i", {
-        className: "icon-search"
-      }))));
+      }, React.createElement("h2", null, "\u0628\u0647 \u0632\u0648\u062F\u06CC...."));
     }
   }]);
 

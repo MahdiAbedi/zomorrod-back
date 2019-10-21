@@ -71,10 +71,10 @@ class OutLineTicket extends React.Component{
 
                 </div>
                 <div className="group margin-right">
-                    <DateSelector name="departureTime" prefix="international"/>
+                    <DateSelector name="departureTime" prefix="international" title="تاریخ رفت"/>
                 </div>
                 <div className="group">
-                <DateSelector name="returnTime" disabled={this.state.toWay} prefix="international" />
+                <DateSelector name="returnTime" disabled={this.state.toWay} prefix="international"  title="تاریخ برگشت"/>
                 </div>
                 
                 <div className="group">

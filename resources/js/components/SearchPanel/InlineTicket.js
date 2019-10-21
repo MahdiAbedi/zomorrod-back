@@ -64,10 +64,10 @@ class InlineTicket extends React.Component{
 
                 </div>
                 <div className="group margin-right">
-                <DateSelector name="departureTime" prefix="inline"/>
+                <DateSelector name="departureTime" prefix="inline" title="تاریخ رفت"/>
                 </div>
                 <div className="group">
-                <DateSelector name="returnTime" prefix="inline"  disabled={this.state.toWay}/>
+                <DateSelector name="returnTime" prefix="inline"  disabled={this.state.toWay} title="تاریخ بازگشت"/>
                 </div>
                 <div className="group">
                 <PassengerCount prefix="inline"/>
