@@ -124,6 +124,25 @@ exports.push([module.i, ".available-loading-modal {\r\n    position: fixed;\r\n 
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/SearchPanel/HotelPassengerCount.css":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/postcss-loader/src??ref--5-2!./resources/js/components/SearchPanel/HotelPassengerCount.css ***!
+  \*****************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".hotel_passengers_count{\r\n    width:260px;\r\n}\r\n\r\n.hotel_passengers_count button{\r\n    margin-top:10px;\r\n}\r\n\r\n.deleteRoom{\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.deleteRoom h4{\r\n    color:orange;\r\n    margin-top: 5px;\r\n}\r\n\r\n.deleteRoom p{\r\n    color:red;\r\n    margin-top: 5px;\r\n    cursor: pointer;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/lib/css-base.js":
 /*!*************************************************!*\
   !*** ./node_modules/css-loader/lib/css-base.js ***!
@@ -70517,6 +70536,36 @@ module.exports = JSON.parse("{\"Success\":true,\"Error\":null,\"PricedItinerarie
 
 /***/ }),
 
+/***/ "./resources/js/components/SearchPanel/HotelPassengerCount.css":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/SearchPanel/HotelPassengerCount.css ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/postcss-loader/src??ref--5-2!./HotelPassengerCount.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/SearchPanel/HotelPassengerCount.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./resources/js/components/SearchPanel/HotelPassengerCount.js":
 /*!********************************************************************!*\
   !*** ./resources/js/components/SearchPanel/HotelPassengerCount.js ***!
@@ -70526,6 +70575,8 @@ module.exports = JSON.parse("{\"Success\":true,\"Error\":null,\"PricedItinerarie
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _HotelPassengerCount_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HotelPassengerCount.css */ "./resources/js/components/SearchPanel/HotelPassengerCount.css");
+/* harmony import */ var _HotelPassengerCount_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_HotelPassengerCount_css__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -70536,13 +70587,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 var PassengerCount =
 /*#__PURE__*/
@@ -70555,11 +70610,52 @@ function (_React$Component) {
     _classCallCheck(this, PassengerCount);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(PassengerCount).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "delete", function () {
+      _this.setState({
+        rooms: _this.state.rooms - 1
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "deleteAdult", function () {
+      _this.setState({
+        adult: _this.state.adult - 1
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "deleteAdult", function () {
+      var index = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+
+      _this.setState({
+        adult: _this.state.adult - index
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "addAdult", function () {
+      _this.setState({
+        adult: _this.state.adult + 1
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "deleteChild", function () {
+      var index = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+
+      _this.setState({
+        child: _this.state.child - index
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "addChild", function () {
+      _this.setState({
+        child: _this.state.child + 1
+      });
+    });
+
     _this.state = {
-      adult: 1,
+      adult: 0,
       child: 0,
-      infant: 0,
-      display: 0
+      display: 0,
+      rooms: 1
     };
     return _this;
   }
@@ -70568,6 +70664,155 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var _this2 = this;
+
+      var counters = [];
+
+      for (var index = 1; index <= this.state.rooms; index++) {
+        counters.push(React.createElement(HotelCounter, {
+          index: index,
+          "delete": this["delete"],
+          deleteAdult: this.deleteAdult,
+          addAdult: this.addAdult,
+          deleteChild: this.deleteChild,
+          addChild: this.addChild
+        }));
+      }
+
+      return React.createElement("span", null, React.createElement("input", {
+        type: "text",
+        className: "left-border",
+        placeholder: "\u062A\u0639\u062F\u0627\u062F \u0645\u0633\u0627\u0641\u0631",
+        value: this.state.adult + " بزرگسال ," + this.state.child + " کودک ," + this.state.rooms + " اتاق ",
+        contenteditable: "false",
+        onClick: function onClick() {
+          _this2.setState({
+            display: !_this2.state.display
+          });
+        }
+      }), React.createElement("div", {
+        className: "passengers_count_container hotel_passengers_count",
+        style: {
+          display: this.state.display ? 'block' : 'none'
+        }
+      }, React.createElement("span", {
+        id: "counterId"
+      }, counters), React.createElement("button", {
+        className: "btn btn-zgreen",
+        onClick: function onClick(e) {
+          e.preventDefault();
+
+          _this2.setState({
+            rooms: _this2.state.rooms + 1
+          });
+        }
+      }, " + \u0627\u0641\u0632\u0648\u062F\u0646 \u0627\u062A\u0627\u0642")));
+    }
+  }]);
+
+  return PassengerCount;
+}(React.Component); //class
+// ################################## Counter Class ######################################
+
+
+var HotelCounter =
+/*#__PURE__*/
+function (_React$Component2) {
+  _inherits(HotelCounter, _React$Component2);
+
+  function HotelCounter(props) {
+    var _this3;
+
+    _classCallCheck(this, HotelCounter);
+
+    _this3 = _possibleConstructorReturn(this, _getPrototypeOf(HotelCounter).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this3), "deleteAdult", function () {
+      if (_this3.state.adult > 1) {
+        _this3.setState({
+          adult: _this3.state.adult - 1
+        });
+
+        _this3.props.deleteAdult();
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this3), "addAdult", function () {
+      _this3.setState({
+        adult: _this3.state.adult + 1
+      });
+
+      _this3.props.addAdult();
+    });
+
+    _defineProperty(_assertThisInitialized(_this3), "deleteChild", function () {
+      if (_this3.state.child > 0) {
+        _this3.setState({
+          child: _this3.state.child - 1
+        });
+
+        _this3.props.deleteChild();
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this3), "addChild", function () {
+      _this3.setState({
+        child: _this3.state.child + 1
+      });
+
+      _this3.props.addChild();
+    });
+
+    _defineProperty(_assertThisInitialized(_this3), "deleteMe", function () {
+      _this3.props.deleteAdult(_this3.state.adult);
+
+      _this3.props.deleteChild(_this3.state.child);
+
+      _this3.props["delete"]();
+    });
+
+    _this3.state = {
+      adult: 1,
+      child: 0,
+      infant: 0,
+      display: 0
+    };
+    return _this3;
+  }
+
+  _createClass(HotelCounter, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.addAdult();
+    }
+  }, {
+    key: "farsiCounter",
+    value: function farsiCounter(index) {
+      switch (index) {
+        case 1:
+          return 'اول';
+          break;
+
+        case 2:
+          return 'دوم';
+          break;
+
+        case 3:
+          return 'سوم';
+          break;
+
+        case 4:
+          return 'چهارم';
+          break;
+
+        default:
+          return index;
+          break;
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this4 = this;
 
       return React.createElement("span", null, React.createElement("input", {
         type: "hidden",
@@ -70584,68 +70829,51 @@ function (_React$Component) {
         name: this.props.prefix + '_infant',
         id: this.props.prefix + '_infant',
         value: this.state.infant
-      }), React.createElement("input", {
-        type: "text",
-        className: "left-border",
-        placeholder: "\u062A\u0639\u062F\u0627\u062F \u0645\u0633\u0627\u0641\u0631",
-        value: this.state.child + this.state.adult + this.state.infant + " مسافر ",
-        contenteditable: "false",
-        onClick: function onClick() {
-          _this2.setState({
-            display: !_this2.state.display
-          });
-        }
       }), React.createElement("div", {
-        className: "passengers_count_container",
-        style: {
-          display: this.state.display ? 'block' : 'none'
+        className: "deleteRoom"
+      }, React.createElement("h4", null, "\u0627\u062A\u0627\u0642 ", this.farsiCounter(this.props.index)), React.createElement("p", {
+        onClick: function onClick() {
+          _this4.deleteMe();
         }
-      }, React.createElement("div", {
+      }, this.props.index > 1 ? 'X' : '')), React.createElement("div", {
         className: "passengers_count"
-      }, React.createElement("label", null, "\u0628\u0632\u0631\u06AF\u0633\u0627\u0644"), React.createElement("span", {
+      }, React.createElement("label", null, "\u0628\u0632\u0631\u06AF\u0633\u0627\u0644 (", React.createElement("small", null, "12 \u0633\u0627\u0644 \u0628\u0647 \u0628\u0627\u0644\u0627"), ")"), React.createElement("span", {
         className: "count"
       }, React.createElement("button", {
         type: "button",
         className: "plus-btn",
         onClick: function onClick() {
-          return _this2.setState({
-            adult: _this2.state.adult + 1
-          });
+          return _this4.addAdult();
         }
       }, "+"), React.createElement("span", null, this.state.adult), React.createElement("button", {
         type: "button",
         className: "plus-btn",
         onClick: function onClick() {
-          return _this2.setState({
-            adult: _this2.state.adult > 0 ? _this2.state.adult - 1 : _this2.state.adult
-          });
+          return _this4.deleteAdult();
         }
       }, "-"))), React.createElement("div", {
         className: "passengers_count"
-      }, React.createElement("label", null, "\u06A9\u0648\u062F\u06A9"), React.createElement("span", {
+      }, React.createElement("label", null, "\u06A9\u0648\u062F\u06A9 (", React.createElement("small", null, "\u0632\u06CC\u0631 12 \u0633\u0627\u0644"), ")"), React.createElement("span", {
         className: "count"
       }, React.createElement("button", {
         type: "button",
         className: "plus-btn",
         onClick: function onClick() {
-          return _this2.setState({
-            child: _this2.state.child + 1
-          });
+          return _this4.addChild();
         }
       }, "+"), React.createElement("span", null, this.state.child), React.createElement("button", {
         type: "button",
         className: "plus-btn",
         onClick: function onClick() {
-          return _this2.setState({
-            child: _this2.state.child > 0 ? _this2.state.child - 1 : _this2.state.child
-          });
+          return _this4.deleteChild();
         }
-      }, "-")))));
+      }, "-"))), React.createElement("br", null), React.createElement("hr", null));
     }
   }]);
 
-  return PassengerCount;
-}(React.Component);
+  return HotelCounter;
+}(React.Component); //class
+
 
 /* harmony default export */ __webpack_exports__["default"] = (PassengerCount);
 

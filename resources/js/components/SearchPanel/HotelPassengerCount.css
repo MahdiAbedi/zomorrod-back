@@ -1,0 +1,23 @@
+.hotel_passengers_count{
+    width:260px;
+}
+
+.hotel_passengers_count button{
+    margin-top:10px;
+}
+
+.deleteRoom{
+    display: flex;
+    justify-content: space-between;
+}
+
+.deleteRoom h4{
+    color:orange;
+    margin-top: 5px;
+}
+
+.deleteRoom p{
+    color:red;
+    margin-top: 5px;
+    cursor: pointer;
+}
