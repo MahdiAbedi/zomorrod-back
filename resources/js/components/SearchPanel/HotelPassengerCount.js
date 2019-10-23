@@ -90,26 +90,7 @@ class HotelCounter extends React.Component{
         this.props.addAdult();
     }
 
-    farsiCounter(index){
-        switch (index) {
-            case 1:
-                return 'اول'
-                break;
-            case 2:
-                return 'دوم'
-                break;
-            case 3:
-                return 'سوم'
-                break;
-            case 4:
-                return 'چهارم'
-                break;
-        
-            default:
-                return index
-                break;
-        }
-    }
+    
 
     deleteAdult=()=>{
         if(this.state.adult>1){
@@ -156,22 +137,29 @@ class HotelCounter extends React.Component{
         this.props.delete();
     }
     render(){
+
+        let childAge = []
+        for(let index=1;index<=this.state.child;index++){
+
+            childAge.push(<ChildAge index={index}/>)
+        }
+
         return(
 
         <span>
 
             {/* قسمت دریافت اطلاعات هر مسافر که مخفی است */}
-            <input type="hidden" name={this.props.prefix + '_adult'} id={this.props.prefix + '_adult'} value={this.state.adult} />
-            <input type="hidden" name={this.props.prefix + '_child'} id={this.props.prefix + '_child'} value={this.state.child} />
-            <input type="hidden" name={this.props.prefix + '_infant'} id={this.props.prefix + '_infant'} value={this.state.infant} />
+            <input type="hidden" name={this.props.prefix + '_adult[]'} id={this.props.prefix + '_adult'} value={this.state.adult} />
+            <input type="hidden" name={this.props.prefix + '_child[]'} id={this.props.prefix + '_child'} value={this.state.child} />
+            <input type="hidden" name={this.props.prefix + '_infant[]'} id={this.props.prefix + '_infant'} value={this.state.infant} />
 
                 <div className="deleteRoom">
-                    <h4>اتاق {this.farsiCounter(this.props.index)}</h4>
+                    <h4>اتاق {farsiCounter(this.props.index)}</h4>
                     <p onClick={()=>{this.deleteMe()}}>{(this.props.index > 1) ? 'X' : ''}</p>
                 </div>
             
                 <div className="passengers_count">
-                    <label>بزرگسال (<small>12 سال به بالا</small>)</label>
+                    <label>بزرگسال <small>(12 سال به بالا)</small></label>
                     <span className="count">
                         <button type="button" className="plus-btn" onClick={()=>this.addAdult()}>+</button>
                         <span>{this.state.adult}</span>
@@ -179,7 +167,7 @@ class HotelCounter extends React.Component{
                     </span>
                 </div>
                 <div className="passengers_count">
-                    <label>کودک (<small>زیر 12 سال</small>)</label>
+                    <label>کودک <small>(زیر 12 سال)</small></label>
                     <span className="count">
                         <button type="button" className="plus-btn" onClick={()=>this.addChild()}>+</button>
                         <span>{this.state.child}</span>
@@ -187,12 +175,36 @@ class HotelCounter extends React.Component{
 
                     </span>
                 </div>
+                {childAge}
+                
+               
                 <br/>
                <hr/>
         </span>
         );
     }
 
-}//class
+}//Hotel Counter
 
+function ChildAge({index}){
+    return (
+        <div className="child_age">
+                    <p>سن کودک {farsiCounter(index)}</p>
+                    <select name="childAge[]">
+                        <option value="0">0 تا 1 سال</option>
+                        <option value="1">1 تا 2 سال</option>
+                        <option value="2">2 تا 3 سال</option>
+                        <option value="3">3 تا 4 سال</option>
+                        <option value="4">4 تا 5 سال</option>
+                        <option value="5">5 تا 6 سال</option>
+                        <option value="6">6 تا 7 سال</option>
+                        <option value="7">7 تا 8 سال</option>
+                        <option value="8">8 تا 9 سال</option>
+                        <option value="9">9 تا 10 سال</option>
+                        <option value="10">10 تا 11 سال</option>
+                        <option value="11">11 تا 12 سال</option>
+                    </select>
+                </div>
+    )
+}
 export default PassengerCount;

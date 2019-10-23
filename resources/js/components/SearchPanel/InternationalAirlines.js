@@ -9,7 +9,15 @@ const InternationalAirlines = props =>(
 $(document).ready(function () {
     $('.airports-select2').select2({
         // placeholder: "Choose tags...",
-        language: "fa",
+        language: {
+            // You can find all of the options in the language files provided in the
+            // build. They all must be functions that return the string that should be
+            // displayed.
+                inputTooShort: function () {
+                    return "حداقل سه کاراکتر از نام فرودگاه را وارد نمایید.";
+                }
+            },
+
         minimumInputLength: 3,
         ajax: {
             url: '/airports',

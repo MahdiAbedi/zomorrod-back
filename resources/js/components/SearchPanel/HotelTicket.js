@@ -17,18 +17,8 @@ class HotelTicket extends React.Component{
             <form  className="search">
                
                 <div className="group">
-                    <select className="left-border right-border select2">
-                        <option>مقصد</option>
-                        <option value="">تهران</option>
-                        <option value="">شیراز</option>
-                        <option value="">تهران</option>
-                        <option value="">شیراز</option>
-                        <option value="">تهران</option>
-                        <option value="">شیراز</option>
-                        <option value="">تهران</option>
-                        <option value="">شیراز</option>
-                        <option value="">تهران</option>
-                        <option value="">شیراز</option>
+                    <select className="left-border right-border hotelCity">
+                        <option value="" disabled selected>شهر مقصد</option>
 
                     </select>
                 </div>
@@ -40,7 +30,7 @@ class HotelTicket extends React.Component{
                 <DateSelector name="checkOut" prefix="hotel" title="تاریخ خروج"/>
                 </div>
                 <div className="group">
-                    <HotelPassengerCount />
+                    <HotelPassengerCount prefix="hotel"/>
                 </div>
                 <div className="group">
                     <input type="button" className="btn btn-zgreen" value="جستجو"/>
@@ -54,5 +44,35 @@ class HotelTicket extends React.Component{
 
 }
 
+$(document).ready(function () {
+    $('.hotelCity').select2({
+        // placeholder: "Choose tags...",
+        // language: "fa",
+        language: {
+            // You can find all of the options in the language files provided in the
+            // build. They all must be functions that return the string that should be
+            // displayed.
+                inputTooShort: function () {
+                    return "حداقل سه کاراکتر از نام شهر مقصد را وارد نمایید.";
+                }
+            },
 
+        minimumInputLength: 3,
+        ajax: {
+            url: '/cityHotel',
+            dataType: 'json',
+            data: function (params) {
+                return {
+                    q: $.trim(params.term)
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data
+                };
+            },
+            cache: true
+        }
+    });
+})
 export default HotelTicket;

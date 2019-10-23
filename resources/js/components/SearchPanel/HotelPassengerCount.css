@@ -6,7 +6,12 @@
     margin-top:10px;
 }
 
-.deleteRoom{
+.hotel_passengers_count small,.child_age p{
+    color:#646464;
+    font-size:12px;
+}
+
+.deleteRoom,.child_age{
     display: flex;
     justify-content: space-between;
 }
@@ -20,4 +25,16 @@
     color:red;
     margin-top: 5px;
     cursor: pointer;
+}
+.child_age {
+    margin-top:5px;
+}
+
+.child_age select{
+    border: 1px solid orange;
+    border-radius: 3px;
+    width: 97px;
+    height: 30px;
+    float: left;
+    padding: 3px 5px;
 }

@@ -411,3 +411,26 @@ function PartoDateFormat(inputValue) {
     return moment(inputValue).format('YYYY-MM-DDThh:mm:ss');
   }
   
+ function farsiCounter(index){
+    switch (index) {
+        case 1:
+            return 'اول'
+            break;
+        case 2:
+            return 'دوم'
+            break;
+        case 3:
+            return 'سوم'
+            break;
+        case 4:
+            return 'چهارم'
+            break;
+        case 5:
+            return 'پنجم'
+            break;
+    
+        default:
+            return index
+            break;
+    }
+}

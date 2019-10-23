@@ -64,6 +64,48 @@ body {
   src: url("fonts/IRANSansWeb.eot?#iefix") format("embedded-opentype"), url("fonts/IRANSansWeb.woff2") format("woff2"), url("fonts/IRANSansWeb.woff") format("woff"), url("fonts/IRANSansWeb.ttf") format("truetype"); }
 
 @font-face {
+  font-family: IRANSansWebFaNum;
+  font-style: normal;
+  font-weight: 200;
+  src: url("fonts/IRANSansWeb(FaNum).eot?");
+  src: url("fonts/IRANSansWeb(FaNum).eot?#iefix") format("embedded-opentype"), url("fonts/IRANSansWeb(FaNum).woff2") format("woff2"), url("fonts/IRANSansWeb(FaNum).woff") format("woff"), url("fonts/IRANSansWeb(FaNum).ttf") format("truetype"); }
+
+@font-face {
+  font-family: IRANSansWebFaNumBlack;
+  font-style: normal;
+  font-weight: 200;
+  src: url("fonts/IRANSansWeb(FaNum)_Black.eot?");
+  src: url("fonts/IRANSansWeb(FaNum)_Black.eot?#iefix") format("embedded-opentype"), url("fonts/IRANSansWeb(FaNum)_Black.woff2") format("woff2"), url("fonts/IRANSansWeb(FaNum)_Black.woff") format("woff"), url("fonts/IRANSansWeb(FaNum)_Black.ttf") format("truetype"); }
+
+@font-face {
+  font-family: IRANSansWebFaNumBold;
+  font-style: normal;
+  font-weight: 200;
+  src: url("fonts/IRANSansWeb(FaNum)_Bold.eot?");
+  src: url("fonts/IRANSansWeb(FaNum)_Bold.eot?#iefix") format("embedded-opentype"), url("fonts/IRANSansWeb(FaNum)_Bold.woff2") format("woff2"), url("fonts/IRANSansWeb(FaNum)_Bold.woff") format("woff"), url("fonts/IRANSansWeb(FaNum)_Bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: IRANSansWebFaNumLight;
+  font-style: normal;
+  font-weight: 200;
+  src: url("fonts/IRANSansWeb(FaNum)_Light.eot?");
+  src: url("fonts/IRANSansWeb(FaNum)_Light.eot?#iefix") format("embedded-opentype"), url("fonts/IRANSansWeb(FaNum)_Light.woff2") format("woff2"), url("fonts/IRANSansWeb(FaNum)_Light.woff") format("woff"), url("fonts/IRANSansWeb(FaNum)_Light.ttf") format("truetype"); }
+
+@font-face {
+  font-family: IRANSansWebFaNumMedium;
+  font-style: normal;
+  font-weight: 200;
+  src: url("fonts/IRANSansWeb(FaNum)_Medium.eot?");
+  src: url("fonts/IRANSansWeb(FaNum)_Medium.eot?#iefix") format("embedded-opentype"), url("fonts/IRANSansWeb(FaNum)_Medium.woff2") format("woff2"), url("fonts/IRANSansWeb(FaNum)_Medium.woff") format("woff"), url("fonts/IRANSansWeb(FaNum)_Medium.ttf") format("truetype"); }
+
+@font-face {
+  font-family: IRANSansWebFaNumUltraLight;
+  font-style: normal;
+  font-weight: 200;
+  src: url("fonts/IRANSansWeb(FaNum)_UltraLight.eot?");
+  src: url("fonts/IRANSansWeb(FaNum)_UltraLight.eot?#iefix") format("embedded-opentype"), url("fonts/IRANSansWeb(FaNum)_UltraLight.woff2") format("woff2"), url("fonts/IRANSansWeb(FaNum)_UltraLight.woff") format("woff"), url("fonts/IRANSansWeb(FaNum)_UltraLight.ttf") format("truetype"); }
+
+@font-face {
   font-family: iranyekanweblight;
   src: url(fonts/iranyekanweblight.eot);
   src: url(fonts/iranyekanweblight.eot?#iefix&v=4.6.2) format("embedded-opentype"), url(fonts/iranyekanweblight.woff2) format("woff2"), url(fonts/iranyekanweblight.woff) format("woff"), url(fonts/iranyekanweblight.ttf) format("truetype"), url(fonts/iranyekanweblight.svg?v=4.6.2#fontawesomeregular) format("svg");
@@ -717,7 +759,8 @@ input[type=checkbox] + label {
   margin: 0.2em;
   cursor: pointer;
   padding: 0.2em;
-  width: 100%; }
+  width: 100%;
+  font-family: IRANSansWebFaNum,'b Homa','tahoma'; }
 
 input[type=checkbox] {
   display: none; }
@@ -1206,6 +1249,9 @@ ul.path {
     color: green;
     font-size: 16px;
     transform: rotateY(150deg); }
+  .order-steps .choose-hotel {
+    color: green;
+    font-size: 16px; }
 
 /* start of desktop styles */
 @media screen and (max-width: 991px) {
@@ -1763,6 +1809,59 @@ th:first-child {
 .invalid-feedback {
   color: #f44336;
   margin: 5px 0px; }
+
+.hotels {
+  color: #4d4d4d; }
+  .hotels-container {
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: flex; }
+    .hotels-container .hotels-image img {
+      display: block;
+      width: 300px;
+      height: 200px;
+      object-fit: fill;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px; }
+  .hotels_preview {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+  .hotels .hotels_preview_top {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    justify-content: space-between; }
+    .hotels .hotels_preview_top .stars i {
+      padding: initial !important; }
+    .hotels .hotels_preview_top .left, .hotels .hotels_preview_top .right {
+      display: flex;
+      flex-direction: column; }
+    .hotels .hotels_preview_top .left {
+      text-align: left; }
+    .hotels .hotels_preview_top .green {
+      color: #006C50; }
+  .hotels .hotels_detail {
+    background: #006C50;
+    text-align: center;
+    color: #fff;
+    padding: 7.5px;
+    border-bottom-left-radius: 5px; }
+
+/* start of desktop styles */
+@media screen and (max-width: 767px) {
+  .hotels-container {
+    display: block; }
+    .hotels-container img {
+      width: 100%;
+      margin-right: auto;
+      margin-left: auto; } }
+
+.border {
+  border-radius: 5px; }
 
 .DatePicker {
   position: relative; }
