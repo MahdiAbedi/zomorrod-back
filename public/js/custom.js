@@ -301,6 +301,7 @@ function Toggle(tagId) {
         airports['MCT']='مسقط';
         airports['VIE']='وی انا';
         airports['ZRH']='زوریخ';
+        airports['YYZ']='ونکوور ';
         airports['GYD']='حیدر علی اف';
     
     

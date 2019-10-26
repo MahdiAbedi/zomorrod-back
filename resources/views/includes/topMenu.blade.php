@@ -10,31 +10,31 @@
 
                 <ul class="menu right-menu hide" id="hamburger-menu">
                     <li class="menu-item active">
-                        <img src="/img/icons/home.png" alt="منوی">
+                        <!-- <img src="/img/icons/home.png" alt="منوی"> -->
                         <a href="/">خانه</a>
                     </li>
                     <li class="menu-item">
-                        <img src="/img/icons/airplane-icon-colored.png" alt="منوی">
+                        <!-- <img src="/img/icons/airplane-icon-colored.png" alt="منوی"> -->
                         <a href="#">بلیط هواپیما</a>
                     </li>
                     <li class="menu-item">
-                        <img src="/img/icons/hotel.png" alt="منوی">
+                        <!-- <img src="/img/icons/hotel.png" alt="منوی"> -->
                         <a href="#">رزو هتل</a>
                     </li>
                     <li class="menu-item">
-                        <img src="/img/icons/tour.png" alt="منوی">
+                        <!-- <img src="/img/icons/tour.png" alt="منوی"> -->
                         <a href="#">تور مسافرتی</a>
                     </li>
                     <li class="menu-item">
-                        <img src="/img/icons/visa.png" alt="منوی">
+                        <!-- <img src="/img/icons/visa.png" alt="منوی"> -->
                         <a href="#">ویزا</a>
                     </li>
                     <li class="menu-item">
-                        <img src="/img/icons/bime.png" alt="منوی">
+                        <!-- <img src="/img/icons/bime.png" alt="منوی"> -->
                         <a href="#">بیمه</a>
                     </li>
                     <li class="menu-item">
-                        <img src="/img/icons/blog.png" alt="منوی">
+                        <!-- <img src="/img/icons/blog.png" alt="منوی"> -->
                         <a href="#">مجله گردشگری</a>
                     </li>
                     <li class="menu-item other">

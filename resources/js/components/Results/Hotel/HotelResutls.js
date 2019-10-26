@@ -23,7 +23,7 @@ constructor(props){
 
     //####################### دریافت بلیط از سرور ######################################################
     getTickets=()=>{
-        axios.post('/checkTicket1',{
+        axios.post('/hotels',{
             // PricingSourceType    :localStorage.getItem(''),
             // RequestOption        :localStorage.getItem(''),
 
@@ -47,11 +47,12 @@ constructor(props){
             // let myTickets=response.data;
             // this.setState({tickets:myTickets.PricedItineraries})
              this.setState({
-                hotels:hotels.PricedItineraries,
+                hotels:response.data,
                 isLoading:false,
             })
+            console.log(this.state.hotels)
 
-            this.getAirlines()
+           // this.getAirlines()
 
         })
        .catch((error)=>{
@@ -259,6 +260,7 @@ constructor(props){
                                         <p>رتبه : 7.3 | خوب |</p>
                                         <a href="#" className="green">1 X DELUXE GUEST ROOM/1 KING CITY VIEW</a>
                                         <p>صبحانه از بوفه رایگان هر روز از 8 تا 11 صبح</p>
+                                        {hotel.Offer}
                                     </div>
                                     <div className="left">
                                         <p><i className="fas fa-map-marker-alt"></i> نمایش هتل روی نقشه</p>

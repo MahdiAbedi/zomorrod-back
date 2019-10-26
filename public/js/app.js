@@ -69749,7 +69749,7 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "getTickets", function () {
-      axios.post('/checkTicket1', {
+      axios.post('/hotels', {
         // PricingSourceType    :localStorage.getItem(''),
         // RequestOption        :localStorage.getItem(''),
         AdultCount: localStorage.getItem('adult'),
@@ -69769,11 +69769,11 @@ function (_React$Component) {
         // let myTickets=response.data;
         // this.setState({tickets:myTickets.PricedItineraries})
         _this.setState({
-          hotels: _Hotel_json__WEBPACK_IMPORTED_MODULE_0__.PricedItineraries,
+          hotels: response.data,
           isLoading: false
         });
 
-        _this.getAirlines();
+        console.log(_this.state.hotels); // this.getAirlines()
       })["catch"](function (error) {
         console.log(error);
       });
@@ -70070,7 +70070,7 @@ function (_React$Component) {
         })), React.createElement("p", null, "\u0631\u062A\u0628\u0647 : 7.3 | \u062E\u0648\u0628 |"), React.createElement("a", {
           href: "#",
           className: "green"
-        }, "1 X DELUXE GUEST ROOM/1 KING CITY VIEW"), React.createElement("p", null, "\u0635\u0628\u062D\u0627\u0646\u0647 \u0627\u0632 \u0628\u0648\u0641\u0647 \u0631\u0627\u06CC\u06AF\u0627\u0646 \u0647\u0631 \u0631\u0648\u0632 \u0627\u0632 8 \u062A\u0627 11 \u0635\u0628\u062D")), React.createElement("div", {
+        }, "1 X DELUXE GUEST ROOM/1 KING CITY VIEW"), React.createElement("p", null, "\u0635\u0628\u062D\u0627\u0646\u0647 \u0627\u0632 \u0628\u0648\u0641\u0647 \u0631\u0627\u06CC\u06AF\u0627\u0646 \u0647\u0631 \u0631\u0648\u0632 \u0627\u0632 8 \u062A\u0627 11 \u0635\u0628\u062D"), hotel.Offer), React.createElement("div", {
           className: "left"
         }, React.createElement("p", null, React.createElement("i", {
           className: "fas fa-map-marker-alt"

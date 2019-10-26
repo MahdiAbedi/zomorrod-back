@@ -71,6 +71,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/hotels',function(){
     return view('pages/hotels/results');
 });
+Route::post('/hotels','HotelController@showResults');
 //ارسال ایجکس برای دریافت نام شهر برای رزو هتل
 Route::get('/cityHotel','HotelController@find');
 

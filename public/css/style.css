@@ -244,7 +244,8 @@ ul.menu {
 
 .menu-item {
   display: flex;
-  padding: 0 4px;
+  font-size: 15px;
+  padding: 0 10px;
   border-left: 1px solid #b8b8b8;
   cursor: pointer;
   transition: all .5s ease; }
