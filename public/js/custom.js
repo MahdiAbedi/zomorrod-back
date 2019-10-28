@@ -435,3 +435,27 @@ function PartoDateFormat(inputValue) {
             break;
     }
 }
+
+function farsiRate(rate){
+    switch (rate) {
+        case 0:
+        case 1:
+            return 'ضعیف'
+            break;
+        case 2:
+        case 3:
+            return 'متوسط'
+            break;
+
+        case 4:
+            return 'خوب'
+            break;
+
+        case 5:
+            return 'عالی'
+            break;
+        default:
+            return 'ضعیف'
+            break;
+    }
+}

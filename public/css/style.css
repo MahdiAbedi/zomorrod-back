@@ -1812,13 +1812,17 @@ th:first-child {
   margin: 5px 0px; }
 
 .hotels {
-  color: #4d4d4d; }
+  color: #4d4d4d;
+  font-family: IRANSansWebFaNum,'b Homa','tahoma';
+  font-size: 14px; }
   .hotels-container {
     box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
     background: #fff;
     border-radius: 5px;
     margin-top: 20px;
     display: flex; }
+    .hotels-container:last-child {
+      margin-bottom: 15px; }
     .hotels-container .hotels-image img {
       display: block;
       width: 300px;
@@ -1848,7 +1852,7 @@ th:first-child {
   .hotels .hotels_detail {
     background: #006C50;
     text-align: center;
-    color: #fff;
+    color: #fff !important;
     padding: 7.5px;
     border-bottom-left-radius: 5px; }
 
@@ -1860,6 +1864,10 @@ th:first-child {
       width: 100%;
       margin-right: auto;
       margin-left: auto; } }
+
+.money {
+  font-family: IRANSansWebFaNum,'b Homa','tahoma';
+  font-size: 18px; }
 
 .border {
   border-radius: 5px; }
