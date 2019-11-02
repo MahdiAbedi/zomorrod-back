@@ -17,6 +17,15 @@
         <div class="search-container">
             <!-- {/* آیکون های  */} -->
             <div class="search_icons">
+
+                <!-- پرواز داخلی  -->
+                <div class="search_icon" onclick="showSearchPanel('InlineTicket')">
+                    <div class="icon_container" id="InlineTicket-Icon">
+                        <img src="img/icons/inline-flight.png" alt="" />
+                    </div>
+                    <h4 class="inner-flight-title"><span>پرواز داخلی</span></h4>
+                </div>
+
                 <!-- {/* پرواز خارجی */} -->
                 <div class="search_icon " onclick="showSearchPanel('OutLineTicket')">
                     <div class="icon_container active" id="OutLineTicket-Icon">
@@ -25,13 +34,14 @@
                     <h4 class="out-flight-title"><span>پرواز خارجی</span></h4>
 
                 </div>
-               
-                <div class="search_icon" onclick="showSearchPanel('InlineTicket')">
-                    <div class="icon_container" id="InlineTicket-Icon">
-                        <img src="img/icons/inline-flight.png" alt="" />
+                 <!-- {/* هتل */} -->
+                 <div class="search_icon" onclick="showSearchPanel('HotelTicket')">
+                    <div class="icon_container" id="HotelTicket-Icon">
+                        <img src="img/icons/hotel.png" alt=""/>
                     </div>
-                    <h4 class="inner-flight-title"><span>پرواز داخلی</span></h4>
+                    <h4>هتل</h4>
                 </div>
+               
                 <!-- {/* قطار */} -->
                 <div class="search_icon" onclick="showSearchPanel('TrainTicket')">
                     <div class="icon_container" id="TrainTicket-Icon">
@@ -39,13 +49,7 @@
                     </div>
                     <h4>قطار</h4>
                 </div>
-                <!-- {/* هتل */} -->
-                <div class="search_icon" onclick="showSearchPanel('HotelTicket')">
-                    <div class="icon_container" id="HotelTicket-Icon">
-                        <img src="img/icons/hotel.png" alt=""/>
-                    </div>
-                    <h4>هتل</h4>
-                </div>
+               
                 <!-- {/* تور */} -->
                 <div class="search_icon" onclick="showSearchPanel('TourTicket')">
                     <div class="icon_container" id="TourTicket-Icon">

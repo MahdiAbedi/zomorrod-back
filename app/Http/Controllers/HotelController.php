@@ -100,10 +100,15 @@ class HotelController extends TravelBaseController
 
 
     // ########################################## گرفتن نام هتل ها ##########################################################
-    public function getHotel($id){
+    public function getHotel($id,$total=false){
         // dd(Hotel::where(['id'=>$id])->first()->name);
         // return Hotel::select('Name','ReviewScore','Rating','Address','latitude','Longitude')->where('id',$id)->get();
-        return Hotel::select('Name','ReviewScore','Rating','Address','Latitude','Longitude')->find($id);
+        if($total){
+            $hotel=Hotel::find($id);
+        }else{
+            $hotel = Hotel::select('Name','ReviewScore','Rating','Address','Latitude','Longitude')->find($id);;
+        }
+        return $hotel;
     }
 
     // ########################################## دریافت عکس پیشفرض هتلها ###################################################
@@ -118,5 +123,38 @@ class HotelController extends TravelBaseController
 
         dd($response->getBody()->getContents());
     }
+
+
+    // ##########################################  نمایش جزییات هر هتل ######################################################
+    public function show($id=1){
+
+        $hotel = (json_decode(file_get_contents("./HotelDetail.json", "r"))->PricedItineraries);
+        // dd($hotel[0]);
+        $hotel=$hotel[0];
+            if(!is_null($this->getHotel($hotel->HotelId))){
+                $getHotel = $this->getHotel($hotel->HotelId);
+                $hotel->Name            = $getHotel->Name;
+                $hotel->ReviewScore     = $getHotel->ReviewScore;
+                $hotel->Rating          = $getHotel->Rating;
+                $hotel->Address         = $getHotel->Address;
+                $hotel->Latitude        = $getHotel->Latitude;
+                $hotel->Longitude       = $getHotel->Longitude;
+                $hotel->Email           = $getHotel->Email;
+                $hotel->Url             = $getHotel->Url;
+                $hotel->Phone           = $getHotel->Phone;
+                $hotel->Fax             = $getHotel->Fax;
+                $hotel->Description     = $getHotel->Description;
+                $hotel->Instructions    = $getHotel->Instructions;
+                $hotel->SpecialInstructions = $getHotel->SpecialInstructions;
+                $hotel->BeginTime       = $getHotel->BeginTime;
+                $hotel->MinAge          = $getHotel->MinAge;
+                $hotel->CheckOutTime    = $getHotel->CheckOutTime;
+                $hotel->EndTime         = $getHotel->EndTime;
+            }
+
+            // dd($hotel);
+        return view('pages/hotels/detail',compact('hotel'));
+    }
+
     // ########################################## گرفتن تصویر ابتدایی هر هتل در لیست هتلها #################################
 }

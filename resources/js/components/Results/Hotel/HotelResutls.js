@@ -68,7 +68,7 @@ constructor(props){
        this.getTickets(); 
     }
 
-    // ######################### Make Start ######################
+    // ######################### Make Start ###############################################################
     makeStar(counter){
         let star=``;
         for (let index = 0; index < counter; index++) {
@@ -79,6 +79,14 @@ constructor(props){
         }
         return {__html: star}
     }
+
+
+    // ######################## اجرا به صفحه جزییات هتل ##################################################
+    showHotel(){
+        alert('hello');
+    }
+
+    //############################# Render() ###############################################################
     render(){
 
         if(this.state.hotels.length==0){
@@ -299,7 +307,7 @@ constructor(props){
                                                 <p className="green money" name="money">{formatCurrency(hotel.NetRate)} ریال</p>
                                             </div>
                                         </div>
-                                        <a href="#" className="hotels_detail green">
+                                        <a className="hotels_detail green" onClick={()=>this.showHotel()}  >
                                             مشاهده و انتخاب اتاق
                                         </a>
                                     </div>

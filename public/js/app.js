@@ -69797,7 +69797,7 @@ function (_React$Component) {
     //######################## Component Did Mount ######################################################
     value: function componentDidMount() {
       this.getTickets();
-    } // ######################### Make Start ######################
+    } // ######################### Make Start ###############################################################
 
   }, {
     key: "makeStar",
@@ -69815,7 +69815,14 @@ function (_React$Component) {
       return {
         __html: star
       };
-    }
+    } // ######################## اجرا به صفحه جزییات هتل ##################################################
+
+  }, {
+    key: "showHotel",
+    value: function showHotel() {
+      alert('hello');
+    } //############################# Render() ###############################################################
+
   }, {
     key: "render",
     value: function render() {
@@ -70105,8 +70112,10 @@ function (_React$Component) {
             className: "green money",
             name: "money"
           }, formatCurrency(hotel.NetRate), " \u0631\u06CC\u0627\u0644"))), React.createElement("a", {
-            href: "#",
-            className: "hotels_detail green"
+            className: "hotels_detail green",
+            onClick: function onClick() {
+              return _this2.showHotel();
+            }
           }, "\u0645\u0634\u0627\u0647\u062F\u0647 \u0648 \u0627\u0646\u062A\u062E\u0627\u0628 \u0627\u062A\u0627\u0642")));
         }))));
       } //else
@@ -71771,6 +71780,7 @@ $(document).ready(function () {
         };
       },
       processResults: function processResults(data) {
+        console.log(data);
         return {
           results: data
         };

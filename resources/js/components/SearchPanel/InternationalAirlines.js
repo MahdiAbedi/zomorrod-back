@@ -28,6 +28,7 @@ $(document).ready(function () {
                 };
             },
             processResults: function (data) {
+                console.log(data)
                 return {
                     results: data
                 };
