@@ -1,30 +1,37 @@
 import './MultiSelect.css'
-function MultiSelect(props){
+class MultiSelect extends React.Component{
         
+    constructor(props){
+        super(props);
+        this.state
+    }
+    render(){
         return(
-           <React.Fragment>
-                <input type="text" id={props.name +'_myInput'} onKeyUp={Search} className={props.className} placeholder={props.Placeholder} autocomplete="off" />
-
-                <input type="text"  name={props.name} id={props.prefix +'_'+props.name} value={props.name} />
-
-                <ul id="myUL"  style={{display:'none'}} className="myUL ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" onClick={()=>getValue()}>
-                    {props.children}
-                    <li className="ui-menu-item">
-                        <a className="airports ui-menu-item-wrapper" id="ika">
-                            <span>IKA</span>-Imam Khomeini International AirPort فرودگاه بین&zwnj;المللی امام خمینی - تهران - Iran
-                        </a>
-                    </li>
-                   
-                </ul>
-           </React.Fragment> 
-        ); 
-
+            <React.Fragment>
+                 <input type="text" id={this.props.name +'_myInput'} onKeyUp={Search} className={this.props.className} placeholder={this.props.Placeholder} autocomplete="off" />
+ 
+                 <input type="hidden"  name={this.props.name} id={this.props.prefix +'_'+this.props.name} value={this.props.name} />
+ 
+                 <ul id="myUL"  style={{display:'none'}} className="myUL ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" onClick={()=>getValue()}>
+                     {this.props.children}
+                     <li className="ui-menu-item">
+                         <a className="airports ui-menu-item-wrapper" id="ika">
+                             <span>IKA</span>-Imam Khomeini International AirPort فرودگاه بین&zwnj;المللی امام خمینی - تهران - Iran
+                         </a>
+                     </li>
+                    
+                 </ul>
+            </React.Fragment> 
+         ); 
+ 
+    }//render
+        
         // ############################################## جستجوی عبارت وارد شده ############################
-        function Search() {
+         Search() {
             // Declare variables
             var input, filter, ul, li, a, i, txtValue;
 
-            input   =    document.getElementById(props.name +'_myInput');
+            input   =    document.getElementById(this.props.name +'_myInput');
             // input.value="";
             filter  =    input.value.toUpperCase();
             ul      =    document.getElementById("myUL");
@@ -42,7 +49,7 @@ function MultiSelect(props){
                 }).length
                 //################## اگر لیست خالی شد از دیتابیس بخونه #########################
                 if(liLength - hidenLiCount<=0){
-                    let term = document.getElementById(props.name +'_myInput').value;
+                    let term = document.getElementById(this.props.name +'_myInput').value;
                     let child='';
                     if(term.length >= 3){
                         axios.post('/airports', {
@@ -82,21 +89,21 @@ function MultiSelect(props){
             }//for
         }//Search
         // ###################################################################################################
-        function getEventTarget(e)
+         getEventTarget(e)
         {
             e = e || window.event;
             return e.target || e.srcElement; 
         }
         //############ when click <li> tag #########################
-        function getValue(event){
+         getValue(event){
             var target = getEventTarget(event);
             // alert(target.innerText);
-            document.getElementById(props.name +'_myInput').value=target.innerText;
+            document.getElementById(this.props.name +'_myInput').value=target.innerText;
             // console.log(target.getAttribute('id'));
             document.getElementById("myUL").style.display="none";
-            // alert(props.prefix +'_'+props.name);
+            // alert(this.props.prefix +'_'+this.props.name);
             console.log(props);
-            document.getElementById(props.prefix +'_'+props.name).value=target.getAttribute('id');
+            document.getElementById(this.props.prefix +'_'+this.props.name).value=target.getAttribute('id');
         };
 }//component function 
 

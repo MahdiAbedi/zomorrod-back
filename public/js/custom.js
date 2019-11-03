@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     $('.select2').select2();
 
-    showSearchPanel("HotelTicket");
+    // showSearchPanel("HotelTicket");
     //درخواست لیست فرودگاه های بین المللی
         
 

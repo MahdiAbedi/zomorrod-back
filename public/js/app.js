@@ -98,7 +98,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#myInput {\r\n  background-image: url('/css/searchicon.png'); /* Add a search icon to input */\r\n  background-position: 10px 12px; /* Position the search icon */\r\n  background-repeat: no-repeat; /* Do not repeat the icon image */\r\n  width: 100%; /* Full-width */\r\n  font-size: 16px; /* Increase font-size */\r\n  padding: 12px 20px 12px 40px; /* Add some padding */\r\n  border: 1px solid #ddd; /* Add a grey border */\r\n  margin-bottom: 12px; /* Add some space below the input */\r\n}\r\n\r\n#myUL {\r\n  /* Remove default list styling */\r\n  list-style-type: none;\r\n  padding: 0;\r\n  margin: 0;\r\n  border-radius: 20px;\r\n}\r\n\r\n#myUL li a {\r\n  border: 1px solid #ddd; /* Add a border to all links */\r\n  margin-top: -1px; /* Prevent double borders */\r\n  background-color: #f6f6f6; /* Grey background color */\r\n  padding: 6px; /* Add some padding */\r\n  text-decoration: none; /* Remove default text underline */\r\n  font-size: 15px; /* Increase the font-size */\r\n  color: black; /* Add a black text color */\r\n  display: block; /* Make it into a block element to fill the whole list */\r\n  cursor: pointer;\r\n}\r\n\r\n#myUL li a:hover:not(.header) {\r\n  background-color: #0ebb79; /* Add a hover effect to all links, except for headers */\r\n}", ""]);
+exports.push([module.i, "#myInput {\r\n  background-image: url('/css/searchicon.png'); /* Add a search icon to input */\r\n  background-position: 10px 12px; /* Position the search icon */\r\n  background-repeat: no-repeat; /* Do not repeat the icon image */\r\n  width: 100%; /* Full-width */\r\n  font-size: 16px; /* Increase font-size */\r\n  padding: 12px 20px 12px 40px; /* Add some padding */\r\n  border: 1px solid #ddd; /* Add a grey border */\r\n  margin-bottom: 12px; /* Add some space below the input */\r\n}\r\n\r\n.myUL {\r\n  list-style-type: none;\r\n  padding: 0;\r\n  margin: 0;\r\n  border-radius: 20px;\r\n  width:500px;\r\n  top:40px;\r\n}\r\n\r\n.myUL li a {\r\n  border: 1px solid #ddd;\r\n  margin-top: -1px;\r\n  background-color: #f6f6f6;\r\n  padding: 6px;\r\n  text-decoration: none;\r\n  font-size: 15px;\r\n  color: black;\r\n  display: block;\r\n  cursor: pointer;\r\n}\r\n\r\n.myUL li a:hover:not(.header) {\r\n  background-color: #0ebb79;\r\n} \r\n\r\n\r\n\r\n.ui-autocomplete.ui-widget {\r\n  -moz-box-shadow: 0 4px 5px 2px rgba(0,0,0,0.3);\r\n  -webkit-box-shadow: 0 4px 5px 2px rgba(0,0,0,0.3);\r\n  box-shadow: 0 4px 5px 2px rgba(0,0,0,0.3);\r\n}\r\n.ui-autocomplete {\r\n  direction: rtl;\r\n  position: absolute!important;\r\n  background-color: #fff;\r\n  z-index: 10000000000!important;\r\n  height: 262px!important;\r\n  overflow-y: scroll;\r\n  overflow-x: hidden;\r\n}\r\n\r\n.ui-menu .ui-menu-item {\r\n  width: 100%;\r\n  cursor: pointer;\r\n  clear: both;\r\n  border-bottom: 1px solid #eee;\r\n}\r\n\r\n.ui-menu .ui-menu-item a {\r\n  padding: 8px;\r\n  display: block;\r\n  width: 100%;\r\n}\r\n\r\nli a.airports {\r\n  color: black;\r\n}\r\n\r\nul li.ui-menu-item span{\r\n  position: relative;\r\n  height: 20px;\r\n  margin: 0 10px 0 0!important;\r\n  padding: 0 2px;\r\n  float: left;\r\n  color: #808080!important;\r\n  font-weight: 500;\r\n  line-height: 22px;\r\n  text-align: center;\r\n  background-color: #ecebe9;\r\n  border-radius: 3px;\r\n}\r\n\r\nul li.ui-menu-item:hover{\r\n  background: #FFC107;\r\n}\r\nul li.ui-menu-item:hover span{\r\n  background:#0E7CFF;\r\n  color:#fff !important\r\n}\r\n\r\n\r\nul li.ui-menu-item span::after{\r\n  position: absolute;\r\n  content: '';\r\n  top:0;\r\n  right:-9px;\r\n  border-top: 10px solid transparent;\r\n  border-bottom: 10px solid transparent; \r\n  \r\n  border-left:10px solid #ecebe9;\r\n}\r\n\r\nul li.ui-menu-item:hover span:after{\r\n  border-left:10px solid #0E7CFF;\r\n\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -68467,22 +68467,25 @@ function MultiSelect(props) {
     placeholder: props.Placeholder,
     autocomplete: "off"
   }), React.createElement("input", {
-    type: "hidden",
+    type: "text",
     name: props.name,
-    id: props.prefix + '_' + props.name
+    id: props.prefix + '_' + props.name,
+    value: props.name
   }), React.createElement("ul", {
     id: "myUL",
     style: {
       display: 'none'
     },
+    className: "myUL ui-menu ui-widget ui-widget-content ui-autocomplete ui-front",
     onClick: function onClick() {
       return getValue();
     }
-  }, props.children, React.createElement("li", null, React.createElement("a", {
-    id: "THR"
-  }, "\u062A\u0647\u0631\u0627\u0646")), React.createElement("li", null, React.createElement("a", {
-    id: "TBZ"
-  }, "\u062A\u0628\u0631\u06CC\u0632"))));
+  }, props.children, React.createElement("li", {
+    className: "ui-menu-item"
+  }, React.createElement("a", {
+    className: "airports ui-menu-item-wrapper",
+    id: "ika"
+  }, React.createElement("span", null, "IKA"), "-Imam Khomeini International AirPort \u0641\u0631\u0648\u062F\u06AF\u0627\u0647 \u0628\u06CC\u0646\u200C\u0627\u0644\u0645\u0644\u0644\u06CC \u0627\u0645\u0627\u0645 \u062E\u0645\u06CC\u0646\u06CC - \u062A\u0647\u0631\u0627\u0646 - Iran")))); // ############################################## جستجوی عبارت وارد شده ############################
 
   function Search() {
     // Declare variables
@@ -68503,22 +68506,24 @@ function MultiSelect(props) {
       }).length; //################## اگر لیست خالی شد از دیتابیس بخونه #########################
 
       if (liLength - hidenLiCount <= 0) {
-        var term = document.getElementById(props.name + '_myInput').value;
-        var child = '';
+        (function () {
+          var term = document.getElementById(props.name + '_myInput').value;
+          var child = '';
 
-        if (term.length >= 3) {
-          axios.post('/airports', {
-            term: term
-          }).then(function (response) {
-            console.log(response.data); // response.data.map((airport)=>{
-            //    child =`<li><a id="${airport.iata}">${airport.farsi}-${airport.iata}-${airport.city}</a></li>`
-            //    $("#myUL").append(child);
-            // //    console.log(child)
-            // })
-          })["catch"](function (error) {
-            console.log(error);
-          });
-        }
+          if (term.length >= 3) {
+            axios.post('/airports', {
+              q: term
+            }).then(function (response) {
+              //   console.log(response.data)
+              response.data.map(function (airport) {
+                child = "<li class=\"ui-menu-item\">\n                                            <a class=\"airports ui-menu-item-wrapper\" id=\"".concat(airport.iata, "\">\n                                                <span>").concat(airport.iata, "</span>-").concat(airport.name, " - ").concat(airport.farsi, " - ").concat(airport.city, "\n                                            </a>\n                                        </li>");
+                $("#myUL").append(child);
+              });
+            })["catch"](function (error) {
+              console.log(error);
+            });
+          }
+        })();
       }
 
       a = li[i].getElementsByTagName("a")[0];
@@ -68532,6 +68537,7 @@ function MultiSelect(props) {
     } //for
 
   } //Search
+  // ###################################################################################################
 
 
   function getEventTarget(e) {
@@ -68545,7 +68551,9 @@ function MultiSelect(props) {
 
     document.getElementById(props.name + '_myInput').value = target.innerText; // console.log(target.getAttribute('id'));
 
-    document.getElementById("myUL").style.display = "none";
+    document.getElementById("myUL").style.display = "none"; // alert(props.prefix +'_'+props.name);
+
+    console.log(props);
     document.getElementById(props.prefix + '_' + props.name).value = target.getAttribute('id');
   }
 
@@ -68553,7 +68561,7 @@ function MultiSelect(props) {
 } //component function 
 
 
-/* harmony default export */ __webpack_exports__["default"] = (React.memo(MultiSelect));
+/* harmony default export */ __webpack_exports__["default"] = (MultiSelect);
 
 /***/ }),
 
@@ -72096,7 +72104,7 @@ function (_React$Component) {
         type: "hidden",
         name: "toWay",
         value: !this.state.toWay
-      }), React.createElement(_InternationalAirlines__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), React.createElement(_Modules_MultiSelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
         className: "right-border airports-select2",
         Placeholder: "\u0641\u0631\u0648\u062F\u06AF\u0627\u0647 \u0645\u0628\u062F\u0627",
         name: "origin",
@@ -72110,7 +72118,7 @@ function (_React$Component) {
         alt: ""
       })))), React.createElement("div", {
         className: "group"
-      }, React.createElement(_InternationalAirlines__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, React.createElement(_Modules_MultiSelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
         className: "left-border airports-select2",
         Placeholder: "\u0641\u0631\u0648\u062F\u06AF\u0627\u0647 \u0645\u0642\u0635\u062F",
         name: "destination",

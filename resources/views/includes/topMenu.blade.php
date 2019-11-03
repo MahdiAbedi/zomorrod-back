@@ -73,12 +73,12 @@
                         </div>
                     </div>
                     @else
-                        <li class="menu-item">
+                        <a class="menu-item" href="/profile">
                         <img src="/img/icons/login.png" alt="منوی">
                         {{ Auth::user()->name }}
-                        </li>
+                        </a>
                         <li class="menu-item">
-                             <i class="fas fa-sign-out-alt"></i>
+                             <!-- <i class="fas fa-sign-out-alt"></i> -->
                              <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                 خروج

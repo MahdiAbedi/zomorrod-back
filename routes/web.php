@@ -77,3 +77,8 @@ Route::get('/cityHotel','HotelController@find');
 // جزییات هر هتل
 Route::get('/hotel/detail','HotelController@show');
 
+
+
+// ###################################### پروفایل کاربری ######################################
+Route::get('profile','UserController@profile');
+

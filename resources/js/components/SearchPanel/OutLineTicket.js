@@ -56,18 +56,17 @@ class OutLineTicket extends React.Component{
                     <input type="hidden" id="csrf" name="_token" />
                     <input type="hidden" name="toWay" value={!this.state.toWay}/>
 
-                    <InternationalAirlines className="right-border airports-select2" Placeholder="فرودگاه مبدا" name="origin" prefix="international" />
+                    {/* <InternationalAirlines className="right-border airports-select2" Placeholder="فرودگاه مبدا" name="origin" prefix="international" /> */}
 
-                    {/* <MultiSelect className="right-border airports-select2" Placeholder="فرودگاه مبدا">
-                        
-                    </MultiSelect> */}
+                    <MultiSelect className="right-border airports-select2" Placeholder="فرودگاه مبدا"  name="origin" prefix="international" />
                     
                     <button className="round-btn"><i className="icon-transfer"><img src="img/change-way.png"
                                 alt=""/></i></button>
                 </div>
                 <div className="group">
 
-                <InternationalAirlines className="left-border airports-select2" Placeholder="فرودگاه مقصد" name="destination"  prefix="international"/>
+                {/* <InternationalAirlines className="left-border airports-select2" Placeholder="فرودگاه مقصد" name="destination"  prefix="international"/> */}
+                <MultiSelect className="left-border airports-select2" Placeholder="فرودگاه مقصد"  name="destination" prefix="international" />
 
                 </div>
                 <div className="group margin-right">

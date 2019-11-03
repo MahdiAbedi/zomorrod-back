@@ -81,9 +81,9 @@
                             </tr>
                         </thead>
                         <tr>
-                            <td>12:30 - 1398/07/09</td>
-                            <td>12:30 - 1398/07/10</td>
-                            <td>2 بزرگسال + 1 کودک</td>
+                            <td id="hotel_checkIn">12:30 - 1398/07/09</td>
+                            <td id="hotel_checkOut">12:30 - 1398/07/10</td>
+                            <td id="passenger_count">2 بزرگسال + 1 کودک</td>
                         </tr>
 
                     </table>
@@ -282,4 +282,10 @@
 
     <script src="/js/custom.js"></script>
 
+<script>
+    window.onload=function(){
+        document.getElementById('hotel_checkIn').innerText="test"
+    }
+
+</script>
     @endsection

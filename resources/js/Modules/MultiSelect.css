@@ -9,26 +9,101 @@
   margin-bottom: 12px; /* Add some space below the input */
 }
 
-#myUL {
-  /* Remove default list styling */
+.myUL {
   list-style-type: none;
   padding: 0;
   margin: 0;
   border-radius: 20px;
+  width:500px;
+  top:40px;
 }
 
-#myUL li a {
-  border: 1px solid #ddd; /* Add a border to all links */
-  margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6; /* Grey background color */
-  padding: 6px; /* Add some padding */
-  text-decoration: none; /* Remove default text underline */
-  font-size: 15px; /* Increase the font-size */
-  color: black; /* Add a black text color */
-  display: block; /* Make it into a block element to fill the whole list */
+.myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px;
+  background-color: #f6f6f6;
+  padding: 6px;
+  text-decoration: none;
+  font-size: 15px;
+  color: black;
+  display: block;
   cursor: pointer;
 }
 
-#myUL li a:hover:not(.header) {
-  background-color: #0ebb79; /* Add a hover effect to all links, except for headers */
+.myUL li a:hover:not(.header) {
+  background-color: #0ebb79;
+} 
+
+
+
+.ui-autocomplete.ui-widget {
+  -moz-box-shadow: 0 4px 5px 2px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0 4px 5px 2px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 5px 2px rgba(0,0,0,0.3);
 }
+.ui-autocomplete {
+  direction: rtl;
+  position: absolute!important;
+  background-color: #fff;
+  z-index: 10000000000!important;
+  height: 262px!important;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.ui-menu .ui-menu-item {
+  width: 100%;
+  cursor: pointer;
+  clear: both;
+  border-bottom: 1px solid #eee;
+}
+
+.ui-menu .ui-menu-item a {
+  padding: 8px;
+  display: block;
+  width: 100%;
+}
+
+li a.airports {
+  color: black;
+}
+
+ul li.ui-menu-item span{
+  position: relative;
+  height: 20px;
+  margin: 0 10px 0 0!important;
+  padding: 0 2px;
+  float: left;
+  color: #808080!important;
+  font-weight: 500;
+  line-height: 22px;
+  text-align: center;
+  background-color: #ecebe9;
+  border-radius: 3px;
+}
+
+ul li.ui-menu-item:hover{
+  background: #FFC107;
+}
+ul li.ui-menu-item:hover span{
+  background:#0E7CFF;
+  color:#fff !important
+}
+
+
+ul li.ui-menu-item span::after{
+  position: absolute;
+  content: '';
+  top:0;
+  right:-9px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  
+  border-left:10px solid #ecebe9;
+}
+
+ul li.ui-menu-item:hover span:after{
+  border-left:10px solid #0E7CFF;
+
+}
+
