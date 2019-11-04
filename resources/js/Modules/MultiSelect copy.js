@@ -1,10 +1,6 @@
 import './MultiSelect.css'
 class MultiSelect extends React.Component{
         
-    constructor(props){
-        super(props);
-        this.state
-    }
     render(){
         return(
             <React.Fragment>
@@ -12,7 +8,7 @@ class MultiSelect extends React.Component{
  
                  <input type="hidden"  name={this.props.name} id={this.props.prefix +'_'+this.props.name} value={this.props.name} />
  
-                 <ul id="myUL"  style={{display:'none'}} className="myUL ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" onClick={()=>getValue()}>
+                 <ul id="myUL"  style={{display:'block'}} className="myUL ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" onClick={()=>getValue()}>
                      {this.props.children}
                      <li className="ui-menu-item">
                          <a className="airports ui-menu-item-wrapper" id="ika">
