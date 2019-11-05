@@ -28,7 +28,7 @@ class InternalTicketResults extends React.Component{
 
     //####################### دریافت بلیط از سرور ######################################################
     getTickets=()=>{
-        axios.post('/checkTicket1',{
+        axios.post('/checkTicket',{
             // PricingSourceType    :localStorage.getItem(''),
             // RequestOption        :localStorage.getItem(''),
 
@@ -49,7 +49,7 @@ class InternalTicketResults extends React.Component{
             ReturnTime              :PartoDateFormat(localStorage.getItem('returnTime')),
         })
         .then(response => {
-            // let myTickets=response.data;
+            let myTickets=response.data;
             // this.setState({tickets:myTickets.PricedItineraries})
              this.setState({
                 tickets:myTickets.PricedItineraries,

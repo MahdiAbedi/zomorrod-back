@@ -15,7 +15,7 @@ function LoadingModal(){
                 </div>
                 <div className="available-loading-modal__info">
                     <p className="available-loading-modal__text">
-                        ستاره زمرد در حال جستجو بهترین پروازها برای شماست
+                        ستاره زمرد در حال جستجوی بهترین پروازها برای شماست
                     </p>
                     <div className="available-loading-modal__dots">
                     </div>

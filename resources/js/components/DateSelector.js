@@ -9,20 +9,31 @@ class DateSelector extends React.Component {
       value: moment(),
       isGregorian:false,
     };
-  }
+
+    //Disable By Date Range 
+    this.disabledRanges = [
+      { 
+        color: 'brown', 
+        start:moment().add(0,'days'), 
+        end:moment().add(60,'days') 
+      }
+     
+    ]
+
+  }//constructor
 
 
+  
 
 
   render() {
     return <div className={"DatePicker " + (this.props.disabled ? 'disabled' : '') }>
             <label className="dateTitle">{this.props.title}</label>
             <DatePicker
-              name="testTime"
+              ranges={this.disabledRanges}
               timePicker={false}
               value={this.state.value}
               disabled={this.props.disabled}
-              placeholder='heel'
               isGregorian={this.state.isGregorian}
               onChange={value => this.setState({ value })}
             />

@@ -400,7 +400,7 @@ function passengersCount() {
  function MiladiFormat(inputValue) {
     if (!inputValue)
       return '';
-    return inputValue.locale('es').format('YYYY/MM/DD hh:mm:ss');
+    return inputValue.locale('en').format('YYYY/MM/DD hh:mm:ss');
 }
 
 //تغییر فرمت میلادی به فرمت قابل فهم برای وب سرویس
@@ -409,7 +409,7 @@ function PartoDateFormat(inputValue) {
 
     if (!inputValue)
       return '';
-    return moment(inputValue).format('YYYY-MM-DDThh:mm:ss');
+    return moment(inputValue).locale('en').format('YYYY-MM-DDThh:mm:ss');
   }
   
  function farsiCounter(index){

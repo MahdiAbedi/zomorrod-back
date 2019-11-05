@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class TravelBaseController extends Controller
 {
+    public $SessionId;
     //########################### ایجاد سشن به مدت 20 دقیقه قبل از هر درخواست ############################
     public function makeSession(){
         $client = new Client();

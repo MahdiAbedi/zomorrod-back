@@ -68493,9 +68493,13 @@ function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "search", function (e) {
       _this.setState({
         searchTerm: e.target.value,
-        airportName: _this.state.airports + e.target.value
+        airportName: e.target.value
       }, function () {
         if (_this.state.searchTerm.length >= 3) {
+          _this.setState({
+            displayList: 'block'
+          });
+
           axios.post('/airports', {
             q: _this.state.searchTerm
           }).then(function (response) {
@@ -68506,15 +68510,25 @@ function (_React$Component) {
             console.log(error);
           }); //   console.log('hello')
           //   console.log(this.state.airports)
+        } else {
+          _this.setState({
+            displayList: 'none'
+          });
         }
       });
     });
 
     _this.state = {
-      airports: [],
+      airports: [{
+        iata: 'IKA',
+        name: 'IMAM KHOMEINI AIRPORT',
+        farsi: 'فرودگاه امام خمینی',
+        city: 'تهران'
+      }],
       searchTerm: '',
-      iataCode: 'ika',
-      airportName: ''
+      iataCode: 'IKA',
+      airportName: '',
+      displayList: 'none'
     };
     return _this;
   }
@@ -68531,15 +68545,16 @@ function (_React$Component) {
           return _this2.search(e);
         },
         onClick: function onClick(e) {
-          return _this2.setState({
-            airportName: '',
-            airports: []
+          _this2.displayList(e);
+
+          _this2.setState({
+            displayList: 'block'
           });
         },
         className: this.props.className,
         placeholder: this.props.Placeholder,
         autocomplete: "off",
-        value: this.state.airportName,
+        value: this.state.airportName ? this.state.airportName : '',
         required: true
       }), React.createElement("input", {
         type: "hidden",
@@ -68549,7 +68564,7 @@ function (_React$Component) {
       }), React.createElement("ul", {
         id: "myUL",
         style: {
-          display: this.state.searchTerm.length > 2 ? 'block' : 'none'
+          display: this.state.displayList
         },
         className: "myUL ui-menu ui-widget ui-widget-content ui-autocomplete ui-front"
       }, this.props.children, this.state.airports.map(function (airport) {
@@ -68559,13 +68574,27 @@ function (_React$Component) {
             return _this2.setState({
               iataCode: airport.iata,
               searchTerm: '',
-              airportName: airport.name
+              airportName: airport.name,
+              displayList: 'none'
             });
           }
         }, React.createElement("a", {
           "class": "airports ui-menu-item-wrapper"
         }, React.createElement("span", null, airport.iata), "-", airport.name, " - ", airport.farsi, " - ", airport.city));
       })));
+    }
+  }, {
+    key: "displayList",
+    value: function displayList(e) {
+      if (this.state.airportName) {
+        this.setState({
+          airportName: ''
+        }); // this.setState({airportName:'',airports:[]})
+      } else {
+        this.setState({
+          displayList: 'block'
+        });
+      }
     }
   }]);
 
@@ -68715,9 +68744,16 @@ function (_React$Component) {
     _this.state = {
       value: moment(),
       isGregorian: false
-    };
+    }; //Disable By Date Range 
+
+    _this.disabledRanges = [{
+      color: 'brown',
+      start: moment().add(0, 'days'),
+      end: moment().add(60, 'days')
+    }];
     return _this;
-  }
+  } //constructor
+
 
   _createClass(DateSelector, [{
     key: "render",
@@ -68729,11 +68765,10 @@ function (_React$Component) {
       }, React.createElement("label", {
         className: "dateTitle"
       }, this.props.title), React.createElement(react_datepicker2__WEBPACK_IMPORTED_MODULE_0___default.a, {
-        name: "testTime",
+        ranges: this.disabledRanges,
         timePicker: false,
         value: this.state.value,
         disabled: this.props.disabled,
-        placeholder: "heel",
         isGregorian: this.state.isGregorian,
         onChange: function onChange(value) {
           return _this2.setState({
@@ -70227,7 +70262,7 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "getTickets", function () {
-      axios.post('/checkTicket1', {
+      axios.post('/checkTicket', {
         // PricingSourceType    :localStorage.getItem(''),
         // RequestOption        :localStorage.getItem(''),
         AdultCount: localStorage.getItem('adult'),
@@ -70244,10 +70279,10 @@ function (_React$Component) {
         IsRoundTrip: localStorage.getItem('IsRoundTrip'),
         ReturnTime: PartoDateFormat(localStorage.getItem('returnTime'))
       }).then(function (response) {
-        // let myTickets=response.data;
-        // this.setState({tickets:myTickets.PricedItineraries})
+        var myTickets = response.data; // this.setState({tickets:myTickets.PricedItineraries})
+
         _this.setState({
-          tickets: _inlineOnWayTicket_json__WEBPACK_IMPORTED_MODULE_0__.PricedItineraries,
+          tickets: myTickets.PricedItineraries,
           isLoading: false
         });
 
@@ -70438,7 +70473,7 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "getTickets", function () {
-      axios.post('/checkTicket1', {
+      axios.post('/checkTicket', {
         // PricingSourceType    :localStorage.getItem(''),
         // RequestOption        :localStorage.getItem(''),
         AdultCount: localStorage.getItem('adult'),
@@ -70455,10 +70490,10 @@ function (_React$Component) {
         IsRoundTrip: localStorage.getItem('IsRoundTrip'),
         ReturnTime: PartoDateFormat(localStorage.getItem('returnTime'))
       }).then(function (response) {
-        // let myTickets=response.data;
-        // this.setState({tickets:myTickets.PricedItineraries})
+        var myTickets = response.data; // this.setState({tickets:myTickets.PricedItineraries})
+
         _this.setState({
-          tickets: _RoundTripTicket_json__WEBPACK_IMPORTED_MODULE_0__.PricedItineraries,
+          tickets: myTickets.PricedItineraries,
           isLoading: false
         });
 
@@ -70732,7 +70767,7 @@ function LoadingModal() {
     className: "available-loading-modal__info"
   }, React.createElement("p", {
     className: "available-loading-modal__text"
-  }, "\u0633\u062A\u0627\u0631\u0647 \u0632\u0645\u0631\u062F \u062F\u0631 \u062D\u0627\u0644 \u062C\u0633\u062A\u062C\u0648 \u0628\u0647\u062A\u0631\u06CC\u0646 \u067E\u0631\u0648\u0627\u0632\u0647\u0627 \u0628\u0631\u0627\u06CC \u0634\u0645\u0627\u0633\u062A"), React.createElement("div", {
+  }, "\u0633\u062A\u0627\u0631\u0647 \u0632\u0645\u0631\u062F \u062F\u0631 \u062D\u0627\u0644 \u062C\u0633\u062A\u062C\u0648\u06CC \u0628\u0647\u062A\u0631\u06CC\u0646 \u067E\u0631\u0648\u0627\u0632\u0647\u0627 \u0628\u0631\u0627\u06CC \u0634\u0645\u0627\u0633\u062A"), React.createElement("div", {
     className: "available-loading-modal__dots"
   })));
 }
