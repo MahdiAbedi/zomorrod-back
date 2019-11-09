@@ -19,7 +19,7 @@ constructor(props){
             return airline.OriginDestinationOptions[0].FlightSegments[0].MarketingAirlineCode
         }).filter(onlyUnique)});
         // لیست بلیط ها رو برای فیلتر کردن تو یک متغییر دیگه نگه میدارم
-        this.setState({tempTickets:[...this.state.tickets]});
+    this.setState({tempTickets:[...this.state.tickets]});
     }
 
     //####################### دریافت بلیط از سرور ######################################################
@@ -278,7 +278,7 @@ constructor(props){
 
                             {this.state.hotels.map((hotel,index)=>{
                             return (<div className="hotels-container" key={index}>
-                                    <img src={hotel.image} alt=""/>
+                                    <img src={`https://hotelimage.partocrs.com/${hotel.HotelId}/main.jpg`} alt=""/>
                                     <div className="hotels_preview flex-column">
                                         <div className="hotels_preview_top">
                                             <div className="right">

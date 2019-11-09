@@ -87,7 +87,7 @@ class HotelController extends TravelBaseController
                 $hotel->Address = $getHotel->Address;
                 $hotel->Latitude = $getHotel->Latitude;
                 $hotel->Longitude = $getHotel->Longitude;
-                $hotel->image = 'https://hotelimage.partocrs.com/'.$hotel->HotelId.'/main.jpg';
+                // $hotel->image = 'https://hotelimage.partocrs.com/'.$hotel->HotelId.'/main.jpg';
                 array_push($newHotels,$hotel);
             }
             // $hotel->name="test";
@@ -105,14 +105,24 @@ class HotelController extends TravelBaseController
         // return Hotel::select('Name','ReviewScore','Rating','Address','latitude','Longitude')->where('id',$id)->get();
         if($total){
             $hotel=Hotel::find($id);
+            // dd($hotel);
         }else{
-            $hotel = Hotel::select('Name','ReviewScore','Rating','Address','Latitude','Longitude')->find($id);;
+            $hotel = Hotel::select('Name','ReviewScore','Rating','Address','Latitude','Longitude')->find($id);
+
         }
         return $hotel;
     }
 
-    // ########################################## دریافت عکس پیشفرض هتلها ###################################################
-    public function getHotelImage($hotelId){
+
+    // #################################### NOTICE TO ME ##################################################
+    // ####################################################################################################
+    //آدرسی که پرتو تو داکیومنت داده برای عکس پیشفرض اشتباه است
+    // من از روی دمو پرتو آدرس اصلی رو پیدا کردم:
+    // <img src={`https://hotelimage.partocrs.com/${hotel.HotelId}/main.jpg`} alt=""/>
+
+
+    // ########################################## دریافت تمام عکسهای یک هتل  ###################################################
+    public function getHotelImages($hotelId){
             $client = new Client();
             $response = $client->post('https://apidemo.partocrs.com/Rest/Hotel/HotelImage', [
             RequestOptions::JSON => array (
@@ -120,19 +130,21 @@ class HotelController extends TravelBaseController
                 'HotelId'   =>   $hotelId
             )
         ]);
-
-        dd($response->getBody()->getContents());
+        // dd(json_decode($response->getBody()->getContents())->Links);
+        return json_decode($response->getBody()->getContents())->Links;
     }
 
 
     // ##########################################  نمایش جزییات هر هتل ######################################################
-    public function show($id=1){
+    public function show($HotelId=3){
 
         $hotel = (json_decode(file_get_contents("./HotelDetail.json", "r"))->PricedItineraries);
-        // dd($hotel[0]);
+        // dd($hotel[0]->Rooms);
         $hotel=$hotel[0];
-            if(!is_null($this->getHotel($hotel->HotelId))){
-                $getHotel = $this->getHotel($hotel->HotelId);
+
+        $getHotel = $this->getHotel($hotel->HotelId,true);
+
+            if(!is_null($getHotel)){
                 $hotel->Name            = $getHotel->Name;
                 $hotel->ReviewScore     = $getHotel->ReviewScore;
                 $hotel->Rating          = $getHotel->Rating;
@@ -150,8 +162,13 @@ class HotelController extends TravelBaseController
                 $hotel->MinAge          = $getHotel->MinAge;
                 $hotel->CheckOutTime    = $getHotel->CheckOutTime;
                 $hotel->EndTime         = $getHotel->EndTime;
+                // $hotel->Rooms           = $hotel->Rooms;
+                $hotel->Images          = $this->getHotelImages($hotel->HotelId);
             }
 
+            // dd($hotel->Rooms);
+   
+            // dd($this->getHotelImages($hotel->HotelId));
             // dd($hotel);
         return view('pages/hotels/detail',compact('hotel'));
     }

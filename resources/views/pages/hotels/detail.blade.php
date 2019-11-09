@@ -40,20 +40,23 @@
                 <!-- گالری تصاویر -->
                 <div class="gallery">
                     <div class="gallery_first_row">
-                        <img src="/img/hotel/big/1.jpg" alt="" width="60%">
+                        <img src="{{$hotel->Images[0]->Link}}" alt="" width="60%">
                         <div class="column">
-                            <img src="/img/hotel/big/3.jpg" alt="" srcset="" width="100%">
-                            <img src="/img/hotel/big/9.jpg" alt="" srcset="" width="100%">
+                            <img src="{{$hotel->Images[1]->Link}}" alt="" srcset="" width="100%">
+                            <img src="{{$hotel->Images[2]->Link}}" alt="" srcset="" width="100%">
                         </div>
                     </div>
 
                     <div class="gallery_second_row flex">
-                        <img src="/img/hotel/big/7.jpg" alt="">
-                        <img src="/img/hotel/big/4.jpg" alt="">
-                        <img src="/img/hotel/big/5.jpg" alt="">
-                        <img src="/img/hotel/big/6.jpg" alt="">
-                        <img src="/img/hotel/big/8.jpg" alt="">
+                        <!-- @foreach($hotel->Images as $image)
+                            <img src="{{$image->ThumbnailLink}}" alt="">
+                        @endforeach -->
 
+                        @for($index=3;$index< 8;$index++)
+                        <img src="{{$hotel->Images[$index]->Link}}" alt="">
+
+
+                        @endfor
                     </div>
 
                 </div><!-- گالری تصاویر -->
@@ -61,12 +64,12 @@
                 <div class="hotel_summery">
                     <h2>{{$hotel->Name}}</h2>
                     <span class="stars">
-                    @for ($i = 0; $i < $hotel->Rating; $i++)
-                        <i class="fa fa-star green"></i>
-                    @endfor
-                    @for ($i = 0; $i < 5- $hotel->Rating; $i++)
-                        <i class="far fa-star green"></i>
-                    @endfor
+                        @for ($i = 0; $i < $hotel->Rating; $i++)
+                            <i class="fa fa-star green"></i>
+                        @endfor
+                        @for ($i = 0; $i < 5- $hotel->Rating; $i++)
+                            <i class="far fa-star green"></i>
+                        @endfor
                         
                     </span>
                     <p>امتیاز کاربران : {{$hotel->ReviewScore}}</p>
@@ -110,25 +113,10 @@
                     <button class="tablinks" onclick="openTab(event, 'reviews')">نظر مسافران</button>
                 </div>
 
-                <div id="about" class="tabcontent" style="display: block;">
+                <div id="about" class="tabcontent" style="display: block; text-align:justify;direction:ltr">
                     <!-- توضیحات هتل  -->
                     <p>
-                        <strong>اتاقهای هتل:</strong>
-                        هتل دافنه در منطقه تاریخی سلطان احمد واقع در شهر زیبای استانبول قرار دارد. این هتل دسترسی بسیار
-                        راحتی به جاذبه‌های گردشگری استانبول دارد و از این رو در موقعیت جغرافیایی بسیار مناسبی واقع
-                        شده‌است.
-                    </p>
-                    <p>
-                        <strong>ورزش/سرگرمی:</strong>
-                        هتل دافنه در منطقه تاریخی سلطان احمد واقع در شهر زیبای استانبول قرار دارد. این هتل دسترسی بسیار
-                        راحتی به جاذبه‌های گردشگری استانبول دارد و از این رو در موقعیت جغرافیایی بسیار مناسبی واقع
-                        شده‌است.
-                    </p>
-                    <p>
-                        <strong>پذیرایی و غذا :</strong>
-                        هتل دافنه در منطقه تاریخی سلطان احمد واقع در شهر زیبای استانبول قرار دارد. این هتل دسترسی بسیار
-                        راحتی به جاذبه‌های گردشگری استانبول دارد و از این رو در موقعیت جغرافیایی بسیار مناسبی واقع
-                        شده‌است.
+                     {!! $hotel->Description !!}
                     </p>
                 </div>
 
@@ -158,24 +146,24 @@
                     <thead>
                         <tr>
                             <th>نام و مشخصات اتاق</th>
-                            <th>تعداد تخت</th>
-                            <th>انتخاب تعداد اتاق</th>
+                            <!-- <th>تعداد تخت</th>
+                            <th>انتخاب تعداد اتاق</th> -->
                             <th>قیمت برای 3 شب</th>
                         </tr>
                     </thead>
                     @foreach($hotel->Rooms as $room)
                     <tr>
                         <td>
-                            <p>Standard Twin Room</p>
-                            <p class="green">Twin beds 2</p>
-                            <p>صبحانه رایگان</p>
+                            <p>{{$room->Name}}</p>
+                            <p class="green">{{$room->MealType}}</p>
+                            <p>{{$room->BedGroups}}</p>
                         </td>
-                        <td>
+                        <!-- <td>
                             <input type="number" name="roomCount" id="" min="1" max="10" value="1">
                         </td>
                         <td>
                             <input type="number" name="roomCount" id="" min="1" max="10" value="1">
-                        </td>
+                        </td> -->
                         <td name=money>74,880,00 ریال</td>
                     </tr>
                    
@@ -191,13 +179,15 @@
                             <p>دبی امارات متحده عربی</p>
                         </span>
                         <span>
-                            <p>Deluxe City Hotel</p>
+                            <p>{{$hotel->Name}}</p>
                             <span class="stars">
-                                <i class="fa fa-star green"></i>
-                                <i class="fa fa-star green"></i>
-                                <i class="fa fa-star green"></i>
-                                <i class="far fa-star green"></i>
-                                <i class="far fa-star green"></i>
+                                @for ($i = 0; $i < $hotel->Rating; $i++)
+                                    <i class="fa fa-star green"></i>
+                                @endfor
+                                @for ($i = 0; $i < 5- $hotel->Rating; $i++)
+                                    <i class="far fa-star green"></i>
+                                @endfor
+                                
                             </span>
                         </span>
                         <span>

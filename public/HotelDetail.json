@@ -23,6 +23,51 @@
                     "MealType": "Room Only",
                     "SharingBedding": false,
                     "BedGroups": "1 FullBed"
+                },
+                {
+                    "Name": "Basic Shared Dormitory Shared Bathroom 8 Bed Female Dorm",
+                    "AdultCount": 1,
+                    "ChildCount": 0,
+                    "ChildAges": null,
+                    "MealType": "Room Only",
+                    "SharingBedding": false,
+                    "BedGroups": "1 FullBed"
+                },
+                {
+                    "Name": "Basic Shared Dormitory Shared Bathroom 8 Bed Female Dorm",
+                    "AdultCount": 1,
+                    "ChildCount": 0,
+                    "ChildAges": null,
+                    "MealType": "Room Only",
+                    "SharingBedding": false,
+                    "BedGroups": "1 FullBed"
+                },
+                {
+                    "Name": "Basic Shared Dormitory Shared Bathroom 8 Bed Female Dorm",
+                    "AdultCount": 1,
+                    "ChildCount": 0,
+                    "ChildAges": null,
+                    "MealType": "Room Only",
+                    "SharingBedding": false,
+                    "BedGroups": "1 FullBed"
+                },
+                {
+                    "Name": "Basic Shared Dormitory Shared Bathroom 8 Bed Female Dorm",
+                    "AdultCount": 1,
+                    "ChildCount": 0,
+                    "ChildAges": null,
+                    "MealType": "Room Only",
+                    "SharingBedding": false,
+                    "BedGroups": "1 FullBed"
+                },
+                {
+                    "Name": "Basic Shared Dormitory Shared Bathroom 8 Bed Female Dorm",
+                    "AdultCount": 1,
+                    "ChildCount": 0,
+                    "ChildAges": null,
+                    "MealType": "Room Only",
+                    "SharingBedding": false,
+                    "BedGroups": "1 FullBed"
                 }
             ],
             "CancellationPolicies": [],
