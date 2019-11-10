@@ -178,7 +178,7 @@
                             <p class="green">مقصد:</p>
                             <p>دبی امارات متحده عربی</p>
                         </span>
-                        <span>
+                        <span1>
                             <p>{{$hotel->Name}}</p>
                             <span class="stars">
                                 @for ($i = 0; $i < $hotel->Rating; $i++)
