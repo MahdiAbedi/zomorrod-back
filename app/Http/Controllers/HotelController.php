@@ -174,4 +174,35 @@ class HotelController extends TravelBaseController
     }
 
     // ########################################## گرفتن تصویر ابتدایی هر هتل در لیست هتلها #################################
+
+    // ########################################## دریافت اتاقهای یک هتل ##########################################
+    public function getRooms($hotelId=152){
+        $client = new Client();
+
+        $arr= array(
+            
+            'SessionId'     =>   "48c0b317-7b04-ea11-b732-00155dbd6c0c",
+            'HotelId'       =>   '185',
+            'CheckIn'       =>    "2019-12-01T00:00:00",
+            'CheckOut'      =>    "2019-12-02T00:00:00",
+            'NationalityId'   =>    "US",
+            "Occupancies"   => array(
+                "AdultCount"   => "1",
+                'ChildCount'   => "0",
+                'ChildAges'    => array()
+            ),
+            
+        );
+
+            
+            // dd(json_encode($arr));
+        // dd(Session('SessionId'));
+        // dd([RequestOptions::JSON => $arr]);
+            $response = $client->post('https://apidemo.partocrs.com/Rest/Hotel/HotelAvailability', [RequestOptions::JSON => $arr]);
+        // dd(json_decode($response->getBody()->getContents())->Links);
+        dd (json_decode($response->getBody()->getContents()));
 }
+
+
+
+}//class

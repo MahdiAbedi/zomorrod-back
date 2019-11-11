@@ -1,0 +1,51 @@
+Here is login credential for our Demo Web Site:
+
+ 
+
+Office ID: CRS001319                
+Username: setareh   
+Password: demo2019   
+
+https://demo.partocrs.com
+
+ 
+
+احتراما به اطلاع می رساند سایت Demo.partocrs.com  فقط جهت پیاده سازی وب سرویس می باشد
+
+و قیمتهایی که روی این سایت نمایش داده می شود واقعی نمی باشد .
+
+ 
+
+ 
+
+Demo Web Service login credential:
+
+ 
+
+Office ID: CRS001319               
+Username: api  
+Password: demo2019   
+password : AEE88646F849BD6224295F5ACD01A4AFFA50E5596E171473838F7B49681645ACABE12E71486EDD0D8DF969D1FF8A883300ACA419C69D4B616C6EE642C68A605A
+https://apidemo.partocrs.com
+
+ 
+
+ 
+
+Please refer to our API document on https://apidemo.partocrs.com/Help  
+
+ 
+
+If you have any inquiry please contact us.
+
+ 
+
+Thanks,
+
+
+{
+  "OfficeId": "CRS001319",
+  "UserName": "api",
+  "Password": "AEE88646F849BD6224295F5ACD01A4AFFA50E5596E171473838F7B49681645ACABE12E71486EDD0D8DF969D1FF8A883300ACA419C69D4B616C6EE642C68A605A"
+}
+{"Error":null,"Success":true,"SessionId":"956abe72-5304-ea11-b732-00155dbd6c0c"}
