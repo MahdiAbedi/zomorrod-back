@@ -51,13 +51,7 @@ constructor(props){
                 hotels:response.data,
                 isLoading:false,
             })
-            // console.log(this.state.hotels)
-    //         this.state.hotels.map(hotel=>{
-    //        console.log(hotel.Name)
-    //    });
-
-           // this.getAirlines()
-
+            console.log(this.state.hotels)
         })
        .catch((error)=>{
           console.log(error);

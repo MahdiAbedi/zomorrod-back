@@ -39,7 +39,7 @@ class OutLineTicket extends React.Component{
     }
     render(){
         return (
-        <div className="form" id="OutLineTicket">
+        <div className="form" id="OutLineTicket" style={{display:'none'}}>
             {/* <!-- فیلترهای پروازها --> */}
             <div className="filters" >
                 <input type="radio" value="oneWay" id="oneWay" name="outline-ticket" onClick={this.showReturnDate} checked={this.state.toWay}/>

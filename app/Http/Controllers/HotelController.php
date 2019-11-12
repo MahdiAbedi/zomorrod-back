@@ -39,7 +39,6 @@ class HotelController extends TravelBaseController
     // ########################################### نمایش لیست هتلها بر اساس جستجوی انجام شده ###############################
     public function showResults(){
 
-
         // dd($hotels);
         // dd($request->all());
         $this->makeSession();
@@ -55,26 +54,26 @@ class HotelController extends TravelBaseController
         'ChildAges'    => array()
         ));
 
-        // $response = $client->post('https://apidemo.partocrs.com/Rest/Hotel/HotelAvailability', [
-        //     RequestOptions::JSON => array (
-        //         'SessionId'             => $this->SessionId,
-        //         'CheckIn' =>'2019-11-01T00:00:00',
-        //         'CheckOut'=>'2019-11-05T00:00:00',
-        //         'Latitude'=>"",
-        //         'Longitude'=>"",
-        //         'RadiusInKilometer'=>0,
-        //         'SetGeoLocation'=>false,
-        //         'NationalityId'=>"IR",
-        //         'HotelId'=>'',
-        //         'CityId'=>302,
-        //         'Occupancies'=>$Occupancies,
-        //     )
-        // ]);
+        $response = $client->post('https://apidemo.partocrs.com/Rest/Hotel/HotelAvailability', [
+            RequestOptions::JSON => array (
+                'SessionId'             => $this->SessionId,
+                'CheckIn' =>'2019-12-01T00:00:00',
+                'CheckOut'=>'2019-12-05T00:00:00',
+                'Latitude'=>"",
+                'Longitude'=>"",
+                'RadiusInKilometer'=>0,
+                'SetGeoLocation'=>false,
+                'NationalityId'=>"IR",
+                'HotelId'=>'',
+                'CityId'=>302,
+                'Occupancies'=>$Occupancies,
+            )
+        ]);
 
         // dd($response->getBody()->getContents());
-        // $hotels =  json_decode($response->getBody()->getContents());
+        $hotels =  json_decode($response->getBody()->getContents())->PricedItineraries;
 
-        $hotels = (json_decode(file_get_contents("./Hotel.json", "r"))->PricedItineraries);
+        // $hotels = (json_decode(file_get_contents("./Hotel.json", "r"))->PricedItineraries);
         $newHotels=[];
         foreach ($hotels as $hotel) {
             // $hotel->name='Motel';
@@ -177,31 +176,46 @@ class HotelController extends TravelBaseController
 
     // ########################################## دریافت اتاقهای یک هتل ##########################################
     public function getRooms($hotelId=152){
+        $this->makeSession();
         $client = new Client();
+        $Occupancies=[];
+        $AirTripType=1;
+        //اطلاعات مسافران 
+        array_push($Occupancies,
+        array (
+        'AdultCount'   => 1,
+        'ChildCount'   => 0,
+        'ChildAges'    => array()
+        ));
+        $response = $client->post('https://apidemo.partocrs.com/Rest/Hotel/HotelAvailability', [
+            RequestOptions::JSON => array (
+                'SessionId'             => $this->SessionId,
+                'CheckIn' =>'2019-12-01T00:00:00',
+                'CheckOut'=>'2019-12-02T00:00:00',
+                'Latitude'=>"",
+                'Longitude'=>"",
+                'RadiusInKilometer'=>0,
+                'SetGeoLocation'=>false,
+                'NationalityId'=>"US",
+                'HotelId'=>'727',
+                'Occupancies'=>$Occupancies,
+            )
+        ]);
+        dd(json_encode(array (
+            'SessionId'             =>'8ad7b35f-3605-ea11-b732-00155dbd6c0c',
+            'CheckIn' =>'2019-12-01T00:00:00',
+            'CheckOut'=>'2019-12-02T00:00:00',
+            'NationalityId'=>"US",
+            'HotelId'=>'727',
+            'Occupancies'=>$Occupancies,
+        )));
+        dd($response->getBody()->getContents());
+        $hotels =  json_decode($response->getBody()->getContents())->PricedItineraries;
 
-        $arr= array(
-            
-            'SessionId'     =>   "48c0b317-7b04-ea11-b732-00155dbd6c0c",
-            'HotelId'       =>   '185',
-            'CheckIn'       =>    "2019-12-01T00:00:00",
-            'CheckOut'      =>    "2019-12-02T00:00:00",
-            'NationalityId'   =>    "US",
-            "Occupancies"   => array(
-                "AdultCount"   => "1",
-                'ChildCount'   => "0",
-                'ChildAges'    => array()
-            ),
-            
-        );
 
-            
-            // dd(json_encode($arr));
-        // dd(Session('SessionId'));
-        // dd([RequestOptions::JSON => $arr]);
-            $response = $client->post('https://apidemo.partocrs.com/Rest/Hotel/HotelAvailability', [RequestOptions::JSON => $arr]);
-        // dd(json_decode($response->getBody()->getContents())->Links);
-        dd (json_decode($response->getBody()->getContents()));
-}
+
+        
+    }//getRooms
 
 
 

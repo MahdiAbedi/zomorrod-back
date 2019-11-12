@@ -71909,12 +71909,9 @@ function (_React$Component) {
         _this.setState({
           hotels: response.data,
           isLoading: false
-        }); // console.log(this.state.hotels)
-        //         this.state.hotels.map(hotel=>{
-        //        console.log(hotel.Name)
-        //    });
-        // this.getAirlines()
+        });
 
+        console.log(_this.state.hotels);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -73433,7 +73430,10 @@ function (_React$Component) {
       adult: 0,
       child: 0,
       display: 0,
-      rooms: 1
+      rooms: 1,
+      // تعداد اتاقهایی که انتخاب کردیم
+      roomsList: [] //اطلاعات مسافران هر اتاق اینجا ذخیره میشه
+
     };
     return _this;
   }
@@ -73446,7 +73446,7 @@ function (_React$Component) {
       var counters = [];
 
       for (var index = 1; index <= this.state.rooms; index++) {
-        counters.push(React.createElement(HotelCounter, {
+        counters.push(React.createElement(RoomCounter, {
           index: index,
           "delete": this["delete"],
           deleteAdult: this.deleteAdult,
@@ -73489,20 +73489,22 @@ function (_React$Component) {
 
   return PassengerCount;
 }(React.Component); //class
-// ################################## Counter Class ######################################
+// ###############################################################################################################################
+// ################################## کامپوننت اضافه کردن اتاق و مشخصات مسافران هر اتاق ######################################
+// ###############################################################################################################################
 
 
-var HotelCounter =
+var RoomCounter =
 /*#__PURE__*/
 function (_React$Component2) {
-  _inherits(HotelCounter, _React$Component2);
+  _inherits(RoomCounter, _React$Component2);
 
-  function HotelCounter(props) {
+  function RoomCounter(props) {
     var _this3;
 
-    _classCallCheck(this, HotelCounter);
+    _classCallCheck(this, RoomCounter);
 
-    _this3 = _possibleConstructorReturn(this, _getPrototypeOf(HotelCounter).call(this, props));
+    _this3 = _possibleConstructorReturn(this, _getPrototypeOf(RoomCounter).call(this, props));
 
     _defineProperty(_assertThisInitialized(_this3), "deleteAdult", function () {
       if (_this3.state.adult > 1) {
@@ -73540,6 +73542,15 @@ function (_React$Component2) {
       _this3.props.addChild();
     });
 
+    _defineProperty(_assertThisInitialized(_this3), "addChildAge", function (age) {
+      // alert(age)
+      var joined = _this3.state.childAges.concat(age);
+
+      _this3.setState({
+        childAges: joined
+      });
+    });
+
     _defineProperty(_assertThisInitialized(_this3), "deleteMe", function () {
       _this3.props.deleteAdult(_this3.state.adult);
 
@@ -73552,15 +73563,26 @@ function (_React$Component2) {
       adult: 1,
       child: 0,
       infant: 0,
-      display: 0
+      display: 0,
+      childAges: []
     };
     return _this3;
   }
 
-  _createClass(HotelCounter, [{
+  _createClass(RoomCounter, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.addAdult();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      var RoomInfo = {
+        'adult': this.state.adult,
+        'child': this.state.child,
+        'ChildAges': this.state.childAges
+      };
+      console.log(RoomInfo);
     }
   }, {
     key: "render",
@@ -73571,26 +73593,14 @@ function (_React$Component2) {
 
       for (var index = 1; index <= this.state.child; index++) {
         childAge.push(React.createElement(ChildAge, {
-          index: index
+          index: index,
+          addChildAge: this.addChildAge
         }));
       }
 
-      return React.createElement("span", null, React.createElement("input", {
-        type: "hidden",
-        name: this.props.prefix + '_adult[]',
-        id: this.props.prefix + '_adult',
-        value: this.state.adult
-      }), React.createElement("input", {
-        type: "hidden",
-        name: this.props.prefix + '_child[]',
-        id: this.props.prefix + '_child',
-        value: this.state.child
-      }), React.createElement("input", {
-        type: "hidden",
-        name: this.props.prefix + '_infant[]',
-        id: this.props.prefix + '_infant',
-        value: this.state.infant
-      }), React.createElement("div", {
+      return React.createElement("span", {
+        name: "rooms[]"
+      }, React.createElement("div", {
         className: "deleteRoom"
       }, React.createElement("h4", null, "\u0627\u062A\u0627\u0642 ", farsiCounter(this.props.index)), React.createElement("p", {
         onClick: function onClick() {
@@ -73632,42 +73642,78 @@ function (_React$Component2) {
     }
   }]);
 
-  return HotelCounter;
+  return RoomCounter;
 }(React.Component); //Hotel Counter
+// #########################################################################################################
+// ####################################### کامپوننت انتخاب سن کودک #######################################
+// #########################################################################################################
 
 
-function ChildAge(_ref) {
-  var index = _ref.index;
-  return React.createElement("div", {
-    className: "child_age"
-  }, React.createElement("p", null, "\u0633\u0646 \u06A9\u0648\u062F\u06A9 ", farsiCounter(index)), React.createElement("select", {
-    name: "childAge[]"
-  }, React.createElement("option", {
-    value: "0"
-  }, "0 \u062A\u0627 1 \u0633\u0627\u0644"), React.createElement("option", {
-    value: "1"
-  }, "1 \u062A\u0627 2 \u0633\u0627\u0644"), React.createElement("option", {
-    value: "2"
-  }, "2 \u062A\u0627 3 \u0633\u0627\u0644"), React.createElement("option", {
-    value: "3"
-  }, "3 \u062A\u0627 4 \u0633\u0627\u0644"), React.createElement("option", {
-    value: "4"
-  }, "4 \u062A\u0627 5 \u0633\u0627\u0644"), React.createElement("option", {
-    value: "5"
-  }, "5 \u062A\u0627 6 \u0633\u0627\u0644"), React.createElement("option", {
-    value: "6"
-  }, "6 \u062A\u0627 7 \u0633\u0627\u0644"), React.createElement("option", {
-    value: "7"
-  }, "7 \u062A\u0627 8 \u0633\u0627\u0644"), React.createElement("option", {
-    value: "8"
-  }, "8 \u062A\u0627 9 \u0633\u0627\u0644"), React.createElement("option", {
-    value: "9"
-  }, "9 \u062A\u0627 10 \u0633\u0627\u0644"), React.createElement("option", {
-    value: "10"
-  }, "10 \u062A\u0627 11 \u0633\u0627\u0644"), React.createElement("option", {
-    value: "11"
-  }, "11 \u062A\u0627 12 \u0633\u0627\u0644")));
-}
+var ChildAge =
+/*#__PURE__*/
+function (_React$Component3) {
+  _inherits(ChildAge, _React$Component3);
+
+  function ChildAge(props) {
+    _classCallCheck(this, ChildAge);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ChildAge).call(this, props));
+  }
+
+  _createClass(ChildAge, [{
+    key: "addAge",
+    value: function addAge(e) {
+      this.props.addChildAge(e.target.value); // alert(e.target.value)
+    }
+  }, {
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      this.props.addChildAge(0);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this5 = this;
+
+      return React.createElement("div", {
+        className: "child_age"
+      }, React.createElement("p", null, "\u0633\u0646 \u06A9\u0648\u062F\u06A9 ", farsiCounter(this.props.index)), React.createElement("select", {
+        name: "childAge[]",
+        onChange: function onChange(e) {
+          return _this5.addAge(e);
+        }
+      }, React.createElement("option", {
+        value: "0"
+      }, "0 \u062A\u0627 1 \u0633\u0627\u0644"), React.createElement("option", {
+        value: "1"
+      }, "1 \u062A\u0627 2 \u0633\u0627\u0644"), React.createElement("option", {
+        value: "2"
+      }, "2 \u062A\u0627 3 \u0633\u0627\u0644"), React.createElement("option", {
+        value: "3"
+      }, "3 \u062A\u0627 4 \u0633\u0627\u0644"), React.createElement("option", {
+        value: "4"
+      }, "4 \u062A\u0627 5 \u0633\u0627\u0644"), React.createElement("option", {
+        value: "5"
+      }, "5 \u062A\u0627 6 \u0633\u0627\u0644"), React.createElement("option", {
+        value: "6"
+      }, "6 \u062A\u0627 7 \u0633\u0627\u0644"), React.createElement("option", {
+        value: "7"
+      }, "7 \u062A\u0627 8 \u0633\u0627\u0644"), React.createElement("option", {
+        value: "8"
+      }, "8 \u062A\u0627 9 \u0633\u0627\u0644"), React.createElement("option", {
+        value: "9"
+      }, "9 \u062A\u0627 10 \u0633\u0627\u0644"), React.createElement("option", {
+        value: "10"
+      }, "10 \u062A\u0627 11 \u0633\u0627\u0644"), React.createElement("option", {
+        value: "11"
+      }, "11 \u062A\u0627 12 \u0633\u0627\u0644")));
+    }
+  }]);
+
+  return ChildAge;
+}(React.Component); //class
+// ###########################################################################################################
+
 
 /* harmony default export */ __webpack_exports__["default"] = (PassengerCount);
 
@@ -73694,13 +73740,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -73711,19 +73759,36 @@ function (_React$Component) {
   _inherits(HotelTicket, _React$Component);
 
   function HotelTicket() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, HotelTicket);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(HotelTicket).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(HotelTicket)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "submit", function (e) {
+      e.preventDefault();
+      alert('you are submiting form');
+    });
+
+    return _this;
   }
 
   _createClass(HotelTicket, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return React.createElement("div", {
         className: "form",
         id: "HotelTicket",
         style: {
-          display: 'none'
+          display: 'block'
         }
       }, React.createElement("div", {
         className: "filters"
@@ -73744,10 +73809,14 @@ function (_React$Component) {
       }), React.createElement("label", {
         "for": "Hotels"
       }, "\u062E\u0627\u0631\u062C\u06CC")), React.createElement("form", {
-        className: "search"
+        className: "search",
+        onSubmit: function onSubmit(e) {
+          return _this2.submit(e);
+        }
       }, React.createElement("div", {
         className: "group"
       }, React.createElement("select", {
+        name: "hotelCity",
         className: "left-border right-border hotelCity"
       }, React.createElement("option", {
         value: "",
@@ -73772,7 +73841,10 @@ function (_React$Component) {
       })), React.createElement("div", {
         className: "group"
       }, React.createElement("input", {
-        type: "button",
+        type: "submit",
+        onClick: function onClick() {
+          return _this2.submit;
+        },
         className: "btn btn-zgreen",
         value: "\u062C\u0633\u062A\u062C\u0648"
       }), React.createElement("i", {
@@ -74369,7 +74441,10 @@ function (_React$Component) {
     value: function render() {
       return React.createElement("div", {
         className: "form",
-        id: "OutLineTicket"
+        id: "OutLineTicket",
+        style: {
+          display: 'none'
+        }
       }, React.createElement("div", {
         className: "filters"
       }, React.createElement("input", {

@@ -78,6 +78,8 @@ Route::get('/cityHotel','HotelController@find');
 Route::get('/hotel/detail','HotelController@show');
 // اتاق های هر هتل 
 Route::get('/getRooms','HotelController@getRooms');
+//for test
+// Route::get('/showResults','HotelController@showResults');
 
 // ###################################### پروفایل کاربری ######################################
 Route::get('profile','UserController@profile');

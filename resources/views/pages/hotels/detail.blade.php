@@ -120,7 +120,7 @@
                     </p>
                 </div>
 
-                <div id="facilities" class="tabcontent">
+                <div id="facilities" class="tabcontent">x
                     <h3>امکانات هتل</h3>
                     <p>امکانان هتل در دست طارحی</p>
                 </div>

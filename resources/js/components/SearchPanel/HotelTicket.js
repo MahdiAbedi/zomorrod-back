@@ -2,9 +2,14 @@ import DateSelector from '../DateSelector';
 import HotelPassengerCount from './HotelPassengerCount';
 
 class HotelTicket extends React.Component{
+
+    submit=(e)=>{
+        e.preventDefault();
+        alert('you are submiting form')
+    }
     render(){
         return (
-        <div className="form" id="HotelTicket" style={{display:'none'}}>
+        <div className="form" id="HotelTicket" style={{display:'block'}}>
             {/* <!-- فیلترهای پروازها --> */}
             <div className="filters" >
                 <input type="radio" value="0" id="iranHotels" name="hotels" checked/>
@@ -14,10 +19,10 @@ class HotelTicket extends React.Component{
                 
             </div>
             {/* <!-- فیلدهای جستجو --> */}
-            <form  className="search">
+            <form  className="search" onSubmit={(e)=>this.submit(e)}>
                
                 <div className="group">
-                    <select className="left-border right-border hotelCity">
+                    <select name="hotelCity" className="left-border right-border hotelCity">
                         <option value="" disabled selected>شهر مقصد</option>
 
                     </select>
@@ -33,7 +38,7 @@ class HotelTicket extends React.Component{
                     <HotelPassengerCount prefix="hotel"/>
                 </div>
                 <div className="group">
-                    <input type="button" className="btn btn-zgreen" value="جستجو"/>
+                    <input type="submit" onClick={()=>this.submit} className="btn btn-zgreen" value="جستجو"/>
                     <i className="icon-search"></i>
                 </div>
 
