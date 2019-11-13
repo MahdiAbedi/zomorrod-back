@@ -72280,6 +72280,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SearchPanel_HotelPassengerCount__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../SearchPanel/HotelPassengerCount */ "./resources/js/components/SearchPanel/HotelPassengerCount.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _SingleHotel_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SingleHotel.json */ "./resources/js/components/Results/Hotel/SingleHotel.json");
+var _SingleHotel_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./SingleHotel.json */ "./resources/js/components/Results/Hotel/SingleHotel.json", 1);
+/* harmony import */ var _SingleRoomList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SingleRoomList */ "./resources/js/components/Results/Hotel/SingleRoomList.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -72297,6 +72300,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
 
 
 
@@ -72327,13 +72332,17 @@ function (_React$Component) {
   }, {
     key: "getRooms",
     value: function getRooms() {
-      axios.post('/getRooms', {
-        "SessionId": "9b4435ff-6504-ea11-b732-00155dbd6c0c"
-      }).then(function (response) {
-        // this.setState({Rooms:response.data})
-        console.log(response);
-      })["catch"](function (error) {
-        console.log(error);
+      // axios.get('/getRooms')
+      // .then((response)=>{
+      //    // this.setState({Rooms:response.data})
+      //    console.log(response)
+      // })
+      // .catch((error)=>{
+      //     console.log(error)
+      // })
+      // اطلاعات ذخیره شده در فایل برای تست
+      this.setState({
+        Rooms: _SingleHotel_json__WEBPACK_IMPORTED_MODULE_3__.PricedItineraries
       });
     }
   }, {
@@ -72370,67 +72379,13 @@ function (_React$Component) {
       }), React.createElement("i", {
         className: "icon-search"
       })))), React.createElement("div", {
-        className: "rooms"
-      }, React.createElement("table", {
-        className: "rounded_table"
-      }, React.createElement("thead", null, React.createElement("tr", null, React.createElement("th", null, "\u0646\u0627\u0645 \u0648 \u0645\u0634\u062E\u0635\u0627\u062A \u0627\u062A\u0627\u0642"), React.createElement("th", null, "\u062A\u0639\u062F\u0627\u062F \u062A\u062E\u062A"), React.createElement("th", null, "\u0627\u0646\u062A\u062E\u0627\u0628 \u062A\u0639\u062F\u0627\u062F \u0627\u062A\u0627\u0642"), React.createElement("th", null, "\u0642\u06CC\u0645\u062A \u0628\u0631\u0627\u06CC 3 \u0634\u0628"))), React.createElement("tr", null, React.createElement("td", null, React.createElement("p", null, "Standard Twin Room"), React.createElement("p", {
-        className: "green"
-      }, "Female Dorm"), React.createElement("p", null, "Room Only")), React.createElement("td", null, React.createElement("input", {
-        type: "number",
-        name: "roomCount",
-        id: "",
-        min: "1",
-        max: "10",
-        value: "1"
-      })), React.createElement("td", null, React.createElement("input", {
-        type: "number",
-        name: "roomCount",
-        id: "",
-        min: "1",
-        max: "10",
-        value: "1"
-      })), React.createElement("td", {
-        name: "money"
-      }, "74,880,00 \u0631\u06CC\u0627\u0644"))), React.createElement("div", {
-        className: "factor column"
-      }, React.createElement("p", {
-        className: "title"
-      }, "\u0641\u0627\u06A9\u062A\u0648\u0631"), React.createElement("div", {
-        className: "factor_detail flex"
-      }, React.createElement("span", null, React.createElement("p", {
-        className: "green"
-      }, "\u0645\u0642\u0635\u062F:"), React.createElement("p", null, "\u062F\u0628\u06CC \u0627\u0645\u0627\u0631\u0627\u062A \u0645\u062A\u062D\u062F\u0647 \u0639\u0631\u0628\u06CC")), React.createElement("span", null, React.createElement("p", null, "Standard Twin Room"), React.createElement("span", {
-        className: "stars"
-      }, React.createElement("i", {
-        className: "fa fa-star green"
-      }), React.createElement("i", {
-        className: "fa fa-star green"
-      }), React.createElement("i", {
-        className: "fa fa-star green"
-      }), React.createElement("i", {
-        className: "fa fa-star green"
-      }), React.createElement("i", {
-        className: "far fa-star green"
-      }))), React.createElement("span", null, React.createElement("p", {
-        className: "green"
-      }, "74,880,000 \u062A\u0648\u0645\u0627\u0646"), React.createElement("a", {
-        href: "#",
-        className: "btn btn-zgreen"
-      }, "\u067E\u0631\u062F\u0627\u062E\u062A"))), React.createElement("table", {
-        className: "rounded_table"
-      }, React.createElement("tr", null, React.createElement("td", null, "Standard Twin Room"), React.createElement("td", null, "2 \u0628\u0632\u0631\u06AF\u0633\u0627\u0644"), React.createElement("td", null, "1 \u0627\u062A\u0627\u0642"), React.createElement("td", {
-        name: "money"
-      }, "74,880,00 \u0631\u06CC\u0627\u0644")), React.createElement("tr", null, React.createElement("td", null, "Standard Twin Room"), React.createElement("td", null, "2 \u0628\u0632\u0631\u06AF\u0633\u0627\u0644"), React.createElement("td", null, "1 \u0627\u062A\u0627\u0642"), React.createElement("td", {
-        name: "money"
-      }, "74,880,00 \u0631\u06CC\u0627\u0644")), React.createElement("tr", {
-        className: "green"
-      }, React.createElement("td", null, "\u062C\u0645\u0639 \u0645\u0628\u0644\u063A"), React.createElement("td", null), React.createElement("td", null), React.createElement("td", {
-        name: "money"
-      }, "74,880,00 \u0631\u06CC\u0627\u0644"))), React.createElement("table", {
-        className: "rounded_table"
-      }, React.createElement("thead", null, React.createElement("tr", null, React.createElement("th", null, "\u062A\u0627\u0631\u06CC\u062E \u0648 \u0633\u0627\u0639\u062A \u0648\u0631\u0648\u062F"), React.createElement("th", null, "\u062A\u0627\u0631\u06CC\u062E \u0648 \u0633\u0627\u0639\u062A \u062E\u0631\u0648\u062C"))), React.createElement("tr", {
-        className: "green"
-      }, React.createElement("td", null, "\u062F\u0648\u0634\u0646\u0628\u0647 13/September/2019 \u0633\u0627\u0639\u062A 12:30"), React.createElement("td", null, "\u062F\u0648\u0634\u0646\u0628\u0647 13/September/2019 \u0633\u0627\u0639\u062A 12:30"))))));
+        className: "rooms flex"
+      }, this.state.Rooms.map(function (room, index) {
+        return React.createElement(_SingleRoomList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          key: index,
+          room: room
+        });
+      })));
     }
   }]);
 
@@ -72440,6 +72395,145 @@ function (_React$Component) {
 if (document.querySelector('#RoomsList')) {
   ReactDOM.render(React.createElement(RoomsList, null), document.querySelector('#RoomsList'));
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/Results/Hotel/SingleHotel.json":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/Results/Hotel/SingleHotel.json ***!
+  \****************************************************************/
+/*! exports provided: Success, Error, CheckIn, CheckOut, PricedItineraries, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"Success\":true,\"Error\":null,\"CheckIn\":\"2019-12-01T00:00:00\",\"CheckOut\":\"2019-12-02T00:00:00\",\"PricedItineraries\":[{\"FareSourceCode\":\"3835626538303434663761363437623238303764336230306637353366373234263136263933343239\",\"Offer\":\"Private sale: save 10%\",\"NonRefundable\":true,\"HotelId\":152,\"PaymentDeadline\":\"2018-11-11T10:52:00.5686199\",\"Currency\":\"IRR\",\"AvailableRoom\":6,\"PlainTextCancellationPolicy\":null,\"NetRate\":15705360,\"Rooms\":[{\"Name\":\"Studio\",\"AdultCount\":1,\"ChildCount\":0,\"ChildAges\":null,\"MealType\":\"Room Only\",\"SharingBedding\":false,\"BedGroups\":\"1 KingBed\"}],\"CancellationPolicies\":[],\"Remarks\":[],\"Amenities\":null},{\"FareSourceCode\":\"3561376333333139343964303434336438346664343731613034333566346161263136263933343239\",\"Offer\":\"Private sale: save 10%\",\"NonRefundable\":false,\"HotelId\":152,\"PaymentDeadline\":\"2019-11-11T00:00:00\",\"Currency\":\"IRR\",\"AvailableRoom\":6,\"PlainTextCancellationPolicy\":null,\"NetRate\":17449080,\"Rooms\":[{\"Name\":\"Studio\",\"AdultCount\":1,\"ChildCount\":0,\"ChildAges\":null,\"MealType\":\"Room Only\",\"SharingBedding\":false,\"BedGroups\":\"1 KingBed\"}],\"CancellationPolicies\":[{\"Amount\":16624080,\"FromDate\":\"2019-11-18T01:30:00+03:30\"},{\"Amount\":17449080,\"FromDate\":\"2019-12-02T01:30:00+03:30\"}],\"Remarks\":[],\"Amenities\":[\"Free Parking\",\"Free Wifi\"]},{\"FareSourceCode\":\"6565356533363665663837323463303462636432313133366533643562326662263136263933343239\",\"Offer\":\"Private sale: save 10%\",\"NonRefundable\":true,\"HotelId\":152,\"PaymentDeadline\":\"2018-11-11T10:52:00.5686199\",\"Currency\":\"IRR\",\"AvailableRoom\":3,\"PlainTextCancellationPolicy\":null,\"NetRate\":17587680,\"Rooms\":[{\"Name\":\"Apartment 1 Bedroom\",\"AdultCount\":1,\"ChildCount\":0,\"ChildAges\":null,\"MealType\":\"Room Only\",\"SharingBedding\":false,\"BedGroups\":\"1 QueenBed\"}],\"CancellationPolicies\":[],\"Remarks\":[],\"Amenities\":null},{\"FareSourceCode\":\"3635333364313831663431353466306139623433313661393362343734346261263136263933343239\",\"Offer\":\"Private sale: save 10%\",\"NonRefundable\":false,\"HotelId\":152,\"PaymentDeadline\":\"2019-11-11T00:00:00\",\"Currency\":\"IRR\",\"AvailableRoom\":3,\"PlainTextCancellationPolicy\":null,\"NetRate\":19542600,\"Rooms\":[{\"Name\":\"Apartment 1 Bedroom\",\"AdultCount\":1,\"ChildCount\":0,\"ChildAges\":null,\"MealType\":\"Room Only\",\"SharingBedding\":false,\"BedGroups\":\"1 QueenBed\"}],\"CancellationPolicies\":[{\"Amount\":18539400,\"FromDate\":\"2019-11-25T01:30:00+03:30\"},{\"Amount\":19542600,\"FromDate\":\"2019-12-02T01:30:00+03:30\"}],\"Remarks\":[],\"Amenities\":[\"Free Parking\",\"Free Wifi\"]}]}");
+
+/***/ }),
+
+/***/ "./resources/js/components/Results/Hotel/SingleRoomList.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/Results/Hotel/SingleRoomList.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var SingleRoomList =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(SingleRoomList, _React$Component);
+
+  function SingleRoomList(props) {
+    var _this;
+
+    _classCallCheck(this, SingleRoomList);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SingleRoomList).call(this, props));
+    _this.state = {
+      displayRefund: false
+    };
+    return _this;
+  }
+
+  _createClass(SingleRoomList, [{
+    key: "MealType",
+    value: function MealType(name) {
+      switch (name) {
+        case "Room Only":
+          return 'بدون وعده غذایی';
+          break;
+
+        default:
+          return name;
+          break;
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var room = this.props.room;
+      return React.createElement("div", {
+        className: "ticket-container"
+      }, React.createElement("section", {
+        className: "single-ticket flex-between"
+      }, room.NonRefundable ? React.createElement("div", {
+        className: "ticket_type"
+      }, "\u0628\u062F\u0648\u0646 \u0627\u0633\u062A\u0631\u062F\u0627\u062F") : '', React.createElement("div", {
+        className: "legs"
+      }, React.createElement("div", {
+        className: "first-leg leg flex-between"
+      }, React.createElement("p", {
+        className: "destination"
+      }, room.Rooms[0].Name, " - ", room.Rooms[0].BedGroups), React.createElement("div", {
+        className: "path"
+      }, React.createElement("span", null, this.MealType(room.Rooms[0].MealType)), React.createElement("ul", {
+        className: "path flex-between"
+      }, React.createElement("li", null, React.createElement("i", {
+        className: "fa fa-hotel rotate-right"
+      })), React.createElement("li", null, React.createElement("i", {
+        className: "circle"
+      }))), React.createElement("span", null, React.createElement("i", {
+        className: "fa fa-users green"
+      }), " ", room.Rooms[0].AdultCount, " \u0628\u0632\u0631\u06AF\u0633\u0627\u0644 ", React.createElement("i", {
+        className: "green fa fa-child"
+      }), " ", room.Rooms[0].ChildCount, "\u06A9\u0648\u062F\u06A9")), React.createElement("p", {
+        className: "destination"
+      }, React.createElement("span", null, room.AvailableRoom, " \u0627\u062A\u0627\u0642 \u0628\u0627\u0642\u06CC \u0645\u0627\u0646\u062F\u0647")))), React.createElement("div", {
+        className: "ticket-choose"
+      }, React.createElement("p", {
+        className: "price"
+      }, formatCurrency(room.NetRate), React.createElement("span", null, "\u0631\u06CC\u0627\u0644")), React.createElement("button", {
+        className: "btn btn-zgreen"
+      }, "\u0631\u0632\u0631\u0648 \u0627\u062A\u0627\u0642"))), React.createElement("section", {
+        className: "ticket-detail",
+        style: {
+          display: this.state.displayRefund ? 'block' : 'none'
+        }
+      }, React.createElement("div", {
+        className: "detail-border"
+      }), React.createElement("ul", {
+        className: "hotel_refund_roles"
+      }, React.createElement("li", null, React.createElement("i", {
+        className: "red far fa-times-circle"
+      }), "\u062F\u0631 \u0635\u0648\u0631\u062A \u06A9\u0646\u0633\u0644 \u06A9\u0631\u062F\u0646 \u0648\u0627\u0686\u0631 \u0647\u062A\u0644\u060C \u0645\u0628\u0644\u063A 2,000,000 \u0631\u06CC\u0627\u0644 \u06A9\u0627\u0631\u0645\u0632\u062F \u062E\u062F\u0645\u0627\u062A \u0627\u0632 \u0645\u0628\u0644\u063A \u06A9\u0644 \u06A9\u0633\u0631 \u0645\u06CC\u06AF\u0631\u062F\u062F"), React.createElement("li", null, React.createElement("i", {
+        className: "red far fa-times-circle"
+      }), "\u0627\u0632 \u0633\u0627\u0639\u062A 00:29 \u062A\u0627\u0631\u06CC\u062E 1398/08/22 \u063A\u06CC\u0631 \u0642\u0627\u0628\u0644 \u0627\u0633\u062A\u0631\u062F\u0627\u062F \u062E\u0648\u0627\u0647\u062F \u0628\u0648\u062F"))), React.createElement("div", {
+        className: "more-info flex-between",
+        onClick: function onClick() {
+          _this2.setState({
+            displayRefund: !_this2.state.displayRefund
+          });
+        }
+      }, React.createElement("span", null), React.createElement("span", null, React.createElement("i", {
+        className: "fas fa-arrow-circle-up"
+      }), " \u0642\u0648\u0627\u0646\u06CC\u0646 \u06A9\u0646\u0633\u0644\u06CC "), React.createElement("span", null)));
+    }
+  }]);
+
+  return SingleRoomList;
+}(React.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (SingleRoomList);
 
 /***/ }),
 
@@ -73592,10 +73686,35 @@ function (_React$Component2) {
       var childAge = [];
 
       for (var index = 1; index <= this.state.child; index++) {
-        childAge.push(React.createElement(ChildAge, {
-          index: index,
-          addChildAge: this.addChildAge
-        }));
+        childAge.push(React.createElement("div", {
+          className: "child_age"
+        }, React.createElement("p", null, "\u0633\u0646 \u06A9\u0648\u062F\u06A9 ", farsiCounter(index)), React.createElement("select", {
+          name: "childAge[]"
+        }, React.createElement("option", {
+          value: "0"
+        }, "0 \u062A\u0627 1 \u0633\u0627\u0644"), React.createElement("option", {
+          value: "1"
+        }, "1 \u062A\u0627 2 \u0633\u0627\u0644"), React.createElement("option", {
+          value: "2"
+        }, "2 \u062A\u0627 3 \u0633\u0627\u0644"), React.createElement("option", {
+          value: "3"
+        }, "3 \u062A\u0627 4 \u0633\u0627\u0644"), React.createElement("option", {
+          value: "4"
+        }, "4 \u062A\u0627 5 \u0633\u0627\u0644"), React.createElement("option", {
+          value: "5"
+        }, "5 \u062A\u0627 6 \u0633\u0627\u0644"), React.createElement("option", {
+          value: "6"
+        }, "6 \u062A\u0627 7 \u0633\u0627\u0644"), React.createElement("option", {
+          value: "7"
+        }, "7 \u062A\u0627 8 \u0633\u0627\u0644"), React.createElement("option", {
+          value: "8"
+        }, "8 \u062A\u0627 9 \u0633\u0627\u0644"), React.createElement("option", {
+          value: "9"
+        }, "9 \u062A\u0627 10 \u0633\u0627\u0644"), React.createElement("option", {
+          value: "10"
+        }, "10 \u062A\u0627 11 \u0633\u0627\u0644"), React.createElement("option", {
+          value: "11"
+        }, "11 \u062A\u0627 12 \u0633\u0627\u0644"))));
       }
 
       return React.createElement("span", {
@@ -73644,74 +73763,6 @@ function (_React$Component2) {
 
   return RoomCounter;
 }(React.Component); //Hotel Counter
-// #########################################################################################################
-// ####################################### کامپوننت انتخاب سن کودک #######################################
-// #########################################################################################################
-
-
-var ChildAge =
-/*#__PURE__*/
-function (_React$Component3) {
-  _inherits(ChildAge, _React$Component3);
-
-  function ChildAge(props) {
-    _classCallCheck(this, ChildAge);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(ChildAge).call(this, props));
-  }
-
-  _createClass(ChildAge, [{
-    key: "addAge",
-    value: function addAge(e) {
-      this.props.addChildAge(e.target.value); // alert(e.target.value)
-    }
-  }, {
-    key: "componentWillMount",
-    value: function componentWillMount() {
-      this.props.addChildAge(0);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this5 = this;
-
-      return React.createElement("div", {
-        className: "child_age"
-      }, React.createElement("p", null, "\u0633\u0646 \u06A9\u0648\u062F\u06A9 ", farsiCounter(this.props.index)), React.createElement("select", {
-        name: "childAge[]",
-        onChange: function onChange(e) {
-          return _this5.addAge(e);
-        }
-      }, React.createElement("option", {
-        value: "0"
-      }, "0 \u062A\u0627 1 \u0633\u0627\u0644"), React.createElement("option", {
-        value: "1"
-      }, "1 \u062A\u0627 2 \u0633\u0627\u0644"), React.createElement("option", {
-        value: "2"
-      }, "2 \u062A\u0627 3 \u0633\u0627\u0644"), React.createElement("option", {
-        value: "3"
-      }, "3 \u062A\u0627 4 \u0633\u0627\u0644"), React.createElement("option", {
-        value: "4"
-      }, "4 \u062A\u0627 5 \u0633\u0627\u0644"), React.createElement("option", {
-        value: "5"
-      }, "5 \u062A\u0627 6 \u0633\u0627\u0644"), React.createElement("option", {
-        value: "6"
-      }, "6 \u062A\u0627 7 \u0633\u0627\u0644"), React.createElement("option", {
-        value: "7"
-      }, "7 \u062A\u0627 8 \u0633\u0627\u0644"), React.createElement("option", {
-        value: "8"
-      }, "8 \u062A\u0627 9 \u0633\u0627\u0644"), React.createElement("option", {
-        value: "9"
-      }, "9 \u062A\u0627 10 \u0633\u0627\u0644"), React.createElement("option", {
-        value: "10"
-      }, "10 \u062A\u0627 11 \u0633\u0627\u0644"), React.createElement("option", {
-        value: "11"
-      }, "11 \u062A\u0627 12 \u0633\u0627\u0644")));
-    }
-  }]);
-
-  return ChildAge;
-}(React.Component); //class
 // ###########################################################################################################
 
 

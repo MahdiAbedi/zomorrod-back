@@ -2031,7 +2031,7 @@ table.rounded_table {
   display: flex;
   flex-direction: column; }
 
-.money {
+.money, .price {
   font-family: IRANSansWebFaNum,'b Homa','tahoma';
   font-size: 18px; }
 
@@ -2066,6 +2066,19 @@ strong {
   color: #006C50; }
 
 /* start of desktop styles */
+ul.hotel_refund_roles {
+  border: initial; }
+  ul.hotel_refund_roles li {
+    font-size: 14px;
+    line-height: 2.7; }
+    ul.hotel_refund_roles li i {
+      margin-left: 5px;
+      color: red; }
+
+.rooms .ticket-container {
+  width: 100%;
+  margin: 10px; }
+
 @media screen and (max-width: 479px) {
   .half {
     width: 100%; } }

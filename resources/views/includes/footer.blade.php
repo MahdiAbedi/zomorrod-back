@@ -92,4 +92,5 @@ $.ajaxSetup({
 <!-- React compiles codes in my project -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
 <script src="/js/app.js"></script>
+<script src="/js/custom.js"></script>
 </html>

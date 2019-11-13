@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
     $('.select2').select2();
+    formatInsideTagMoney('money');
 
     // showSearchPanel("HotelTicket");
     //درخواست لیست فرودگاه های بین المللی
@@ -337,7 +338,7 @@ function Toggle(tagId) {
       function formatInsideTagMoney(tagName) {
         var divs = document.getElementsByName(tagName);
         for (let index = 0; index < divs.length; index++) {
-          divs[index].innerText = formatCurrency(divs[i].innerText);
+          divs[index].innerText = formatCurrency(divs[index].innerText);
     
         }
       }
