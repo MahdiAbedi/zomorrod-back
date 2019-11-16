@@ -475,3 +475,37 @@ function openTab(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+
+
+$(document).ready(function () {
+    $('.hotelCity').select2({
+        // placeholder: "Choose tags...",
+        // language: "fa",
+        language: {
+            // You can find all of the options in the language files provided in the
+            // build. They all must be functions that return the string that should be
+            // displayed.
+                inputTooShort: function () {
+                    return "حداقل سه کاراکتر از نام شهر مقصد را وارد نمایید.";
+                }
+            },
+
+        minimumInputLength: 3,
+        ajax: {
+            url: '/cityHotel',
+            dataType: 'json',
+            data: function (params) {
+                return {
+                    q: $.trim(params.term)
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data
+                };
+            },
+            cache: true
+        }
+    });
+})

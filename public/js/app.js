@@ -70375,6 +70375,216 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/Modules/HotelSelector.js":
+/*!***********************************************!*\
+  !*** ./resources/js/Modules/HotelSelector.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MultiSelect_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MultiSelect.css */ "./resources/js/Modules/MultiSelect.css");
+/* harmony import */ var _MultiSelect_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_MultiSelect_css__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var HotelSelector =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(HotelSelector, _React$Component);
+
+  function HotelSelector(props) {
+    var _this;
+
+    _classCallCheck(this, HotelSelector);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(HotelSelector).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "search", function (e) {
+      _this.setState({
+        searchTerm: e.target.value,
+        hotelName: e.target.value
+      }, function () {
+        if (_this.state.searchTerm.length >= 3) {
+          _this.setState({
+            displayList: 'block'
+          });
+
+          axios.post('/cityHotel', {
+            q: _this.state.searchTerm
+          }).then(function (response) {
+            _this.setState({
+              hotels: response.data
+            });
+          })["catch"](function (error) {
+            console.log(error);
+          }); //   console.log('hello')
+          //   console.log(this.state.hotels)
+        } else {
+          _this.setState({
+            displayList: 'none'
+          });
+        }
+      });
+    });
+
+    _this.state = {
+      hotels: [{
+        country: 'ترکیه',
+        farsiName: 'استانبول',
+        propertyDestinationId: '512',
+        count: 325,
+        city: 'Istanbul'
+      }, {
+        country: 'ترکیه',
+        farsiName: 'وان',
+        propertyDestinationId: '512',
+        count: 91,
+        city: 'Wan'
+      }, {
+        country: 'ترکیه',
+        farsiName: 'آنتالیا',
+        propertyDestinationId: '512',
+        count: 108,
+        city: 'Antalia'
+      }, {
+        country: 'ترکیه',
+        farsiName: 'ازمیر',
+        propertyDestinationId: '512',
+        count: 105,
+        city: 'Ezmir'
+      }, {
+        country: 'امارات متحده عربی',
+        farsiName: 'دبی',
+        propertyDestinationId: '512',
+        count: 346,
+        city: 'Doubai'
+      }, {
+        country: 'آذربایجان',
+        farsiName: 'باکو',
+        propertyDestinationId: '512',
+        count: 157,
+        city: 'Baku'
+      }, {
+        country: 'فرانسه',
+        farsiName: 'پاریس',
+        propertyDestinationId: '512',
+        count: 263,
+        city: 'Paris'
+      }, {
+        country: 'ارمنستان',
+        farsiName: 'ایروان',
+        propertyDestinationId: '512',
+        count: 64,
+        city: 'Iravan'
+      }, {
+        country: 'گرجستان',
+        farsiName: 'تفلیس',
+        propertyDestinationId: '512',
+        count: 78,
+        city: 'Teflis'
+      }],
+      searchTerm: '',
+      cityCode: '421',
+      hotelName: '',
+      displayList: 'none'
+    };
+    return _this;
+  }
+
+  _createClass(HotelSelector, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return React.createElement(React.Fragment, null, React.createElement("input", {
+        type: "text",
+        id: this.props.name + '_myInput',
+        onChange: function onChange(e) {
+          return _this2.search(e);
+        },
+        onClick: function onClick(e) {
+          _this2.displayList(e);
+
+          _this2.setState({
+            displayList: 'block'
+          });
+        },
+        className: this.props.className,
+        placeholder: this.props.Placeholder,
+        autocomplete: "off",
+        value: this.state.hotelName ? this.state.hotelName : '',
+        required: true
+      }), React.createElement("input", {
+        type: "hidden",
+        name: this.props.name,
+        id: this.props.prefix + '_' + this.props.name,
+        value: this.state.cityCode
+      }), React.createElement("ul", {
+        id: "myUL",
+        style: {
+          display: this.state.displayList
+        },
+        className: "myUL ui-menu ui-widget ui-widget-content ui-autocomplete ui-front"
+      }, this.props.children, this.state.hotels.map(function (hotel) {
+        return React.createElement("li", {
+          className: "ui-menu-item",
+          onClick: function onClick() {
+            return _this2.setState({
+              cityCode: hotel.propertyDestinationId,
+              searchTerm: '',
+              hotelName: hotel.city,
+              displayList: 'none'
+            });
+          }
+        }, React.createElement("a", {
+          "class": "airports ui-menu-item-wrapper"
+        }, React.createElement("span", null, hotel.count, " \u0627\u0642\u0627\u0645\u062A\u06AF\u0627\u0647 "), hotel.farsiName, " - ", hotel.country, "- ", hotel.city));
+      })));
+    }
+  }, {
+    key: "displayList",
+    value: function displayList(e) {
+      if (this.state.hotelName) {
+        this.setState({
+          hotelName: ''
+        }); // this.setState({hotelName:'',airports:[]})
+      } else {
+        this.setState({
+          displayList: 'block'
+        });
+      }
+    }
+  }]);
+
+  return HotelSelector;
+}(React.Component); //component function 
+
+
+/* harmony default export */ __webpack_exports__["default"] = (HotelSelector);
+
+/***/ }),
+
 /***/ "./resources/js/Modules/MultiSelect.css":
 /*!**********************************************!*\
   !*** ./resources/js/Modules/MultiSelect.css ***!
@@ -73466,7 +73676,13 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+ //لیست سن تمام بچه های همه اتاق ها 
 
+var hotelPassengersList = [{
+  'adult': 1,
+  'child': 0,
+  'ChildAges': []
+}];
 
 var PassengerCount =
 /*#__PURE__*/
@@ -73533,6 +73749,11 @@ function (_React$Component) {
   }
 
   _createClass(PassengerCount, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      localStorage.setItem('hotelPassengersList', JSON.stringify(hotelPassengersList));
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -73590,15 +73811,18 @@ function (_React$Component) {
 
 var RoomCounter =
 /*#__PURE__*/
-function (_React$Component2) {
-  _inherits(RoomCounter, _React$Component2);
+function (_React$PureComponent) {
+  _inherits(RoomCounter, _React$PureComponent);
 
+  // سن بچ های همین اتاق
   function RoomCounter(props) {
     var _this3;
 
     _classCallCheck(this, RoomCounter);
 
     _this3 = _possibleConstructorReturn(this, _getPrototypeOf(RoomCounter).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this3), "tempArray", []);
 
     _defineProperty(_assertThisInitialized(_this3), "deleteAdult", function () {
       if (_this3.state.adult > 1) {
@@ -73631,18 +73855,10 @@ function (_React$Component2) {
     _defineProperty(_assertThisInitialized(_this3), "addChild", function () {
       _this3.setState({
         child: _this3.state.child + 1
-      });
+      }); // this.tempArray.push(0)
+
 
       _this3.props.addChild();
-    });
-
-    _defineProperty(_assertThisInitialized(_this3), "addChildAge", function (age) {
-      // alert(age)
-      var joined = _this3.state.childAges.concat(age);
-
-      _this3.setState({
-        childAges: joined
-      });
     });
 
     _defineProperty(_assertThisInitialized(_this3), "deleteMe", function () {
@@ -73675,21 +73891,42 @@ function (_React$Component2) {
         'adult': this.state.adult,
         'child': this.state.child,
         'ChildAges': this.state.childAges
-      };
-      console.log(RoomInfo);
+      }; // console.log(RoomInfo) 
+      //چون ایندکس در نام گذاری اتاق تاثیر داره اینجا از ایندکس کم میکنیم در کامپوننت والد
+
+      hotelPassengersList[this.props.index - 1] = RoomInfo;
+      console.log(hotelPassengersList);
+      localStorage.setItem('hotelPassengersList', JSON.stringify(hotelPassengersList));
     }
   }, {
     key: "render",
+    //############################### REFRESH THE CHILDS AGES LIST ############################
+    // refreshChildsAgeList(){
+    //     this.setState({childAges:tempArray});
+    // }
     value: function render() {
       var _this4 = this;
 
       var childAge = [];
 
-      for (var index = 1; index <= this.state.child; index++) {
+      var _loop = function _loop(index) {
+        if (!_this4.tempArray[index]) {
+          _this4.tempArray[index] = 0; // this.setState({childAges:tempArray});
+        }
+
         childAge.push(React.createElement("div", {
-          className: "child_age"
+          className: "child_age",
+          key: index
         }, React.createElement("p", null, "\u0633\u0646 \u06A9\u0648\u062F\u06A9 ", farsiCounter(index)), React.createElement("select", {
-          name: "childAge[]"
+          name: "childAge",
+          id: index,
+          onChange: function onChange(e) {
+            _this4.tempArray[index] = e.target.value;
+
+            _this4.setState({
+              childAges: _this4.tempArray
+            });
+          }
         }, React.createElement("option", {
           value: "0"
         }, "0 \u062A\u0627 1 \u0633\u0627\u0644"), React.createElement("option", {
@@ -73715,54 +73952,60 @@ function (_React$Component2) {
         }, "10 \u062A\u0627 11 \u0633\u0627\u0644"), React.createElement("option", {
           value: "11"
         }, "11 \u062A\u0627 12 \u0633\u0627\u0644"))));
+      };
+
+      for (var index = 0; index <= this.state.child - 1; index++) {
+        _loop(index);
       }
 
-      return React.createElement("span", {
-        name: "rooms[]"
-      }, React.createElement("div", {
-        className: "deleteRoom"
-      }, React.createElement("h4", null, "\u0627\u062A\u0627\u0642 ", farsiCounter(this.props.index)), React.createElement("p", {
-        onClick: function onClick() {
-          _this4.deleteMe();
-        }
-      }, this.props.index > 1 ? 'X' : '')), React.createElement("div", {
-        className: "passengers_count"
-      }, React.createElement("label", null, "\u0628\u0632\u0631\u06AF\u0633\u0627\u0644 ", React.createElement("small", null, "(12 \u0633\u0627\u0644 \u0628\u0647 \u0628\u0627\u0644\u0627)")), React.createElement("span", {
-        className: "count"
-      }, React.createElement("button", {
-        type: "button",
-        className: "plus-btn",
-        onClick: function onClick() {
-          return _this4.addAdult();
-        }
-      }, "+"), React.createElement("span", null, this.state.adult), React.createElement("button", {
-        type: "button",
-        className: "plus-btn",
-        onClick: function onClick() {
-          return _this4.deleteAdult();
-        }
-      }, "-"))), React.createElement("div", {
-        className: "passengers_count"
-      }, React.createElement("label", null, "\u06A9\u0648\u062F\u06A9 ", React.createElement("small", null, "(\u0632\u06CC\u0631 12 \u0633\u0627\u0644)")), React.createElement("span", {
-        className: "count"
-      }, React.createElement("button", {
-        type: "button",
-        className: "plus-btn",
-        onClick: function onClick() {
-          return _this4.addChild();
-        }
-      }, "+"), React.createElement("span", null, this.state.child), React.createElement("button", {
-        type: "button",
-        className: "plus-btn",
-        onClick: function onClick() {
-          return _this4.deleteChild();
-        }
-      }, "-"))), childAge, React.createElement("br", null), React.createElement("hr", null));
+      return (// <span name={`room${this.props.index}`}>
+        React.createElement("span", {
+          name: "rooms"
+        }, React.createElement("div", {
+          className: "deleteRoom"
+        }, React.createElement("h4", null, "\u0627\u062A\u0627\u0642 ", farsiCounter(this.props.index)), React.createElement("p", {
+          onClick: function onClick() {
+            _this4.deleteMe();
+          }
+        }, this.props.index > 1 ? 'X' : '')), React.createElement("div", {
+          className: "passengers_count"
+        }, React.createElement("label", null, "\u0628\u0632\u0631\u06AF\u0633\u0627\u0644 ", React.createElement("small", null, "(12 \u0633\u0627\u0644 \u0628\u0647 \u0628\u0627\u0644\u0627)")), React.createElement("span", {
+          className: "count"
+        }, React.createElement("button", {
+          type: "button",
+          className: "plus-btn",
+          onClick: function onClick() {
+            return _this4.addAdult();
+          }
+        }, "+"), React.createElement("span", null, this.state.adult), React.createElement("button", {
+          type: "button",
+          className: "plus-btn",
+          onClick: function onClick() {
+            return _this4.deleteAdult();
+          }
+        }, "-"))), React.createElement("div", {
+          className: "passengers_count"
+        }, React.createElement("label", null, "\u06A9\u0648\u062F\u06A9 ", React.createElement("small", null, "(\u0632\u06CC\u0631 12 \u0633\u0627\u0644)")), React.createElement("span", {
+          className: "count"
+        }, React.createElement("button", {
+          type: "button",
+          className: "plus-btn",
+          onClick: function onClick() {
+            return _this4.addChild();
+          }
+        }, "+"), React.createElement("span", null, this.state.child), React.createElement("button", {
+          type: "button",
+          className: "plus-btn",
+          onClick: function onClick() {
+            return _this4.deleteChild();
+          }
+        }, "-"))), childAge, React.createElement("br", null), React.createElement("hr", null))
+      );
     }
   }]);
 
   return RoomCounter;
-}(React.Component); //Hotel Counter
+}(React.PureComponent); //Hotel Counter
 // ###########################################################################################################
 
 
@@ -73781,6 +74024,7 @@ function (_React$Component2) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DateSelector__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DateSelector */ "./resources/js/components/DateSelector.js");
 /* harmony import */ var _HotelPassengerCount__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HotelPassengerCount */ "./resources/js/components/SearchPanel/HotelPassengerCount.js");
+/* harmony import */ var _Modules_HotelSelector__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Modules/HotelSelector */ "./resources/js/Modules/HotelSelector.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -73800,6 +74044,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -73866,14 +74111,9 @@ function (_React$Component) {
         }
       }, React.createElement("div", {
         className: "group"
-      }, React.createElement("select", {
-        name: "hotelCity",
-        className: "left-border right-border hotelCity"
-      }, React.createElement("option", {
-        value: "",
-        disabled: true,
-        selected: true
-      }, "\u0634\u0647\u0631 \u0645\u0642\u0635\u062F"))), React.createElement("div", {
+      }, React.createElement(_Modules_HotelSelector__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        Placeholder: "\u0634\u0647\u0631 \u0645\u0642\u0635\u062F \u0628\u0647 \u0641\u0627\u0631\u0633\u06CC"
+      })), React.createElement("div", {
         className: "group margin-right"
       }, React.createElement(_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], {
         name: "checkIn",
@@ -73907,36 +74147,6 @@ function (_React$Component) {
   return HotelTicket;
 }(React.Component);
 
-$(document).ready(function () {
-  $('.hotelCity').select2({
-    // placeholder: "Choose tags...",
-    // language: "fa",
-    language: {
-      // You can find all of the options in the language files provided in the
-      // build. They all must be functions that return the string that should be
-      // displayed.
-      inputTooShort: function inputTooShort() {
-        return "حداقل سه کاراکتر از نام شهر مقصد را وارد نمایید.";
-      }
-    },
-    minimumInputLength: 3,
-    ajax: {
-      url: '/cityHotel',
-      dataType: 'json',
-      data: function data(params) {
-        return {
-          q: $.trim(params.term)
-        };
-      },
-      processResults: function processResults(data) {
-        return {
-          results: data
-        };
-      },
-      cache: true
-    }
-  });
-});
 /* harmony default export */ __webpack_exports__["default"] = (HotelTicket);
 
 /***/ }),

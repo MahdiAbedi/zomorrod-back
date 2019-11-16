@@ -24,13 +24,13 @@ class HotelController extends TravelBaseController
 
         // $tags = Airport::whereRaw('iata = ? OR name like "%?%"',[$term,$term])->limit(5)->get();
         // $tags = Airport::where('iata = ? OR name like "%?%"',[$term,$term])->limit(5)->get();
-        $tags = City::Where('Name','like',$term .'%')->limit(5)->get();
+        $tags = City::Where('Name','like',$term .'%')->orWhere('FarsiName','like',$term .'%')->limit(5)->get();
 
         // return $tags;
         $formatted_tags = [];
 
         foreach ($tags as $tag) {
-            $formatted_tags[] = ['id' => $tag->PropertyDestinationId, 'text' => $tag->Name];
+            $formatted_tags[] = ['propertyDestinationId' => $tag->PropertyDestinationId, 'city' => $tag->Name , 'farsiName' => $tag->FarsiName , 'country'=>$tag->country,'count'=>mt_rand(124, 271)];
         }
 
         return \Response::json($formatted_tags);

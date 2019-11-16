@@ -1,5 +1,10 @@
 import './HotelPassengerCount.css';
-
+//لیست سن تمام بچه های همه اتاق ها 
+let hotelPassengersList = [{
+    'adult':1,
+    'child':0,
+    'ChildAges':[]
+    }];
 class PassengerCount extends React.Component{
     constructor(props){
         super(props);
@@ -10,6 +15,10 @@ class PassengerCount extends React.Component{
             rooms:1,        // تعداد اتاقهایی که انتخاب کردیم
             roomsList:[]    //اطلاعات مسافران هر اتاق اینجا ذخیره میشه
         };
+    }
+
+    componentDidMount(){
+        localStorage.setItem('hotelPassengersList',JSON.stringify(hotelPassengersList))
     }
 
     delete=()=>{
@@ -78,15 +87,20 @@ class PassengerCount extends React.Component{
 // ###############################################################################################################################
 // ################################## کامپوننت اضافه کردن اتاق و مشخصات مسافران هر اتاق ######################################
 // ###############################################################################################################################
-class RoomCounter extends React.Component{
+
+
+class RoomCounter extends React.PureComponent{
+    // سن بچ های همین اتاق
+    tempArray=[];
     constructor(props){
         super(props);
+        
         this.state={
             adult:1,
             child:0,
             infant:0,
             display:0,
-            childAges:[]
+            childAges:[],
         };
     }
     componentDidMount(){
@@ -94,12 +108,17 @@ class RoomCounter extends React.Component{
     }
 
     componentDidUpdate(){
+        
         let RoomInfo={
             'adult':this.state.adult,
             'child':this.state.child,
             'ChildAges':this.state.childAges
         };
-        console.log(RoomInfo) 
+        // console.log(RoomInfo) 
+        //چون ایندکس در نام گذاری اتاق تاثیر داره اینجا از ایندکس کم میکنیم در کامپوننت والد
+        hotelPassengersList[this.props.index-1]=RoomInfo;
+        console.log(hotelPassengersList)
+        localStorage.setItem('hotelPassengersList',JSON.stringify(hotelPassengersList))
     }
     
 
@@ -136,19 +155,20 @@ class RoomCounter extends React.Component{
             this.setState({
                 child : this.state.child +1
             })
+            // this.tempArray.push(0)
             this.props.addChild();
         
         
     }//delete Adult
 
     // #################### اضافه کردن سن کودک به لیست ###########################
-    addChildAge=(age)=>{
-        // alert(age)
-        var joined = this.state.childAges.concat(age);
-        this.setState({
-            childAges : joined
-        })
-    }
+    // addChildAge=(age)=>{
+    //     // alert(age)
+    //     var joined = this.state.childAges.concat(age);
+    //     this.setState({
+    //         childAges : joined
+    //     })
+    // }
 
 
     deleteMe=()=>{
@@ -156,14 +176,23 @@ class RoomCounter extends React.Component{
         this.props.deleteChild(this.state.child)
         this.props.delete();
     }
+
+    //############################### REFRESH THE CHILDS AGES LIST ############################
+    // refreshChildsAgeList(){
+    //     this.setState({childAges:tempArray});
+    // }
     render(){
 
         let childAge = []
-        for(let index=1;index<=this.state.child;index++){
-
-            childAge.push(<div className="child_age">
+        for(let index=0;index<=this.state.child-1;index++){
+            if(!this.tempArray[index])
+                {
+                    this.tempArray[index]=0;
+                    // this.setState({childAges:tempArray});
+                }
+            childAge.push(<div className="child_age" key={index}>
                     <p>سن کودک {farsiCounter(index)}</p>
-                    <select name="childAge[]">
+                    <select name="childAge" id={index} onChange={(e)=>{this.tempArray[index]=e.target.value;this.setState({childAges:this.tempArray});}}>
                         <option value="0">0 تا 1 سال</option>
                         <option value="1">1 تا 2 سال</option>
                         <option value="2">2 تا 3 سال</option>
@@ -182,7 +211,8 @@ class RoomCounter extends React.Component{
 
         return(
 
-        <span name="rooms[]">
+        // <span name={`room${this.props.index}`}>
+        <span name="rooms">
 
             {/* قسمت دریافت اطلاعات هر مسافر که مخفی است */}
             {/* <input type="hidden" name={this.props.prefix + '_adult[]'} id={this.props.prefix + '_adult'} value={this.state.adult} />
