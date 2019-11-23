@@ -1,4 +1,5 @@
 import hotels from './Hotel.json';
+import LoadingModal from '../LoadingModal';
 
 class HotelResutls extends React.Component{
 constructor(props){
@@ -25,24 +26,11 @@ constructor(props){
     //####################### دریافت بلیط از سرور ######################################################
     getTickets=()=>{
         axios.post('/hotels',{
-            // PricingSourceType    :localStorage.getItem(''),
-            // RequestOption        :localStorage.getItem(''),
 
-            AdultCount              :localStorage.getItem('adult'),
-            ChildCount              :localStorage.getItem('child'),
-            InfantCount             :localStorage.getItem('infant'),
-
-            // CabinType            :localStorage.getItem(''),
-            // MaxStopsQuantity     :localStorage.getItem(''),
-            // AirTripType          :localStorage.getItem(''),
-
-            DepartureDateTime       :PartoDateFormat(localStorage.getItem('departureTime')),
-            DestinationLocationCode :localStorage.getItem('destination'),
-            // DestinationType      :localStorage.getItem(''),
-            OriginLocationCode      :localStorage.getItem('origin'),
-            // OriginType           :localStorage.getItem(''),
-            IsRoundTrip             :localStorage.getItem('IsRoundTrip'),
-            ReturnTime              :PartoDateFormat(localStorage.getItem('returnTime')),
+            CityCode        : localStorage.getItem('cityCode'),
+            Occupancies   : JSON.parse(localStorage.getItem('hotelPassengersList')),
+            checkIn       : PartoDateFormat(localStorage.getItem('hotel_checkIn')),
+            checkOut      : PartoDateFormat(localStorage.getItem('hotel_checkOut')),
         })
         .then(response => {
             // let myTickets=response.data;
@@ -86,7 +74,9 @@ constructor(props){
         if(this.state.hotels.length==0){
                 return(
                     <section className="result-panel container">
-                        test
+                       
+
+                       {(this.state.isLoading) ? <LoadingModal/> :'جستجوی شما نتیجه ای در بر نداشت'}
                     </section>
                 
                     );

@@ -37,9 +37,8 @@ class HotelController extends TravelBaseController
     }
 
     // ########################################### نمایش لیست هتلها بر اساس جستجوی انجام شده ###############################
-    public function showResults(){
+    public function showResults(Request $request){
 
-        // dd($hotels);
         // dd($request->all());
         $this->makeSession();
         $client = new Client();
@@ -47,26 +46,40 @@ class HotelController extends TravelBaseController
         $AirTripType=1;
 
         //اطلاعات مسافران 
-        array_push($Occupancies,
-        array (
-        'AdultCount'   => 1,
-        'ChildCount'   => 0,
-        'ChildAges'    => array()
-        ));
+        // array_push($Occupancies,
+        // array (
+        // 'AdultCount'   => 1,
+        // 'ChildCount'   => 0,
+        // 'ChildAges'    => array()
+        // ));
+
+        // dd(json_encode(array (
+        //     'SessionId'             =>  $this->SessionId,
+        //     'CheckIn'               =>  $request->input('checkIn'),
+        //     'CheckOut'              =>  $request->input('checkOut'),
+        //     'Latitude'              =>  "",
+        //     'Longitude'             =>  "",
+        //     'RadiusInKilometer'     =>  0,
+        //     'SetGeoLocation'        =>  false,
+        //     'NationalityId'         =>  "IR",
+        //     'HotelId'               =>  '',
+        //     'CityId'                =>  $request->input('CityCode'),
+        //     'Occupancies'           =>  $request->input('Occupancies')
+        // )));
 
         $response = $client->post('https://apidemo.partocrs.com/Rest/Hotel/HotelAvailability', [
             RequestOptions::JSON => array (
-                'SessionId'             => $this->SessionId,
-                'CheckIn' =>'2019-12-01T00:00:00',
-                'CheckOut'=>'2019-12-05T00:00:00',
-                'Latitude'=>"",
-                'Longitude'=>"",
-                'RadiusInKilometer'=>0,
-                'SetGeoLocation'=>false,
-                'NationalityId'=>"IR",
-                'HotelId'=>'',
-                'CityId'=>302,
-                'Occupancies'=>$Occupancies,
+                'SessionId'             =>  $this->SessionId,
+                'CheckIn'               =>  $request->input('checkIn'),
+                'CheckOut'              =>  $request->input('checkOut'),
+                'Latitude'              =>  "",
+                'Longitude'             =>  "",
+                'RadiusInKilometer'     =>  0,
+                'SetGeoLocation'        =>  false,
+                'NationalityId'         =>  "IR",
+                'HotelId'               =>  '',
+                'CityId'                =>  $request->input('CityCode'),
+                'Occupancies'           =>  $request->input('Occupancies')
             )
         ]);
 
@@ -76,23 +89,19 @@ class HotelController extends TravelBaseController
         // $hotels = (json_decode(file_get_contents("./Hotel.json", "r"))->PricedItineraries);
         $newHotels=[];
         foreach ($hotels as $hotel) {
-            // $hotel->name='Motel';
-            // $hotel=$this->getHotel($hotel->HotelId);
             if(!is_null($this->getHotel($hotel->HotelId))){
                 $getHotel = $this->getHotel($hotel->HotelId);
-                $hotel->Name = $getHotel->Name;
+                $hotel->Name        = $getHotel->Name;
                 $hotel->ReviewScore = $getHotel->ReviewScore;
-                $hotel->Rating = $getHotel->Rating;
-                $hotel->Address = $getHotel->Address;
-                $hotel->Latitude = $getHotel->Latitude;
-                $hotel->Longitude = $getHotel->Longitude;
+                $hotel->Rating      = $getHotel->Rating;
+                $hotel->Address     = $getHotel->Address;
+                $hotel->Latitude    = $getHotel->Latitude;
+                $hotel->Longitude   = $getHotel->Longitude;
                 // $hotel->image = 'https://hotelimage.partocrs.com/'.$hotel->HotelId.'/main.jpg';
                 array_push($newHotels,$hotel);
             }
-            // $hotel->name="test";
-            // dd($hotel->name);
+
         }
-        // dd($newHotels);
         return $newHotels;
     }
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="12px" viewBox="0 0 17 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path d="M6.95308688,16.777004 L16.2791771,7.33073507 C16.5718574,7.03428327 16.5736196,6.55742374 16.2843303,6.26440662 L15.2561689,5.22299603 C14.9545082,4.917448 14.4955419,4.93231578 14.2034066,5.2282156 L6.42928234,13.1025195 L2.78734837,9.41365451 C2.51425512,9.1370421 2.04322605,9.13501784 1.75393678,9.42803497 L0.725775371,10.4694456 C0.42411463,10.7749936 0.430129667,11.231099 0.711577862,11.516174 L5.9196753,16.7913844 C5.99718803,16.869896 6.09064664,16.9262865 6.19136955,16.9600883 C6.38618597,17.0283245 6.59977519,17.0082818 6.78271124,16.9059658 C6.84386404,16.8723269 6.90137865,16.8293785 6.95308688,16.777004 Z" id="path-1"></path>
+    </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Rewards---Profile-View-All---Desktop" transform="translate(-852.000000, -409.000000)">
+            <g id="Information" transform="translate(811.000000, 255.000000)">
+                <g transform="translate(20.000000, 20.000000)">
+                    <g transform="translate(21.000000, 129.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="checked" fill="#8BC34A" transform="translate(8.500000, 11.000000) rotate(-360.000000) translate(-8.500000, -11.000000) " xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

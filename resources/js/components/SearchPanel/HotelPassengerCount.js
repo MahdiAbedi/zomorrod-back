@@ -1,8 +1,8 @@
 import './HotelPassengerCount.css';
 //لیست سن تمام بچه های همه اتاق ها 
 let hotelPassengersList = [{
-    'adult':1,
-    'child':0,
+    'AdultCount':1,
+    'ChildCount':0,
     'ChildAges':[]
     }];
 class PassengerCount extends React.Component{
@@ -110,8 +110,8 @@ class RoomCounter extends React.PureComponent{
     componentDidUpdate(){
         
         let RoomInfo={
-            'adult':this.state.adult,
-            'child':this.state.child,
+            'AdultCount':this.state.adult,
+            'ChildCount':this.state.child,
             'ChildAges':this.state.childAges
         };
         // console.log(RoomInfo) 

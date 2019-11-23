@@ -80,9 +80,9 @@ class HotelSelector extends React.Component{
         render(){
             return(
                 <React.Fragment>
-                     <input type="text" id={this.props.name +'_myInput'} onChange={(e)=>this.search(e)} onClick={(e)=>{this.displayList(e);this.setState({displayList:'block'})}} className={this.props.className} placeholder={this.props.Placeholder} autocomplete="off" value={(this.state.hotelName) ? this.state.hotelName :'' } required/>
+                     <input type="text" id="hotelName" onChange={(e)=>this.search(e)} onClick={(e)=>{this.displayList(e);this.setState({displayList:'block'})}} className={this.props.className} placeholder={this.props.Placeholder} autocomplete="off" value={(this.state.hotelName) ? this.state.hotelName :'' } required/>
      
-                     <input type="hidden"  name={this.props.name} id={this.props.prefix +'_'+this.props.name} value={this.state.cityCode} />
+                     <input type="hidden"  name="cityCode" id="cityCode" value={this.state.cityCode} />
      
                      <ul id="myUL"  style={{display: this.state.displayList}} className="myUL ui-menu ui-widget ui-widget-content ui-autocomplete ui-front">
                          {this.props.children}

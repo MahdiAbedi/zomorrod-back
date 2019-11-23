@@ -72,6 +72,9 @@ Route::get('/hotels',function(){
     return view('pages/hotels/results');
 });
 Route::post('/hotels','HotelController@showResults');
+Route::post('/hotels1',function(){
+    return '';
+});
 //ارسال ایجکس برای دریافت نام شهر برای رزو هتل
 Route::post('/cityHotel','HotelController@find');
 // جزییات هر هتل
@@ -82,5 +85,12 @@ Route::get('/getRooms','HotelController@getRooms');
 // Route::get('/showResults','HotelController@showResults');
 
 // ###################################### پروفایل کاربری ######################################
-Route::get('profile','UserController@profile');
+Route::get('profile'    ,   'UserController@profile');
+Route::get('orders'     ,   'UserController@orders');
+Route::get('transactions',  'UserController@transactions');
+Route::get('passengers' ,   'UserController@passengers');
+Route::get('credit'     ,   'UserController@credit');
+Route::get('points'     ,   'UserController@points');
+Route::get('edit-profile',  'UserController@porfileEdit');
+
 

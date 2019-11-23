@@ -15,10 +15,10 @@ $(document).ready(function () {
 });
 
 //برای نمایش یا مخفی کردن پنل جستجو
-function Toggle(tagId) {
+function Toggle(tagId,display="block") {
     var x = document.getElementById(tagId);
     if (x.style.display === "none") {
-        x.style.display = "block";
+        x.style.display = display;
     } else {
         x.style.display = "none";
     }
@@ -145,6 +145,10 @@ function Toggle(tagId) {
         var element =document.getElementById('hamburger-menu');
         element.classList.toggle("hide");
         
+    }
+
+    function showProfilePanel(){
+        Toggle('profile-list','flex');
     }
 
 
@@ -508,4 +512,26 @@ $(document).ready(function () {
             cache: true
         }
     });
+
+
+    
 })
+
+
+//بستن منوی کاربری وقتی روی جای دیگری کلیک بشه 
+// $("#profile-list").focusout(function() {
+//     alert(1)
+//     $('#profile-list').hide();
+
+// });
+// $(document).not("#profile-list").click(function() {
+//     alert(2)
+//     $('#profile-list').hide();
+// });
+
+// $('body').click(function(evt) {
+//     if($(evt.target).parents('#showProfilePanel').length==1) {
+//         $('#profile-list').hide();
+//     }
+//     // console.log($(evt.target).parents('#profile-list'));
+// });

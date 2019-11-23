@@ -1,73 +1,107 @@
-@extends('layouts.app')
+@extends('master')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+@section('body')
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+<div class="container login-section">
+          
+            <!-- ورود به سایت -->
+            <div class="panel">
+                <h3>ورد به سایت</h3>
+                <form method="POST" action="{{ route('login') }}" class="fields">
                         @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <div class="field">
+                        <label for=""> ایمیل</label>
+                        <input id="email" type="email" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    </div>
+                    <div class="field">
+                        <label for="">رمز عبور</label>
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                        </div>
+                    </div>
+                    <div class="field">
+                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                        <label for="remember">مرا به خاطر بسپار</label>
+                    </div>
+                    <div class="field">
+                        <input type="submit" class="btn btn-green" value="ورود به سایت">
+                    </div>
+                    
+                </form>
             </div>
+
+
+            <!-- ثبت نام در سایت  -->
+
+              <div class="panel">
+                    <h3>ثبت نام در سایت</h3>
+                    <form method="POST" action="{{ route('register') }}" class="fields">
+                        @csrf
+                        <div class="field">
+                            <label for="">نام و نام خانوادگی</label>
+                            <input type="text"  name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
+                        <div class="field">
+                            <label for="">ایمیل</label>
+                            <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
+                        <div class="field">
+                            <label for="phone">شماره موبایل</label>
+                            <input id="phone" type="text" class="@error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
+
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
+                        <div class="field">
+                            <label for="">رمز عبور</label>
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
+                        <div class="field">
+                            <label for="">تکرار رمز عبور</label>
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+
+                        </div>
+                        <div class="field">
+                            <input type="checkbox" name="roles" id="roles" required>
+                            <label for="roles">با قوانین و مقررات ستاره زمرد موافقم *</label>
+                        </div>
+                        <div class="field">
+                                <input type="submit" class="btn btn-green" value="ورود به سایت">
+                        </div>
+                        
+                    </form>
+            </div>
+
         </div>
-    </div>
-</div>
 @endsection

@@ -26,3 +26,10 @@
             to(#19911D),
             color-stop(.6, #54DE5D))
 }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }

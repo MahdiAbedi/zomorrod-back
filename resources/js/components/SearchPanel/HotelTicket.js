@@ -6,11 +6,16 @@ class HotelTicket extends React.Component{
 
     submit=(e)=>{
         e.preventDefault();
-        alert('you are submiting form')
+        localStorage.setItem("cityCode"       , document.getElementById('cityCode').value);         //کد شهر مقصد
+        localStorage.setItem("hotel_checkIn"  , document.getElementById('hotel_checkIn').value);    //زمان ورود به هتل
+        localStorage.setItem("hotel_checkOut" , document.getElementById('hotel_checkOut').value);   //زمان خروج از هتل
+        // localStorage.setItem("hotelPassengersList" , document.getElementById('hotelPassengersList').value);   //زمان خروج از هتل
+        // hotelPassengersList sets in HotelPassengerCount Component
+        window.location.replace("/hotels");
     }
     render(){
         return (
-        <div className="form" id="HotelTicket" style={{display:'block'}}>
+        <div className="form" id="HotelTicket" style={{display:'none'}}>
             {/* <!-- فیلترهای پروازها --> */}
             <div className="filters" >
                 <input type="radio" value="0" id="iranHotels" name="hotels" checked/>
