@@ -43,7 +43,7 @@ class Filters extends React.PureComponent{
             </section>
             {/*
             <!-- ساعت حرکت --> */}
-            <section className="panel">
+            {/* <section className="panel">
                 <header className="panel-title flex-between">
                     <span>زمان پرواز</span>
                     <a href="#"><i className="fas fa-chevron-down"></i></a>
@@ -67,7 +67,7 @@ class Filters extends React.PureComponent{
                     </div>
                 </div>
 
-            </section>
+            </section> */}
 
             {/*<!-- نوع فروش --> */}
             <section className="panel">

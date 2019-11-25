@@ -8,65 +8,65 @@ class HotelSelector extends React.Component{
                 {
                     country:'ترکیه',
                     farsiName:'استانبول',
-                    propertyDestinationId:'512',
+                    CityId:'924',
                     count:325,
                     city:'Istanbul'
                 },
                 {
                     country:'ترکیه',
                     farsiName:'وان',
-                    propertyDestinationId:'512',
+                    CityId:'30976',
                     count:91,
                     city:'Wan'
                 },
                 {
                     country:'ترکیه',
                     farsiName:'آنتالیا',
-                    propertyDestinationId:'512',
+                    CityId:'930',
                     count:108,
                     city:'Antalia'
                 },
                 {
                     country:'ترکیه',
                     farsiName:'ازمیر',
-                    propertyDestinationId:'512',
+                    CityId:'1789',
                     count:105,
-                    city:'Ezmir'
+                    city:'Izmir'
                 },
                 {
                     country:'امارات متحده عربی',
                     farsiName:'دبی',
-                    propertyDestinationId:'512',
+                    CityId:'968',
                     count:346,
-                    city:'Doubai'
+                    city:'Dubai'
                 },
                 {
                     country:'آذربایجان',
                     farsiName:'باکو',
-                    propertyDestinationId:'512',
+                    CityId:'17123',
                     count:157,
                     city:'Baku'
                 },
                 {
                     country:'فرانسه',
                     farsiName:'پاریس',
-                    propertyDestinationId:'512',
+                    CityId:'93',
                     count:263,
                     city:'Paris'
                 },
                 {
                     country:'ارمنستان',
                     farsiName:'ایروان',
-                    propertyDestinationId:'512',
+                    CityId:'23546',
                     count:64,
-                    city:'Iravan'
+                    city:'Yerevan'
                 },
                 {
                     country:'گرجستان',
                     farsiName:'تفلیس',
-                    propertyDestinationId:'512',
+                    CityId:'17122',
                     count:78,
-                    city:'Teflis'
+                    city:'Tbilisi'
                 }
 
             ],
@@ -91,7 +91,7 @@ class HotelSelector extends React.Component{
 
 
                          {this.state.hotels.map((hotel)=>{
-                             return (<li className="ui-menu-item" onClick={()=>this.setState({cityCode:hotel.propertyDestinationId,searchTerm:'',hotelName:hotel.city,displayList:'none'})}>
+                             return (<li className="ui-menu-item" onClick={()=>this.setState({cityCode:hotel.CityId,searchTerm:'',hotelName:hotel.city,displayList:'none'})}>
                                         <a class="airports ui-menu-item-wrapper">
                                              <span>{hotel.count} اقامتگاه </span>{hotel.farsiName} - {hotel.country}- {hotel.city}
                                         </a>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use stdClass;
 use App\Hotel;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class HotelController extends TravelBaseController
         $formatted_tags = [];
 
         foreach ($tags as $tag) {
-            $formatted_tags[] = ['propertyDestinationId' => $tag->PropertyDestinationId, 'city' => $tag->Name , 'farsiName' => $tag->FarsiName , 'country'=>$tag->country,'count'=>mt_rand(124, 271)];
+            $formatted_tags[] = ['CityId' => $tag->id,'propertyDestinationId' => $tag->PropertyDestinationId, 'city' => $tag->Name , 'farsiName' => $tag->FarsiName , 'country'=>$tag->country,'count'=>mt_rand(124, 271)];
         }
 
         return \Response::json($formatted_tags);
@@ -44,6 +45,15 @@ class HotelController extends TravelBaseController
         $client = new Client();
         $Occupancies=[];
         $AirTripType=1;
+
+        //########################### ذخیره سازی اطلاعات نفرات و تاریخ ورود و خروج هتل ##########################################
+        $request->session()->put('checkIn'      ,   $request->input('checkIn'));
+        $request->session()->put('checkOut'     ,   $request->input('checkOut'));
+        $request->session()->put('CityCode'     ,   $request->input('CityCode'));
+        $request->session()->put('Occupancies'  ,   $request->input('Occupancies'));
+
+        //##########################################################################################################################
+
 
         //اطلاعات مسافران 
         // array_push($Occupancies,
@@ -109,8 +119,6 @@ class HotelController extends TravelBaseController
 
     // ########################################## گرفتن نام هتل ها ##########################################################
     public function getHotel($id,$total=false){
-        // dd(Hotel::where(['id'=>$id])->first()->name);
-        // return Hotel::select('Name','ReviewScore','Rating','Address','latitude','Longitude')->where('id',$id)->get();
         if($total){
             $hotel=Hotel::find($id);
             // dd($hotel);
@@ -144,14 +152,15 @@ class HotelController extends TravelBaseController
 
 
     // ##########################################  نمایش جزییات هر هتل ######################################################
-    public function show($HotelId=3){
+    public function show($HotelId){
 
-        $hotel = (json_decode(file_get_contents("./HotelDetail.json", "r"))->PricedItineraries);
-        // dd($hotel[0]->Rooms);
-        $hotel=$hotel[0];
+        //########################### ذخیره سازی اطلاعات نفرات و تاریخ ورود و خروج هتل ##########################################
+        //ذخیره کد هتل در سشن
+        session(['HotelId' => $HotelId]);
 
-        $getHotel = $this->getHotel($hotel->HotelId,true);
 
+        $hotel=new stdClass;
+        $getHotel = $this->getHotel($HotelId,true);
             if(!is_null($getHotel)){
                 $hotel->Name            = $getHotel->Name;
                 $hotel->ReviewScore     = $getHotel->ReviewScore;
@@ -170,21 +179,15 @@ class HotelController extends TravelBaseController
                 $hotel->MinAge          = $getHotel->MinAge;
                 $hotel->CheckOutTime    = $getHotel->CheckOutTime;
                 $hotel->EndTime         = $getHotel->EndTime;
-                // $hotel->Rooms           = $hotel->Rooms;
-                $hotel->Images          = $this->getHotelImages($hotel->HotelId);
+                $hotel->Images          = $this->getHotelImages($HotelId);
             }
-
-            // dd($hotel->Rooms);
-   
-            // dd($this->getHotelImages($hotel->HotelId));
-            // dd($hotel);
         return view('pages/hotels/detail',compact('hotel'));
     }
 
     // ########################################## گرفتن تصویر ابتدایی هر هتل در لیست هتلها #################################
 
     // ########################################## دریافت اتاقهای یک هتل ##########################################
-    public function getRooms($hotelId=152){
+    public function getRooms(){
         $this->makeSession();
         $client = new Client();
         $Occupancies=[];
@@ -196,32 +199,30 @@ class HotelController extends TravelBaseController
         'ChildCount'   => 0,
         'ChildAges'    => array()
         ));
+
+        $arr = array (
+            'SessionId'         =>  $this->SessionId,
+            'CheckIn'           =>  session('checkIn'),
+            'CheckOut'          =>  session('checkOut'),
+            'Latitude'          =>  "",
+            'Longitude'         =>  "",
+            'RadiusInKilometer' =>  0,
+            'SetGeoLocation'    =>  false,
+            'NationalityId'     =>  "IR",
+            'HotelId'           =>  session('HotelId'),
+            'Occupancies'       =>  session('Occupancies')
+        );
+
+        // dd(json_encode($arr));
+
         $response = $client->post('https://apidemo.partocrs.com/Rest/Hotel/HotelAvailability', [
-            RequestOptions::JSON => array (
-                'SessionId'             => $this->SessionId,
-                'CheckIn' =>'2019-12-01T00:00:00',
-                'CheckOut'=>'2019-12-02T00:00:00',
-                'Latitude'=>"",
-                'Longitude'=>"",
-                'RadiusInKilometer'=>0,
-                'SetGeoLocation'=>false,
-                'NationalityId'=>"US",
-                'HotelId'=>'727',
-                'Occupancies'=>$Occupancies,
-            )
+            RequestOptions::JSON => $arr
         ]);
-        dd(json_encode(array (
-            'SessionId'             =>'8ad7b35f-3605-ea11-b732-00155dbd6c0c',
-            'CheckIn' =>'2019-12-01T00:00:00',
-            'CheckOut'=>'2019-12-02T00:00:00',
-            'NationalityId'=>"US",
-            'HotelId'=>'727',
-            'Occupancies'=>$Occupancies,
-        )));
-        dd($response->getBody()->getContents());
+        
+        // dd($response->getBody()->getContents());
         $hotels =  json_decode($response->getBody()->getContents())->PricedItineraries;
 
-
+        return $hotels;
 
         
     }//getRooms

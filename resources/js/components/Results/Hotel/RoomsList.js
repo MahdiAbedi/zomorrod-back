@@ -16,18 +16,18 @@ class RoomsList extends React.Component{
         this.getRooms();
     }
     getRooms(){
-        // axios.get('/getRooms')
-        // .then((response)=>{
-        //    // this.setState({Rooms:response.data})
-        //    console.log(response)
-        // })
+        axios.get('/getRooms')
+        .then((response)=>{
+           this.setState({Rooms:response.data})
+           console.log(response)
+        })
 
-        // .catch((error)=>{
-        //     console.log(error)
-        // })
+        .catch((error)=>{
+            console.log(error)
+        })
 
         // اطلاعات ذخیره شده در فایل برای تست
-        this.setState({Rooms:RoomList.PricedItineraries});
+        // this.setState({Rooms:RoomList.PricedItineraries});
     }
    
     render(){

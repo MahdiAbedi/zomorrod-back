@@ -70452,57 +70452,57 @@ function (_React$Component) {
       hotels: [{
         country: 'ترکیه',
         farsiName: 'استانبول',
-        propertyDestinationId: '512',
+        CityId: '924',
         count: 325,
         city: 'Istanbul'
       }, {
         country: 'ترکیه',
         farsiName: 'وان',
-        propertyDestinationId: '512',
+        CityId: '30976',
         count: 91,
         city: 'Wan'
       }, {
         country: 'ترکیه',
         farsiName: 'آنتالیا',
-        propertyDestinationId: '512',
+        CityId: '930',
         count: 108,
         city: 'Antalia'
       }, {
         country: 'ترکیه',
         farsiName: 'ازمیر',
-        propertyDestinationId: '512',
+        CityId: '1789',
         count: 105,
-        city: 'Ezmir'
+        city: 'Izmir'
       }, {
         country: 'امارات متحده عربی',
         farsiName: 'دبی',
-        propertyDestinationId: '512',
+        CityId: '968',
         count: 346,
-        city: 'Doubai'
+        city: 'Dubai'
       }, {
         country: 'آذربایجان',
         farsiName: 'باکو',
-        propertyDestinationId: '512',
+        CityId: '17123',
         count: 157,
         city: 'Baku'
       }, {
         country: 'فرانسه',
         farsiName: 'پاریس',
-        propertyDestinationId: '512',
+        CityId: '93',
         count: 263,
         city: 'Paris'
       }, {
         country: 'ارمنستان',
         farsiName: 'ایروان',
-        propertyDestinationId: '512',
+        CityId: '23546',
         count: 64,
-        city: 'Iravan'
+        city: 'Yerevan'
       }, {
         country: 'گرجستان',
         farsiName: 'تفلیس',
-        propertyDestinationId: '512',
+        CityId: '17122',
         count: 78,
-        city: 'Teflis'
+        city: 'Tbilisi'
       }],
       searchTerm: '',
       cityCode: '421',
@@ -70551,7 +70551,7 @@ function (_React$Component) {
           className: "ui-menu-item",
           onClick: function onClick() {
             return _this2.setState({
-              cityCode: hotel.propertyDestinationId,
+              cityCode: hotel.CityId,
               searchTerm: '',
               hotelName: hotel.city,
               displayList: 'none'
@@ -70979,6 +70979,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Results_InternalTicketResults__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Results/InternalTicketResults */ "./resources/js/components/Results/InternalTicketResults.js");
 /* harmony import */ var _components_Results_Hotel_HotelResutls__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Results/Hotel/HotelResutls */ "./resources/js/components/Results/Hotel/HotelResutls.js");
 /* harmony import */ var _components_Results_Hotel_RoomsList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Results/Hotel/RoomsList */ "./resources/js/components/Results/Hotel/RoomsList.js");
+/* harmony import */ var _components_Results_ChangeOulineTicket__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Results/ChangeOulineTicket */ "./resources/js/components/Results/ChangeOulineTicket.js");
+/* harmony import */ var _components_Results_ChangeInlineTicket__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Results/ChangeInlineTicket */ "./resources/js/components/Results/ChangeInlineTicket.js");
+
+
 
 
 
@@ -71701,6 +71705,50 @@ if (document.querySelector('#PassengerInfo')) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Results/ChangeInlineTicket.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/Results/ChangeInlineTicket.js ***!
+  \***************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SearchPanel_InlineTicket__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../SearchPanel/InlineTicket */ "./resources/js/components/SearchPanel/InlineTicket.js");
+
+
+function ChangeInlineTicket() {
+  return React.createElement(_SearchPanel_InlineTicket__WEBPACK_IMPORTED_MODULE_0__["default"], null);
+}
+
+if (document.querySelector('#internal_search')) {
+  ReactDOM.render(React.createElement(ChangeInlineTicket, null), document.getElementById('internal_search'));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/Results/ChangeOulineTicket.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/Results/ChangeOulineTicket.js ***!
+  \***************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SearchPanel_OutLineTicket__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../SearchPanel/OutLineTicket */ "./resources/js/components/SearchPanel/OutLineTicket.js");
+
+
+function ChangeOutlineTicket() {
+  return React.createElement(_SearchPanel_OutLineTicket__WEBPACK_IMPORTED_MODULE_0__["default"], null);
+}
+
+if (document.querySelector('#international_search')) {
+  ReactDOM.render(React.createElement(ChangeOutlineTicket, null), document.getElementById('international_search'));
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/Results/Filters.js":
 /*!****************************************************!*\
   !*** ./resources/js/components/Results/Filters.js ***!
@@ -71785,40 +71833,6 @@ function (_React$PureComponent) {
       }, React.createElement("button", {
         className: "reset"
       }, "\u0644\u063A\u0648 \u0641\u06CC\u0644\u062A\u0631\u0647\u0627"), React.createElement("p", null, "\u0646\u062A\u0627\u06CC\u062C \u062C\u0633\u062A\u062C\u0648 ", React.createElement("span", null, "16"))), React.createElement("section", {
-        className: "panel"
-      }, React.createElement("header", {
-        className: "panel-title flex-between"
-      }, React.createElement("span", null, "\u0632\u0645\u0627\u0646 \u067E\u0631\u0648\u0627\u0632"), React.createElement("a", {
-        href: "#"
-      }, React.createElement("i", {
-        className: "fas fa-chevron-down"
-      }))), React.createElement("div", {
-        className: "panel-body"
-      }, React.createElement("div", null, React.createElement("input", {
-        type: "checkbox",
-        name: "check1",
-        id: "check1"
-      }), React.createElement("label", {
-        htmlFor: "check1"
-      }, "\u0627\u0632 \u0633\u0627\u0639\u062A 6:00 \u062A\u0627 10:00")), React.createElement("div", null, React.createElement("input", {
-        type: "checkbox",
-        name: "check1",
-        id: "check1"
-      }), React.createElement("label", {
-        htmlFor: "check1"
-      }, "\u0627\u0632 \u0633\u0627\u0639\u062A 6:00 \u062A\u0627 10:00")), React.createElement("div", null, React.createElement("input", {
-        type: "checkbox",
-        name: "check1",
-        id: "check1"
-      }), React.createElement("label", {
-        htmlFor: "check1"
-      }, "\u0627\u0632 \u0633\u0627\u0639\u062A 6:00 \u062A\u0627 10:00")), React.createElement("div", null, React.createElement("input", {
-        type: "checkbox",
-        name: "check1",
-        id: "check1"
-      }), React.createElement("label", {
-        htmlFor: "check1"
-      }, "\u0627\u0632 \u0633\u0627\u0639\u062A 6:00 \u062A\u0627 10:00")))), React.createElement("section", {
         className: "panel"
       }, React.createElement("header", {
         className: "panel-title flex-between"
@@ -72110,9 +72124,8 @@ function (_React$Component) {
         _this.setState({
           hotels: response.data,
           isLoading: false
-        });
+        }); // console.log(this.state.hotels)
 
-        console.log(_this.state.hotels);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -72155,8 +72168,9 @@ function (_React$Component) {
 
   }, {
     key: "showHotel",
-    value: function showHotel() {
-      alert('hello');
+    value: function showHotel(hotelID) {
+      localStorage.setItem('hotelID', hotelID);
+      window.location = "/hotel/detail/" + hotelID;
     } //############################# Render() ###############################################################
 
   }, {
@@ -72449,8 +72463,11 @@ function (_React$Component) {
             name: "money"
           }, formatCurrency(hotel.NetRate), " \u0631\u06CC\u0627\u0644"))), React.createElement("a", {
             className: "hotels_detail green",
+            style: {
+              cursor: 'pointer'
+            },
             onClick: function onClick() {
-              return _this2.showHotel();
+              return _this2.showHotel(hotel.HotelId);
             }
           }, "\u0645\u0634\u0627\u0647\u062F\u0647 \u0648 \u0627\u0646\u062A\u062E\u0627\u0628 \u0627\u062A\u0627\u0642")));
         }))));
@@ -72533,18 +72550,18 @@ function (_React$Component) {
   }, {
     key: "getRooms",
     value: function getRooms() {
-      // axios.get('/getRooms')
-      // .then((response)=>{
-      //    // this.setState({Rooms:response.data})
-      //    console.log(response)
-      // })
-      // .catch((error)=>{
-      //     console.log(error)
-      // })
-      // اطلاعات ذخیره شده در فایل برای تست
-      this.setState({
-        Rooms: _SingleHotel_json__WEBPACK_IMPORTED_MODULE_3__.PricedItineraries
-      });
+      var _this2 = this;
+
+      axios.get('/getRooms').then(function (response) {
+        _this2.setState({
+          Rooms: response.data
+        });
+
+        console.log(response);
+      })["catch"](function (error) {
+        console.log(error);
+      }); // اطلاعات ذخیره شده در فایل برای تست
+      // this.setState({Rooms:RoomList.PricedItineraries});
     }
   }, {
     key: "render",
@@ -72660,6 +72677,10 @@ function (_React$Component) {
       switch (name) {
         case "Room Only":
           return 'بدون وعده غذایی';
+          break;
+
+        case "Free Breakfast":
+          return 'صبحانه رایگان';
           break;
 
         default:

@@ -12,6 +12,9 @@ class SingleRoomList extends React.Component{
             case "Room Only":
                 return 'بدون وعده غذایی'
                 break;
+            case "Free Breakfast":
+                return 'صبحانه رایگان'
+                break;
         
             default:
                 return name;

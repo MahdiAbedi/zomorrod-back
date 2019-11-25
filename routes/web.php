@@ -55,6 +55,12 @@ Route::get('/internal/book',function(){
 
 Route::post('/airports','AirportController@find');
 Route::get('/airports','AirportController@find');
+//کد یاتا رو میدیم و اسم فرودگاه رو میگریم
+Route::get('/airportName/{iataCode}','AirportController@findAirportName');
+
+// کد ایرلاین رو میدی اسمش رو به فارسی بهمون میده
+Route::get('/airlineName/{iataCode}','AirportController@findAirlineName');
+
 
 
 
@@ -78,7 +84,7 @@ Route::post('/hotels1',function(){
 //ارسال ایجکس برای دریافت نام شهر برای رزو هتل
 Route::post('/cityHotel','HotelController@find');
 // جزییات هر هتل
-Route::get('/hotel/detail','HotelController@show');
+Route::get('/hotel/detail/{id}','HotelController@show');
 // اتاق های هر هتل 
 Route::get('/getRooms','HotelController@getRooms');
 //for test

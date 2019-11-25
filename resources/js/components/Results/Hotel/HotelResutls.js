@@ -39,7 +39,7 @@ constructor(props){
                 hotels:response.data,
                 isLoading:false,
             })
-            console.log(this.state.hotels)
+            // console.log(this.state.hotels)
         })
        .catch((error)=>{
           console.log(error);
@@ -64,8 +64,9 @@ constructor(props){
 
 
     // ######################## اجرا به صفحه جزییات هتل ##################################################
-    showHotel(){
-        alert('hello');
+    showHotel(hotelID){
+        localStorage.setItem('hotelID',hotelID);
+        window.location="/hotel/detail/"+hotelID;
     }
 
     //############################# Render() ###############################################################
@@ -291,7 +292,7 @@ constructor(props){
                                                 <p className="green money" name="money">{formatCurrency(hotel.NetRate)} ریال</p>
                                             </div>
                                         </div>
-                                        <a className="hotels_detail green" onClick={()=>this.showHotel()}  >
+                                        <a className="hotels_detail green" style={{cursor:'pointer'}} onClick={()=>this.showHotel(hotel.HotelId)}  >
                                             مشاهده و انتخاب اتاق
                                         </a>
                                     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Airport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AirportController extends Controller
 {
@@ -55,4 +56,17 @@ class AirportController extends Controller
 
         return \Response::json($formatted_tags);
     }
+
+
+    //کد یاتا را میدیم و اسم فرودگاه رو میگیریم
+    public function findAirportName($iataCode){
+        return Airport::select('name')->where('iata',$iataCode)->get();
+    }
+    //کد یاتا را میدیم و اسم فرودگاه رو میگیریم
+    public function findAirlineName($iataCode){
+        return DB::table('airlines')->select('name')->where('code',$iataCode)->get();
+    }
+
+
+
 }

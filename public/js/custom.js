@@ -1,3 +1,5 @@
+// import Axios from "axios";
+
 $(document).ready(function () {
 
     $('.select2').select2();
@@ -169,7 +171,7 @@ function Toggle(tagId,display="block") {
 
 
 
-    function airlineName(code){
+    function airlineName_old(code){
     
         let airlines = [];
         airlines['A3']='Aegean Airlines';
@@ -223,9 +225,74 @@ function Toggle(tagId,display="block") {
         }
         return code;
     }
+    function airlineName(code){
+        localStorage.setItem('A3','Aegean Airlines');
+        localStorage.setItem('AF','Air France');
+        localStorage.setItem('AY','Finnair');
+        localStorage.setItem('AZ','Alitalia');
+        localStorage.setItem('BA','British Airways');
+        localStorage.setItem('BE','Flybe');
+        localStorage.setItem('BT','Air Baltic');
+        localStorage.setItem('CZ','China Southern Airlines');
+        localStorage.setItem('DY','Norwegian Air Shuttle');
+        localStorage.setItem('EK','Emirates Airline');
+        localStorage.setItem('EW','Eurowings');
+        localStorage.setItem('EY','Etihad Airways');
+        localStorage.setItem('G9','Air Arabia');
+        localStorage.setItem('GF','Gulf Air Bahrain');
+        localStorage.setItem('IB','Iberia Airlines');
+        localStorage.setItem('J2','Azerbaijan Airlines');
+        localStorage.setItem('KK','Atlasjet');
+        localStorage.setItem('KL','KLM');
+        localStorage.setItem('KU','Kuwait Airways');
+        localStorage.setItem('LH','Lufthansa');
+        localStorage.setItem('LX','Swiss Air Lines');
+        localStorage.setItem('OS','Austrian Airlines');
+        localStorage.setItem('OV','Estonian Air');
+        localStorage.setItem('PC','Pegasus Airlines');
+        localStorage.setItem('PS','Ukraine Airlines');
+        localStorage.setItem('QR','Qatar Airways');
+        localStorage.setItem('TK','Turkish Airlines');
+        localStorage.setItem('VY','Vueling Airlines');
+        localStorage.setItem('WY','Oman Air');
+        
+        //ایرلاینهای داخلی
+        localStorage.setItem('W5','ماهان');
+        localStorage.setItem('IV','کاسپین');
+        localStorage.setItem('B9','ایرتور');
+        localStorage.setItem('EP','آسمان');
+        localStorage.setItem('JI','معراج');
+        localStorage.setItem('I3','آتا');
+        localStorage.setItem('ZV','زاگرس');
+        localStorage.setItem('IR','ایران ایر');
+        localStorage.setItem('HH','تابان');
+        localStorage.setItem('AK','اترک');
+        localStorage.setItem('QB','قشم ایر');
+        localStorage.setItem('VR','وارش');
+        localStorage.setItem('NV','کارون');
+        localStorage.setItem('Y9','کیش ایر');
+    
+        //اول چک میکنیم که قبلا تو لوکال ذخیره شده یا نه
+        if(localStorage.getItem(code) !==null){
+            return localStorage.getItem(code)
+        }
+
+        axios.get('/airlineName/'+code)
+            .then(function (response) {
+                localStorage.setItem(code,response.data[0].name);
+                return response.data[0].name
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            });
+
+
+            
+    }//function
     
     //نام فرودگاه ها بر اساس کد یاتا
-    function airportName(code){
+    function airportName_old(code){
         
         let airports = [];
         //فرودگاه های بین المللی ایران
@@ -315,6 +382,109 @@ function Toggle(tagId,display="block") {
             return airports[code];
         }
         return code;
+    }
+
+
+    //تو این حالت از سشن استفاده میکنیم و سرعت لود سایت رو افزایش میدیم
+    function airportName(code){
+
+        //فرودگاه های بین المللی ایران
+        localStorage.setItem('IKA','امام خمینی');
+        localStorage.setItem('ABD','آبادان');
+        localStorage.setItem('ACP','سهند');
+        localStorage.setItem('ACZ','زابل');
+        localStorage.setItem('ADU','اردبیل');
+        localStorage.setItem('AEU','ابوموسی');
+        localStorage.setItem('AFZ','سبزوار');
+        localStorage.setItem('AHW','اهواز');
+        localStorage.setItem('AJK','اراک');
+        localStorage.setItem('AKW','آقاجاری');
+        localStorage.setItem('AWZ','اهواز');
+        localStorage.setItem('AZD','یزد');
+        localStorage.setItem('BBL','بابلسر');
+        localStorage.setItem('BDH','بندر لنگه');
+        localStorage.setItem('BJB','بجنورد');
+        localStorage.setItem('BND','بجنورد');
+        localStorage.setItem('BUZ','بوشهر');
+        localStorage.setItem('BXR','بام');
+        localStorage.setItem('CKT','سرخس');
+    
+        //فرودگاه های داخلی ایران
+        localStorage.setItem('CQD','شهرکرد');
+        localStorage.setItem('DEF','دزفول');
+        localStorage.setItem('GBT','گرگان');
+        localStorage.setItem('GCH','گچساران');
+        localStorage.setItem('GZW','قزوین');
+        localStorage.setItem('HDM','همدان');
+        localStorage.setItem('IFN','اصفهان');
+        localStorage.setItem('IHR','ایرانشهر');
+        localStorage.setItem('IIL','ایلام');
+        localStorage.setItem('JAR','جهرم');
+        localStorage.setItem('JWN','زنجان');
+        localStorage.setItem('JYR','جیرفت');
+        localStorage.setItem('KER','کرمان');
+        localStorage.setItem('KHD','خرم آباد');
+        localStorage.setItem('KHK','خارک');
+        localStorage.setItem('KHY','خوی');
+        localStorage.setItem('KIH','کیش');
+        localStorage.setItem('MHD','مشهد');
+        localStorage.setItem('NSH','نوشهر');
+        localStorage.setItem('OMH','ارومیه');
+        localStorage.setItem('PGU','فرودگاه خلیج فارس');
+        localStorage.setItem('PYK','فرودگاه پیام');
+        localStorage.setItem('QMJ','مسجد سلیمان');
+        localStorage.setItem('RAS','رشت');
+        localStorage.setItem('RJN','رفسنجان');
+        localStorage.setItem('RUD','شاهرود');
+        localStorage.setItem('RZR','رامسر');
+        localStorage.setItem('SDG','سنندج');
+        localStorage.setItem('SYZ','شیراز');
+        localStorage.setItem('TBZ','تبریز');
+        localStorage.setItem('TCX','طبس');
+        localStorage.setItem('THR','مهرآباد');
+        localStorage.setItem('XBJ','بیرجند');
+        localStorage.setItem('YES','یاسوج');
+        localStorage.setItem('ZAH','زاهدان');
+    
+        //فرودگاه های بین المللی
+        localStorage.setItem('DXB','دبی');
+        localStorage.setItem('LGW','لندن');
+        localStorage.setItem('IST','استانبول');
+        localStorage.setItem('STN','لندن');
+    
+        localStorage.setItem('DOH','دوحه');
+        localStorage.setItem('FRA','فرانکفورت');
+        localStorage.setItem('SAW','استانبول');
+        localStorage.setItem('KBP','کی اف');
+        localStorage.setItem('KWI','کویت');
+        localStorage.setItem('STN','لندن');
+        localStorage.setItem('LCY','لندن');
+        localStorage.setItem('LHR','لندن');
+        localStorage.setItem('LGW','لندن');
+        localStorage.setItem('SVO','مسکو');
+        localStorage.setItem('MUC','مونیخ');
+        localStorage.setItem('MCT','مسقط');
+        localStorage.setItem('VIE','وی انا');
+        localStorage.setItem('ZRH','زوریخ');
+        localStorage.setItem('YYZ','ونکوور ');
+        localStorage.setItem('GYD','حیدر علی اف');
+    
+        
+        //اول چک میکنیم که قبلا تو لوکال ذخیره شده یا نه
+        if(localStorage.getItem(code)){
+            return localStorage.getItem(code)
+        }
+
+        axios.get('/airportName/'+code)
+            .then(function (response) {
+                localStorage.setItem(code,response.data[0].name);
+                return response.data[0].name;
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            });
+
     }
     
     
