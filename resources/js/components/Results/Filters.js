@@ -39,7 +39,7 @@ class Filters extends React.PureComponent{
             <section className="flex">
                 <button className="reset">لغو فیلترها</button>
                 
-                <p>نتایج جستجو <span>16</span></p>
+                <p>نتایج جستجو: <span>{this.props.resultsCount}</span>بلیط</p>
             </section>
             {/*
             <!-- ساعت حرکت --> */}

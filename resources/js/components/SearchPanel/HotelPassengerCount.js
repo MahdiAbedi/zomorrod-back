@@ -117,7 +117,7 @@ class RoomCounter extends React.PureComponent{
         // console.log(RoomInfo) 
         //چون ایندکس در نام گذاری اتاق تاثیر داره اینجا از ایندکس کم میکنیم در کامپوننت والد
         hotelPassengersList[this.props.index-1]=RoomInfo;
-        console.log(hotelPassengersList)
+        // console.log(hotelPassengersList)
         localStorage.setItem('hotelPassengersList',JSON.stringify(hotelPassengersList))
     }
     

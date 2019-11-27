@@ -91,7 +91,7 @@ class HotelSelector extends React.Component{
 
 
                          {this.state.hotels.map((hotel)=>{
-                             return (<li className="ui-menu-item" onClick={()=>this.setState({cityCode:hotel.CityId,searchTerm:'',hotelName:hotel.city,displayList:'none'})}>
+                             return (<li className="ui-menu-item" onClick={()=>this.onClick(hotel)}>
                                         <a class="airports ui-menu-item-wrapper">
                                              <span>{hotel.count} اقامتگاه </span>{hotel.farsiName} - {hotel.country}- {hotel.city}
                                         </a>
@@ -100,6 +100,15 @@ class HotelSelector extends React.Component{
                      </ul>
                 </React.Fragment> 
              ); 
+        }
+
+        //وقتی کاربر بر روی اسم هتل کلیک کنه
+        onClick(hotel){
+            this.setState({cityCode:hotel.CityId,searchTerm:'',hotelName:hotel.city,displayList:'none'})
+            //ذخیره نام فارسی و انگلیسی شهر برای نمایش در لیست هتلهای یافت شده
+            localStorage.setItem('hotelFarsiName',hotel.farsiName);
+            localStorage.setItem('hotelCountry',hotel.country);
+            localStorage.setItem('hotelEnglishName',hotel.city);
         }
 
         displayList(e){

@@ -162,6 +162,7 @@ class HotelController extends TravelBaseController
         $hotel=new stdClass;
         $getHotel = $this->getHotel($HotelId,true);
             if(!is_null($getHotel)){
+                $hotel->Id              = $HotelId;
                 $hotel->Name            = $getHotel->Name;
                 $hotel->ReviewScore     = $getHotel->ReviewScore;
                 $hotel->Rating          = $getHotel->Rating;
@@ -187,7 +188,7 @@ class HotelController extends TravelBaseController
     // ########################################## گرفتن تصویر ابتدایی هر هتل در لیست هتلها #################################
 
     // ########################################## دریافت اتاقهای یک هتل ##########################################
-    public function getRooms(){
+    public function getRooms(Request $request){
         $this->makeSession();
         $client = new Client();
         $Occupancies=[];
@@ -202,15 +203,15 @@ class HotelController extends TravelBaseController
 
         $arr = array (
             'SessionId'         =>  $this->SessionId,
-            'CheckIn'           =>  session('checkIn'),
-            'CheckOut'          =>  session('checkOut'),
+            'CheckIn'           =>  $request->input('checkIn'),
+            'CheckOut'          =>  $request->input('checkOut'),
             'Latitude'          =>  "",
             'Longitude'         =>  "",
             'RadiusInKilometer' =>  0,
             'SetGeoLocation'    =>  false,
             'NationalityId'     =>  "IR",
-            'HotelId'           =>  session('HotelId'),
-            'Occupancies'       =>  session('Occupancies')
+            'HotelId'           =>  $request->input('HotelId'),
+            'Occupancies'       =>  $request->input('Occupancies')
         );
 
         // dd(json_encode($arr));

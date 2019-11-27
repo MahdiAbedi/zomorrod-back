@@ -13,6 +13,11 @@ constructor(props){
 
     }
 
+     hotelFarsiName   =  localStorage.getItem('hotelFarsiName');
+     hotelCountry     =  localStorage.getItem('hotelCountry');
+     hotelEnglishName =  localStorage.getItem('hotelEnglishName');
+     hotel_nights     =  localStorage.getItem('hotel_nights');
+
         //###################################### بدست آوردن لیست ایرلاین ها برای بخش فیلتر #################
     getAirlines = ()=>{
         //لیست ایرلاینها رو هم جدا میکنیم
@@ -66,7 +71,8 @@ constructor(props){
     // ######################## اجرا به صفحه جزییات هتل ##################################################
     showHotel(hotelID){
         localStorage.setItem('hotelID',hotelID);
-        window.location="/hotel/detail/"+hotelID;
+        // window.location="/hotel/detail/"+hotelID;
+        window.open("/hotel/detail/"+ hotelID, "_blank"); 
     }
 
     //############################# Render() ###############################################################
@@ -286,13 +292,13 @@ constructor(props){
                                             <div className="left">
                                                
                                                 <a target="_blank" href={`https://www.google.com/maps/search/?api=1&query=${hotel.Longitude},${hotel.Latitude}`}><i className="fas fa-map-marker-alt"></i> نمایش هتل روی نقشه</a>
-                                                <small className="green">باکو Nsimi</small>
+                                                <small className="green">{this.hotelCountry}-{this.hotelFarsiName}-{this.hotelEnglishName}</small>
                                                 <br/>
-                                                <p>شروع قیمت برای 7 شب از :</p>
+                                                <p>شروع قیمت برای {this.hotel_nights} شب از :</p>
                                                 <p className="green money" name="money">{formatCurrency(hotel.NetRate)} ریال</p>
                                             </div>
                                         </div>
-                                        <a className="hotels_detail green" style={{cursor:'pointer'}} onClick={()=>this.showHotel(hotel.HotelId)}  >
+                                        <a className="hotels_detail green" target="_blank" style={{cursor:'pointer'}} onClick={()=>this.showHotel(hotel.HotelId)}  >
                                             مشاهده و انتخاب اتاق
                                         </a>
                                     </div>

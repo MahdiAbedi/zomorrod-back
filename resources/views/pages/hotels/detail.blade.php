@@ -38,29 +38,41 @@
         <section class="container ">
             <div class="hotel_container">
                 <!-- گالری تصاویر -->
-                <div class="gallery">
-                    <div class="gallery_first_row">
-                        <img src="{{$hotel->Images[0]->Link}}" alt="" width="60%">
-                        <div class="column">
-                            <img src="{{$hotel->Images[1]->Link}}" alt="" srcset="" width="100%">
-                            <img src="{{$hotel->Images[2]->Link}}" alt="" srcset="" width="100%">
+                    <div class="gallery">
+                        <div class="gallery_first_row">
+                            @if(count($hotel->Images))
+                                <img src="{{$hotel->Images[0]->Link}}" alt="" width="60%">
+                                <div class="column">
+                                @if(array_key_exists(1,$hotel->Images))
+                                        <img src="{{$hotel->Images[1]->Link}}" alt="" srcset="" width="100%">
+                                    @endif
+
+                                    @if(array_key_exists(2,$hotel->Images))
+                                        <img src="{{$hotel->Images[2]->Link}}" alt="" srcset="" width="100%">
+                                    @endif
+                                </div>
+                            @else
+                                تصویری برای هتل موجود نمیباشد.
+
+                            @endif
                         </div>
+
+                        <div class="gallery_second_row flex">
+                            <!-- @foreach($hotel->Images as $image)
+                                <img src="{{$image->ThumbnailLink}}" alt="">
+                            @endforeach -->
+
+                            @for($index=3;$index< 8;$index++)
+                                @if(array_key_exists($index,$hotel->Images))
+                                    <img src="{{$hotel->Images[$index]->Link}}" alt="">
+                                @endif
+
+                            @endfor
+                        </div>
+
                     </div>
-
-                    <div class="gallery_second_row flex">
-                        <!-- @foreach($hotel->Images as $image)
-                            <img src="{{$image->ThumbnailLink}}" alt="">
-                        @endforeach -->
-
-                        @for($index=3;$index< 8;$index++)
-                        <img src="{{$hotel->Images[$index]->Link}}" alt="">
-
-
-                        @endfor
-                    </div>
-
-                </div><!-- گالری تصاویر -->
-
+                <!-- گالری تصاویر -->
+                <input type="hidden" value={{$hotel->Id}} id="HotelId">
                 <div class="hotel_summery">
                     <h2>{{$hotel->Name}}</h2>
                     <span class="stars">
@@ -85,8 +97,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td id="hotel_checkIn">12:30 - 1398/07/09</td>
-                                <td id="hotel_checkOut">12:30 - 1398/07/10</td>
+                                <td id="hotel_checkIn_Time">12:30 - 1398/07/09</td>
+                                <td id="hotel_checkOut_Time">12:30 - 1398/07/10</td>
                                 <td id="passenger_count">2 بزرگسال + 1 کودک</td>
                             </tr>
                         </tbody>
@@ -101,7 +113,7 @@
                         <img src="/img/googlemap.png" alt="">
                     </div>
                     <a href="#" class="hotels_detail green">
-                        مشاهده و انتخاب اتاق
+                       مشاهده هتل بر روی نقشه
                     </a>
 
 
@@ -136,7 +148,7 @@
             <!-- ##################################################### -->
             <!-- نمایش لیست اتاقهای موجود برای این هتل  -->
             <!-- ##################################################### -->
-           <div id="RoomsList">hello0000</div>
+           <div id="RoomsList"></div>
 
         </section>
     </main>
@@ -145,7 +157,9 @@
 
 <script>
     window.onload=function(){
-        document.getElementById('hotel_checkIn').innerText="test"
+        document.getElementById('hotel_checkIn_Time').innerText= localStorage.getItem('hotel_checkIn');
+        document.getElementById('hotel_checkOut_Time').innerText=localStorage.getItem('hotel_checkOut');
+        // document.getElementById('hotel_checkIn_Time').innerText="test";
     }
 
 
