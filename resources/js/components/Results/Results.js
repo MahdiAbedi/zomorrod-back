@@ -2,8 +2,23 @@ import Ticket from './Ticket';
 class Results extends React.PureComponent{
     constructor(props){
         super(props);
+        this.state={
+            accending:true
+        }
     }
 
+    //#################### فیلتر پروازها بر اساس ساعت پرواز #############################################
+    filterByTime = () =>{
+        this.props.filterByTime(this.state.accending);
+    }
+    //#################### فیلتر پروازها بر اساس ساعت پرواز #############################################
+    filterByCapacity = () =>{
+        this.props.filterByCapacity(this.state.accending);
+    }
+    //#################### فیلتر پروازها بر اساس قیمت پرواز #############################################
+    filterByPrice = () =>{
+        this.props.filterByPrice(this.state.accending);
+    }
     render(){
         
             return(
@@ -12,9 +27,9 @@ class Results extends React.PureComponent{
                     <section className="sorting flex">
                         <section className="sort">
                             <ul className="flex">
-                                <li><a href="#"><i className="fas fa-sort-amount-up-alt"></i>ساعت پرواز</a></li>
-                                <li><a href="#"><i className="fas fa-sort-amount-up-alt"></i>ظرفیت</a></li>
-                                <li><a href="#"><i className="fas fa-sort-amount-down-alt"></i>قیمت</a></li>
+                                <li><a href="#" onClick={()=>{this.setState({accending:!this.state.accending});this.filterByTime()}}><i className="fas fa-sort-amount-up-alt"></i>ساعت پرواز</a></li>
+                                <li><a href="#" onClick={()=>{this.setState({accending:!this.state.accending});this.filterByCapacity()}}><i className="fas fa-sort-amount-up-alt"></i>ظرفیت</a></li>
+                                <li><a href="#" onClick={()=>{this.setState({accending:!this.state.accending});this.filterByPrice()}}><i className="fas fa-sort-amount-down-alt"></i>قیمت</a></li>
                                 <li><a href="#"><i className="fas fa-sort-amount-down-alt"></i>ارزانترین نرخ های بلیط در بازه 7
                                         روزه</a></li>
                             </ul>

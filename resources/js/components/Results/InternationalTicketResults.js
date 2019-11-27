@@ -1,4 +1,4 @@
-import myTickets from './RoundTripTicket.json';
+// import myTickets from './RoundTripTicket.json';
 import Filters from './Filters';
 import Results from './Results';
 // import myTickets2 from './TicketResults.json';
@@ -51,7 +51,7 @@ class InternationalTicketResults extends React.Component{
         })
         .then(response => {
             let myTickets=response.data;
-            // this.setState({tickets:myTickets.PricedItineraries})
+            // this.setState({tickets:myTickets.PricedItineraries,isLoading:false})
              this.setState({
                 tickets:myTickets.PricedItineraries,
                 isLoading:false,
@@ -106,6 +106,95 @@ class InternationalTicketResults extends React.Component{
         
     }
 
+    //#################### فیلتر پروازها بر اساس ساعت پرواز #############################################
+    filterByTime=(accending="true")=>{
+        if(accending){
+            this.setState({tickets : this.state.tempTickets.sort(
+                function(a,b){
+                    if(a.OriginDestinationOptions[0].FlightSegments[0].DepartureDateTime < b.OriginDestinationOptions[0].FlightSegments[0].DepartureDateTime){
+                        return -1;
+                    }
+                    if(a.OriginDestinationOptions[0].FlightSegments[0].DepartureDateTime > b.OriginDestinationOptions[0].FlightSegments[0].DepartureDateTime){
+                        return 1;
+                    }
+                   
+                }
+            )}) 
+        }else{
+            this.setState({tickets : this.state.tempTickets.sort(
+                function(a,b){
+                    if(a.OriginDestinationOptions[0].FlightSegments[0].DepartureDateTime < b.OriginDestinationOptions[0].FlightSegments[0].DepartureDateTime){
+                        return 1;
+                    }
+                    if(a.OriginDestinationOptions[0].FlightSegments[0].DepartureDateTime > b.OriginDestinationOptions[0].FlightSegments[0].DepartureDateTime){
+                        return -1;
+                    }
+                   
+                }
+            )}) 
+        }
+        
+    }
+    //#################### فیلتر پروازها بر اساس ظرفیت پرواز #############################################
+    filterByCapacity=(accending="true")=>{
+        if(accending){
+            this.setState({tickets : this.state.tempTickets.sort(
+                function(a,b){
+                    console.log(a.OriginDestinationOptions[0].FlightSegments[0].SeatsRemaining)
+                    if(a.OriginDestinationOptions[0].FlightSegments[0].SeatsRemaining < b.OriginDestinationOptions[0].FlightSegments[0].SeatsRemaining){
+                        return -1;
+                    }
+                    if(a.OriginDestinationOptions[0].FlightSegments[0].SeatsRemaining > b.OriginDestinationOptions[0].FlightSegments[0].SeatsRemaining){
+                        return 1;
+                    }
+                   
+                }
+            )}) 
+        }else{
+            this.setState({tickets : this.state.tempTickets.sort(
+                function(a,b){
+                    if(a.OriginDestinationOptions[0].FlightSegments[0].SeatsRemaining < b.OriginDestinationOptions[0].FlightSegments[0].SeatsRemaining){
+                        return 1;
+                    }
+                    if(a.OriginDestinationOptions[0].FlightSegments[0].SeatsRemaining > b.OriginDestinationOptions[0].FlightSegments[0].SeatsRemaining){
+                        return -1;
+                    }
+                   
+                }
+            )}) 
+        }
+        
+    }
+    //#################### فیلتر پروازها بر اساس ظرفیت پرواز #############################################
+    filterByPrice=(accending="true")=>{
+        if(accending){
+            this.setState({tickets : this.state.tempTickets.sort(
+                function(a,b){
+                    if(a.AirItineraryPricingInfo.ItinTotalFare.TotalFare < b.AirItineraryPricingInfo.ItinTotalFare.TotalFare){
+                        return -1;
+                    }
+                    if(a.AirItineraryPricingInfo.ItinTotalFare.TotalFare > b.AirItineraryPricingInfo.ItinTotalFare.TotalFare){
+                        return 1;
+                    }
+                   
+                }
+            )}) 
+        }else{
+            this.setState({tickets : this.state.tempTickets.sort(
+                function(a,b){
+                    if(a.AirItineraryPricingInfo.ItinTotalFare.TotalFare < b.AirItineraryPricingInfo.ItinTotalFare.TotalFare){
+                        return 1;
+                    }
+                    if(a.AirItineraryPricingInfo.ItinTotalFare.TotalFare > b.AirItineraryPricingInfo.ItinTotalFare.TotalFare){
+                        return -1;
+                    }
+                   
+                }
+            )}) 
+        }
+        
+    }
+
     //################################# RENDER FUNCTION ##################################################
     render=()=>{
             let msg= (
@@ -130,7 +219,13 @@ class InternationalTicketResults extends React.Component{
                 <section className="result-panel container">
                     {(this.state.airlines.length > 0) ? 
                     <Filters checkCharter={this.checkCharter} airlines={this.state.airlines} StopCount = {this.StopCount} chooseAirline = {this.chooseAirline}  chooseCabinType= {this.chooseCabinType} resultsCount={this.state.tickets.length}/> :null}                    
-                    <Results tickets={this.state.tickets} isInline={false} />
+                    <Results 
+                    tickets={this.state.tickets}
+                    isInline={false} 
+                    filterByTime= {this.filterByTime}
+                    filterByPrice= {this.filterByPrice}
+                    filterByCapacity= {this.filterByCapacity}/>
+
             </section>     
             );
 
