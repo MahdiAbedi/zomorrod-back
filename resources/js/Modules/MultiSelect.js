@@ -3,6 +3,8 @@ class MultiSelect extends React.Component{
 
         constructor(props){
             super(props);
+            // this.destination = this.props.prefix +'_'+this.props.name;
+
             this.state={
                 airports:[
                 {
@@ -178,6 +180,15 @@ class MultiSelect extends React.Component{
                 displayList:'none'
             }
         }
+
+        componentDidMount=()=>{
+            //اگر قبلا فرودگاه رو انتخاب کرده بود اطلاعاتش از لوکال استورج بیاد
+                //ست کردن تنظیمات فرودگاه مبدا
+                this.setState({
+                    iataCode:localStorage.getItem(this.props.prefix +'_'+this.props.name+'_iataCode'),
+                    airportName:localStorage.getItem(this.props.prefix +'_'+this.props.name+'_airportName')
+                });
+        }
         
         render(){
             return(
@@ -193,7 +204,7 @@ class MultiSelect extends React.Component{
 
 
                          {this.state.airports.map((airport)=>{
-                             return (<li className="ui-menu-item" onClick={()=>this.setState({iataCode:airport.iata,searchTerm:'',airportName:airport.name,displayList:'none'})}>
+                             return (<li className="ui-menu-item" onClick={()=>this.onSelectEvent(airport)}>
                                         <a class="airports ui-menu-item-wrapper">
                                              <span>{airport.iata}</span>-{airport.name} - {airport.farsi} - {airport.city}- {airport.country}
                                         </a>
@@ -202,6 +213,17 @@ class MultiSelect extends React.Component{
                      </ul>
                 </React.Fragment> 
              ); 
+        }
+
+
+        //رویدادی که هنگام انتخاب نام فرودگاه از لیست فرودگاه میفته
+        onSelectEvent(airport){
+            this.setState({iataCode:airport.iata,searchTerm:'',airportName:airport.name,displayList:'none'});
+            //اگر قبلا فرودگاه رو انتخاب کرده بود اطلاعاتش از لوکال استورج بیاد
+            //ست کردن تنظیمات فرودگاه مبدا
+                
+            localStorage.setItem(this.props.prefix +'_'+this.props.name+'_iataCode',airport.iata)
+            localStorage.setItem(this.props.prefix +'_'+this.props.name+'_airportName',airport.name)
         }
 
         displayList(e){

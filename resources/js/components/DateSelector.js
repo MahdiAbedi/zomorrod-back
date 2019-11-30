@@ -10,26 +10,48 @@ class DateSelector extends React.Component {
       isGregorian:false,
     };
 
+    this.enabledRange = {
+      min: moment(localStorage.getItem('departureTime')),
+    };
+
+
     //Disable By Date Range 
-    this.disabledRanges = [
-      { 
-        color: 'brown', 
-        start:moment().add(0,'days'), 
-        end:moment().add(60,'days') 
-      }
+    // this.disabledRanges = [
+    //   { 
+    //     color: 'brown', 
+    //     start:moment().add(0,'days'), 
+    //     end:moment().add(60,'days') 
+    //   }
      
-    ]
+    // ]
+    // limit selection to current months days
+
+    
+      this.enabledRange = {
+        min: moment(),
+      };
+    
+    
 
   }//constructor
 
 
-  
+  componentDidMount(){
+    let newDate =localStorage.getItem(this.props.name);
+    if(newDate !==null){
+      //اگر تاریخ ذخیره شده گذشته باشد تاریخ امروز را نشان بده
+      if(!moment(newDate).isBefore(moment())){
 
+        this.setState({value:moment(newDate)})
+      }
+    }
+  }
 
   render() {
     return <div className={"DatePicker " + (this.props.disabled ? 'disabled' : '') }>
             <label className="dateTitle">{this.props.title}</label>
             <DatePicker
+              min={this.enabledRange.min}
               ranges={this.disabledRanges}
               timePicker={false}
               value={this.state.value}
@@ -38,7 +60,7 @@ class DateSelector extends React.Component {
               onChange={value => this.setState({ value })}
             />
 
-            <input type="hidden" name={this.props.name} id={(this.props.prefix ? this.props.prefix :'') +'_'+this.props.name} value={MiladiFormat(this.state.value)} className={this.props.className}/>
+            <input type="hidden" name={this.props.name} id={this.props.prefix+'_'+this.props.name} value={MiladiFormat(this.state.value)} className={this.props.className}/>
 
 
             <br />

@@ -116,7 +116,9 @@
             </li>
 
             <li class="menu-item logo">
-                <img src="/img/logo.png" alt="منوی" onclick={window.location('/')'}>
+                <a href="/">
+                <img src="/img/logo.png" alt="منوی">
+                </a>
 
             </li>
 

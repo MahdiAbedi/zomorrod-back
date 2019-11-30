@@ -48,6 +48,8 @@ class InternationalTicketResults extends React.Component{
             // OriginType           :localStorage.getItem(''),
             IsRoundTrip             :localStorage.getItem('IsRoundTrip'),
             ReturnTime              :PartoDateFormat(localStorage.getItem('returnTime')),
+            MaxStopsQuantity        :0//همه پروازها اعم مستقیم و غیر مستقیم
+
         })
         .then(response => {
             let myTickets=response.data;

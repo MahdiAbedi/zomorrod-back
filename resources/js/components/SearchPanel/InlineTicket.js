@@ -17,6 +17,10 @@ class InlineTicket extends React.Component{
     submitForm=(event)=>{
         // alert(this.state.toWay)
         event.preventDefault();
+        //برای ذخیره کردن مسیر رفت و برگشت تو لیست جستجوی پرواز داخلی
+        // localStorage.setItem("inline_origin"         , $('#inline_origin').val());                               //مسیر رفت
+        // localStorage.setItem("inline_destination"    , $('#inline_destination').val());                          //مسیر برگشت
+       
         localStorage.setItem("origin"         , $('#inline_origin').val());                               //مسیر رفت
         localStorage.setItem("destination"    , $('#inline_destination').val());                          //مسیر برگشت
         localStorage.setItem("departureTime"  , document.getElementById('inline_departureTime').value);   //زمان رفت

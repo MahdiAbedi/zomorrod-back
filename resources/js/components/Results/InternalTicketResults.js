@@ -47,6 +47,7 @@ class InternalTicketResults extends React.Component{
             // OriginType           :localStorage.getItem(''),
             IsRoundTrip             :localStorage.getItem('IsRoundTrip'),
             ReturnTime              :PartoDateFormat(localStorage.getItem('returnTime')),
+            MaxStopsQuantity        :2//پرواز مستقیم برای پروازهای داخلی
         })
         .then(response => {
             let myTickets=response.data;

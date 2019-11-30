@@ -44,7 +44,7 @@ Route::get('/flights', function () {
 //     return view('pages/flights');
 // });
 
-Route::post('/checkInlineTickets','TicketController@checkInlineTickets');
+// Route::post('/checkInlineTickets','TicketController@checkInlineTickets');
 //روز بلیط داخلی
 Route::get('/internal/book',function(){
     return view('pages/internal-ticket/book');
