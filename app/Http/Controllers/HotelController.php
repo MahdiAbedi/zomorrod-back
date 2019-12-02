@@ -54,44 +54,21 @@ class HotelController extends TravelBaseController
 
         //##########################################################################################################################
 
-
-        //اطلاعات مسافران 
-        // array_push($Occupancies,
-        // array (
-        // 'AdultCount'   => 1,
-        // 'ChildCount'   => 0,
-        // 'ChildAges'    => array()
-        // ));
-
-        // dd(json_encode(array (
-        //     'SessionId'             =>  $this->SessionId,
-        //     'CheckIn'               =>  $request->input('checkIn'),
-        //     'CheckOut'              =>  $request->input('checkOut'),
-        //     'Latitude'              =>  "",
-        //     'Longitude'             =>  "",
-        //     'RadiusInKilometer'     =>  0,
-        //     'SetGeoLocation'        =>  false,
-        //     'NationalityId'         =>  "IR",
-        //     'HotelId'               =>  '',
-        //     'CityId'                =>  $request->input('CityCode'),
-        //     'Occupancies'           =>  $request->input('Occupancies')
-        // )));
-
-        $response = $client->post('https://apidemo.partocrs.com/Rest/Hotel/HotelAvailability', [
-            RequestOptions::JSON => array (
-                'SessionId'             =>  $this->SessionId,
-                'CheckIn'               =>  $request->input('checkIn'),
-                'CheckOut'              =>  $request->input('checkOut'),
-                'Latitude'              =>  "",
-                'Longitude'             =>  "",
-                'RadiusInKilometer'     =>  0,
-                'SetGeoLocation'        =>  false,
-                'NationalityId'         =>  "IR",
-                'HotelId'               =>  '',
-                'CityId'                =>  $request->input('CityCode'),
-                'Occupancies'           =>  $request->input('Occupancies')
-            )
-        ]);
+        // $response = $client->post('https://apidemo.partocrs.com/Rest/Hotel/HotelAvailability', [
+        //     RequestOptions::JSON => array (
+        //         'SessionId'             =>  $this->SessionId,
+        //         'CheckIn'               =>  $request->input('checkIn'),
+        //         'CheckOut'              =>  $request->input('checkOut'),
+        //         'Latitude'              =>  "",
+        //         'Longitude'             =>  "",
+        //         'RadiusInKilometer'     =>  0,
+        //         'SetGeoLocation'        =>  false,
+        //         'NationalityId'         =>  "IR",
+        //         'HotelId'               =>  '',
+        //         'CityId'                =>  $request->input('CityCode'),
+        //         'Occupancies'           =>  $request->input('Occupancies')
+        //     )
+        // ]);
 
         // dd($response->getBody()->getContents());
         $hotels =  json_decode($response->getBody()->getContents())->PricedItineraries;
@@ -112,6 +89,8 @@ class HotelController extends TravelBaseController
             }
 
         }
+
+        // dd($newHotels);
         return $newHotels;
     }
 

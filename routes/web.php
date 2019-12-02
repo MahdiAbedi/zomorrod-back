@@ -79,7 +79,7 @@ Route::get('/hotels',function(){
 });
 Route::post('/hotels','HotelController@showResults');
 Route::post('/hotels1',function(){
-    return '';
+    return ;
 });
 //ارسال ایجکس برای دریافت نام شهر برای رزو هتل
 Route::post('/cityHotel','HotelController@find');

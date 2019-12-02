@@ -651,6 +651,10 @@ function openTab(evt, cityName) {
 }
 
 
+function between(x, min, max) {
+    return x >= min && x <= max;
+  }
+
 
 $(document).ready(function () {
     //تنظیم مبدا و مقصد پروازهای داخلی

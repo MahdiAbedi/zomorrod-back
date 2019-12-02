@@ -1,4 +1,4 @@
-import hotels from './Hotel.json';
+// import Fakehotels from './Hotel.json';
 import LoadingModal from '../LoadingModal';
 
 class HotelResutls extends React.Component{
@@ -18,15 +18,7 @@ constructor(props){
      hotelEnglishName =  localStorage.getItem('hotelEnglishName');
      hotel_nights     =  localStorage.getItem('hotel_nights');
 
-        //###################################### بدست آوردن لیست ایرلاین ها برای بخش فیلتر #################
-    getAirlines = ()=>{
-        //لیست ایرلاینها رو هم جدا میکنیم
-        this.setState({airlines:this.state.tickets.map((airline)=>{
-            return airline.OriginDestinationOptions[0].FlightSegments[0].MarketingAirlineCode
-        }).filter(onlyUnique)});
-        // لیست بلیط ها رو برای فیلتر کردن تو یک متغییر دیگه نگه میدارم
-    this.setState({tempTickets:[...this.state.tickets]});
-    }
+
 
     //####################### دریافت بلیط از سرور ######################################################
     getTickets=()=>{
@@ -38,13 +30,16 @@ constructor(props){
             checkOut      : PartoDateFormat(localStorage.getItem('hotel_checkOut')),
         })
         .then(response => {
-            // let myTickets=response.data;
-            // this.setState({tickets:myTickets.PricedItineraries})
+            // this.setState({hotels:Fakehotels.PricedItineraries,isLoading:false,tempHotels:[...this.state.hotels]})
              this.setState({
                 hotels:response.data,
                 isLoading:false,
+                tempHotels:response.data
+                
             })
-            // console.log(this.state.hotels)
+
+          
+            
         })
        .catch((error)=>{
           console.log(error);
@@ -75,6 +70,93 @@ constructor(props){
         window.open("/hotel/detail/"+ hotelID, "_blank"); 
     }
 
+
+    
+    //#################### انتخاب هتلها براساس ستاره های هتل #############################################
+    chooseStars=()=>{
+        // this.setState({tempHotels:this.state.hotels})
+        // console.log(this.state.tempHotels)
+        let stars = [];
+        $("input:checkbox[class=StarsCode]:checked").each(function(){
+            stars.push(parseInt($(this).val()));
+        });
+        // console.log(stars)
+
+        if(stars.length==0){
+            this.setState({hotels: this.state.tempHotels})
+        }else{
+            this.setState({hotels : this.state.tempHotels.filter(
+                function(hotel){
+                    return stars.includes(hotel.Rating)
+                }
+            )}) 
+        }
+         
+}
+    //#################### انتخاب هتلها براساس ستاره های هتل #############################################
+    choosePriceRange = () => {
+        let priceRange = [];
+        $("input:checkbox[class=PriceRangeCode]:checked").each(function () {
+            priceRange.push(parseInt($(this).val()));
+        });
+        // console.log(stars)
+
+        if (priceRange.length == 0) {
+            this.setState({
+                hotels: this.state.tempHotels
+            })
+        } else {
+            this.setState({
+                hotels: this.state.tempHotels.filter((hotel) => {
+                        // return hotel.NetRate >10000000
+                        if(0 in priceRange){
+                            console.log(hotel.NetRate)
+                            return hotel.NetRate > 0 && hotel.NetRate <5000000
+                        }
+                        if(5 in priceRange){
+                            return hotel.NetRate > 5000000 && hotel.NetRate <15000000
+                        }
+                        
+                    }
+
+                )
+            })
+        }
+
+    }
+
+
+
+    //#################### فیلتر پروازها بر اساس ظرفیت پرواز #############################################
+    filterByPrice=(accending="true")=>{
+        if(accending){
+            this.setState({tickets : this.state.hotels.sort(
+                function(a,b){
+                    if(a.NetRate < b.NetRate){
+                        return -1;
+                    }
+                    if(a.NetRate > b.NetRate){
+                        return 1;
+                    }
+                    
+                }
+            )}) 
+        }else{
+            this.setState({tickets : this.state.hotels.sort(
+                function(a,b){
+                    if(a.NetRate < b.NetRate){
+                        return 1;
+                    }
+                    if(a.NetRate > b.NetRate){
+                        return -1;
+                    }
+                    
+                }
+            )}) 
+        }
+        
+    }
+
     //############################# Render() ###############################################################
     render(){
 
@@ -95,7 +177,7 @@ constructor(props){
                         <aside className="filters">
                             <section className="flex">
                                 <button className="reset">لغو فیلترها</button>
-                                <p>نتایج جستجو <span>16</span></p>
+                 <p>نتایج جستجو <span>{this.state.hotels.length}</span></p>
                             </section>
                             {/* <!-- جستجوی هتل --> */}
                             <section className="panel">
@@ -117,8 +199,8 @@ constructor(props){
                                 <div className="panel-body">
 
                                     <div>
-                                        <input type="checkbox" name="check1" id="check1"/>
-                                        <label for="check1">
+                                        <input type="checkbox"id="check5" value="5"  className="StarsCode" onClick={()=>{this.chooseStars()}}/>
+                                        <label for="check5">
                                                 <i className="fa fa-star green"></i>
                                                 <i className="fa fa-star green"></i>
                                                 <i className="fa fa-star green"></i>
@@ -127,8 +209,8 @@ constructor(props){
                                         </label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="check1" id="check1"/>
-                                        <label for="check1">
+                                        <input type="checkbox"id="check4" value="4"  className="StarsCode" onClick={()=>{this.chooseStars()}}/>
+                                        <label for="check4">
                                                 <i className="fa fa-star green"></i>
                                                 <i className="fa fa-star green"></i>
                                                 <i className="fa fa-star green"></i>
@@ -137,8 +219,8 @@ constructor(props){
                                         </label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="check1" id="check1"/>
-                                        <label for="check1">
+                                        <input type="checkbox"  id="check3" value="3"  className="StarsCode" onClick={()=>{this.chooseStars()}}/>
+                                        <label for="check3">
                                                 <i className="fa fa-star green"></i>
                                                 <i className="fa fa-star green"></i>
                                                 <i className="fa fa-star green"></i>
@@ -147,8 +229,8 @@ constructor(props){
                                         </label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="check1" id="check1"/>
-                                        <label for="check1">
+                                        <input type="checkbox" id="check2" value="2"  className="StarsCode" onClick={()=>{this.chooseStars()}}/>
+                                        <label for="check2">
                                                 <i className="fa fa-star green"></i>
                                                 <i className="fa fa-star green"></i>
                                                 
@@ -158,7 +240,7 @@ constructor(props){
                                         </label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="check1" id="check1"/>
+                                        <input type="checkbox" id="check1" value="1"  className="StarsCode" onClick={()=>{this.chooseStars()}}/>
                                         <label for="check1">
                                                 <i className="fa fa-star green"></i>
                                                 <i className="far fa-star green"></i>
@@ -168,8 +250,8 @@ constructor(props){
                                         </label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="check1" id="check1"/>
-                                        <label for="check1">رتبه بندی نشده</label>
+                                        <input type="checkbox"  id="check0" value="0"  className="StarsCode" onClick={()=>{this.chooseStars()}}/>
+                                        <label for="check0">رتبه بندی نشده</label>
                                     </div>
                                 </div>
 
@@ -183,28 +265,28 @@ constructor(props){
                                 </header>
                                 <div className="panel-body">
                                     <div>
-                                        <input type="checkbox" name="check1" id="systemi"/>
-                                        <label for="systemi">0 تا 5,000,000</label>
+                                        <input type="checkbox"  id="price0" value="0" className="PriceRangeCode" onClick={()=>{this.choosePriceRange()}}/>
+                                        <label for="price0">0 تا 5,000,000</label>
                                         <span className="checkbox-spanner selected"></span>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="check1" id="charter"/>
-                                        <label for="charter">5,000,000 تا 10,000,000</label>
+                                        <input type="checkbox"  id="price1" value="5" className="PriceRangeCode" onClick={()=>{this.choosePriceRange()}}/>
+                                        <label for="price1">5,000,000 تا 10,000,000</label>
                                         <span className="checkbox-spanner"></span>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="check1" id="systemi"/>
-                                        <label for="systemi">10,000,000 تا 15,000,000</label>
+                                        <input type="checkbox" id="price2" value="10" className="PriceRangeCode" onClick={()=>{this.choosePriceRange()}}/>
+                                        <label for="price2">10,000,000 تا 15,000,000</label>
                                         <span className="checkbox-spanner selected"></span>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="check1" id="charter"/>
-                                        <label for="charter">15,000,000 تا 20,000,000</label>
+                                        <input type="checkbox" id="price3" value="15" className="PriceRangeCode" onClick={()=>{this.choosePriceRange()}}/>
+                                        <label for="price3">15,000,000 تا 20,000,000</label>
                                         <span className="checkbox-spanner"></span>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="check1" id="systemi"/>
-                                        <label for="systemi">20,000,000 به بالا</label>
+                                        <input type="checkbox" id="price4" value="20" className="PriceRangeCode" onClick={()=>{this.choosePriceRange()}}/>
+                                        <label for="price4">20,000,000 به بالا</label>
                                         <span className="checkbox-spanner selected"></span>
                                     </div>
                                 </div>
@@ -250,9 +332,9 @@ constructor(props){
                         <section className="sorting flex">
                             <section className="sort">
                                 <ul className="flex">
-                                    <li><a href="#"><i className="fas fa-sort-amount-up-alt"></i>پر فروش ترین ها</a></li>
-                                    <li><a href="#"><i className="fas fa-sort-amount-down-alt"></i>کمترین قیمت</a></li>
-                                    <li><a href="#"><i className="fas fa-sort-amount-up-alt"></i>بیشترین قیمت</a></li>
+                                    <li><a href="#" onClick={()=>this.filterByPrice(true)}><i className="fas fa-sort-amount-up-alt"></i>پر فروش ترین ها</a></li>
+                                    <li><a href="#" onClick={()=>this.filterByPrice(true)}><i className="fas fa-sort-amount-down-alt"></i>کمترین قیمت</a></li>
+                                    <li><a href="#" onClick={()=>this.filterByPrice(false)}><i className="fas fa-sort-amount-up-alt"></i>بیشترین قیمت</a></li>
                                 </ul>
                             </section>
                             <section className="date">
@@ -275,13 +357,6 @@ constructor(props){
                                             <div className="right">
                                                 <h2>{hotel.Name}</h2>
                                                 <span className="stars" id="stars" dangerouslySetInnerHTML={this.makeStar(hotel.Rating)}>
-                                                    {/* <i class="fa fa-star green"></i>
-                                                    <i class="fa fa-star green"></i>
-                                                    <i class="fa fa-star green"></i>
-                                                    <i class="far fa-star green"></i>
-                                                    <i class="far fa-star green"></i> */}
-                                                    
-                                                    
                                                 </span>
                                                 <p>رتبه : {hotel.Rating || 0} | {farsiRate(hotel.Rating)} |</p>
                                                 <p>امتیاز کاربران : {hotel.ReviewScore || 0}</p>

@@ -70125,17 +70125,6 @@ function (_React$PureComponent) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Results/Hotel/Hotel.json":
-/*!**********************************************************!*\
-  !*** ./resources/js/components/Results/Hotel/Hotel.json ***!
-  \**********************************************************/
-/*! exports provided: Success, Error, CheckIn, CheckOut, PricedItineraries, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"Success\":true,\"Error\":null,\"CheckIn\":\"2019-11-01T00:00:00\",\"CheckOut\":\"2019-11-02T00:00:00\",\"PricedItineraries\":[{\"FareSourceCode\":\"\",\"Offer\":\"Private sale: save 10%\",\"NonRefundable\":true,\"HotelId\":990124,\"PaymentDeadline\":\"2018-10-20T11:24:35.1371372\",\"Currency\":\"IRR\",\"AvailableRoom\":4,\"PlainTextCancellationPolicy\":null,\"NetRate\":922680,\"Rooms\":[{\"Name\":\"Basic Shared Dormitory Men Only Non Smoking\",\"AdultCount\":1,\"ChildCount\":0,\"ChildAges\":null,\"MealType\":\"Room Only\",\"SharingBedding\":false,\"BedGroups\":\"4 BunkBed\"}],\"CancellationPolicies\":[],\"Remarks\":[],\"Amenities\":null},{\"FareSourceCode\":\"\",\"Offer\":null,\"NonRefundable\":false,\"HotelId\":1097614,\"PaymentDeadline\":\"2019-10-20T00:00:00\",\"Currency\":\"IRR\",\"AvailableRoom\":3,\"PlainTextCancellationPolicy\":null,\"NetRate\":1180080,\"Rooms\":[{\"Name\":\"Shared Dormitory\",\"AdultCount\":1,\"ChildCount\":0,\"ChildAges\":null,\"MealType\":\"Room Only\",\"SharingBedding\":false,\"BedGroups\":\"1 TwinBed\"}],\"CancellationPolicies\":[{\"Amount\":1180080,\"FromDate\":\"2019-10-31T00:29:00+03:30\"}],\"Remarks\":[],\"Amenities\":null},{\"FareSourceCode\":\"\",\"Offer\":\"Private sale: save 10%\",\"NonRefundable\":true,\"HotelId\":422287,\"PaymentDeadline\":\"2018-10-20T11:24:35.1371372\",\"Currency\":\"IRR\",\"AvailableRoom\":1,\"PlainTextCancellationPolicy\":null,\"NetRate\":1193280,\"Rooms\":[{\"Name\":\"Shared Dormitory Mixed Dorm\",\"AdultCount\":1,\"ChildCount\":0,\"ChildAges\":null,\"MealType\":\"Room Only\",\"SharingBedding\":false,\"BedGroups\":\"5 BunkBed\"}],\"CancellationPolicies\":[],\"Remarks\":[],\"Amenities\":null},{\"FareSourceCode\":\"\",\"Offer\":\"Private sale: save 10%\",\"NonRefundable\":false,\"HotelId\":1087592,\"PaymentDeadline\":\"2019-10-20T00:00:00\",\"Currency\":\"IRR\",\"AvailableRoom\":19,\"PlainTextCancellationPolicy\":null,\"NetRate\":1231560,\"Rooms\":[{\"Name\":\"Economy Single Room\",\"AdultCount\":1,\"ChildCount\":0,\"ChildAges\":null,\"MealType\":\"Room Only\",\"SharingBedding\":false,\"BedGroups\":\"1 FullBed\"}],\"CancellationPolicies\":[{\"Amount\":1231560,\"FromDate\":\"2019-11-01T00:29:00+03:30\"}],\"Remarks\":[],\"Amenities\":null},{\"FareSourceCode\":\"\",\"Offer\":null,\"NonRefundable\":true,\"HotelId\":508717,\"PaymentDeadline\":\"2018-10-20T11:24:35.1371372\",\"Currency\":\"IRR\",\"AvailableRoom\":19,\"PlainTextCancellationPolicy\":null,\"NetRate\":1401840,\"Rooms\":[{\"Name\":\"10 Bed Mixed Dorm Room With Shared Bathroom 10 Yatakli Ortak Banyolu Dorm Oda\",\"AdultCount\":1,\"ChildCount\":0,\"ChildAges\":null,\"MealType\":\"Free Breakfast\",\"SharingBedding\":false,\"BedGroups\":\"1 TwinBed\"}],\"CancellationPolicies\":[],\"Remarks\":[],\"Amenities\":[\"Free Wifi\",\"Free Breakfast\"]},{\"FareSourceCode\":\"\",\"Offer\":null,\"NonRefundable\":true,\"HotelId\":711289,\"PaymentDeadline\":\"2018-10-20T11:24:35.1371372\",\"Currency\":\"IRR\",\"AvailableRoom\":4,\"PlainTextCancellationPolicy\":null,\"NetRate\":1413720,\"Rooms\":[{\"Name\":\"Basic Shared Dormitory Women Only Non Smoking 4 Person\",\"AdultCount\":1,\"ChildCount\":0,\"ChildAges\":null,\"MealType\":\"Room Only\",\"SharingBedding\":false,\"BedGroups\":\"2 BunkBed\"}],\"CancellationPolicies\":[],\"Remarks\":[],\"Amenities\":null},{\"FareSourceCode\":\"\",\"Offer\":\"Private sale: save 10%\",\"NonRefundable\":true,\"HotelId\":1087766,\"PaymentDeadline\":\"2018-10-20T11:24:35.1371372\",\"Currency\":\"IRR\",\"AvailableRoom\":2,\"PlainTextCancellationPolicy\":null,\"NetRate\":1436160,\"Rooms\":[{\"Name\":\"Shared Dormitory Men Only\",\"AdultCount\":1,\"ChildCount\":0,\"ChildAges\":null,\"MealType\":\"Room Only\",\"SharingBedding\":false,\"BedGroups\":\"2 BunkBed\"}],\"CancellationPolicies\":[],\"Remarks\":[],\"Amenities\":null},{\"FareSourceCode\":\"\",\"Offer\":\"Private sale: save 10%\",\"NonRefundable\":true,\"HotelId\":819769,\"PaymentDeadline\":\"2018-10-20T11:24:35.1371372\",\"Currency\":\"IRR\",\"AvailableRoom\":5,\"PlainTextCancellationPolicy\":null,\"NetRate\":1461240,\"Rooms\":[{\"Name\":\"Standard Single Room\",\"AdultCount\":1,\"ChildCount\":0,\"ChildAges\":null,\"MealType\":\"Room Only\",\"SharingBedding\":false,\"BedGroups\":\"1 TwinBed\"}],\"CancellationPolicies\":[],\"Remarks\":[],\"Amenities\":null},{\"FareSourceCode\":\"\",\"Offer\":\"Private sale: save 10%\",\"NonRefundable\":true,\"HotelId\":657236,\"PaymentDeadline\":\"2018-10-20T11:24:35.1371372\",\"Currency\":\"IRR\",\"AvailableRoom\":3,\"PlainTextCancellationPolicy\":null,\"NetRate\":1591920,\"Rooms\":[{\"Name\":\"Shared Dormitory Women Only\",\"AdultCount\":1,\"ChildCount\":0,\"ChildAges\":null,\"MealType\":\"Room Only\",\"SharingBedding\":false,\"BedGroups\":\"5 BunkBed\"}],\"CancellationPolicies\":[],\"Remarks\":[],\"Amenities\":null},{\"FareSourceCode\":\"\",\"Offer\":\"Private sale: save 10%\",\"NonRefundable\":true,\"HotelId\":755436,\"PaymentDeadline\":\"2018-10-20T11:24:35.1371372\",\"Currency\":\"IRR\",\"AvailableRoom\":8,\"PlainTextCancellationPolicy\":null,\"NetRate\":1591920,\"Rooms\":[{\"Name\":\"Shared Dormitory Mixed Dorm 8 People\",\"AdultCount\":1,\"ChildCount\":0,\"ChildAges\":null,\"MealType\":\"Room Only\",\"SharingBedding\":false,\"BedGroups\":\"4 BunkBed\"}],\"CancellationPolicies\":[],\"Remarks\":[],\"Amenities\":null},{\"FareSourceCode\":\"\",\"Offer\":\"Private sale: save 10%\",\"NonRefundable\":false,\"HotelId\":1025567,\"PaymentDeadline\":\"2019-10-20T00:00:00\",\"Currency\":\"IRR\",\"AvailableRoom\":3,\"PlainTextCancellationPolicy\":null,\"NetRate\":1591920,\"Rooms\":[{\"Name\":\"Shared Bedroom With 8 Bed No Bathroom\",\"AdultCount\":1,\"ChildCount\":0,\"ChildAges\":null,\"MealType\":\"Room Only\",\"SharingBedding\":false,\"BedGroups\":\"4 BunkBed\"}],\"CancellationPolicies\":[{\"Amount\":1591920,\"FromDate\":\"2019-10-31T00:29:00+03:30\"}],\"Remarks\":[],\"Amenities\":null},{\"FareSourceCode\":\"\",\"Offer\":null,\"NonRefundable\":true,\"HotelId\":267616,\"PaymentDeadline\":\"2018-10-20T11:24:35.1527598\",\"Currency\":\"IRR\",\"AvailableRoom\":16,\"PlainTextCancellationPolicy\":null,\"NetRate\":1622280,\"Rooms\":[{\"Name\":\"Comfort Shared Dormitory Mixed Dorm Shared Bathroom\",\"AdultCount\":1,\"ChildCount\":0,\"ChildAges\":null,\"MealType\":\"Room Only\",\"SharingBedding\":false,\"BedGroups\":\"4 BunkBed\"}],\"CancellationPolicies\":[],\"Remarks\":[],\"Amenities\":[\"Free Wifi\"]}]}");
-
-/***/ }),
-
 /***/ "./resources/js/components/Results/Hotel/HotelResutls.js":
 /*!***************************************************************!*\
   !*** ./resources/js/components/Results/Hotel/HotelResutls.js ***!
@@ -70145,18 +70134,8 @@ module.exports = JSON.parse("{\"Success\":true,\"Error\":null,\"CheckIn\":\"2019
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Hotel_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Hotel.json */ "./resources/js/components/Results/Hotel/Hotel.json");
-var _Hotel_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./Hotel.json */ "./resources/js/components/Results/Hotel/Hotel.json", 1);
-/* harmony import */ var _LoadingModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../LoadingModal */ "./resources/js/components/Results/LoadingModal.js");
+/* harmony import */ var _LoadingModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../LoadingModal */ "./resources/js/components/Results/LoadingModal.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -70176,7 +70155,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-
+// import Fakehotels from './Hotel.json';
 
 
 var HotelResutls =
@@ -70199,20 +70178,6 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "hotel_nights", localStorage.getItem('hotel_nights'));
 
-    _defineProperty(_assertThisInitialized(_this), "getAirlines", function () {
-      //لیست ایرلاینها رو هم جدا میکنیم
-      _this.setState({
-        airlines: _this.state.tickets.map(function (airline) {
-          return airline.OriginDestinationOptions[0].FlightSegments[0].MarketingAirlineCode;
-        }).filter(onlyUnique)
-      }); // لیست بلیط ها رو برای فیلتر کردن تو یک متغییر دیگه نگه میدارم
-
-
-      _this.setState({
-        tempTickets: _toConsumableArray(_this.state.tickets)
-      });
-    });
-
     _defineProperty(_assertThisInitialized(_this), "getTickets", function () {
       axios.post('/hotels', {
         CityCode: localStorage.getItem('cityCode'),
@@ -70220,16 +70185,93 @@ function (_React$Component) {
         checkIn: PartoDateFormat(localStorage.getItem('hotel_checkIn')),
         checkOut: PartoDateFormat(localStorage.getItem('hotel_checkOut'))
       }).then(function (response) {
-        // let myTickets=response.data;
-        // this.setState({tickets:myTickets.PricedItineraries})
+        // this.setState({hotels:Fakehotels.PricedItineraries,isLoading:false,tempHotels:[...this.state.hotels]})
         _this.setState({
           hotels: response.data,
-          isLoading: false
-        }); // console.log(this.state.hotels)
-
+          isLoading: false,
+          tempHotels: response.data
+        });
       })["catch"](function (error) {
         console.log(error);
       });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "chooseStars", function () {
+      // this.setState({tempHotels:this.state.hotels})
+      // console.log(this.state.tempHotels)
+      var stars = [];
+      $("input:checkbox[class=StarsCode]:checked").each(function () {
+        stars.push(parseInt($(this).val()));
+      }); // console.log(stars)
+
+      if (stars.length == 0) {
+        _this.setState({
+          hotels: _this.state.tempHotels
+        });
+      } else {
+        _this.setState({
+          hotels: _this.state.tempHotels.filter(function (hotel) {
+            return stars.includes(hotel.Rating);
+          })
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "choosePriceRange", function () {
+      var priceRange = [];
+      $("input:checkbox[class=PriceRangeCode]:checked").each(function () {
+        priceRange.push(parseInt($(this).val()));
+      }); // console.log(stars)
+
+      if (priceRange.length == 0) {
+        _this.setState({
+          hotels: _this.state.tempHotels
+        });
+      } else {
+        _this.setState({
+          hotels: _this.state.tempHotels.filter(function (hotel) {
+            // return hotel.NetRate >10000000
+            if (0 in priceRange) {
+              console.log(hotel.NetRate);
+              return hotel.NetRate > 0 && hotel.NetRate < 5000000;
+            }
+
+            if (5 in priceRange) {
+              return hotel.NetRate > 5000000 && hotel.NetRate < 15000000;
+            }
+          })
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "filterByPrice", function () {
+      var accending = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "true";
+
+      if (accending) {
+        _this.setState({
+          tickets: _this.state.hotels.sort(function (a, b) {
+            if (a.NetRate < b.NetRate) {
+              return -1;
+            }
+
+            if (a.NetRate > b.NetRate) {
+              return 1;
+            }
+          })
+        });
+      } else {
+        _this.setState({
+          tickets: _this.state.hotels.sort(function (a, b) {
+            if (a.NetRate < b.NetRate) {
+              return 1;
+            }
+
+            if (a.NetRate > b.NetRate) {
+              return -1;
+            }
+          })
+        });
+      }
     });
 
     _this.state = {
@@ -70272,17 +70314,18 @@ function (_React$Component) {
       localStorage.setItem('hotelID', hotelID); // window.location="/hotel/detail/"+hotelID;
 
       window.open("/hotel/detail/" + hotelID, "_blank");
-    } //############################# Render() ###############################################################
+    } //#################### انتخاب هتلها براساس ستاره های هتل #############################################
 
   }, {
     key: "render",
+    //############################# Render() ###############################################################
     value: function render() {
       var _this2 = this;
 
       if (this.state.hotels.length == 0) {
         return React.createElement("section", {
           className: "result-panel container"
-        }, this.state.isLoading ? React.createElement(_LoadingModal__WEBPACK_IMPORTED_MODULE_1__["default"], null) : 'جستجوی شما نتیجه ای در بر نداشت');
+        }, this.state.isLoading ? React.createElement(_LoadingModal__WEBPACK_IMPORTED_MODULE_0__["default"], null) : 'جستجوی شما نتیجه ای در بر نداشت');
       } else {
         return React.createElement(React.Fragment, null, React.createElement("aside", {
           className: "filters"
@@ -70290,7 +70333,7 @@ function (_React$Component) {
           className: "flex"
         }, React.createElement("button", {
           className: "reset"
-        }, "\u0644\u063A\u0648 \u0641\u06CC\u0644\u062A\u0631\u0647\u0627"), React.createElement("p", null, "\u0646\u062A\u0627\u06CC\u062C \u062C\u0633\u062A\u062C\u0648 ", React.createElement("span", null, "16"))), React.createElement("section", {
+        }, "\u0644\u063A\u0648 \u0641\u06CC\u0644\u062A\u0631\u0647\u0627"), React.createElement("p", null, "\u0646\u062A\u0627\u06CC\u062C \u062C\u0633\u062A\u062C\u0648 ", React.createElement("span", null, this.state.hotels.length))), React.createElement("section", {
           className: "panel"
         }, React.createElement("header", {
           className: "panel-title flex-between"
@@ -70316,10 +70359,14 @@ function (_React$Component) {
           className: "panel-body"
         }, React.createElement("div", null, React.createElement("input", {
           type: "checkbox",
-          name: "check1",
-          id: "check1"
+          id: "check5",
+          value: "5",
+          className: "StarsCode",
+          onClick: function onClick() {
+            _this2.chooseStars();
+          }
         }), React.createElement("label", {
-          "for": "check1"
+          "for": "check5"
         }, React.createElement("i", {
           className: "fa fa-star green"
         }), React.createElement("i", {
@@ -70332,10 +70379,14 @@ function (_React$Component) {
           className: "fa fa-star green"
         }))), React.createElement("div", null, React.createElement("input", {
           type: "checkbox",
-          name: "check1",
-          id: "check1"
+          id: "check4",
+          value: "4",
+          className: "StarsCode",
+          onClick: function onClick() {
+            _this2.chooseStars();
+          }
         }), React.createElement("label", {
-          "for": "check1"
+          "for": "check4"
         }, React.createElement("i", {
           className: "fa fa-star green"
         }), React.createElement("i", {
@@ -70348,10 +70399,14 @@ function (_React$Component) {
           className: "far fa-star green"
         }))), React.createElement("div", null, React.createElement("input", {
           type: "checkbox",
-          name: "check1",
-          id: "check1"
+          id: "check3",
+          value: "3",
+          className: "StarsCode",
+          onClick: function onClick() {
+            _this2.chooseStars();
+          }
         }), React.createElement("label", {
-          "for": "check1"
+          "for": "check3"
         }, React.createElement("i", {
           className: "fa fa-star green"
         }), React.createElement("i", {
@@ -70364,10 +70419,14 @@ function (_React$Component) {
           className: "far fa-star green"
         }))), React.createElement("div", null, React.createElement("input", {
           type: "checkbox",
-          name: "check1",
-          id: "check1"
+          id: "check2",
+          value: "2",
+          className: "StarsCode",
+          onClick: function onClick() {
+            _this2.chooseStars();
+          }
         }), React.createElement("label", {
-          "for": "check1"
+          "for": "check2"
         }, React.createElement("i", {
           className: "fa fa-star green"
         }), React.createElement("i", {
@@ -70380,8 +70439,12 @@ function (_React$Component) {
           className: "far fa-star green"
         }))), React.createElement("div", null, React.createElement("input", {
           type: "checkbox",
-          name: "check1",
-          id: "check1"
+          id: "check1",
+          value: "1",
+          className: "StarsCode",
+          onClick: function onClick() {
+            _this2.chooseStars();
+          }
         }), React.createElement("label", {
           "for": "check1"
         }, React.createElement("i", {
@@ -70396,10 +70459,14 @@ function (_React$Component) {
           className: "far fa-star green"
         }))), React.createElement("div", null, React.createElement("input", {
           type: "checkbox",
-          name: "check1",
-          id: "check1"
+          id: "check0",
+          value: "0",
+          className: "StarsCode",
+          onClick: function onClick() {
+            _this2.chooseStars();
+          }
         }), React.createElement("label", {
-          "for": "check1"
+          "for": "check0"
         }, "\u0631\u062A\u0628\u0647 \u0628\u0646\u062F\u06CC \u0646\u0634\u062F\u0647")))), React.createElement("section", {
           className: "panel"
         }, React.createElement("header", {
@@ -70412,42 +70479,62 @@ function (_React$Component) {
           className: "panel-body"
         }, React.createElement("div", null, React.createElement("input", {
           type: "checkbox",
-          name: "check1",
-          id: "systemi"
+          id: "price0",
+          value: "0",
+          className: "PriceRangeCode",
+          onClick: function onClick() {
+            _this2.choosePriceRange();
+          }
         }), React.createElement("label", {
-          "for": "systemi"
+          "for": "price0"
         }, "0 \u062A\u0627 5,000,000"), React.createElement("span", {
           className: "checkbox-spanner selected"
         })), React.createElement("div", null, React.createElement("input", {
           type: "checkbox",
-          name: "check1",
-          id: "charter"
+          id: "price1",
+          value: "5",
+          className: "PriceRangeCode",
+          onClick: function onClick() {
+            _this2.choosePriceRange();
+          }
         }), React.createElement("label", {
-          "for": "charter"
+          "for": "price1"
         }, "5,000,000 \u062A\u0627 10,000,000"), React.createElement("span", {
           className: "checkbox-spanner"
         })), React.createElement("div", null, React.createElement("input", {
           type: "checkbox",
-          name: "check1",
-          id: "systemi"
+          id: "price2",
+          value: "10",
+          className: "PriceRangeCode",
+          onClick: function onClick() {
+            _this2.choosePriceRange();
+          }
         }), React.createElement("label", {
-          "for": "systemi"
+          "for": "price2"
         }, "10,000,000 \u062A\u0627 15,000,000"), React.createElement("span", {
           className: "checkbox-spanner selected"
         })), React.createElement("div", null, React.createElement("input", {
           type: "checkbox",
-          name: "check1",
-          id: "charter"
+          id: "price3",
+          value: "15",
+          className: "PriceRangeCode",
+          onClick: function onClick() {
+            _this2.choosePriceRange();
+          }
         }), React.createElement("label", {
-          "for": "charter"
+          "for": "price3"
         }, "15,000,000 \u062A\u0627 20,000,000"), React.createElement("span", {
           className: "checkbox-spanner"
         })), React.createElement("div", null, React.createElement("input", {
           type: "checkbox",
-          name: "check1",
-          id: "systemi"
+          id: "price4",
+          value: "20",
+          className: "PriceRangeCode",
+          onClick: function onClick() {
+            _this2.choosePriceRange();
+          }
         }), React.createElement("label", {
-          "for": "systemi"
+          "for": "price4"
         }, "20,000,000 \u0628\u0647 \u0628\u0627\u0644\u0627"), React.createElement("span", {
           className: "checkbox-spanner selected"
         })))), React.createElement("section", {
@@ -70501,15 +70588,24 @@ function (_React$Component) {
         }, React.createElement("ul", {
           className: "flex"
         }, React.createElement("li", null, React.createElement("a", {
-          href: "#"
+          href: "#",
+          onClick: function onClick() {
+            return _this2.filterByPrice(true);
+          }
         }, React.createElement("i", {
           className: "fas fa-sort-amount-up-alt"
         }), "\u067E\u0631 \u0641\u0631\u0648\u0634 \u062A\u0631\u06CC\u0646 \u0647\u0627")), React.createElement("li", null, React.createElement("a", {
-          href: "#"
+          href: "#",
+          onClick: function onClick() {
+            return _this2.filterByPrice(true);
+          }
         }, React.createElement("i", {
           className: "fas fa-sort-amount-down-alt"
         }), "\u06A9\u0645\u062A\u0631\u06CC\u0646 \u0642\u06CC\u0645\u062A")), React.createElement("li", null, React.createElement("a", {
-          href: "#"
+          href: "#",
+          onClick: function onClick() {
+            return _this2.filterByPrice(false);
+          }
         }, React.createElement("i", {
           className: "fas fa-sort-amount-up-alt"
         }), "\u0628\u06CC\u0634\u062A\u0631\u06CC\u0646 \u0642\u06CC\u0645\u062A")))), React.createElement("section", {
