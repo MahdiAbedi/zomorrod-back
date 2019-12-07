@@ -70217,31 +70217,13 @@ function (_React$Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "choosePriceRange", function () {
-      var priceRange = [];
-      $("input:checkbox[class=PriceRangeCode]:checked").each(function () {
-        priceRange.push(parseInt($(this).val()));
-      }); // console.log(stars)
-
-      if (priceRange.length == 0) {
-        _this.setState({
-          hotels: _this.state.tempHotels
-        });
-      } else {
-        _this.setState({
-          hotels: _this.state.tempHotels.filter(function (hotel) {
-            // return hotel.NetRate >10000000
-            if (0 in priceRange) {
-              console.log(hotel.NetRate);
-              return hotel.NetRate > 0 && hotel.NetRate < 5000000;
-            }
-
-            if (5 in priceRange) {
-              return hotel.NetRate > 5000000 && hotel.NetRate < 15000000;
-            }
-          })
-        });
-      }
+    _defineProperty(_assertThisInitialized(_this), "choosePriceRange", function (price) {
+      _this.setState({
+        hotels: _this.state.tempHotels.filter(function (hotel) {
+          // return hotel.NetRate >10000000
+          return hotel.NetRate > price * 1000000 && hotel.NetRate < price * 1000000 + 5000000;
+        })
+      });
     });
 
     _defineProperty(_assertThisInitialized(_this), "filterByPrice", function () {
@@ -70270,6 +70252,41 @@ function (_React$Component) {
               return -1;
             }
           })
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "filterByMealType", function () {
+      var MealTypes = [];
+      $("input:checkbox[class=MealType]:checked").each(function () {
+        MealTypes.push($(this).val());
+      }); // console.log(stars)
+
+      if (MealTypes.length == 0) {
+        _this.setState({
+          hotels: _this.state.tempHotels
+        });
+      } else {
+        _this.setState({
+          hotels: _this.state.tempHotels.filter(function (hotel) {
+            return MealTypes.includes(hotel.Rooms[0].MealType);
+          })
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "filterByHotelName", function (hotelName) {
+      console.log(hotelName.toLocaleLowerCase());
+
+      if (hotelName.length > 0) {
+        _this.setState({
+          hotels: _this.state.tempHotels.filter(function (hotel) {
+            return hotel.Name.toLocaleLowerCase().includes(hotelName);
+          })
+        });
+      } else {
+        _this.setState({
+          hotels: _this.state.tempHotels
         });
       }
     });
@@ -70323,263 +70340,25 @@ function (_React$Component) {
       var _this2 = this;
 
       if (this.state.hotels.length == 0) {
-        return React.createElement("section", {
+        return React.createElement(React.Fragment, null, React.createElement(HotelFilters, {
+          chooseStars: this.chooseStars,
+          choosePriceRange: this.choosePriceRange,
+          filterByPrice: this.filterByPrice,
+          resultsCount: this.state.hotels.length,
+          filterByMealType: this.filterByMealType,
+          filterByHotelName: this.filterByHotelName
+        }), React.createElement("section", {
           className: "result-panel container"
-        }, this.state.isLoading ? React.createElement(_LoadingModal__WEBPACK_IMPORTED_MODULE_0__["default"], null) : 'جستجوی شما نتیجه ای در بر نداشت');
+        }, this.state.isLoading ? React.createElement(_LoadingModal__WEBPACK_IMPORTED_MODULE_0__["default"], null) : 'جستجوی شما نتیجه ای در بر نداشت'));
       } else {
-        return React.createElement(React.Fragment, null, React.createElement("aside", {
-          className: "filters"
-        }, React.createElement("section", {
-          className: "flex"
-        }, React.createElement("button", {
-          className: "reset"
-        }, "\u0644\u063A\u0648 \u0641\u06CC\u0644\u062A\u0631\u0647\u0627"), React.createElement("p", null, "\u0646\u062A\u0627\u06CC\u062C \u062C\u0633\u062A\u062C\u0648 ", React.createElement("span", null, this.state.hotels.length))), React.createElement("section", {
-          className: "panel"
-        }, React.createElement("header", {
-          className: "panel-title flex-between"
-        }, React.createElement("span", null, "\u062C\u0633\u062A\u062C\u0648\u06CC \u0647\u062A\u0644"), React.createElement("a", {
-          href: "#"
-        }, React.createElement("i", {
-          className: "fas fa-chevron-down"
-        }))), React.createElement("div", {
-          className: "panel-body"
-        }, React.createElement("input", {
-          type: "text",
-          placeholder: "\u062C\u0633\u062A\u062C\u0648 \u0628\u0631 \u0627\u0633\u0627\u0633 \u0646\u0627\u0645 \u0647\u062A\u0644",
-          className: "border"
-        }))), React.createElement("section", {
-          className: "panel"
-        }, React.createElement("header", {
-          className: "panel-title flex-between"
-        }, React.createElement("span", null, "\u062F\u0631\u062C\u0647 \u0647\u062A\u0644"), React.createElement("a", {
-          href: "#"
-        }, React.createElement("i", {
-          className: "fas fa-chevron-down"
-        }))), React.createElement("div", {
-          className: "panel-body"
-        }, React.createElement("div", null, React.createElement("input", {
-          type: "checkbox",
-          id: "check5",
-          value: "5",
-          className: "StarsCode",
-          onClick: function onClick() {
-            _this2.chooseStars();
-          }
-        }), React.createElement("label", {
-          "for": "check5"
-        }, React.createElement("i", {
-          className: "fa fa-star green"
-        }), React.createElement("i", {
-          className: "fa fa-star green"
-        }), React.createElement("i", {
-          className: "fa fa-star green"
-        }), React.createElement("i", {
-          className: "fa fa-star green"
-        }), React.createElement("i", {
-          className: "fa fa-star green"
-        }))), React.createElement("div", null, React.createElement("input", {
-          type: "checkbox",
-          id: "check4",
-          value: "4",
-          className: "StarsCode",
-          onClick: function onClick() {
-            _this2.chooseStars();
-          }
-        }), React.createElement("label", {
-          "for": "check4"
-        }, React.createElement("i", {
-          className: "fa fa-star green"
-        }), React.createElement("i", {
-          className: "fa fa-star green"
-        }), React.createElement("i", {
-          className: "fa fa-star green"
-        }), React.createElement("i", {
-          className: "fa fa-star green"
-        }), React.createElement("i", {
-          className: "far fa-star green"
-        }))), React.createElement("div", null, React.createElement("input", {
-          type: "checkbox",
-          id: "check3",
-          value: "3",
-          className: "StarsCode",
-          onClick: function onClick() {
-            _this2.chooseStars();
-          }
-        }), React.createElement("label", {
-          "for": "check3"
-        }, React.createElement("i", {
-          className: "fa fa-star green"
-        }), React.createElement("i", {
-          className: "fa fa-star green"
-        }), React.createElement("i", {
-          className: "fa fa-star green"
-        }), React.createElement("i", {
-          className: "far fa-star green"
-        }), React.createElement("i", {
-          className: "far fa-star green"
-        }))), React.createElement("div", null, React.createElement("input", {
-          type: "checkbox",
-          id: "check2",
-          value: "2",
-          className: "StarsCode",
-          onClick: function onClick() {
-            _this2.chooseStars();
-          }
-        }), React.createElement("label", {
-          "for": "check2"
-        }, React.createElement("i", {
-          className: "fa fa-star green"
-        }), React.createElement("i", {
-          className: "fa fa-star green"
-        }), React.createElement("i", {
-          className: "far fa-star green"
-        }), React.createElement("i", {
-          className: "far fa-star green"
-        }), React.createElement("i", {
-          className: "far fa-star green"
-        }))), React.createElement("div", null, React.createElement("input", {
-          type: "checkbox",
-          id: "check1",
-          value: "1",
-          className: "StarsCode",
-          onClick: function onClick() {
-            _this2.chooseStars();
-          }
-        }), React.createElement("label", {
-          "for": "check1"
-        }, React.createElement("i", {
-          className: "fa fa-star green"
-        }), React.createElement("i", {
-          className: "far fa-star green"
-        }), React.createElement("i", {
-          className: "far fa-star green"
-        }), React.createElement("i", {
-          className: "far fa-star green"
-        }), React.createElement("i", {
-          className: "far fa-star green"
-        }))), React.createElement("div", null, React.createElement("input", {
-          type: "checkbox",
-          id: "check0",
-          value: "0",
-          className: "StarsCode",
-          onClick: function onClick() {
-            _this2.chooseStars();
-          }
-        }), React.createElement("label", {
-          "for": "check0"
-        }, "\u0631\u062A\u0628\u0647 \u0628\u0646\u062F\u06CC \u0646\u0634\u062F\u0647")))), React.createElement("section", {
-          className: "panel"
-        }, React.createElement("header", {
-          className: "panel-title flex-between"
-        }, React.createElement("span", null, "\u0631\u0646\u062C \u0642\u06CC\u0645\u062A\u06CC \u0647\u062A\u0644 (\u0642\u06CC\u0645\u062A \u0628\u0647 \u0631\u06CC\u0627\u0644)"), React.createElement("a", {
-          href: "#"
-        }, React.createElement("i", {
-          className: "fas fa-chevron-down"
-        }))), React.createElement("div", {
-          className: "panel-body"
-        }, React.createElement("div", null, React.createElement("input", {
-          type: "checkbox",
-          id: "price0",
-          value: "0",
-          className: "PriceRangeCode",
-          onClick: function onClick() {
-            _this2.choosePriceRange();
-          }
-        }), React.createElement("label", {
-          "for": "price0"
-        }, "0 \u062A\u0627 5,000,000"), React.createElement("span", {
-          className: "checkbox-spanner selected"
-        })), React.createElement("div", null, React.createElement("input", {
-          type: "checkbox",
-          id: "price1",
-          value: "5",
-          className: "PriceRangeCode",
-          onClick: function onClick() {
-            _this2.choosePriceRange();
-          }
-        }), React.createElement("label", {
-          "for": "price1"
-        }, "5,000,000 \u062A\u0627 10,000,000"), React.createElement("span", {
-          className: "checkbox-spanner"
-        })), React.createElement("div", null, React.createElement("input", {
-          type: "checkbox",
-          id: "price2",
-          value: "10",
-          className: "PriceRangeCode",
-          onClick: function onClick() {
-            _this2.choosePriceRange();
-          }
-        }), React.createElement("label", {
-          "for": "price2"
-        }, "10,000,000 \u062A\u0627 15,000,000"), React.createElement("span", {
-          className: "checkbox-spanner selected"
-        })), React.createElement("div", null, React.createElement("input", {
-          type: "checkbox",
-          id: "price3",
-          value: "15",
-          className: "PriceRangeCode",
-          onClick: function onClick() {
-            _this2.choosePriceRange();
-          }
-        }), React.createElement("label", {
-          "for": "price3"
-        }, "15,000,000 \u062A\u0627 20,000,000"), React.createElement("span", {
-          className: "checkbox-spanner"
-        })), React.createElement("div", null, React.createElement("input", {
-          type: "checkbox",
-          id: "price4",
-          value: "20",
-          className: "PriceRangeCode",
-          onClick: function onClick() {
-            _this2.choosePriceRange();
-          }
-        }), React.createElement("label", {
-          "for": "price4"
-        }, "20,000,000 \u0628\u0647 \u0628\u0627\u0644\u0627"), React.createElement("span", {
-          className: "checkbox-spanner selected"
-        })))), React.createElement("section", {
-          className: "panel"
-        }, React.createElement("header", {
-          className: "panel-title flex-between"
-        }, React.createElement("span", null, "\u0646\u0648\u0639 \u0645\u06A9\u0627\u0646 \u0627\u0642\u0627\u0645\u062A\u06CC"), React.createElement("a", {
-          href: "#"
-        }, React.createElement("i", {
-          className: "fas fa-chevron-down"
-        }))), React.createElement("div", {
-          className: "panel-body"
-        }, React.createElement("div", null, React.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "systemi"
-        }), React.createElement("label", {
-          "for": "systemi"
-        }, "\u0647\u062A\u0644"), React.createElement("span", {
-          className: "checkbox-spanner selected"
-        })), React.createElement("div", null, React.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "charter"
-        }), React.createElement("label", {
-          "for": "charter"
-        }, "\u0628\u0648\u062A\u06CC\u06A9 \u0647\u062A\u0644"), React.createElement("span", {
-          className: "checkbox-spanner"
-        })), React.createElement("div", null, React.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "systemi"
-        }), React.createElement("label", {
-          "for": "systemi"
-        }, "\u0631\u06CC\u0632\u0648\u0631\u062A \u0647\u062A\u0644"), React.createElement("span", {
-          className: "checkbox-spanner selected"
-        })), React.createElement("div", null, React.createElement("input", {
-          type: "checkbox",
-          name: "check1",
-          id: "charter"
-        }), React.createElement("label", {
-          "for": "charter"
-        }, "\u0647\u062A\u0644 \u0622\u067E\u0627\u0631\u062A\u0645\u0627\u0646"), React.createElement("span", {
-          className: "checkbox-spanner"
-        }))))), React.createElement("section", {
+        return React.createElement(React.Fragment, null, React.createElement(HotelFilters, {
+          chooseStars: this.chooseStars,
+          choosePriceRange: this.choosePriceRange,
+          filterByPrice: this.filterByPrice,
+          resultsCount: this.state.hotels.length,
+          filterByMealType: this.filterByMealType,
+          filterByHotelName: this.filterByHotelName
+        }), React.createElement("section", {
           className: "results "
         }, React.createElement("section", {
           className: "sorting flex"
@@ -70593,13 +70372,6 @@ function (_React$Component) {
             return _this2.filterByPrice(true);
           }
         }, React.createElement("i", {
-          className: "fas fa-sort-amount-up-alt"
-        }), "\u067E\u0631 \u0641\u0631\u0648\u0634 \u062A\u0631\u06CC\u0646 \u0647\u0627")), React.createElement("li", null, React.createElement("a", {
-          href: "#",
-          onClick: function onClick() {
-            return _this2.filterByPrice(true);
-          }
-        }, React.createElement("i", {
           className: "fas fa-sort-amount-down-alt"
         }), "\u06A9\u0645\u062A\u0631\u06CC\u0646 \u0642\u06CC\u0645\u062A")), React.createElement("li", null, React.createElement("a", {
           href: "#",
@@ -70608,7 +70380,14 @@ function (_React$Component) {
           }
         }, React.createElement("i", {
           className: "fas fa-sort-amount-up-alt"
-        }), "\u0628\u06CC\u0634\u062A\u0631\u06CC\u0646 \u0642\u06CC\u0645\u062A")))), React.createElement("section", {
+        }), "\u0628\u06CC\u0634\u062A\u0631\u06CC\u0646 \u0642\u06CC\u0645\u062A")), React.createElement("li", null, React.createElement("a", {
+          href: "#",
+          onClick: function onClick() {
+            return _this2.filterByPrice(true);
+          }
+        }, React.createElement("i", {
+          className: "fas fa-sort-amount-up-alt"
+        }), "\u067E\u0631 \u0641\u0631\u0648\u0634 \u062A\u0631\u06CC\u0646 \u0647\u0627")))), React.createElement("section", {
           className: "date"
         }, React.createElement("ul", {
           className: "flex"
@@ -70646,7 +70425,10 @@ function (_React$Component) {
           }), React.createElement("p", null, "\u0631\u062A\u0628\u0647 : ", hotel.Rating || 0, " | ", farsiRate(hotel.Rating), " |"), React.createElement("p", null, "\u0627\u0645\u062A\u06CC\u0627\u0632 \u06A9\u0627\u0631\u0628\u0631\u0627\u0646 : ", hotel.ReviewScore || 0), React.createElement("a", {
             href: "#",
             className: "green"
-          }, hotel.Rooms[0].Name), React.createElement("p", null, hotel.Offer)), React.createElement("div", {
+          }, hotel.Rooms[0].Name), React.createElement("a", {
+            href: "#",
+            className: "green"
+          }, hotel.Rooms[0].MealType), React.createElement("p", null, hotel.Offer)), React.createElement("div", {
             className: "left"
           }, React.createElement("a", {
             target: "_blank",
@@ -70675,7 +70457,331 @@ function (_React$Component) {
   }]);
 
   return HotelResutls;
-}(React.Component);
+}(React.Component); //class
+
+
+var HotelFilters =
+/*#__PURE__*/
+function (_React$Component2) {
+  _inherits(HotelFilters, _React$Component2);
+
+  function HotelFilters(props) {
+    var _this3;
+
+    _classCallCheck(this, HotelFilters);
+
+    _this3 = _possibleConstructorReturn(this, _getPrototypeOf(HotelFilters).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this3), "filterByHotelName", function (e) {
+      var searchString = e.target.value;
+
+      _this3.setState({
+        SearchText: searchString
+      });
+
+      _this3.props.filterByHotelName(searchString);
+    });
+
+    _this3.state = {
+      SearchText: ''
+    };
+    return _this3;
+  }
+
+  _createClass(HotelFilters, [{
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      return React.createElement("aside", {
+        className: "filters"
+      }, React.createElement("section", {
+        className: "flex"
+      }, React.createElement("button", {
+        className: "reset"
+      }, "\u0644\u063A\u0648 \u0641\u06CC\u0644\u062A\u0631\u0647\u0627"), React.createElement("p", null, "\u0646\u062A\u0627\u06CC\u062C \u062C\u0633\u062A\u062C\u0648 ", React.createElement("span", null, this.props.resultsCount))), React.createElement("section", {
+        className: "panel"
+      }, React.createElement("header", {
+        className: "panel-title flex-between"
+      }, React.createElement("span", null, "\u062C\u0633\u062A\u062C\u0648\u06CC \u0646\u0627\u0645 \u0647\u062A\u0644"), React.createElement("a", {
+        href: "#"
+      }, React.createElement("i", {
+        className: "fas fa-chevron-down"
+      }))), React.createElement("div", {
+        className: "panel-body"
+      }, React.createElement("input", {
+        type: "text",
+        placeholder: "\u062C\u0633\u062A\u062C\u0648 \u0628\u0631 \u0627\u0633\u0627\u0633 \u0646\u0627\u0645 \u0647\u062A\u0644",
+        className: "border",
+        value: this.state.SearchText,
+        onChange: function onChange(e) {
+          return _this4.filterByHotelName(e);
+        }
+      }))), React.createElement("section", {
+        className: "panel"
+      }, React.createElement("header", {
+        className: "panel-title flex-between"
+      }, React.createElement("span", null, "\u062F\u0631\u062C\u0647 \u0647\u062A\u0644"), React.createElement("a", {
+        href: "#"
+      }, React.createElement("i", {
+        className: "fas fa-chevron-down"
+      }))), React.createElement("div", {
+        className: "panel-body"
+      }, React.createElement("div", null, React.createElement("input", {
+        type: "checkbox",
+        id: "check5",
+        value: "5",
+        className: "StarsCode",
+        onClick: function onClick() {
+          _this4.props.chooseStars();
+        }
+      }), React.createElement("label", {
+        "for": "check5"
+      }, React.createElement("i", {
+        className: "fa fa-star green"
+      }), React.createElement("i", {
+        className: "fa fa-star green"
+      }), React.createElement("i", {
+        className: "fa fa-star green"
+      }), React.createElement("i", {
+        className: "fa fa-star green"
+      }), React.createElement("i", {
+        className: "fa fa-star green"
+      }))), React.createElement("div", null, React.createElement("input", {
+        type: "checkbox",
+        id: "check4",
+        value: "4",
+        className: "StarsCode",
+        onClick: function onClick() {
+          _this4.props.chooseStars();
+        }
+      }), React.createElement("label", {
+        "for": "check4"
+      }, React.createElement("i", {
+        className: "fa fa-star green"
+      }), React.createElement("i", {
+        className: "fa fa-star green"
+      }), React.createElement("i", {
+        className: "fa fa-star green"
+      }), React.createElement("i", {
+        className: "fa fa-star green"
+      }), React.createElement("i", {
+        className: "far fa-star green"
+      }))), React.createElement("div", null, React.createElement("input", {
+        type: "checkbox",
+        id: "check3",
+        value: "3",
+        className: "StarsCode",
+        onClick: function onClick() {
+          _this4.props.chooseStars();
+        }
+      }), React.createElement("label", {
+        "for": "check3"
+      }, React.createElement("i", {
+        className: "fa fa-star green"
+      }), React.createElement("i", {
+        className: "fa fa-star green"
+      }), React.createElement("i", {
+        className: "fa fa-star green"
+      }), React.createElement("i", {
+        className: "far fa-star green"
+      }), React.createElement("i", {
+        className: "far fa-star green"
+      }))), React.createElement("div", null, React.createElement("input", {
+        type: "checkbox",
+        id: "check2",
+        value: "2",
+        className: "StarsCode",
+        onClick: function onClick() {
+          _this4.props.chooseStars();
+        }
+      }), React.createElement("label", {
+        "for": "check2"
+      }, React.createElement("i", {
+        className: "fa fa-star green"
+      }), React.createElement("i", {
+        className: "fa fa-star green"
+      }), React.createElement("i", {
+        className: "far fa-star green"
+      }), React.createElement("i", {
+        className: "far fa-star green"
+      }), React.createElement("i", {
+        className: "far fa-star green"
+      }))), React.createElement("div", null, React.createElement("input", {
+        type: "checkbox",
+        id: "check1",
+        value: "1",
+        className: "StarsCode",
+        onClick: function onClick() {
+          _this4.props.chooseStars();
+        }
+      }), React.createElement("label", {
+        "for": "check1"
+      }, React.createElement("i", {
+        className: "fa fa-star green"
+      }), React.createElement("i", {
+        className: "far fa-star green"
+      }), React.createElement("i", {
+        className: "far fa-star green"
+      }), React.createElement("i", {
+        className: "far fa-star green"
+      }), React.createElement("i", {
+        className: "far fa-star green"
+      }))), React.createElement("div", null, React.createElement("input", {
+        type: "checkbox",
+        id: "check0",
+        value: "0",
+        className: "StarsCode",
+        onClick: function onClick() {
+          _this4.props.chooseStars();
+        }
+      }), React.createElement("label", {
+        "for": "check0"
+      }, "\u0631\u062A\u0628\u0647 \u0628\u0646\u062F\u06CC \u0646\u0634\u062F\u0647")))), React.createElement("section", {
+        className: "panel"
+      }, React.createElement("header", {
+        className: "panel-title flex-between"
+      }, React.createElement("span", null, "\u0631\u0646\u062C \u0642\u06CC\u0645\u062A\u06CC \u0647\u062A\u0644 (\u0642\u06CC\u0645\u062A \u0628\u0647 \u0631\u06CC\u0627\u0644)"), React.createElement("a", {
+        href: "#"
+      }, React.createElement("i", {
+        className: "fas fa-chevron-down"
+      }))), React.createElement("div", {
+        className: "panel-body"
+      }, React.createElement("div", null, React.createElement("input", {
+        type: "radio",
+        name: "priceRange",
+        id: "price0",
+        value: "0",
+        className: "PriceRangeCode",
+        onClick: function onClick() {
+          _this4.props.choosePriceRange(0);
+        }
+      }), React.createElement("label", {
+        "for": "price0"
+      }, "0 \u062A\u0627 5,000,000"), React.createElement("span", {
+        className: "checkbox-spanner selected"
+      })), React.createElement("div", null, React.createElement("input", {
+        type: "radio",
+        name: "priceRange",
+        id: "price1",
+        value: "5",
+        className: "PriceRangeCode",
+        onClick: function onClick() {
+          _this4.props.choosePriceRange(5);
+        }
+      }), React.createElement("label", {
+        "for": "price1"
+      }, "5,000,000 \u062A\u0627 10,000,000"), React.createElement("span", {
+        className: "checkbox-spanner"
+      })), React.createElement("div", null, React.createElement("input", {
+        type: "radio",
+        name: "priceRange",
+        id: "price2",
+        value: "10",
+        className: "PriceRangeCode",
+        onClick: function onClick() {
+          _this4.props.choosePriceRange(10);
+        }
+      }), React.createElement("label", {
+        "for": "price2"
+      }, "10,000,000 \u062A\u0627 15,000,000"), React.createElement("span", {
+        className: "checkbox-spanner selected"
+      })), React.createElement("div", null, React.createElement("input", {
+        type: "radio",
+        name: "priceRange",
+        id: "price3",
+        value: "15",
+        className: "PriceRangeCode",
+        onClick: function onClick() {
+          _this4.props.choosePriceRange(15);
+        }
+      }), React.createElement("label", {
+        "for": "price3"
+      }, "15,000,000 \u062A\u0627 20,000,000"), React.createElement("span", {
+        className: "checkbox-spanner"
+      })), React.createElement("div", null, React.createElement("input", {
+        type: "radio",
+        name: "priceRange",
+        id: "price4",
+        value: "20",
+        className: "PriceRangeCode",
+        onClick: function onClick() {
+          _this4.props.choosePriceRange(20);
+        }
+      }), React.createElement("label", {
+        "for": "price4"
+      }, "20,000,000 \u0628\u0647 \u0628\u0627\u0644\u0627"), React.createElement("span", {
+        className: "checkbox-spanner selected"
+      })))), React.createElement("section", {
+        className: "panel"
+      }, React.createElement("header", {
+        className: "panel-title flex-between"
+      }, React.createElement("span", null, "\u0646\u0648\u0639 \u063A\u0630\u0627"), React.createElement("a", {
+        href: "#"
+      }, React.createElement("i", {
+        className: "fas fa-chevron-down"
+      }))), React.createElement("div", {
+        className: "panel-body"
+      }, React.createElement("div", null, React.createElement("input", {
+        type: "checkbox",
+        className: "MealType",
+        value: "Free Breakfast",
+        name: "check1",
+        id: "breakFast",
+        onClick: function onClick() {
+          _this4.props.filterByMealType();
+        }
+      }), React.createElement("label", {
+        "for": "breakFast"
+      }, "\u0641\u0642\u0637 \u0635\u0628\u062D\u0627\u0646\u0647"), React.createElement("span", {
+        className: "checkbox-spanner"
+      })), React.createElement("div", null, React.createElement("input", {
+        type: "checkbox",
+        className: "MealType",
+        value: "Breakfast Buffet",
+        name: "check1",
+        id: "Buffet",
+        onClick: function onClick() {
+          _this4.props.filterByMealType();
+        }
+      }), React.createElement("label", {
+        "for": "Buffet"
+      }, "\u0628\u0648\u0641\u0647 \u0635\u0628\u062D\u0627\u0646\u0647"), React.createElement("span", {
+        className: "checkbox-spanner selected"
+      })), React.createElement("div", null, React.createElement("input", {
+        type: "checkbox",
+        className: "MealType",
+        value: "Full Kitchen",
+        name: "check1",
+        id: "Kitchen",
+        onClick: function onClick() {
+          _this4.props.filterByMealType();
+        }
+      }), React.createElement("label", {
+        "for": "Kitchen"
+      }, "Full Kitchen"), React.createElement("span", {
+        className: "checkbox-spanner"
+      })), React.createElement("div", null, React.createElement("input", {
+        type: "checkbox",
+        className: "MealType",
+        value: "Room Only",
+        name: "check1",
+        id: "RoomOnly",
+        onClick: function onClick() {
+          _this4.props.filterByMealType();
+        }
+      }), React.createElement("label", {
+        "for": "RoomOnly"
+      }, "\u0641\u0642\u0637 \u0627\u062A\u0627\u0642"), React.createElement("span", {
+        className: "checkbox-spanner selected"
+      })))));
+    }
+  }]);
+
+  return HotelFilters;
+}(React.Component); //class
+// export default HotelFilters;
+
 
 if (document.querySelector('#HotelResutls')) {
   ReactDOM.render(React.createElement(HotelResutls, null), document.querySelector('#HotelResutls'));
@@ -70895,6 +71001,11 @@ function (_React$Component) {
       }
     }
   }, {
+    key: "bookRoom",
+    value: function bookRoom() {
+      window.location.href = "/hotel/book";
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -70930,8 +71041,12 @@ function (_React$Component) {
         className: "ticket-choose"
       }, React.createElement("p", {
         className: "price"
-      }, formatCurrency(room.NetRate), React.createElement("span", null, "\u0631\u06CC\u0627\u0644")), React.createElement("button", {
-        className: "btn btn-zgreen"
+      }, formatCurrency(room.NetRate), React.createElement("span", null, "\u0631\u06CC\u0627\u0644")), React.createElement("a", {
+        className: "btn btn-zgreen",
+        href: "/hotel/book",
+        onClick: function onClick() {
+          return _this2.bookRoom();
+        }
       }, "\u0631\u0632\u0631\u0648 \u0627\u062A\u0627\u0642"))), React.createElement("section", {
         className: "ticket-detail",
         style: {
@@ -73511,7 +73626,7 @@ function (_React$Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\zomorod-larvel\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\zomorod-larvel2\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

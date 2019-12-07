@@ -71,9 +71,9 @@ class HotelController extends TravelBaseController
         // ]);
 
         // dd($response->getBody()->getContents());
-        $hotels =  json_decode($response->getBody()->getContents())->PricedItineraries;
+        // $hotels =  json_decode($response->getBody()->getContents())->PricedItineraries;
 
-        // $hotels = (json_decode(file_get_contents("./Hotel.json", "r"))->PricedItineraries);
+        $hotels = (json_decode(file_get_contents("./Hotel.json", "r"))->PricedItineraries);
         $newHotels=[];
         foreach ($hotels as $hotel) {
             if(!is_null($this->getHotel($hotel->HotelId))){

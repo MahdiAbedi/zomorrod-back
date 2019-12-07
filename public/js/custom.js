@@ -66,7 +66,7 @@ function Toggle(tagId,display="block") {
                 break;
 
             case 'InsuranceTicket':
-                document.getElementById('slider').style.backgroundImage ="url('../img/bgs/Insurance-bg.jpg')";
+                document.getElementById('slider').style.backgroundImage ="url('../img/bgs/insurance-bg.jpg')";
                 break;
 
         

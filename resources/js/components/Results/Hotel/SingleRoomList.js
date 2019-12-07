@@ -21,6 +21,10 @@ class SingleRoomList extends React.Component{
                 break;
         }
     }
+
+    bookRoom(){
+        window.location.href = "/hotel/book";
+    }
     render(){
         const {room} = this.props;
         return(
@@ -61,7 +65,7 @@ class SingleRoomList extends React.Component{
                     </div>
                     <div className="ticket-choose">
                         <p className="price">{formatCurrency(room.NetRate)}<span>ریال</span></p>
-                        <button className="btn btn-zgreen">رزرو اتاق</button>
+                        <a className="btn btn-zgreen" href="/hotel/book" onClick={()=>this.bookRoom()}>رزرو اتاق</a>
                     </div>
                 </section>
 
