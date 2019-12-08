@@ -64,11 +64,11 @@ class PassengerCount extends React.Component{
         }
         return(
 
-        <span>
+        <span  id='hotelPassengersCount'>
 
             <input type="text"  className="left-border"  placeholder="تعداد مسافر" value={this.state.adult +" بزرگسال ," + this.state.child +" کودک ," + this.state.rooms +" اتاق "} contenteditable="false" onClick={()=>{this.setState({display:!this.state.display})}}/>
             
-            <div className="passengers_count_container hotel_passengers_count" style={{display:(this.state.display ? 'block' :'none')}}>
+            <div className="passengers_count_container hotel_passengers_count"  id='hotelPassengersCountList' style={{display:(this.state.display ? 'block' :'none')}}>
                <span id="counterId">
                 {counters}
                </span>
@@ -224,7 +224,7 @@ class RoomCounter extends React.PureComponent{
                     <p onClick={()=>{this.deleteMe()}}>{(this.props.index > 1) ? 'X' : ''}</p>
                 </div>
             
-                <div className="passengers_count">
+                <div className="passengers_count" >
                     <label>بزرگسال <small>(12 سال به بالا)</small></label>
                     <span className="count">
                         <button type="button" className="plus-btn" onClick={()=>this.addAdult()}>+</button>

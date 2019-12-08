@@ -193,11 +193,11 @@ class MultiSelect extends React.Component{
         render(){
             return(
                 <React.Fragment>
-                     <input type="text" id={this.props.name +'_myInput'} onChange={(e)=>this.search(e)} onClick={(e)=>{this.displayList(e);this.setState({displayList:'block'})}} className={this.props.className} placeholder={this.props.Placeholder} autocomplete="off" value={(this.state.airportName) ? this.state.airportName :'' } required/>
+                     <input type="text" id={this.props.name +'_myInput'} onChange={(e)=>this.search(e)} onClick={(e)=>{Toggle(this.props.name +'_myul');this.displayList(e);this.setState({displayList:'block'})}} className={this.props.className} placeholder={this.props.Placeholder} autocomplete="off" value={(this.state.airportName) ? this.state.airportName :'' } required/>
      
                      <input type="hidden"  name={this.props.name} id={this.props.prefix +'_'+this.props.name} value={this.state.iataCode} />
      
-                     <ul id="myUL"  style={{display: this.state.displayList}} className="myUL ui-menu ui-widget ui-widget-content ui-autocomplete ui-front">
+                     <ul id={this.props.name +'_myul'}  style={{display: this.state.displayList}} className="myUL ui-menu ui-widget ui-widget-content ui-autocomplete ui-front">
                          {this.props.children}
                          
                         
@@ -235,6 +235,11 @@ class MultiSelect extends React.Component{
                 this.setState({displayList:'block'})
             }
         }
+
+
+
+
+
         search=(e)=>{
             this.setState({searchTerm : e.target.value,airportName:e.target.value},()=>{
                 

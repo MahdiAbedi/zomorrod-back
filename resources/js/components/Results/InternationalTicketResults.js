@@ -1,4 +1,4 @@
-// import myTickets from './RoundTripTicket.json';
+import myTickets from './RoundTripTicket.json';
 import Filters from './Filters';
 import Results from './Results';
 // import myTickets2 from './TicketResults.json';
@@ -77,7 +77,8 @@ class InternationalTicketResults extends React.Component{
     }
     //###################### فیلتر کردن بر اساس تعداد توقف های موجود ##################################
     StopCount=(count)=>{
-            this.setState({tickets : this.state.tempTickets.filter(ticket => ticket.OriginDestinationOptions[0].FlightSegments[0].StopQuantity == count ? ticket : null)})  
+        // alert('counting')
+            this.setState({tickets : this.state.tempTickets.filter(ticket => ticket.OriginDestinationOptions[0].FlightSegments.length == count+1 ? ticket : null)})  
     }
 
     //#################### انتخاب ایرلاین بر اساس فیلتر ها #############################################

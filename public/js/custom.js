@@ -11,10 +11,44 @@ $(document).ready(function () {
 
     //#################### حرکت بین فیلدهای جستجو در صفحه اول ########################
 
+    //########################### مخفی کردن 
 
+        
 
-    console.log('%c Designed By MahdiAbedi220@yahoo.com tel:09395187902 ', 'background: #222; color: #bada55');
+    console.clear();
+    console.log('%c Designed By MahdiAbedi220@yahoo.com tel:09395187902 ', 'background: #222; color: #bada55 ;font-size:30px');
 });
+
+//#####################################################################################################
+//##############################وقتی فکوس از روی چیزی برداشته میشود آن قسمت مخفی گردد #############
+//#####################################################################################################
+$("body").mouseup(function (e)
+{   //Login & Logout panel
+    hideWhenLoseFocus("#showProfilePanel","#profile-list",e);
+    //outlind airlines panel
+    hideWhenLoseFocus("#origin_myInput","#origin_myul",e);
+    hideWhenLoseFocus("#destination_myul","#destination_myul",e);
+    //تعداد مسافران پرواز خارجی
+    hideWhenLoseFocus("#international_passengers_count_container_click","#international_passengers_count_container",e);
+    //تعداد مسفاران پرواز داخلی
+    hideWhenLoseFocus("#inline_passengers_count_container_click","#inline_passengers_count_container",e);
+    //لیست هتلها
+    hideWhenLoseFocus("#hotelName","#hotelNameList",e);
+    //تعداد مسافران هتل
+    hideWhenLoseFocus("#hotelPassengersCount","#hotelPassengersCountList",e);
+    
+});
+function hideWhenLoseFocus(clickId,hideId,e){
+    var container = $(clickId);
+
+    if (!container.is(e.target)&& container.has(e.target).length === 0) 
+    {
+        $(hideId).hide();
+    } 
+}
+//#####################################################################################################
+//#####################################################################################################
+
 
 //برای نمایش یا مخفی کردن پنل جستجو
 function Toggle(tagId,display="block") {
@@ -121,11 +155,11 @@ function Toggle(tagId,display="block") {
 
 
     // کلیک کردن روی دکمه ورود به سایت login
-    $("#login").click(function() {  
-        // alert('hello');
-        $(".login-container").toggle("slow");
+    // $("#login").click(function() {  
+    //     // alert('hello');
+    //     $(".login-container").toggle("slow");
         
-      });
+    //   });
 
     // $('#mosafer').click(function(){
     //     $(".passengers_count_container").toggle("slow");
@@ -149,10 +183,12 @@ function Toggle(tagId,display="block") {
         
     }
 
-    function showProfilePanel(){
-        Toggle('profile-list','flex');
+    function showProfilePanel(displayType="flex"){
+        Toggle('profile-list',displayType);
     }
 
+
+   
 
 
 
@@ -271,6 +307,7 @@ function Toggle(tagId,display="block") {
         localStorage.setItem('VR','وارش');
         localStorage.setItem('NV','کارون');
         localStorage.setItem('Y9','کیش ایر');
+        localStorage.setItem('_007','هواپیمایی ساها');
     
         //اول چک میکنیم که قبلا تو لوکال ذخیره شده یا نه
         if(localStorage.getItem(code) !==null){

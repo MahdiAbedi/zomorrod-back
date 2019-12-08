@@ -51,12 +51,12 @@
             </li>
             @guest
             <!-- login -->
-            <li class="menu-item" id="login">
+            <li class="menu-item"  id="showProfilePanel" onclick="showProfilePanel('block')">
                 <img src="/img/icons/login.png" alt="منوی">
 
             </li>
             <!-- Login Panel  -->
-            <div class="login-container">
+            <div class="login-container" id="profile-list" style="display:none">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
 

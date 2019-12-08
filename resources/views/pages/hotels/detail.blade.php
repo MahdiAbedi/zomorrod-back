@@ -149,6 +149,11 @@
                     <div class="map_container">
                         <img src="/img/googlemap.png" alt="">
                     </div>
+
+                    <!-- <div class="map_container" id="googleMap" style="width:100%;height:400px;"></div> -->
+
+
+
                     <a href="#" class="hotels_detail green">
                        مشاهده هتل بر روی نقشه
                     </a>
@@ -199,6 +204,9 @@
         // document.getElementById('hotel_checkIn_Time').innerText="test";
     }
 </script>
+<!-- ###################### Google Map ######################################################  -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZrseVD9WNnbN7GuNoxwALfvH_060urtI&callback=initMap"
+  type="text/javascript"></script>
 
 <style>
 .row > .gallerycolumn {
@@ -337,6 +345,16 @@ img.hover-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 </style>
+
+<script>
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng(51.508742,-0.120850),
+  zoom:5,
+};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
 <script src="/js/custom.js"></script>
 <script>
     // Open the Modal

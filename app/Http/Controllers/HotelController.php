@@ -54,26 +54,26 @@ class HotelController extends TravelBaseController
 
         //##########################################################################################################################
 
-        // $response = $client->post('https://apidemo.partocrs.com/Rest/Hotel/HotelAvailability', [
-        //     RequestOptions::JSON => array (
-        //         'SessionId'             =>  $this->SessionId,
-        //         'CheckIn'               =>  $request->input('checkIn'),
-        //         'CheckOut'              =>  $request->input('checkOut'),
-        //         'Latitude'              =>  "",
-        //         'Longitude'             =>  "",
-        //         'RadiusInKilometer'     =>  0,
-        //         'SetGeoLocation'        =>  false,
-        //         'NationalityId'         =>  "IR",
-        //         'HotelId'               =>  '',
-        //         'CityId'                =>  $request->input('CityCode'),
-        //         'Occupancies'           =>  $request->input('Occupancies')
-        //     )
-        // ]);
+        $response = $client->post('https://apidemo.partocrs.com/Rest/Hotel/HotelAvailability', [
+            RequestOptions::JSON => array (
+                'SessionId'             =>  $this->SessionId,
+                'CheckIn'               =>  $request->input('checkIn'),
+                'CheckOut'              =>  $request->input('checkOut'),
+                'Latitude'              =>  "",
+                'Longitude'             =>  "",
+                'RadiusInKilometer'     =>  0,
+                'SetGeoLocation'        =>  false,
+                'NationalityId'         =>  "IR",
+                'HotelId'               =>  '',
+                'CityId'                =>  $request->input('CityCode'),
+                'Occupancies'           =>  $request->input('Occupancies')
+            )
+        ]);
 
         // dd($response->getBody()->getContents());
-        // $hotels =  json_decode($response->getBody()->getContents())->PricedItineraries;
+        $hotels =  json_decode($response->getBody()->getContents())->PricedItineraries;
 
-        $hotels = (json_decode(file_get_contents("./Hotel.json", "r"))->PricedItineraries);
+        // $hotels = (json_decode(file_get_contents("./Hotel.json", "r"))->PricedItineraries);
         $newHotels=[];
         foreach ($hotels as $hotel) {
             if(!is_null($this->getHotel($hotel->HotelId))){
