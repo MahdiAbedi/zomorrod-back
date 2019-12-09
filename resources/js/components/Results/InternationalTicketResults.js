@@ -1,4 +1,4 @@
-import myTickets from './RoundTripTicket.json';
+// import myTickets from './RoundTripTicket.json';
 import Filters from './Filters';
 import Results from './Results';
 // import myTickets2 from './TicketResults.json';
@@ -53,7 +53,6 @@ class InternationalTicketResults extends React.Component{
         })
         .then(response => {
             let myTickets=response.data;
-            // this.setState({tickets:myTickets.PricedItineraries,isLoading:false})
              this.setState({
                 tickets:myTickets.PricedItineraries,
                 isLoading:false,

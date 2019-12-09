@@ -62,58 +62,56 @@
                     <div class="box info account-adjust-box">
                         <table class="table table-striped account__info">
                             <tbody>
+                                
                                 <tr>
-                                    <th>نام:</th>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th>نام خانوادگی:</th>
-                                    <td></td>
+                                    <th>نام و نام خانوادگی:</th>
+                                    <td>{{$currentUser->name}}</td>
+
                                 </tr>
                                 <tr>
                                     <th>ایمیل:</th>
-                                    <td>mac70god@gmail.com</td>
+                                    <td>{{$currentUser->email}}</td>
                                 </tr>
                                 <tr>
                                     <th>شماره همراه:</th>
-                                    <td>
-                                        09395187902
-                                        <img src="../img/profile/check.svg" alt="check">
+                                    
+                                    <td>{{$currentUser->phone}}</td>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>شماره تلفن:</th>
-                                    <td></td>
+                                    <td>{{$currentUser->tel}}</td>
+
                                 </tr>
                                 <tr>
                                     <th>جنسیت:</th>
-                                    <td>مرد</td>
+                                    <td>{{$currentUser->gender ? 'مرد' :'زن'}}</td>
                                 </tr>
                                 <tr>
                                     <th>کد ملی:</th>
-                                    <td></td>
+                                    <td>{{$currentUser->code_meli}}</td>
                                 </tr>
                                 <tr>
                                     <th>تاریخ تولد:</th>
-                                    <td></td>
+                                    <td name="date">{{$currentUser->birthDate}}</td>
                                 </tr>
                                 <tr>
                                     <th>شماره کارت:</th>
-                                    <td></td>
+                                    <td>{{$currentUser->bank_card}}</td>
                                 </tr>
                                 <tr>
                                     <th>شماره حساب:</th>
-                                    <td></td>
+                                    <td>{{$currentUser->bank_account}}</td>
                                 </tr>
                                 <tr>
                                     <th>شماره شبا:</th>
-                                    <td></td>
+                                    <td>{{$currentUser->bank_shaba}}</td>
                                 </tr>
                             </tbody>
                         </table>
                         <div class="row ltr" style="display:flex">
                             <div class="col-xs-12 col-sm-3 col-md-4"><button id="edit-profile-action"
-                                    class="btn btn-block btn-primary">
+                                    class="btn btn-green">
                                     ویرایش پروفایل
                                 </button></div>
                             <div class="col-xs-12 col-sm-3 col-sm-offset-3 col-md-4 col-md-offset-0"><button
@@ -141,7 +139,7 @@
                                                             fill-rule="evenodd">
                                                             <g id="my-account/loyalty-page---Desktop"
                                                                 transform="translate(-1195.000000, -249.000000)"
-                                                                stroke="#3B7BEA" fill-rule="nonzero" stroke-width="1.5">
+                                                                stroke="#009971" fill-rule="nonzero" stroke-width="1.5">
                                                                 <g id="Group-11"
                                                                     transform="translate(200.000000, 186.000000)">
                                                                     <g id="Content"
@@ -160,9 +158,9 @@
                                                 <div class="current-level__detail--parent"><span
                                                         class="current-level--text">سطح فعلی شما:</span> <span
                                                         class="current-level--level"
-                                                        style="background-color: rgba(59, 123, 234, 0.1); color: rgb(59, 123, 234);">
-                                                        آبی
-                                                    </span> <span class="current-level--promote clearfix"> تنها 25
+                                                        style="background-color: rgba(0, 153, 113, 0.1); color: rgb(0, 153, 113);">
+                                                        زمردی
+                                                    </span> <span class="current-level--promote clearfix"> تنها {{30 - $currentUser->points}}
                                                         امتیاز تا سطح بعدی</span></div>
                                             </div>
                                             <!---->
@@ -171,14 +169,12 @@
                                     <div
                                         class="smile-privilege-box smile-privilege-box__promotion-smile blue-loyalty-card">
                                         <div class="smile-privilege-box__detail">
-                                            <div class="smile-privilege-box__detail--alibaba"><img
-                                                    src="../img/profile/alibaba.svg?w=50&amp;h=50&amp;q=60"
-                                                    alt="علی بابا"></div>
+                                            
                                             <div class="smile-privilege-box__detail--smile"><img
                                                     src="../img/profile/smile.svg?w=50&amp;h=50&amp;q=60" alt="لبخند">
                                             </div>
                                             <div class="smile-privilege-box__email" style="color: rgb(12, 78, 191);">
-                                                MAC70GOD@GMAIL.COM
+                                                {{$currentUser->email}}
                                             </div>
                                             <div class="smile-privilege-box__detail--title">
                                                 امتیاز شما:
@@ -205,7 +201,7 @@
                                             </svg>
                                             <div class="indicative-level-box--inset-ring"
                                                 style="color: rgb(59, 123, 234);">
-                                                <div class="current-score">5</div>
+                                                <div class="current-score">{{$currentUser->points}}</div>
                                                 <div class="total-score"><span> از </span> 29 </div>
                                             </div>
                                             <div class="indicative-level-box--dashed-border"><svg stroke-width="8"
@@ -217,7 +213,7 @@
                                                         d="M77,131.838117 C107.375661,131.838117 132,107.213778 132,76.8381167 C132,46.4624555 107.375661,21.8381167 77,21.8381167 C46.6243388,21.8381167 22,46.4624555 22,76.8381167 C22,107.213778 46.6243388,131.838117 77,131.838117 Z"
                                                         id="Oval-Copy" stroke-opacity="0.4" stroke-width="3"
                                                         fill-opacity="0" fill="#FFFFFF" stroke-linecap="round"
-                                                        stroke-dasharray="5" stroke="#3B7BEA"></path>
+                                                        stroke-dasharray="5" stroke="#009971"></path>
                                                 </svg></div>
                                         </div> <span class="tooltiptext">%17</span>
                                     </div>
@@ -237,7 +233,7 @@
                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                     <g id="my-account/loyalty-page---Desktop"
                                                         transform="translate(-1195.000000, -249.000000)"
-                                                        stroke="#3B7BEA" fill-rule="nonzero" stroke-width="1.5">
+                                                        stroke="#009971" fill-rule="nonzero" stroke-width="1.5">
                                                         <g id="Group-11" transform="translate(200.000000, 186.000000)">
                                                             <g id="Content" transform="translate(40.000000, 7.000000)">
                                                                 <g id="Group-8"
@@ -255,7 +251,7 @@
                                                 فعلی شما:</span> <span class="current-level--level"
                                                 style="background-color: rgba(59, 123, 234, 0.1); color: rgb(59, 123, 234);">
                                                 آبی
-                                            </span> <span class="current-level--promote clearfix"> تنها 25 امتیاز تا سطح
+                                            </span> <span class="current-level--promote clearfix"> تنها {{30 - $currentUser->points}} امتیاز تا سطح
                                                 بعدی</span></div>
                                     </div>
                                     <div class="col-xs-12 current-level--expiry">
@@ -276,7 +272,7 @@
                             <div class="account__user-reward--bottom">
                                 <h5>۱۵ امتیاز هدیه باشگاه مشتریان</h5> <span
                                     class="account__user-reward--bottom__desc">با دعوت از دوستان‌تان از طریق لینک زیر،
-                                    امتیاز <a href="/loyalty" class="">باشگاه مشتریان</a> هدیه بگیرید.</span>
+                                    امتیاز <a href="/loyalty" class="green">باشگاه مشتریان</a> هدیه بگیرید.</span>
                                 <div class="referral-link"><label title="کپی"
                                         data-clipboard-text="alibaba.ir/invitation?r=6quDa"
                                         class="referral-link__label clickable"><img src="../img/profile/copy.svg"

@@ -91,6 +91,8 @@ Route::post('/getRooms','HotelController@getRooms');
 Route::get('/hotel/book',function(){
     return view('pages/hotels/book');
 });
+//HOTEL'S LANDING PAGE
+Route::get('/hotel',function(){return view('pages/hotels/landing');});
 
 // ###################################### پروفایل کاربری ######################################
 Route::get('profile'    ,   'UserController@profile');

@@ -399,26 +399,50 @@ function passengerInfoConfirm(){
 //#################################### پنل ورود اطلاعات مسافران ###################################################
 function passengersInfoPanel(){
     let panel= '';
-    
-    counter(localStorage.getItem('adult'),'بزرگسال');
-    counter(localStorage.getItem('child'),'کودک');
-    counter(localStorage.getItem('infant'),'نوزاد');
 
-    function counter(count,title){
+    let Passengers = JSON.parse(localStorage.getItem('hotelPassengersList'));//it's an array
+    Passengers.forEach((passenger,passengerIndex)=>{
+
+        for (let index = 0; index < passenger.AdultCount; index++) {
+            titleMaker('بزرگسال',passengerIndex+1)   
+        }
+        for (let index = 0; index < passenger.ChildAges.length; index++) {
+            titleMaker('کودک',passengerIndex+1,passenger.ChildAges[index])   
+        }
+
+        // counter(passenger.AdultCount,'بزرگسال',index+1);
+        // counter(passenger.ChildCount,'کودک',index+1);
+        // counter(localStorage.getItem('infant'),'نوزاد');
+    })
+    
+
+    function counter(count,title,roomCount){
         for (let index = 0; index < count; index++) {
-            titleMaker(title)
+            titleMaker(title,roomCount)
         }
     }//counter
 
-    function titleMaker(title){
+    function titleMaker(title,roomCount,childAge=null){
         panel +=`<section class="tabs">
         <div class="tabs-title">
             <div class="tab-title">
-                <i class="green fas fa-times-circle"></i>
-                <label>${title}</label>
-            </div>
+                <i class="green fas fa-times-circle"></i>`;
+
+        if(childAge != null){
+            if(childAge == 0){
+                //نوزاد
+                panel +=`<label>نوزاد - (اتاق ${farsiCounter(roomCount)})</label>`;
+            }else{
+                //کودک
+                panel +=`<label>${title} (${childAge} ساله) - (اتاق ${farsiCounter(roomCount)})</label>`;
+            }
+
+        }else{
+            panel +=`<label>${title} - (اتاق ${farsiCounter(roomCount)})</label>`;
+            
+        }
+        panel +=`</div>
         </div>
-        
             <div class="tab-desctiption">
                 <div class="fields">
                     <!-- فیلدهای مخفی passengerType adt=1,chd=2,inf=3 -->
@@ -438,38 +462,25 @@ function passengersInfoPanel(){
                             <option value="1">خانم</option>
                         </select>
                     </div>
+
                     <div class="field">
-                        <label >تاریخ تولد شمسی</label>
-                        <input type="text" placeholder="1370/05/05" name="DateOfBirth[]"  class="DateOfBirth"/>
-                    </div>
-                    <div class="field">
-                        <label >نام(فارسی)</label>
-                        <input type="text" name="PassengerLastName[]"  class="PassengerLastName"/>
-                    </div>
-                    <div class="field">
-                        <label >نام خانوادگی(فارسی)</label>
-                        <input type="text" name="PassengerLastName[]"  class="PassengerLastName"/>
+                        <label ></label>
+                        <input type="hidden" value="${childAge}" name="DateOfBirth[]"  class="DateOfBirth"/>
                     </div>
                     
-                    <div class="field">
-                        <label >کد ملی</label>
-                        <input type="text" name="PassengerLastName[]"  class="PassengerLastName"/>
-                    </div>
-
                 </div>
 
             </div>
-    </section>
-    `;
+    </section>`;
     }//titleMaker
 
     document.getElementById('IraninanPassengerInfo').innerHTML= panel;
 }
 //#################################### اجرای توابع بعد از بارگزاری صفحه###########################################
 window.onload =()=>{
-    CreateTicketPreview();
+    // CreateTicketPreview();
     passengersCount();
-    ticketConfirm();
+    // ticketConfirm();
     passengersInfoPanel();
 }
 

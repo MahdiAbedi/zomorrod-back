@@ -2,7 +2,7 @@
 
 <body>
     <!-- slider -->
-    <div class="slider" id="slider">
+    <div class="slider" id="slider" style="background-image:none">
         <!-- منوی بالا -->
         @include('includes/topMenu')
 
@@ -11,7 +11,6 @@
 
         <!-- تصویر هواپیمای بزرگ که روی اسلایدر و منو -->
         <div class="airplane" id="slider-img">
-            <img src="img/bgs/airplane.png" alt="">
         </div>
         <!-- قسمت جستجو بلیط هواپیما،هتل و .. -->
         <div class="search-container">
@@ -28,7 +27,7 @@
 
                 <!-- {/* پرواز خارجی */} -->
                 <div class="search_icon " onclick="showSearchPanel('OutLineTicket')">
-                    <div class="icon_container active" id="OutLineTicket-Icon">
+                    <div class="icon_container" id="OutLineTicket-Icon">
                         <img class="outline-flight" src="img/icons/outline-flight.png" alt="" />
                     </div>
                     <h4 class="out-flight-title"><span>پرواز خارجی</span></h4>
@@ -36,7 +35,7 @@
                 </div>
                  <!-- {/* هتل */} -->
                  <div class="search_icon" onclick="showSearchPanel('HotelTicket')">
-                    <div class="icon_container" id="HotelTicket-Icon">
+                    <div class="icon_container active" id="HotelTicket-Icon">
                         <img src="img/icons/hotel.png" alt=""/>
                     </div>
                     <h4>هتل</h4>
@@ -177,9 +176,9 @@
         </div>
     </main>
 
-    <script>
+<script>
     window.onload =function(){
-        showSearchPanel('OutLineTicket')
+        showSearchPanel('HotelTicket')
     }
 </script>
    @include('includes/footer')

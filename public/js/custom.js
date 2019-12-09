@@ -4,6 +4,7 @@ $(document).ready(function () {
 
     $('.select2').select2();
     formatInsideTagMoney('money');
+    formatInsideTagDate('date');
 
     // showSearchPanel("HotelTicket");
     //درخواست لیست فرودگاه های بین المللی
@@ -18,6 +19,43 @@ $(document).ready(function () {
     console.clear();
     console.log('%c Designed By MahdiAbedi220@yahoo.com tel:09395187902 ', 'background: #222; color: #bada55 ;font-size:30px');
 });
+
+
+
+//مقدار داخل تگ مشخصی را با فرمت مناسب پول جایگزین میکند
+function formatInsideTagDateTime(tagName){
+    // moment.loadPersian({usePersianDigits: true});
+     
+         var divs = document.getElementsByName(tagName);
+     for(var i = 0; i < divs.length; i++){
+        // divs[i].innerText = moment(divs[i].innerText).locale('fa').calendar();
+         divs[i].innerText = moment(divs[i].innerText, 'YYYY/M/D HH:mm:ss').format('jYYYY/jM/jD HH:mm:ss');
+     }//for
+ }//FormatInsideTagMoney
+
+
+//مقدار داخل تگ مشخصی را با فرمت مناسب پول جایگزین میکند
+function formatInsideTagDate(tagName){
+    // moment.loadPersian({usePersianDigits: true});
+     
+         var divs = document.getElementsByName(tagName);
+     for(var i = 0; i < divs.length; i++){
+        // divs[i].innerText = moment(divs[i].innerText).locale('fa').calendar();
+         divs[i].innerText = moment(divs[i].innerText, 'YYYY/M/D').format('jYYYY/jM/jD');
+     }//for
+ }//FormatInsideTagMoney
+ 
+ 
+ function formatInsideTagTime(tagName){
+     
+    // moment.loadPersian({usePersianDigits: true});
+     
+         var divs = document.getElementsByName(tagName);
+     for(var i = 0; i < divs.length; i++){
+        // divs[i].innerText = moment(divs[i].innerText).locale('fa').calendar();
+         divs[i].innerText = moment(divs[i].innerText, 'YYYY/M/D').format('jYYYY/jM/jD');
+     }//for
+ }//FormatInsideTagMoney
 
 //#####################################################################################################
 //##############################وقتی فکوس از روی چیزی برداشته میشود آن قسمت مخفی گردد #############

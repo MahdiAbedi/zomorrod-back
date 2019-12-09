@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -15,7 +16,9 @@ class UserController extends Controller
     // ################ اطلاعات پروفایل کاربر ########################
     public function profile()
     {
-        return view('users.profile');
+        $currentUser = User::findOrFail(Auth()->user()->id);
+        // dd($currentUser);
+        return view('users.profile',compact('currentUser'));
     }
 
     // ################لیست سفارشات کاربر ########################

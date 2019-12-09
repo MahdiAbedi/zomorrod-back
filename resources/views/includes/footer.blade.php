@@ -19,16 +19,15 @@
                 <div class="footer_links">
                     <h3>لینک های مرتبط</h3>
                     <ul>
-                        <li><a href="">بلیط هواپیما</a></li>
-                        <li><a href="">رزرو هتل</a></li>
-                        <li><a href="">تور مسافرتی</a></li>
-                        <li><a href="">ویزا</a></li>
-                        <li><a href="">بیمه</a></li>
-                        <li><a href="">مجله گردشگری</a></li>
-                        <li><a href="">درباره ما</a></li>
-                        <li><a href="">تماس با ما</a></li>
-                        <li><a href="">قوانین و مقررات</a></li>
-                        <li><a href="">پشتی</a></li>
+                        <li><a href="/">بلیط هواپیما</a></li>
+                        <li><a href="/hotel">رزرو هتل</a></li>
+                        <li><a href="/tour">تور مسافرتی</a></li>
+                        <li><a href="/visa">ویزا</a></li>
+                        <li><a href="/bime">بیمه</a></li>
+                        <li><a href="/blog">مجله گردشگری</a></li>
+                        <li><a href="/about-us">درباره ما</a></li>
+                        <li><a href="/contact-us">تماس با ما</a></li>
+                        <li><a href="/roles">قوانین و مقررات</a></li>
                     </ul>
                 </div>
             </div>

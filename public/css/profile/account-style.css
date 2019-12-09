@@ -2064,9 +2064,10 @@ img {
 .smile-privilege-box__email {
     display: inline-block;
     display: -webkit-box;
-    font-size: 1em;
+    font-size: 12px;
     font-weight: 500;
     word-spacing: 5px;
+    color:#fff !important;
     max-width: 220px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -4251,7 +4252,7 @@ input{line-height:normal;}
 *,:after,:before{box-sizing:border-box;}
 button,input,select{font-family:inherit;font-size:inherit;line-height:inherit;}
 .text-left{text-align:left;}
-.row{margin-left:-15px;margin-right:-15px;}
+.row{margin-left:-15px;margin-right:-15px;display: flex;}
 .col-xs-4,.col-xs-6,.col-xs-8,.col-xs-12{float:left;}
 @media (min-width:768px){
 .col-sm-4,.col-sm-6,.col-sm-8{float:left;}

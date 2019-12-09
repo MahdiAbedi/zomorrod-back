@@ -9,37 +9,33 @@
         </div>
 
         <ul class="menu right-menu hide" id="hamburger-menu">
-            <li class="menu-item active">
-                <!-- <img src="/img/icons/home.png" alt="منوی"> -->
-                <a href="/">خانه</a>
-            </li>
             <li class="menu-item">
                 <!-- <img src="/img/icons/airplane-icon-colored.png" alt="منوی"> -->
-                <a href="#">بلیط هواپیما</a>
+                <a href="/">بلیط هواپیما</a>
             </li>
             <li class="menu-item">
                 <!-- <img src="/img/icons/hotel.png" alt="منوی"> -->
-                <a href="#">رزو هتل</a>
+                <a href="/hotel">رزو هتل</a>
             </li>
             <li class="menu-item">
                 <!-- <img src="/img/icons/tour.png" alt="منوی"> -->
-                <a href="#">تور مسافرتی</a>
+                <a href="/tour">تور مسافرتی</a>
             </li>
             <li class="menu-item">
                 <!-- <img src="/img/icons/visa.png" alt="منوی"> -->
-                <a href="#">ویزا</a>
+                <a href="/visa">ویزا</a>
             </li>
             <li class="menu-item">
                 <!-- <img src="/img/icons/bime.png" alt="منوی"> -->
-                <a href="#">بیمه</a>
+                <a href="/bime">بیمه</a>
             </li>
             <li class="menu-item">
                 <!-- <img src="/img/icons/blog.png" alt="منوی"> -->
-                <a href="#">مجله گردشگری</a>
+                <a href="/blog">مجله گردشگری</a>
             </li>
-            <li class="menu-item other">
+            <!-- <li class="menu-item other">
                 <a href="#">...</a>
-            </li>
+            </li> -->
 
 
         </ul>
@@ -61,8 +57,8 @@
                     @csrf
 
                     <!-- <label for="userName">نام کاربری</label> -->
-                    <input type="text" name="email" placeholder="ایمیل">
-                    <input type="password" name="password" placeholder="رمز عبور">
+                    <input type="text" name="email" placeholder="ایمیل" onclick="showProfilePanel('block')">
+                    <input type="password" name="password" placeholder="رمز عبور" onclick="showProfilePanel('block')">
                     <input type="submit" class="btn btn-blue" value="ورود">
 
                 </form>
