@@ -78,12 +78,12 @@
             <div class="profile-list" id="profile-list" style="display:none">
                 <div class="half first">
                     <div class="top">
-                        <strong>mac70god@gmail.com</strong>
-                        <p>موجودی : 120،000 هزارتومان</p>
+                        <strong> {{ Auth::user()->email }}</strong>
+                        <p>موجودی : {{ Auth::user()->credit }} هزارتومان</p>
                     </div>
                     <div class="bottom">
                         <img src="./img/profile/nice-smile.svg" alt="" srcset="">
-                        <p>0 امتیاز</p>
+                        <p>{{ Auth::user()->points }} امتیاز</p>
                         <a href="/points" class="btn">جزئیات امتیازها</a>
                         <a href="/clube">باشگاه مشتریان ستاره زمرد</a>
                     </div>

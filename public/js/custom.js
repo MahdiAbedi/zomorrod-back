@@ -159,13 +159,17 @@ function Toggle(tagId,display="block") {
         document.getElementById(tagId).style.display="block";
     }
 
+    
     // اسلایدشو تورها در صفحه اول سایت
     $('.tours').owlCarousel({
         rtl:true,
         // center:true,
         loop:true,
         margin:10,
-        nav:false,
+        dots:false,
+        nav:true,
+        navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+
         items:4,
         // autoWidth:true,
         // stagePadding: 30,
@@ -188,6 +192,19 @@ function Toggle(tagId,display="block") {
                 items:4,
             }
         }
+    })
+
+    $('.text-slider').owlCarousel({
+        rtl:true,
+        // center:true,
+        loop:true,
+        margin:1,
+        nav:true,
+        navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+
+        items:5,
+        smartSpeed:450,
+        autoplay:true,
     })
 
 
@@ -226,79 +243,27 @@ function Toggle(tagId,display="block") {
     }
 
 
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    function airlineName_old(code){
+   //########################## TOSTER FLASH MESSAGE #######################################################
+   function FlashMessage(msg) {
+        // Get the snackbar DIV
+        var x = document.getElementById("snackbar");
     
-        let airlines = [];
-        airlines['A3']='Aegean Airlines';
-        airlines['AF']='Air France';
-        airlines['AY']='Finnair';
-        airlines['AZ']='Alitalia';
-        airlines['BA']='British Airways';
-        airlines['BE']='Flybe';
-        airlines['BT']='Air Baltic';
-        airlines['CZ']='China Southern Airlines';
-        airlines['DY']='Norwegian Air Shuttle';
-        airlines['EK']='Emirates Airline';
-        airlines['EW']='Eurowings';
-        airlines['EY']='Etihad Airways';
-        airlines['G9']='Air Arabia';
-        airlines['GF']='Gulf Air Bahrain';
-        airlines['IB']='Iberia Airlines';
-        airlines['J2']='Azerbaijan Airlines';
-        airlines['KK']='Atlasjet';
-        airlines['KL']='KLM';
-        airlines['KU']='Kuwait Airways';
-        airlines['LH']='Lufthansa';
-        airlines['LX']='Swiss Air Lines';
-        airlines['OS']='Austrian Airlines';
-        airlines['OV']='Estonian Air';
-        airlines['PC']='Pegasus Airlines';
-        airlines['PS']='Ukraine Airlines';
-        airlines['QR']='Qatar Airways';
-        airlines['TK']='Turkish Airlines';
-        airlines['VY']='Vueling Airlines';
-        airlines['WY']='Oman Air';
-        
-        //ایرلاینهای داخلی
-        airlines['W5']='ماهان';
-        airlines['IV']='کاسپین';
-        airlines['B9']='ایرتور';
-        airlines['EP']='آسمان';
-        airlines['JI']='معراج';
-        airlines['I3']='آتا';
-        airlines['ZV']='زاگرس';
-        airlines['IR']='ایران ایر';
-        airlines['HH']='تابان';
-        airlines['AK']='اترک';
-        airlines['QB']='قشم ایر';
-        airlines['VR']='وارش';
-        airlines['NV']='کارون';
-        airlines['Y9']='کیش ایر';
+        // Add the "show" class to DIV
+        x.innerHTML = msg;
+        x.className = "show";
     
-        if(code in airlines){
-            return airlines[code];
-        }
-        return code;
+        // After 3 seconds, remove the show class from DIV
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 6000);
     }
+    //######################################################################################################
+
+
+
+
+
+
+
+
     function airlineName(code){
         localStorage.setItem('A3','Aegean Airlines');
         localStorage.setItem('AF','Air France');
@@ -366,99 +331,6 @@ function Toggle(tagId,display="block") {
             
     }//function
     
-    //نام فرودگاه ها بر اساس کد یاتا
-    function airportName_old(code){
-        
-        let airports = [];
-        //فرودگاه های بین المللی ایران
-        airports['IKA']='امام خمینی';
-        airports['ABD']='آبادان';
-        airports['ACP']='سهند';
-        airports['ACZ']='زابل';
-        airports['ADU']='اردبیل';
-        airports['AEU']='ابوموسی';
-        airports['AFZ']='سبزوار';
-        airports['AHW']='اهواز';
-        airports['AJK']='اراک';
-        airports['AKW']='آقاجاری';
-        airports['AWZ']='اهواز';
-        airports['AZD']='یزد';
-        airports['BBL']='بابلسر';
-        airports['BDH']='بندر لنگه';
-        airports['BJB']='بجنورد';
-        airports['BND']='بجنورد';
-        airports['BUZ']='بوشهر';
-        airports['BXR']='بام';
-        airports['CKT']='سرخس';
-    
-        //فرودگاه های داخلی ایران
-        airports['CQD']='شهرکرد';
-        airports['DEF']='دزفول';
-        airports['GBT']='گرگان';
-        airports['GCH']='گچساران';
-        airports['GZW']='قزوین';
-        airports['HDM']='همدان';
-        airports['IFN']='اصفهان';
-        airports['IHR']='ایرانشهر';
-        airports['IIL']='ایلام';
-        airports['JAR']='جهرم';
-        airports['JWN']='زنجان';
-        airports['JYR']='جیرفت';
-        airports['KER']='کرمان';
-        airports['KHD']='خرم آباد';
-        airports['KHK']='خارک';
-        airports['KHY']='خوی';
-        airports['KIH']='کیش';
-        airports['MHD']='مشهد';
-        airports['NSH']='نوشهر';
-        airports['OMH']='ارومیه';
-        airports['PGU']='فرودگاه خلیج فارس';
-        airports['PYK']='فرودگاه پیام';
-        airports['QMJ']='مسجد سلیمان';
-        airports['RAS']='رشت';
-        airports['RJN']='رفسنجان';
-        airports['RUD']='شاهرود';
-        airports['RZR']='رامسر';
-        airports['SDG']='سنندج';
-        airports['SYZ']='شیراز';
-        airports['TBZ']='تبریز';
-        airports['TCX']='طبس';
-        airports['THR']='مهرآباد';
-        airports['XBJ']='بیرجند';
-        airports['YES']='یاسوج';
-        airports['ZAH']='زاهدان';
-    
-        //فرودگاه های بین المللی
-        airports['DXB']='دبی';
-        airports['LGW']='لندن';
-        airports['IST']='استانبول';
-        airports['STN']='لندن';
-    
-        airports['DOH']='دوحه';
-        airports['FRA']='فرانکفورت';
-        airports['SAW']='استانبول';
-        airports['KBP']='کی اف';
-        airports['KWI']='کویت';
-        airports['STN']='لندن';
-        airports['LCY']='لندن';
-        airports['LHR']='لندن';
-        airports['LGW']='لندن';
-        airports['SVO']='مسکو';
-        airports['MUC']='مونیخ';
-        airports['MCT']='مسقط';
-        airports['VIE']='وی انا';
-        airports['ZRH']='زوریخ';
-        airports['YYZ']='ونکوور ';
-        airports['GYD']='حیدر علی اف';
-    
-    
-    
-        if(code in airports){
-            return airports[code];
-        }
-        return code;
-    }
-
 
     //تو این حالت از سشن استفاده میکنیم و سرعت لود سایت رو افزایش میدیم
     function airportName(code){

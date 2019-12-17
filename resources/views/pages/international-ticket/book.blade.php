@@ -217,8 +217,8 @@ function showConfirmDate(){
     document.getElementById('emailPreview').innerText=document.getElementById('passengerEmail').value;
     document.getElementById('telPreview').innerText=document.getElementById('passengerTel').value;
     
-    document.getElementById("passengerInfos").style.display = "none";    //نمایش صفحه تایید
-    document.getElementById("confirmData").style.display = "block";     //محفی کردن صفحه ورود اطلاعات
+    // document.getElementById("passengerInfos").style.display = "none";    //نمایش صفحه تایید
+    // document.getElementById("confirmData").style.display = "block";     //محفی کردن صفحه ورود اطلاعات
 }
 function hideConfirmDate(){
     document.getElementById("confirmData").style.display = "none";    
@@ -361,6 +361,10 @@ function passengerInfoConfirm(){
     var PassportNumber      = document.getElementsByClassName("PassportNumber");
     var IssueDate           = document.getElementsByClassName("IssueDate");
     var ExpireDate          = document.getElementsByClassName("ExpireDate");
+    var PassengerCodeMeli   = document.getElementsByClassName("PassengerCodeMeli");
+
+    var AirTravelers = [];//اطلاعات مسافران برای بوک کردن 
+    var AirBookingData = '';
 
         
         for (let index = 0; index < PassengerFirstName.length; index++) {
@@ -373,6 +377,7 @@ function passengerInfoConfirm(){
                                     <th>نام خانوادگی</th>
                                     <th>جنسیت</th>
                                     <th>تاریخ تولد</th>
+                                    <th>کد ملی</th>
                                     <th>شماره پاسپورت</th>
                                     <th>اعتبار پاسپورت</th>
                                     <th>عملیات</th>
@@ -383,6 +388,7 @@ function passengerInfoConfirm(){
                                 <td>${PassengerLastName[index].value}</td>
                                 <td>${gender[index].options[gender[index].selectedIndex].text}</td>
                                 <td>${(DateOfBirth[index].value)}</td>
+                                <td>${(PassengerCodeMeli[index].value)}</td>
                                 <td>${PassportNumber[index].value}</td>
                                 <td>${(ExpireDate[index].value)}</td>
                                 <td><a href="#" onclick="hideConfirmDate('hello')">ویرایش</a></td>
@@ -390,8 +396,66 @@ function passengerInfoConfirm(){
                             </tr>
     
                     </table>`;
-        }
+
+
+
+            AirTravelers.push(
+               {
+                    DateOfBirth   : "1992-12-17T05:25:07",
+                    Gender        : gender[index].selectedIndex,
+                    PassengerType : "1",
+                    PassengerName : {
+                        PassengerFirstName   :    PassengerFirstName[index].value,
+                        PassengerMiddleName  :    "",
+                        PassengerLastName    :    PassengerLastName[index].value,
+                        PassengerTitle       :    1
+                        },
+                    Passport: {
+                        Country           :    (Country[index].value),
+                        ExpiryDate        :    PartoDateFormat(ExpireDate[index].value),
+                        IssueDate         :    "",
+                        PassportNumber    :    PassportNumber[index].value
+                        },
+                    NationalId            : PassengerCodeMeli[index].value,
+                    Nationality           : Country[index].value,
+                    ExtraServiceId        : [],
+                    FrequentFlyerNumber   : "",
+                    SeatPreference        : 0,
+                    MealPreferenc         : 0,
+                    Wheelchair            : false
+                }
+            );
+
+        }//for
+
+        let phoneNumber =    document.getElementById('passengerTel').value;
+        let Email       =    document.getElementById('passengerEmail').value;
+        AirBookingData = {
+            FareSourceCode: localStorage.getItem('FareSourceCode'),
+            SessionId: '',
+            ClientUniqueId: "R123456",
+            MarkupForAdult: 0.0,
+            MarkupForChild: 0.0,
+            MarkupForInfant: 0.0,
+            TravelerInfo: {
+                PhoneNumber   :    phoneNumber,
+                Email         :    Email,
+                AirTravelers  :    AirTravelers
+            }
+        };
+        // console.log(JSON.parse(AirBookingData))
+        console.log(JSON.stringify(AirBookingData))
+        axios.post('/AirBooking', {
+            AirBookingData:AirBookingData
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
    
+    // console.log(JSON.parse(AirBookingData));
     document.getElementById('passengerInfoConfirm').innerHTML = ticketConfirm;
 }//CreateTicketPreview
 

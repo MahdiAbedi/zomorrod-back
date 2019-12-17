@@ -97,7 +97,7 @@
                             <label for="roles">با قوانین و مقررات ستاره زمرد موافقم *</label>
                         </div>
                         <div class="field">
-                                <input type="submit" class="btn btn-green" value="ورود به سایت">
+                                <input type="submit" class="btn btn-green" value="ثبت نام">
                         </div>
                         
                     </form>

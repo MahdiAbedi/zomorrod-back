@@ -148,7 +148,7 @@ ul {
   border-bottom-left-radius: 10px; }
 
 main {
-  background-color: #f5f5f5; }
+  background-color: #fff; }
 
 .main-container {
   width: 80%;
@@ -159,6 +159,12 @@ main {
   justify-content: center;
   align-items: center;
   padding: 10px 0;
+  text-align: center; }
+
+.text-justify {
+  text-align: justify; }
+
+.text-center {
   text-align: center; }
 
 .make_your_tour {
@@ -212,6 +218,16 @@ main {
 .half {
   width: 50%;
   margin: 5px; }
+
+.bgwidth {
+  width: 100%;
+  padding: 5px 0; }
+
+.bg-white {
+  background: #fff !important; }
+
+.bg-gray {
+  background: #f5f5f5 !important; }
 
 .topmenu {
   width: 100%;
@@ -393,10 +409,28 @@ ul.menu {
   flex-direction: column;
   width: 100%;
   justify-content: center;
-  align-items: center;
-  background-color: #EEEEEE;
+  background-color: #FFF;
   border-radius: 5px;
   cursor: pointer; }
+  .tour .discount {
+    border-top: 60px solid #f37021;
+    border-bottom: 60px solid transparent;
+    border-radius: 5px;
+    border-left: 60px solid transparent;
+    border-right: 60px solid #f37021;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 80px; }
+    .tour .discount p {
+      color: #fff !important;
+      margin-top: -50px;
+      margin-right: -50px;
+      font-size: larger; }
+  .tour .flex-between {
+    padding: 4px; }
   .tour img {
     width: 100%;
     height: auto;
@@ -427,6 +461,47 @@ ul.menu {
 .newsletter #newsletter {
   width: 465px;
   border: 1px solid #eee; }
+
+.text-slider {
+  width: 45% !important; }
+  .text-slider a {
+    color: #4E4E4E;
+    font-size: 15px; }
+    .text-slider a::after {
+      content: " | ";
+      padding: 5px; }
+
+.owl-prev, .owl-next {
+  width: 15px;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block !important;
+  border: 0px solid black; }
+
+.owl-prev {
+  left: -80px; }
+
+.owl-next {
+  right: -80px; }
+
+.owl-prev i, .owl-next i {
+  transform: scale(2.5);
+  color: #acacac; }
+
+.main-container.links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  .main-container.links ul {
+    list-style: disc; }
+    .main-container.links ul li {
+      margin-top: 5px; }
+    .main-container.links ul a {
+      color: black; }
+      .main-container.links ul a:hover {
+        color: #006C50; }
 
 .slider {
   background: url("../img/bgs/outline-flight.jpg") no-repeat center;
@@ -1851,8 +1926,6 @@ th:first-child {
     width: 100%;
     padding: 10px;
     justify-content: space-between; }
-    .hotels .hotels_preview_top .stars i {
-      padding: initial !important; }
     .hotels .hotels_preview_top .left, .hotels .hotels_preview_top .right {
       display: flex;
       flex-direction: column; }
@@ -1860,6 +1933,9 @@ th:first-child {
       text-align: left; }
     .hotels .hotels_preview_top .green {
       color: #006C50; }
+
+span.stars i {
+  padding: initial !important; }
 
 .hotels_detail {
   background: #006C50;
@@ -2069,9 +2145,32 @@ table.rounded_table {
     .profile-list .half ul.profile-menu li .red {
       color: red; }
 
+.blog-slider {
+  position: relative;
+  border-radius: 5px; }
+  .blog-slider img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 5px; }
+  .blog-slider h2 {
+    font-size: 1.8rem;
+    color: #006C50;
+    position: absolute;
+    bottom: 0px;
+    padding: 20px;
+    width: 100%;
+    color: white;
+    text-align: center;
+    background: linear-gradient(to top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+    /* W3C */ }
+
 .column {
   display: flex;
   flex-direction: column; }
+
+.orange {
+  color: #f19a65 !important; }
 
 .money, .price {
   font-family: IRANSansWebFaNum,'b Homa','tahoma';

@@ -69257,6 +69257,12 @@ function PassengerInfo(_ref) {
     className: "DateOfBirth"
   })), React.createElement("div", {
     className: "field"
+  }, React.createElement("label", null, "\u06A9\u062F \u0645\u0644\u06CC"), React.createElement("input", {
+    type: "text",
+    name: "PassengerCodeMeli[]",
+    className: "PassengerCodeMeli"
+  })), React.createElement("div", {
+    className: "field"
   }, React.createElement("label", null, "\u06A9\u0634\u0648\u0631 \u0635\u0627\u062F\u0631 \u06A9\u0646\u0646\u062F\u0647 \u067E\u0627\u0633\u067E\u0648\u0631\u062A"), React.createElement("select", _defineProperty({
     className: "select2",
     name: "Country[]"
@@ -69704,11 +69710,6 @@ function PassengerInfo(_ref) {
     type: "text",
     name: "PassportNumber[]",
     className: "PassportNumber"
-  })), React.createElement("div", {
-    className: "field"
-  }, React.createElement("label", null, "\u062A\u0627\u0631\u06CC\u062E \u0635\u062F\u0648\u0631 \u067E\u0627\u0633\u067E\u0648\u0631\u062A"), React.createElement(_components_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], {
-    name: "IssueDate[]",
-    className: "IssueDate"
   })), React.createElement("div", {
     className: "field"
   }, React.createElement("label", null, "\u062A\u0627\u0631\u06CC\u062E \u0627\u0646\u0642\u0636\u0627 \u067E\u0627\u0633\u067E\u0648\u0631\u062A"), React.createElement(_components_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], {
@@ -73320,13 +73321,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var PassengerCount =
 /*#__PURE__*/
@@ -73339,6 +73342,56 @@ function (_React$Component) {
     _classCallCheck(this, PassengerCount);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(PassengerCount).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "addInfant", function () {
+      if (_this.checkPassengersCount()) {
+        //تعداد نوزاد نباید بیشتر از تعداد بزرگسالان باشد
+        //Per ADT 1 INF can be select
+        if (_this.state.infant + 1 > _this.state.adult) {
+          FlashMessage('تعداد نوزاد نمیتواند از تعداد بزرگسالان بیشتر باشد.');
+        } else {
+          _this.setState({
+            infant: _this.state.infant + 1
+          });
+        }
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "addAdult", function () {
+      if (_this.checkPassengersCount()) {
+        _this.setState({
+          adult: _this.state.adult + 1
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "removeAdult", function () {
+      if (_this.state.adult - 1 > 0) {
+        _this.setState({
+          adult: _this.state.adult - 1
+        });
+      } else {
+        FlashMessage('حداقل یک بزرگسال باید در پرواز باشد.');
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "addChild", function () {
+      if (_this.checkPassengersCount()) {
+        _this.setState({
+          child: _this.state.child + 1
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "checkPassengersCount", function () {
+      if (_this.state.adult + _this.state.child + _this.state.infant + 1 > 10) {
+        FlashMessage('مجموع مسافران اعم از بزرگسال ،کودک و نوزاد نباید بیشتر از 10 نفر باشد');
+        return false;
+      }
+
+      return true;
+    });
+
     _this.state = {
       adult: 1,
       child: 0,
@@ -73346,7 +73399,8 @@ function (_React$Component) {
       display: 0
     };
     return _this;
-  }
+  } // ######################### اضافه کردن نوزاد ##################################
+
 
   _createClass(PassengerCount, [{
     key: "render",
@@ -73395,17 +73449,13 @@ function (_React$Component) {
         type: "button",
         className: "plus-btn",
         onClick: function onClick() {
-          return _this2.setState({
-            adult: _this2.state.adult + 1
-          });
+          return _this2.addAdult();
         }
       }, "+"), React.createElement("span", null, this.state.adult), React.createElement("button", {
         type: "button",
         className: "plus-btn",
         onClick: function onClick() {
-          return _this2.setState({
-            adult: _this2.state.adult > 0 ? _this2.state.adult - 1 : _this2.state.adult
-          });
+          return _this2.removeAdult();
         }
       }, "-"))), React.createElement("div", {
         className: "passengers_count"
@@ -73415,9 +73465,7 @@ function (_React$Component) {
         type: "button",
         className: "plus-btn",
         onClick: function onClick() {
-          return _this2.setState({
-            child: _this2.state.child + 1
-          });
+          return _this2.addChild();
         }
       }, "+"), React.createElement("span", null, this.state.child), React.createElement("button", {
         type: "button",
@@ -73435,9 +73483,7 @@ function (_React$Component) {
         type: "button",
         className: "plus-btn",
         onClick: function onClick() {
-          return _this2.setState({
-            infant: _this2.state.infant + 1
-          });
+          return _this2.addInfant();
         }
       }, "+"), React.createElement("span", null, this.state.infant), React.createElement("button", {
         type: "button",

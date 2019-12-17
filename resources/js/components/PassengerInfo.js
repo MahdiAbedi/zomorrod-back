@@ -40,6 +40,10 @@ function PassengerInfo({title="بزرگسال",passengerType=1}){
                         <DateSelector name="DateOfBirth[]"  className="DateOfBirth"/>
                     </div>
                     <div className="field">
+                        <label >کد ملی</label>
+                        <input type="text" name="PassengerCodeMeli[]"  className="PassengerCodeMeli"/>
+                    </div>
+                    <div className="field">
                         <label >کشور صادر کننده پاسپورت</label>
                         <select className="select2" name="Country[]" className="Country">
                             <option value="IRN">
@@ -488,10 +492,10 @@ function PassengerInfo({title="بزرگسال",passengerType=1}){
                         <input type="text" name="PassportNumber[]" className="PassportNumber"/>
                     </div>
 
-                    <div className="field">
+                    {/* <div className="field">
                         <label >تاریخ صدور پاسپورت</label>
                         <DateSelector name="IssueDate[]" className="IssueDate" />
-                    </div>
+                    </div> */}
                     <div className="field">
                         <label >تاریخ انقضا پاسپورت</label>
                         <DateSelector name="ExpiryDate[]" className="ExpireDate" />

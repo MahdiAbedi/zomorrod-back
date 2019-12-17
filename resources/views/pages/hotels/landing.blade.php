@@ -70,110 +70,292 @@
     </div>
     <!-- main part -->
     <main id="root">
-        <div class="main-container">
-            <div class="home_icons flex">
-                <div class="home_icon">
-                    <img src="img/icons/waranti.png" alt="">
-                    <p>گارانتی قیمت بازگشت وجه در صورت ارائه قیمت ارزان تر از زمرد</p>
+        <div class="bgwidth bg-white">
+                <div class="main-container">
+                        <div class="home_icons flex">
+                            <div class="home_icon">
+                                <img src="img/icons/waranti.png" alt="">
+                                <p>گارانتی قیمت بازگشت وجه در صورت ارائه قیمت ارزان تر از زمرد</p>
+                            </div>
+                            <div class="home_icon">
+                                <img src="img/icons/travel.png" alt="">
+                                <p>دسترسی به بیش از 300 هتل و ایرلاین در سراسر دنیا</p>
+                            </div>
+                            <div class="home_icon">
+                                <img src="img/icons/support.png" alt="">
+                                <p>ارائه پشتیبانی و خدمات پس از فروش به صورت 24 ساعته</p>
+                            </div>
+                        </div>
                 </div>
-                <div class="home_icon">
-                    <img src="img/icons/travel.png" alt="">
-                    <p>دسترسی به بیش از 300 هتل و ایرلاین در سراسر دنیا</p>
-                </div>
-                <div class="home_icon">
-                    <img src="img/icons/support.png" alt="">
-                    <p>ارائه پشتیبانی و خدمات پس از فروش به صورت 24 ساعته</p>
-                </div>
-            </div>
-            <h2 class="special_offers">پیشنهادهای ویژه</h2>
-            <h3 class="title">آژانس مسافرت هوایی و گردگشری ستاره زمرد</h3>
-            <p>مجری مستقیم تورهای:سوئیس ، بالی، کوالالامپور،سنگاپور،چین،گرجستان،مالدیو،روسیه و مالزی</p>
-            <!-- tours -->
-            <div class="tours flex owl-carousel owl-theme">
-                <!-- tour -->
-                <div class="tour">
-                    <img src="img/tours/img-8.jpg" alt="">
-                    <h2>تور بلغارستان "وارنا"</h2>
-                    <p>7 شب و 8 روز -هتل 5 ستاره</p>
-                    <p class="price">7,730,000 تومان</p>
-                </div>
-                <!-- tour -->
-                <div class="tour">
-                    <img src="img/tours/img-6.jpg" alt="">
-                    <h2>تور سوئیس</h2>
-                    <p>7 شب و 8 روز -هتل 5 ستاره</p>
-                    <p class="price">7,730,000 تومان</p>
-                </div>
-                <!-- tour -->
-                <div class="tour">
-                    <img src="img/tours/img-3.jpg" alt="">
-                    <h2>تور فرانسه</h2>
-                    <p>7 شب و 8 روز -هتل 5 ستاره</p>
-                    <p class="price">7,730,000 تومان</p>
-                </div>
-                <!-- tour -->
-                <div class="tour">
-                    <img src="img/tours/img-8.jpg" alt="">
-                    <h2>تور بلغارستان "وارنا"</h2>
-                    <p>7 شب و 8 روز -هتل 5 ستاره</p>
-                    <p class="price">7,730,000 تومان</p>
-                </div>
-                <!-- tour -->
-                <div class="tour">
-                    <img src="img/tours/img-6.jpg" alt="">
-                    <h2>تور سوئیس</h2>
-                    <p>7 شب و 8 روز -هتل 5 ستاره</p>
-                    <p class="price">7,730,000 تومان</p>
-                </div>
-                <!-- tour -->
-                <div class="tour">
-                    <img src="img/tours/img-3.jpg" alt="">
-                    <h2>تور فرانسه</h2>
-                    <p>7 شب و 8 روز -هتل 5 ستاره</p>
-                    <p class="price">7,730,000 تومان</p>
-                </div>
-           
-               
-               
-
-            </div>
-            <!-- قسمت خبرنامه و دکمه تورهای بیشتر -->
-            <!-- <div class="extra">
-                <form class="newsletter">
-                    <input type="button" value="ارسال" id="newsletter_btn">
-                    <input type="text" name="newsletter" id="newsletter" class="right-border left-border"
-                        placeholder="برای دریاف آخرین اخبار تور‌ها و دریافت کد تخفیف ایمیل خورد را ارسال کنید">
-                </form>
-                <input type="button" value="تورهای بیشتر">
-            </div> -->
-
-
-            <!-- پکیجت رو بساز -->
-            <!-- <div class="make_your_tour">
-            </div> -->
-
-            <!-- مطالب و بلاگ -->
-            <!-- <div class="blog_slides flex">
-                <div class="blog_slide">
-                    <img src="img/tours/3.jpg" alt="">
-                    <p>طبیعت گردی</p>
-                </div>
-                <div class="fcolumn">
-                    <div class="blog_slide">
-                        <img src="img/tours/1.jpg" alt="">
-                        <p>طبیعت گردی</p>
-                    </div>
-                    <div class="blog_slide">
-                        <img src="img/tours/61.jpg" alt="">
-                        <p>طبیعت گردی</p>
-                    </div>
-                </div>
-                <div class="blog_slide">
-                    <img src="img/tours/4.jpg" alt="">
-                    <p>طبیعت گردی</p>
-                </div>
-            </div> -->
         </div>
+        <!-- متن درباره ستاره زمرد  -->
+        <div class="bgwidth bg-gray">
+            <div class="main-container">
+                <h2 class="special_offers">ستاره زمرد !!</h2><br/>
+                <p class="text-justify">شرکت خدمات مسافرتی ستاره زمرد از شروع فعالیت خود تاکنون هدف گذاری ویژه ای بر روی رضایت مسافران داشته پو در ارائه خدمات با کیفیت از کلیه آژانس های همکار خود پیشی گرفته است. این رضایتمندی آژانس ستاره زمرد  را بر آن داشته است تا با گسترش زمینه فعالیت های خود در حوزه سفر و گردشگری، خود را پیشتاز این رقابت ها بداند.</p>
+            </div>
+        </div>
+        <!-- هتلت رو با چشم بسته انتخاب کن -->
+        <div class="bgwidth">
+            <div class="main-container">
+                <h2 class="special_offers">هتلت رو با چشم بسته انتخاب کن !</h2><br/>
+                <div class="text-slider owl-carousel">
+                    <a href="#"> تهران</a>
+                    <a href="#"> شیراز</a>
+                    <a href="#"> اصفهان</a>
+                    <a href="#"> کرمان </a>
+                    <a href="#"> اهواز</a>
+                    <a href="#"> مشهد</a>
+                    <a href="#"> تبریز</a>
+                    <a href="#"> قم</a>
+                </div>
+            </div>
+        </div>
+        <!-- باحالترین هتلها  -->
+        <div class="bgwidth bg-gray">
+                <div class="main-container">
+                    <h2 class="special_offers">باحالترین هتلها</h2>
+                    <!-- tours -->
+                    <div class="tours flex owl-carousel owl-theme">
+                        <!-- tour -->
+                        <div class="tour">
+                            <div class="discount">
+                                <p>15% تخفیف</p>
+                                
+                            </div>
+                            <img src="img/tours/img-8.jpg" alt="">
+                            <h2>تور بلغارستان "وارنا"</h2>
+                            <div class="flex-between">
+                                <span class="stars">
+                                    <i class="fa fa-star green"></i>
+                                    <i class="fa fa-star green"></i>
+                                    <i class="fa fa-star green"></i>
+                                    <i class="far fa-star green"></i>
+                                    <i class="far fa-star green"></i>
+                                </span>
+                                <p>شروع قیمت از</p>
+
+                            </div>
+                            <div class="flex-between ">
+                                <p>رتبه:7|خوب</p>
+                                <p class="orange">7,730,000 تومان</p>
+                            </div>
+                        </div>                      
+                        <!-- tour -->
+                        <div class="tour">
+                            <div class="discount">
+                                <p>15% تخفیف</p>
+                                
+                            </div>
+                            <img src="img/tours/img-8.jpg" alt="">
+                            <h2>تور بلغارستان "وارنا"</h2>
+                            <div class="flex-between">
+                                <span class="stars">
+                                    <i class="fa fa-star green"></i>
+                                    <i class="fa fa-star green"></i>
+                                    <i class="fa fa-star green"></i>
+                                    <i class="far fa-star green"></i>
+                                    <i class="far fa-star green"></i>
+                                </span>
+                                <p>شروع قیمت از</p>
+
+                            </div>
+                            <div class="flex-between ">
+                                <p>رتبه:7|خوب</p>
+                                <p class="orange">7,730,000 تومان</p>
+                            </div>
+                        </div>                      
+                        <!-- tour -->
+                        <div class="tour">
+                            <div class="discount">
+                                <p>15% تخفیف</p>
+                                
+                            </div>
+                            <img src="img/tours/img-8.jpg" alt="">
+                            <h2>تور بلغارستان "وارنا"</h2>
+                            <div class="flex-between">
+                                <span class="stars">
+                                    <i class="fa fa-star green"></i>
+                                    <i class="fa fa-star green"></i>
+                                    <i class="fa fa-star green"></i>
+                                    <i class="far fa-star green"></i>
+                                    <i class="far fa-star green"></i>
+                                </span>
+                                <p>شروع قیمت از</p>
+
+                            </div>
+                            <div class="flex-between ">
+                                <p>رتبه:7|خوب</p>
+                                <p class="orange">7,730,000 تومان</p>
+                            </div>
+                        </div>                      
+                        <!-- tour -->
+                        <div class="tour">
+                            <div class="discount">
+                                <p>15% تخفیف</p>
+                                
+                            </div>
+                            <img src="img/tours/img-8.jpg" alt="">
+                            <h2>تور بلغارستان "وارنا"</h2>
+                            <div class="flex-between">
+                                <span class="stars">
+                                    <i class="fa fa-star green"></i>
+                                    <i class="fa fa-star green"></i>
+                                    <i class="fa fa-star green"></i>
+                                    <i class="far fa-star green"></i>
+                                    <i class="far fa-star green"></i>
+                                </span>
+                                <p>شروع قیمت از</p>
+
+                            </div>
+                            <div class="flex-between ">
+                                <p>رتبه:7|خوب</p>
+                                <p class="orange">7,730,000 تومان</p>
+                            </div>
+                        </div>                      
+                        <!-- tour -->
+                        <div class="tour">
+                            <div class="discount">
+                                <p>15% تخفیف</p>
+                                
+                            </div>
+                            <img src="img/tours/img-8.jpg" alt="">
+                            <h2>تور بلغارستان "وارنا"</h2>
+                            <div class="flex-between">
+                                <span class="stars">
+                                    <i class="fa fa-star green"></i>
+                                    <i class="fa fa-star green"></i>
+                                    <i class="fa fa-star green"></i>
+                                    <i class="far fa-star green"></i>
+                                    <i class="far fa-star green"></i>
+                                </span>
+                                <p>شروع قیمت از</p>
+
+                            </div>
+                            <div class="flex-between ">
+                                <p>رتبه:7|خوب</p>
+                                <p class="orange">7,730,000 تومان</p>
+                            </div>
+                        </div>                      
+                                      
+                    </div>
+                </div>
+        </div>
+        <!-- خوش قیمت ترین هتلها  -->
+        <div class="bgwidth bg-white">
+                <div class="main-container">
+                    <h2 class="special_offers">خوش قیمت ترین هتلها</h2>
+                    <!-- tours -->
+                    <div class="tours flex owl-carousel owl-theme">
+                        <!-- tour -->
+                        <div class="tour bg-gray">
+                            <img src="img/tours/img-8.jpg" alt="">
+                            <h2>تور بلغارستان "وارنا"</h2>
+                            <p>7 شب و 8 روز -هتل 5 ستاره</p>
+                            <p class="price">7,730,000 تومان</p>
+                        </div>
+                        <!-- tour -->
+                        <div class="tour bg-gray">
+                            <img src="img/tours/img-6.jpg" alt="">
+                            <h2>تور سوئیس</h2>
+                            <p>7 شب و 8 روز -هتل 5 ستاره</p>
+                            <p class="price">7,730,000 تومان</p>
+                        </div>
+                        <!-- tour -->
+                        <div class="tour bg-gray">
+                            <img src="img/tours/img-3.jpg" alt="">
+                            <h2>تور فرانسه</h2>
+                            <p>7 شب و 8 روز -هتل 5 ستاره</p>
+                            <p class="price">7,730,000 تومان</p>
+                        </div>
+                        <!-- tour -->
+                        <div class="tour bg-gray">
+                            <img src="img/tours/img-8.jpg" alt="">
+                            <h2>تور بلغارستان "وارنا"</h2>
+                            <p>7 شب و 8 روز -هتل 5 ستاره</p>
+                            <p class="price">7,730,000 تومان</p>
+                        </div>
+                        <!-- tour -->
+                        <div class="tour bg-gray">
+                            <img src="img/tours/img-6.jpg" alt="">
+                            <h2>تور سوئیس</h2>
+                            <p>7 شب و 8 روز -هتل 5 ستاره</p>
+                            <p class="price">7,730,000 تومان</p>
+                        </div>
+                        <!-- tour -->
+                        <div class="tour bg-gray">
+                            <img src="img/tours/img-3.jpg" alt="">
+                            <h2>تور فرانسه</h2>
+                            <p>7 شب و 8 روز -هتل 5 ستاره</p>
+                            <p class="price">7,730,000 تومان</p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <!-- لینک هتلها  -->
+        <div class="bgwidth bg-gray ">
+                <div class="main-container links">
+                        <ul>
+                            <li><a href="#">رزو هتل آنتالیا</a></li>
+                            <li><a href="#">رزو هتل آنتالیا</a></li>
+                            <li><a href="#">رزو هتل آنتالیا</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">رزو هتل آنتالیا</a></li>
+                            <li><a href="#">رزو هتل آنتالیا</a></li>
+                            <li><a href="#">رزو هتل آنتالیا</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">رزو هتل آنتالیا</a></li>
+                            <li><a href="#">رزو هتل آنتالیا</a></li>
+                            <li><a href="#">رزو هتل آنتالیا</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">رزو هتل آنتالیا</a></li>
+                            <li><a href="#">رزو هتل آنتالیا</a></li>
+                            <li><a href="#">رزو هتل آنتالیا</a></li>
+                        </ul>
+                </div>
+            
+        </div>
+
+        <!-- درباره هتلها یکم بیشتر بخوانید؟ -->
+        <div class="bgwidth bg-white">
+                <div class="main-container">
+                    <h2 class="special_offers">درباره هتلها یکم بیشتر بخوانید؟</h2>
+                    <!-- tours -->
+                    <div class="tours flex owl-carousel owl-theme">
+                        <!-- blog -->
+                        <div class="blog-slider">
+                            <img src="img/tours/img-8.jpg" alt="">
+                            <h2>تور بلغارستان "وارنا"</h2>
+                        </div>
+                        <!-- blog -->
+                        <div class="blog-slider">
+                            <img src="img/tours/img-8.jpg" alt="">
+                            <h2>تور بلغارستان "وارنا"</h2>
+                        </div>
+                        <!-- blog -->
+                        <div class="blog-slider">
+                            <img src="img/tours/img-8.jpg" alt="">
+                            <h2>تور بلغارستان "وارنا"</h2>
+                        </div>
+                        <!-- blog -->
+                        <div class="blog-slider">
+                            <img src="img/tours/img-8.jpg" alt="">
+                            <h2>تور بلغارستان "وارنا"</h2>
+                        </div>
+                        <!-- blog -->
+                        <div class="blog-slider">
+                            <img src="img/tours/img-8.jpg" alt="">
+                            <h2>تور بلغارستان "وارنا"</h2>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        
+
+        
     </main>
 
 <script>

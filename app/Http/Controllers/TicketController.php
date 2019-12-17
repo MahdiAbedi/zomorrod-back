@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use GuzzleHttp\RequestOptions;
+use Illuminate\Support\Facades\Redirect;
 use GuzzleHttp\Exception\GuzzleException;
 use App\Http\Controllers\TravelBaseController;
 
 class TicketController extends TravelBaseController
 {
+    //#############################################################################################################
     //############################### چک کردن بلیط پروازهای داخلی و خارجی ######################################
+    //#############################################################################################################
     public function checkTicket(Request $request){
         
         // dd($request->all());
@@ -44,10 +47,28 @@ class TicketController extends TravelBaseController
                 ));
         }
 
+        //###################### تعداد نوزاد نباید بیشتر از تعداد بزرگسالان باشد ##################################
+        if($request->input('InfantCount')>$request->input('AdultCount')){
+          Session::flash('warning', 'تعداد نوزاد نمیتواند کمتر از تعداد بزرگسالان باشد.');
+          return Redirect::back();
+        }
+
+        //#################### مجموع مسافران اعم از بزرگسال ،کودک و نوزاد نباید بیشتر از 10 نفر باشد ############
+        if($request->input('InfantCount')+$request->input('AdultCount')+$request->input('ChildCount')>10){
+          Session::flash('warning', 'مجموع مسافران اعم از بزرگسال ،کودک و نوزاد نباید بیشتر از 10 نفر باشد');
+          return Redirect::back();
+        }
+
+        //################### حداقل یک بزرگسال باید در پرواز باشد  #################################################
+        if($request->input('AdultCount')<1){
+          Session::flash('warning', 'حداقل یک بزرگسال باید در پرواز باشد');
+          return Redirect::back();
+        }
+
         $sendArray=array (
           'PricingSourceType'     => 0,
           'RequestOption'         => 2,
-          'SessionId'             => $this->SessionId,
+          'SessionId'             => session('SessionId'),
           'AdultCount'            => $request->input('AdultCount'),
           'ChildCount'            => $request->input('ChildCount'),
           'InfantCount'           => $request->input('InfantCount'),
@@ -67,9 +88,22 @@ class TicketController extends TravelBaseController
 
         // dd(json_encode($sendArray));
 
+        //نوشتن خروجی در فایل برای ارسال به پرتو 
+          // $myfile = fopen("Request.json", "w") or die("Unable to open file!");
+          // fwrite($myfile, json_encode($sendArray));
+          // fclose($myfile);
+        // پایان تست  
+
         $response = $client->post('https://apidemo.partocrs.com/Rest/Air/AirLowFareSearch', [
             RequestOptions::JSON => $sendArray
         ]);
+
+
+        //نوشتن خروجی در فایل برای ارسال به پرتو 
+          // $myfile2 = fopen("Response.json", "w") or die("Unable to open file!");
+          // fwrite($myfile2, $response->getBody()->getContents());
+          // fclose($myfile2);
+        // پایان تست 
 
         // dd($response->getBody()->getContents());
         return $response->getBody()->getContents();
@@ -80,4 +114,29 @@ class TicketController extends TravelBaseController
     public function factor(Request $request){
         dd($request->all());
     }
+
+
+    //#############################################################################################################
+    //############################### بوک کردن پرواز داخلی و خارجی ##############################################
+    //#############################################################################################################
+
+    public function AirBooking(Request $request){
+        // dd($request->all());
+        // dd(session('SessionId'));
+        $client = new Client();
+        $AirBookingData = $request->input('AirBookingData');
+        $AirBookingData['SessionId']=session('SessionId');
+
+
+        // dd(json_encode($AirBookingData));
+        //ارسال اطلاعات به سرور پرتو برای بوک کردن بلیط
+        $response = $client->post('https://apidemo.partocrs.com/Rest/Air/AirBook', [
+            RequestOptions::JSON => $AirBookingData
+        ]);
+
+
+
+        dd($response->getBody()->getContents());
+    }
+
 }

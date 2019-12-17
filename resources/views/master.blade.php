@@ -13,7 +13,7 @@
     @yield('body')
 
 
-
+    
     <!-- منوی پایین -->
     @include('includes/footer')
 </body>
