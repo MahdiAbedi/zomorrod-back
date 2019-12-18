@@ -73,8 +73,8 @@
             <div class="contact-info">
 
                 <a href="#" class="info btn btn-green"><i class="fas fa-chevron-circle-left"></i>اطلاعات تماس</a>
-                <input type="text" placeholder="ایمیل" name="passengerEmail" id="passengerEmail">
-                <input type="text" name="passengerTel" placeholder="تلفن همراه" id="passengerTel">
+                <input type="text" placeholder="ایمیل" name="passengerEmail" id="passengerEmail" value="mahdiabedi220@yahoo.com">
+                <input type="text" name="passengerTel" placeholder="تلفن همراه" id="passengerTel" value="09395187902">
                 <div class="info">
                     <input type="checkbox" name="confirm" id="confirm">
                     <label for="confirm">
@@ -362,12 +362,16 @@ function passengerInfoConfirm(){
     var IssueDate           = document.getElementsByClassName("IssueDate");
     var ExpireDate          = document.getElementsByClassName("ExpireDate");
     var PassengerCodeMeli   = document.getElementsByClassName("PassengerCodeMeli");
+    var PassengerType       = document.getElementsByClassName("PassengerType");//GET PASSENGER TYPE ADULT=1 , CHILD=2 ,INFANT=3 
+    
+
 
     var AirTravelers = [];//اطلاعات مسافران برای بوک کردن 
     var AirBookingData = '';
 
-        
+        // console.log(PassengerFirstName)
         for (let index = 0; index < PassengerFirstName.length; index++) {
+            console.log(PassengerFirstName[index].value)
             ticketConfirm += `
                     <h3 class="green"><span>&#11044 </span>بزرگسال</h3>
                     <table class="gray-title">
@@ -397,18 +401,50 @@ function passengerInfoConfirm(){
     
                     </table>`;
 
+        //#################################################################################################################
+        //#################################################################################################################
+            /*
+                ####### PASSENGER TITLE ############
+                Mr  =   0,  Adult - Male
+                Mrs =   1,  Adule - Female
+                Ms  =   2,  Adule - Female
+                Miss=   3,  Child,Infant - Female
+                Mstr=   4,  Child,Infant - Male
 
+                ####### PASSENGER TYPE ############
+                ADULT   =   1,
+                CHILD   =   2,
+                INFANT  =   3
+
+            */
+
+
+            let passengerTitle=0;
+            // console.log(PassengerType)
+            /** NOW WE HAVE TO CHECK IF PASSENGER IS ADULT OR CHILD OR INFANT WHAT SHOULD BE IT'S TITLE */
+            switch (PassengerType[index].value) {
+                case 1:
+                    //PASSENGER IS ADULT
+                    passengerTitle ="MR";
+                    break;
+                    
+                default:
+                    //PASSENGER IS CHILD OR INFANT
+                    if(gender[index].value==0){passengerTitle = "4"}  //Mstr
+                    else{passengerTitle = "3"}                        //Miss
+                    break;
+            }
 
             AirTravelers.push(
                {
                     DateOfBirth   : "1992-12-17T05:25:07",
                     Gender        : gender[index].selectedIndex,
-                    PassengerType : "1",
+                    PassengerType : PassengerType[index].value,
                     PassengerName : {
                         PassengerFirstName   :    PassengerFirstName[index].value,
                         PassengerMiddleName  :    "",
                         PassengerLastName    :    PassengerLastName[index].value,
-                        PassengerTitle       :    1
+                        PassengerTitle       :    passengerTitle
                         },
                     Passport: {
                         Country           :    (Country[index].value),
@@ -444,7 +480,7 @@ function passengerInfoConfirm(){
             }
         };
         // console.log(JSON.parse(AirBookingData))
-        console.log(JSON.stringify(AirBookingData))
+        // console.log(JSON.stringify(AirBookingData))
         axios.post('/AirBooking', {
             AirBookingData:AirBookingData
         })

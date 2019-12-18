@@ -128,7 +128,7 @@ class TicketController extends TravelBaseController
         $AirBookingData['SessionId']=session('SessionId');
 
 
-        // dd(json_encode($AirBookingData));
+        dd(json_encode($AirBookingData));
         //ارسال اطلاعات به سرور پرتو برای بوک کردن بلیط
         $response = $client->post('https://apidemo.partocrs.com/Rest/Air/AirBook', [
             RequestOptions::JSON => $AirBookingData
