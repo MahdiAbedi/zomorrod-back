@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use GuzzleHttp\RequestOptions;
+use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use GuzzleHttp\Exception\GuzzleException;
 use App\Http\Controllers\TravelBaseController;
@@ -128,15 +130,35 @@ class TicketController extends TravelBaseController
         $AirBookingData['SessionId']=session('SessionId');
 
 
-        dd(json_encode($AirBookingData));
+        // dd(json_encode($AirBookingData));
         //ارسال اطلاعات به سرور پرتو برای بوک کردن بلیط
         $response = $client->post('https://apidemo.partocrs.com/Rest/Air/AirBook', [
             RequestOptions::JSON => $AirBookingData
         ]);
 
 
-
+        // $response = '{"Success":false,"TktTimeLimit":null,"Category":null,"Status":null,"UniqueId":null,"Error":{"Id":"Err0102008","Message":"Invalid SessionID"},"PriceChange":false}';
         dd($response->getBody()->getContents());
+        $returnbooking = json_decode($response->getBody()->getContents());
+        // dd($returnbooking);
+
+
+        //#################################### وضعیت کل را در دیتابیس ذخیره میکنیم #############################################
+           DB::table('booking')->insert([
+            'BookingDetail'  =>   json_encode($AirBookingData),
+            'user_id'        =>   auth()->user()->id,
+            'Success'        =>   $returnbooking->Success,
+            'TktTimeLimit'   =>   $returnbooking->TktTimeLimit,
+            'Category'       =>   $returnbooking->Category,
+            'Status'         =>   $returnbooking->Status,
+            'UniqueId'       =>   $returnbooking->UniqueId,
+            'ErrorId'        =>   $returnbooking->Error->Id,
+            'ErrorMessage'   =>   $returnbooking->Error->Message,
+            'PriceChange'    =>   $returnbooking->PriceChange
+          ]);
+          return $returnbooking->Success;
+        // return $response->getBody()->getContents();
+        // dd($response->getBody()->getContents());
     }
 
 }

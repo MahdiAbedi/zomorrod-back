@@ -16,7 +16,7 @@ $(document).ready(function () {
 
         
 
-    console.clear();
+    // console.clear();
     console.log('%c Designed By MahdiAbedi220@yahoo.com tel:09395187902 ', 'background: #222; color: #bada55 ;font-size:30px');
 });
 
@@ -474,6 +474,11 @@ function Toggle(tagId,display="block") {
       //تبدیل تاریخ میلادی به شمسی
       function shamsiDate(Date){
         return moment(Date).format('jYYYY/jM/jD HH:mm')
+      }
+
+      //تبدیل تاریخ شمسی به میلادی
+      function shamsiToMiladi(Date){
+          return moment(Date,'jYYYY/jM/jD').format('YYYY/M/D')
       }
 
     

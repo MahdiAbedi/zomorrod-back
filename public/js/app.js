@@ -69114,10 +69114,10 @@ function (_React$Component) {
     _this.state = {
       value: moment(),
       isGregorian: false
-    };
-    _this.enabledRange = {
-      min: moment(localStorage.getItem('departureTime'))
-    }; //Disable By Date Range 
+    }; // this.enabledRange = {
+    //   min: moment(localStorage.getItem('departureTime')),
+    // };
+    //Disable By Date Range 
     // this.disabledRanges = [
     //   { 
     //     color: 'brown', 
@@ -69202,9 +69202,7 @@ function (_React$Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_DateSelector__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/DateSelector */ "./resources/js/components/DateSelector.js");
-
-
+// import DateSelector from '../components/DateSelector';
 function PassengerInfo(_ref) {
   var _ref$title = _ref.title,
       title = _ref$title === void 0 ? "بزرگسال" : _ref$title,
@@ -69233,15 +69231,13 @@ function PassengerInfo(_ref) {
   }, React.createElement("label", null, "\u0646\u0627\u0645(\u0644\u0627\u062A\u06CC\u0646)"), React.createElement("input", {
     type: "text",
     name: "PassengerFirstName[]",
-    className: "PassengerFirstName",
-    value: "Mahdi"
+    className: "PassengerFirstName"
   })), React.createElement("div", {
     className: "field"
   }, React.createElement("label", null, "\u0646\u0627\u0645 \u062E\u0627\u0646\u0648\u0627\u062F\u06AF\u06CC(\u0644\u0627\u062A\u06CC\u0646)"), React.createElement("input", {
     type: "text",
     name: "PassengerLastName[]",
-    className: "PassengerLastName",
-    value: "Abedi"
+    className: "PassengerLastName"
   })), React.createElement("div", {
     className: "field"
   }, React.createElement("label", null, "\u062C\u0646\u0633\u06CC\u062A"), React.createElement("select", {
@@ -69253,8 +69249,10 @@ function PassengerInfo(_ref) {
     value: "1"
   }, "\u062E\u0627\u0646\u0645"))), React.createElement("div", {
     className: "field"
-  }, React.createElement("label", null, "\u062A\u0627\u0631\u06CC\u062E \u062A\u0648\u0644\u062F"), React.createElement(_components_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], {
+  }, React.createElement("label", null, "\u062A\u0627\u0631\u06CC\u062E \u062A\u0648\u0644\u062F"), React.createElement("input", {
+    type: "text",
     name: "DateOfBirth[]",
+    placeholder: "\u0645\u062B\u0627\u0644: 1370/06/08",
     className: "DateOfBirth"
   })), React.createElement("div", {
     className: "field"
@@ -69511,11 +69509,14 @@ function PassengerInfo(_ref) {
     type: "text",
     name: "PassportNumber[]",
     className: "PassportNumber",
-    value: "a5555"
+    value: "a23456789"
   })), React.createElement("div", {
     className: "field"
-  }, React.createElement("label", null, "\u062A\u0627\u0631\u06CC\u062E \u0627\u0646\u0642\u0636\u0627 \u067E\u0627\u0633\u067E\u0648\u0631\u062A"), React.createElement(_components_DateSelector__WEBPACK_IMPORTED_MODULE_0__["default"], {
+  }, React.createElement("label", null, "\u062A\u0627\u0631\u06CC\u062E \u0627\u0646\u0642\u0636\u0627 \u067E\u0627\u0633\u067E\u0648\u0631\u062A"), React.createElement("input", {
+    type: "text",
     name: "ExpiryDate[]",
+    placeholder: "\u0645\u062B\u0627\u0644:1400/06/08",
+    value: "1399/01/05",
     className: "ExpireDate"
   })))));
 }

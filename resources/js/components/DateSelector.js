@@ -10,9 +10,9 @@ class DateSelector extends React.Component {
       isGregorian:false,
     };
 
-    this.enabledRange = {
-      min: moment(localStorage.getItem('departureTime')),
-    };
+    // this.enabledRange = {
+    //   min: moment(localStorage.getItem('departureTime')),
+    // };
 
 
     //Disable By Date Range 

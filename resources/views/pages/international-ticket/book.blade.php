@@ -371,7 +371,7 @@ function passengerInfoConfirm(){
 
         // console.log(PassengerFirstName)
         for (let index = 0; index < PassengerFirstName.length; index++) {
-            console.log(PassengerFirstName[index].value)
+            // console.log(PassengerFirstName[index].value)
             ticketConfirm += `
                     <h3 class="green"><span>&#11044 </span>بزرگسال</h3>
                     <table class="gray-title">
@@ -420,24 +420,31 @@ function passengerInfoConfirm(){
 
 
             let passengerTitle=0;
-            // console.log(PassengerType)
+            // console.log(typeof PassengerType[index].value);
+            // console.log(PassengerType[0].value)
             /** NOW WE HAVE TO CHECK IF PASSENGER IS ADULT OR CHILD OR INFANT WHAT SHOULD BE IT'S TITLE */
             switch (PassengerType[index].value) {
-                case 1:
+                
+                case "1":
                     //PASSENGER IS ADULT
-                    passengerTitle ="MR";
+                    if(gender[index].value=="0"){
+                        passengerTitle ="MR";
+                    }else{
+                        passengerTitle ="MRS";
+                    }
                     break;
                     
                 default:
                     //PASSENGER IS CHILD OR INFANT
-                    if(gender[index].value==0){passengerTitle = "4"}  //Mstr
-                    else{passengerTitle = "3"}                        //Miss
+                    if(gender[index].value=="0"){passengerTitle = "Mstr"}  //Mstr
+                    else{passengerTitle = "Miss"}                        //Miss
                     break;
             }
+            // alert(pasengerTitle)
 
             AirTravelers.push(
                {
-                    DateOfBirth   : "1992-12-17T05:25:07",
+                    DateOfBirth   : PartoDateFormat(shamsiToMiladi(DateOfBirth[index].value)),
                     Gender        : gender[index].selectedIndex,
                     PassengerType : PassengerType[index].value,
                     PassengerName : {
@@ -448,7 +455,7 @@ function passengerInfoConfirm(){
                         },
                     Passport: {
                         Country           :    (Country[index].value),
-                        ExpiryDate        :    PartoDateFormat(ExpireDate[index].value),
+                        ExpiryDate        :    PartoDateFormat(shamsiToMiladi(ExpireDate[index].value)),
                         IssueDate         :    "",
                         PassportNumber    :    PassportNumber[index].value
                         },
@@ -485,7 +492,7 @@ function passengerInfoConfirm(){
             AirBookingData:AirBookingData
         })
         .then(function (response) {
-            console.log(response);
+            console.log(response.data);
         })
         .catch(function (error) {
             console.log(error);
@@ -494,6 +501,10 @@ function passengerInfoConfirm(){
     // console.log(JSON.parse(AirBookingData));
     document.getElementById('passengerInfoConfirm').innerHTML = ticketConfirm;
 }//CreateTicketPreview
+
+
+
+//#################################### SAVE BOOKING DATE IN DATABASE ###############################################
 
 //#################################### اجرای توابع بعد از بارگزاری صفحه###########################################
 window.onload =()=>{

@@ -1,4 +1,4 @@
-import DateSelector from '../components/DateSelector';
+// import DateSelector from '../components/DateSelector';
 
 
 function PassengerInfo({title="بزرگسال",passengerType=1}){
@@ -22,11 +22,11 @@ function PassengerInfo({title="بزرگسال",passengerType=1}){
                     <input type="hidden" name="PassengerType[]" className="PassengerType" value={passengerType}/>
                     <div className="field">
                         <label >نام(لاتین)</label>
-                        <input type="text" name="PassengerFirstName[]"  className="PassengerFirstName" value="Mahdi"/>
+                        <input type="text" name="PassengerFirstName[]"  className="PassengerFirstName" />
                     </div>
                     <div className="field">
                         <label >نام خانوادگی(لاتین)</label>
-                        <input type="text" name="PassengerLastName[]"  className="PassengerLastName" value="Abedi"/>
+                        <input type="text" name="PassengerLastName[]"  className="PassengerLastName" />
                     </div>
                     <div className="field">
                         <label >جنسیت</label>
@@ -37,7 +37,8 @@ function PassengerInfo({title="بزرگسال",passengerType=1}){
                     </div>
                     <div className="field">
                         <label >تاریخ تولد</label>
-                        <DateSelector name="DateOfBirth[]"  className="DateOfBirth"/>
+                        <input type="text" name="DateOfBirth[]" placeholder="مثال: 1370/06/08"  className="DateOfBirth"/>
+                        {/* <DateSelector name="DateOfBirth[]"  className="DateOfBirth"/> */}
                     </div>
                     <div className="field">
                         <label >کد ملی</label>
@@ -170,7 +171,7 @@ function PassengerInfo({title="بزرگسال",passengerType=1}){
                 
                     <div className="field">
                         <label >شماره پاسپورت</label>
-                        <input type="text" name="PassportNumber[]" className="PassportNumber" value="a5555"/>
+                        <input type="text" name="PassportNumber[]" className="PassportNumber" value="a23456789"/>
                     </div>
 
                     {/* <div className="field">
@@ -179,7 +180,8 @@ function PassengerInfo({title="بزرگسال",passengerType=1}){
                     </div> */}
                     <div className="field">
                         <label >تاریخ انقضا پاسپورت</label>
-                        <DateSelector name="ExpiryDate[]" className="ExpireDate" />
+                        <input type="text" name="ExpiryDate[]" placeholder="مثال:1400/06/08" value="1399/01/05" className="ExpireDate" />
+                        {/* <DateSelector name="ExpiryDate[]" className="ExpireDate" /> */}
                     </div>
 
                 </div>
