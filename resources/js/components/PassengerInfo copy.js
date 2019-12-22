@@ -1,59 +1,12 @@
 // import DateSelector from '../components/DateSelector';
 
 
-//Passport Should be valid aftar than 6 months from last flight segment.
-function checkPassportValidation(e){
-    if(e.target.value.length == 10){
-        let a = moment(shamsiToMiladi(e.target.value));
-        let b = localStorage.getItem('departureTime');
-        if(a.diff(b,'days') < 180){
-            FlashMessage('پاسپورت شما از زمان سفر کمتر از 6 ماه اعتبار دارد لذا امکان رزو پرواز را نخواهید داشت')
-        }
-    }
-}
-
-
-    
 function PassengerInfo({title="بزرگسال",passengerType=1}){
     //گرفتن اطلاعات تیکت که در مرحله انتخاب بلیط تو مرورگر ذخیره شده
 
-
-    //Child passenger should be under 12 years after last flight segment.
-    function checkChildAge(e){
-
-        {/* passengerType adt=1,chd=2,inf=3 */}
-
-        if(e.target.value.length == 10){
-            let a = moment(shamsiToMiladi(e.target.value));
-            let b = moment(localStorage.getItem('departureTime'));
-            // alert(b.diff(a,'years'))
-
-            switch (passengerType) {
-                case 1:
-                    if(b.diff(a,'years') < 12){
-                        FlashMessage('بزرگسال همراه شما در زمان سفر کمتر از 12 سال سن دارد و بزرگسال محسوب نمیشود،لذا بلیط کودک برای وی تهیه بفرمایید.')
-                    }
-                    break;
-                case 2:
-                    // alert(b.diff(a,'years'))
-                    if(b.diff(a,'years') > 12){
-                        FlashMessage('کودک همراه شما در زمان سفر بیش از 12 سال سن دارد و بزرگسال محسوب میشود،لذا بلیط بزرگسال برای وی تهیه بفرمایید.')
-                    }
-                    break;
-                case 3:
-                    if(b.diff(a,'years') > 2){
-                        FlashMessage('نوزاد همراه شما در زمان سفر بیش از 2 سال سن دارد و کودک محسوب میشود،لذا بلیط کودک برای وی تهیه بفرمایید.')
-                    }
-                    break;
-
-                default:
-                    break;
-            }
-            
-            
-        }
+    const checkPassportValidation=(e)=>{
+        alert(e)
     }
-    
     
     return(
     <section className="tabs">
@@ -88,7 +41,7 @@ function PassengerInfo({title="بزرگسال",passengerType=1}){
                     </div>
                     <div className="field">
                         <label >تاریخ تولد</label>
-                        <input type="text" name="DateOfBirth[]" placeholder="مثال: 1370/06/08"  className="DateOfBirth" maxLength="10" onChange = {checkChildAge} />
+                        <input type="text" name="DateOfBirth[]" placeholder="مثال: 1370/06/08"  className="DateOfBirth"/>
                         {/* <DateSelector name="DateOfBirth[]"  className="DateOfBirth"/> */}
                     </div>
                     <div className="field">
@@ -231,7 +184,7 @@ function PassengerInfo({title="بزرگسال",passengerType=1}){
                     </div> */}
                     <div className="field">
                         <label >تاریخ انقضا پاسپورت</label>
-                        <input type="text" name="ExpiryDate[]" placeholder="مثال:1400/06/08" maxLength="10" className="ExpireDate" onChange = {checkPassportValidation}/>
+                        <input type="text" name="ExpiryDate[]" placeholder="مثال:1400/06/08"  className="ExpireDate" onChange={checkPassportValidation()}/>
                         {/* <DateSelector name="ExpiryDate[]" className="ExpireDate" /> */}
                     </div>
 

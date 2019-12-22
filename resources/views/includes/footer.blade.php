@@ -1,5 +1,3 @@
- <!-- The actual snackbar FLASH MESSAGE-->
- <div id="snackbar" >مشکلی پیش آمده لطفا دقت بفرمایید... </div>
  <!-- منوی پایین -->
  <footer>
         <div class="footer flex container">

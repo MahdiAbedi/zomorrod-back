@@ -123,3 +123,6 @@
 
 
 </div>
+ <!-- The actual snackbar FLASH MESSAGE-->
+ <div id="snackbar" >مشکلی پیش آمده لطفا دقت بفرمایید... </div>
+

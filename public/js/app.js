@@ -69203,12 +69203,64 @@ function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 // import DateSelector from '../components/DateSelector';
+//Passport Should be valid aftar than 6 months from last flight segment.
+function checkPassportValidation(e) {
+  if (e.target.value.length == 10) {
+    var a = moment(shamsiToMiladi(e.target.value));
+    var b = localStorage.getItem('departureTime');
+
+    if (a.diff(b, 'days') < 180) {
+      FlashMessage('پاسپورت شما از زمان سفر کمتر از 6 ماه اعتبار دارد لذا امکان رزو پرواز را نخواهید داشت');
+    }
+  }
+}
+
 function PassengerInfo(_ref) {
   var _ref$title = _ref.title,
       title = _ref$title === void 0 ? "بزرگسال" : _ref$title,
       _ref$passengerType = _ref.passengerType,
       passengerType = _ref$passengerType === void 0 ? 1 : _ref$passengerType;
+
   //گرفتن اطلاعات تیکت که در مرحله انتخاب بلیط تو مرورگر ذخیره شده
+  //Child passenger should be under 12 years after last flight segment.
+  function checkChildAge(e) {
+    {
+      /* passengerType adt=1,chd=2,inf=3 */
+    }
+
+    if (e.target.value.length == 10) {
+      var a = moment(shamsiToMiladi(e.target.value));
+      var b = moment(localStorage.getItem('departureTime')); // alert(b.diff(a,'years'))
+
+      switch (passengerType) {
+        case 1:
+          if (b.diff(a, 'years') < 12) {
+            FlashMessage('بزرگسال همراه شما در زمان سفر کمتر از 12 سال سن دارد و بزرگسال محسوب نمیشود،لذا بلیط کودک برای وی تهیه بفرمایید.');
+          }
+
+          break;
+
+        case 2:
+          // alert(b.diff(a,'years'))
+          if (b.diff(a, 'years') > 12) {
+            FlashMessage('کودک همراه شما در زمان سفر بیش از 12 سال سن دارد و بزرگسال محسوب میشود،لذا بلیط بزرگسال برای وی تهیه بفرمایید.');
+          }
+
+          break;
+
+        case 3:
+          if (b.diff(a, 'years') > 2) {
+            FlashMessage('نوزاد همراه شما در زمان سفر بیش از 2 سال سن دارد و کودک محسوب میشود،لذا بلیط کودک برای وی تهیه بفرمایید.');
+          }
+
+          break;
+
+        default:
+          break;
+      }
+    }
+  }
+
   return React.createElement("section", {
     className: "tabs"
   }, React.createElement("div", {
@@ -69253,7 +69305,9 @@ function PassengerInfo(_ref) {
     type: "text",
     name: "DateOfBirth[]",
     placeholder: "\u0645\u062B\u0627\u0644: 1370/06/08",
-    className: "DateOfBirth"
+    className: "DateOfBirth",
+    maxLength: "10",
+    onChange: checkChildAge
   })), React.createElement("div", {
     className: "field"
   }, React.createElement("label", null, "\u06A9\u062F \u0645\u0644\u06CC"), React.createElement("input", {
@@ -69516,8 +69570,9 @@ function PassengerInfo(_ref) {
     type: "text",
     name: "ExpiryDate[]",
     placeholder: "\u0645\u062B\u0627\u0644:1400/06/08",
-    value: "1399/01/05",
-    className: "ExpireDate"
+    maxLength: "10",
+    className: "ExpireDate",
+    onChange: checkPassportValidation
   })))));
 }
 

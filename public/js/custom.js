@@ -253,7 +253,7 @@ function Toggle(tagId,display="block") {
         x.className = "show";
     
         // After 3 seconds, remove the show class from DIV
-        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 6000);
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 8000);
     }
     //######################################################################################################
 
