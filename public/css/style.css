@@ -229,6 +229,13 @@ main {
 .bg-gray {
   background: #f5f5f5 !important; }
 
+.bg-zgreen {
+  background-color: #006C50 !important;
+  color: white; }
+
+.organe {
+  color: #f15a25 !important; }
+
 .topmenu {
   width: 100%;
   height: 48px;
@@ -403,15 +410,25 @@ ul.menu {
 .tours {
   margin-top: 20px;
   justify-content: space-around; }
+  .tours.owl-carousel .tour {
+    width: 100% !important; }
+
+ul.links {
+  list-style: arabic-indic;
+  /* text-indent: 39px; */
+  line-height: 30px;
+  padding-right: 55px; }
 
 .tour {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 23%;
   justify-content: center;
   background-color: #FFF;
   border-radius: 5px;
-  cursor: pointer; }
+  cursor: pointer;
+  margin-bottom: 20px;
+  position: relative; }
   .tour .discount {
     border-top: 60px solid #f37021;
     border-bottom: 60px solid transparent;
@@ -434,6 +451,8 @@ ul.menu {
   .tour img {
     width: 100%;
     height: auto;
+    max-height: 215px;
+    object-fit: cover;
     border-radius: 5px;
     margin-bottom: 5px; }
   .tour h2 {
@@ -466,10 +485,11 @@ ul.menu {
   width: 45% !important; }
   .text-slider a {
     color: #4E4E4E;
-    font-size: 15px; }
+    font-size: 15px;
+    width: 140px; }
     .text-slider a::after {
       content: " | ";
-      padding: 5px; }
+      padding: 1px; }
 
 .owl-prev, .owl-next {
   width: 15px;
@@ -994,7 +1014,8 @@ input[type=checkbox]:checked:disabled + label:before {
       box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
       border: 2px solid transparent;
       border-radius: 5px;
-      margin-bottom: 10px; }
+      margin-bottom: 10px;
+      margin-top: 5px; }
   .result-panel button.reset {
     outline: none;
     background: transparent;
@@ -1002,14 +1023,18 @@ input[type=checkbox]:checked:disabled + label:before {
     border-radius: 5px;
     padding: 2px 5px;
     font-family: inherit; }
-  .result-panel .panel {
-    color: inherit; }
-    .result-panel .panel .panel-title {
-      border-bottom: 1px solid #b1b1b1;
-      padding-bottom: 10px;
-      color: black; }
-    .result-panel .panel .panel-body {
-      padding-top: 10px; }
+
+.panel {
+  padding: 10px 10px;
+  color: inherit;
+  background: #fff; }
+  .panel .panel-title {
+    border-bottom: 1px solid #b1b1b1;
+    padding-bottom: 10px;
+    color: black;
+    background: white; }
+  .panel .panel-body {
+    padding-top: 10px; }
 
 .ticket-container {
   background: transparent;
@@ -2038,6 +2063,8 @@ span.stars i {
 
 /* start of desktop styles */
 @media screen and (max-width: 767px) {
+  ul.hotel_refund_roles li {
+    width: 100%; }
   .hotel_container {
     flex-direction: column; }
   .hotel_summery, .gallery {
@@ -2147,7 +2174,9 @@ table.rounded_table {
 
 .blog-slider {
   position: relative;
-  border-radius: 5px; }
+  display: block;
+  border-radius: 5px;
+  margin: 5px 0; }
   .blog-slider img {
     width: 100%;
     height: auto;
@@ -2164,6 +2193,313 @@ table.rounded_table {
     text-align: center;
     background: linear-gradient(to top, black 0%, rgba(0, 0, 0, 0.1) 100%);
     /* W3C */ }
+  .blog-slider.style2 {
+    position: relative; }
+    .blog-slider.style2 h2 {
+      border-top: none;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-bottom: 1px solid black;
+      border-left: 1px solid black;
+      border-right: 1px solid black;
+      position: absolute;
+      bottom: 0px;
+      padding: 10px;
+      background: white;
+      color: #006C50; }
+      .blog-slider.style2 h2 p {
+        color: black; }
+
+.filters .blog-slider img {
+  object-fit: cover;
+  height: 150px; }
+
+.breadCrums {
+  display: flex; }
+  .breadCrums li {
+    padding-left: 15px;
+    padding-top: 10px; }
+    .breadCrums li:not(:last-child)::after {
+      content: '>';
+      color: inherit;
+      padding-right: 5px; }
+
+.tags {
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0; }
+
+.tags li {
+  float: right; }
+
+.tag {
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+  color: #999;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.2s; }
+
+.tag::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  content: '';
+  height: 6px;
+  right: 10px;
+  position: absolute;
+  width: 6px;
+  top: 10px; }
+
+.tag::after {
+  background: #fff;
+  border-bottom: 13px solid transparent;
+  border-right: 10px solid #eee;
+  border-top: 13px solid transparent;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0; }
+
+.tag:hover {
+  background-color: #006C50;
+  color: #fff !important; }
+
+.tag:hover::after {
+  border-right-color: #006C50; }
+
+.tour-result {
+  display: flex;
+  justify-content: center; }
+  .tour-result h2 {
+    font-size: 14px; }
+  .tour-result .hotels_preview_top .parts {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    margin-left: 15px; }
+  .tour-result img {
+    height: 163px;
+    min-width: 250px;
+    width: 250px;
+    object-fit: cover; }
+  .tour-result .price {
+    background: #dcddde;
+    padding: 10px;
+    margin: -10px;
+    display: flex;
+    text-align: center;
+    font-size: small;
+    width: 150px; }
+    .tour-result .price p {
+      align-self: center; }
+  .tour-result .tour_facilities {
+    display: flex;
+    margin-bottom: -3px; }
+    .tour-result .tour_facilities p {
+      background: #dcddde;
+      margin-left: 1px;
+      margin-top: 1px;
+      padding: 10px;
+      font-size: 14px;
+      text-align: center;
+      width: calc(100% - 150px /5);
+      max-height: 40px; }
+      .tour-result .tour_facilities p:last-child {
+        margin-left: 0;
+        min-width: 150px;
+        width: 150px; }
+
+/* start of desktop styles */
+@media screen and (max-width: 767px) {
+  .tour-result {
+    flex-direction: column; }
+    .tour-result .tour_facilities {
+      flex-wrap: wrap;
+      margin-bottom: 5px;
+      margin-right: 5px; }
+      .tour-result .tour_facilities p {
+        width: 49%; }
+      .tour-result .tour_facilities p:last-child {
+        min-width: 49%;
+        width: 49%; }
+  .hotels-container.tour-result img {
+    width: 100% !important; }
+  .hotels .hotels_preview_top {
+    flex-direction: column; }
+    .hotels .hotels_preview_top .parts {
+      margin-bottom: 10px; }
+    .hotels .hotels_preview_top .price {
+      width: 100%;
+      justify-content: center;
+      margin: initial;
+      border-radius: 5px; } }
+
+.tourDetail {
+  background-color: #f5f5f5; }
+  .tourDetail .container {
+    margin-bottom: 10px; }
+  .tourDetail .panel {
+    padding: 20px 40px; }
+    .tourDetail .panel h3 {
+      margin-bottom: 10px; }
+    .tourDetail .panel p {
+      text-align: justify;
+      line-height: 2.8; }
+  .tourDetail .anchor {
+    display: flex;
+    justify-content: space-between; }
+    .tourDetail .anchor .anchors {
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #bcbcbc;
+      border-radius: 4px; }
+      .tourDetail .anchor .anchors a {
+        padding: 3px 15px;
+        color: black; }
+        .tourDetail .anchor .anchors a:not(:last-child) {
+          border-left: 1px solid #bcbcbc; }
+
+.tourOptions img {
+  width: 130px;
+  height: 40px;
+  object-fit: contain;
+  border-left: 1px solid #bcbcbc;
+  border-radius: initial;
+  padding-left: 10px;
+  padding-right: 5px; }
+
+.tour_detail_top {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px; }
+  .tour_detail_top .tourSummary {
+    width: 25%;
+    margin-left: 10px;
+    border: 1px solid #bcbcbc;
+    border-radius: 4px;
+    padding: 3px 5px;
+    text-align: center;
+    background-color: #fff; }
+    .tour_detail_top .tourSummary h1, .tour_detail_top .tourSummary h2, .tour_detail_top .tourSummary h3, .tour_detail_top .tourSummary h4 {
+      color: #006C50; }
+    .tour_detail_top .tourSummary .tourPrice {
+      background-color: #006C50;
+      color: #fff;
+      padding: 10px;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      margin-bottom: -5px;
+      margin-left: -5px;
+      margin-right: -5px; }
+
+/* start of desktop styles */
+@media screen and (max-width: 767px) {
+  .tour_detail_top {
+    flex-direction: column; }
+    .tour_detail_top th {
+      display: block; }
+    .tour_detail_top .tourSummary {
+      width: 100%;
+      margin-bottom: 10px; }
+  .anchor {
+    width: 100%;
+    flex-direction: column; }
+    .anchor .btn {
+      margin-top: 10px; } }
+
+.accordion {
+  background-color: transparent;
+  color: #006C50;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: right;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  border: 1px solid #dcdbd5;
+  font-family: inherit; }
+
+.accordion span.title {
+  background: #7d7d7d;
+  padding: 18px;
+  margin-right: -18px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: 5px;
+  max-width: 50px; }
+
+.active, .accordion:hover {
+  background-color: #ccc; }
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: left;
+  margin-left: 5px; }
+
+.active:after {
+  content: "\2212"; }
+
+.accordionbody {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out; }
+
+.mySlides {
+  display: none;
+  height: 100%; }
+
+img {
+  vertical-align: middle;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px; }
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  height: 100%; }
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none; }
+
+/* Position the "next button" to the right */
+.next {
+  left: 0;
+  border-radius: 3px 0 0 3px; }
+
+/* On hover, add a grey background color */
+.prev:hover, .next:hover {
+  background-color: #f1f1f1;
+  color: black; }
 
 .column {
   display: flex;
@@ -2222,4 +2558,6 @@ ul.hotel_refund_roles {
 
 @media screen and (max-width: 479px) {
   .half {
-    width: 100%; } }
+    width: 100%; }
+  .container {
+    margin-right: 10px; } }

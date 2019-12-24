@@ -19,7 +19,7 @@
             </li>
             <li class="menu-item">
                 <!-- <img src="/img/icons/tour.png" alt="منوی"> -->
-                <a href="/tour">تور مسافرتی</a>
+                <a href="/tours">تور مسافرتی</a>
             </li>
             <li class="menu-item">
                 <!-- <img src="/img/icons/visa.png" alt="منوی"> -->

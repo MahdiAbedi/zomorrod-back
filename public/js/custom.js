@@ -161,7 +161,7 @@ function Toggle(tagId,display="block") {
 
     
     // اسلایدشو تورها در صفحه اول سایت
-    $('.tours').owlCarousel({
+    $('.tours.owl-carousel').owlCarousel({
         rtl:true,
         // center:true,
         loop:true,
@@ -202,7 +202,7 @@ function Toggle(tagId,display="block") {
         nav:true,
         navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
 
-        items:5,
+        items:4,
         smartSpeed:450,
         autoplay:true,
     })
