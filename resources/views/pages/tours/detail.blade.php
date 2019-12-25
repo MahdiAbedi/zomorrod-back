@@ -96,18 +96,18 @@
                     <table class="rounded_table">
                         <thead>
                             <tr>
-                                <th>تعداد</th>
+                                <th>تور پذیرای </th>
                             </tr>
                         </thead>
                         <tr>
-                            <td>2 بزرگسال + 1 کودک</td>
+                            <td>بزرگسالان و کودکان میباشد</td>
                         </tr>
 
                     </table>
 
                     <div class="tourPrice">
                         <p>شروع قیمت برای {{$tour->duration}} از :</p>
-                        <p class="money">{{$tour->price}} <small>تومان</small></p>
+                        <p class="money">{{$tour->price}} <small>{{$tour->price_currency}}</small></p>
                     </div>
                 </div>
                 <div class="slideShow">
@@ -135,17 +135,20 @@
 
         <div class="container anchor">
             <div class="anchors">
-                <a href="#">اطلاعات تور</a>
-                <a href="#">برنامه سفر</a>
-                <a href="#">دیدگاه مسافران</a>
+                <a href="#services">خدمات</a>
+                <a href="#TourInfo">اطلاعات تور</a>
+                <a href="#TourPlan">برنامه سفر</a>
+                <a href="#TourPlan">راهنمای سفر</a>
+                <a href="#Madarek">مدارک مورد نیاز</a>
+                <a href="#Reviews">دیدگاه مسافران</a>
             </div>
 
             <a class="btn btn-zgreen">
                 رزرو تور
             </a>
         </div>
-
-        <div class="container panel tourOptions">
+        <!-- خدمات  -->
+        <div class="container panel tourOptions" id="services">
             <h3 class="green">. خدمات</h3>
             @php
                 $facilities = explode(',',$tour->facilities)
@@ -155,7 +158,8 @@
             @endforeach
 
         </div>
-        <div class="container panel tourOptions">
+        <!-- مدارک مورد نیاز -->
+        <div class="container panel tourOptions"  id="Madarek">
             <h3 class="green">. مدارک مورد نیاز</h3>
             @php
                 $madarek = explode(',',$tour->madarek)
@@ -166,19 +170,17 @@
                 @endforeach
             </ul>
         </div>
-        <div class="container panel">
+        <!-- راهنمای سفر -->
+        <div class="container panel"  id="Guid">
             <h3 class="green">. راهنمای سفر</h3>
             <p></p>
             {!!$tour->description !!}
         
         </div>
-        <div class="container panel">
+        <!-- برنامه سفر -->
+        <div class="container panel" id="TourPlan">
             <h3 class="green">. برنامه سفر</h3>
 
-            @php
-            $schedules = json_decode($tour->schedule)
-            
-            @endphp
 
             @foreach($schedules as $schedule)
             <button class="accordion"><span class="title">{{$schedule->title}} : </span>{{$schedule->plan}}</button>

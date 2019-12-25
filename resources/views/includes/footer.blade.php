@@ -87,6 +87,8 @@ $.ajaxSetup({
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script> -->
 <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<!-- <script crossorigin src="/js/react.production.min.js"></script>
+<script crossorigin src="/js/react-dom.production.min.js"></script> -->
 
 <!-- React compiles codes in my project -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>

@@ -18,7 +18,7 @@ class TourController extends Controller
         //لیست تمام دسته بندی های تور رو میگریم و تو قیمت تورت رو با چشم بسته انتخاب کن نمایش میدیم
         $tourCategories = DB::table('tour_categories')->get();
         //جدیدترین تورها
-        $newTours = Tour::take(8)->get();
+        $newTours = Tour::take(8)->latest('created_at')->get();
         // dd($newTours);
         return view('pages/tours/landing',compact(['tourCategories','newTours']));
     }

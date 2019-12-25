@@ -135,7 +135,7 @@
                                 </div>
                                 <div class="flex-between ">
                                     <p>رتبه:7|خوب</p>
-                                    <p class="orange price"><span name="money">{{$tour->price}}</span> تومان</p>
+                                    <p class="orange price"><span name="money">{{$tour->price}}</span> {{$tour->price_currency}}</p>
                                 </div>
                             </a>                      
                         @endforeach

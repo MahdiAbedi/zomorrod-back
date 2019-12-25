@@ -2429,18 +2429,18 @@ table.rounded_table {
   margin-bottom: 10px;
   border: 1px solid #dcdbd5;
   font-family: inherit; }
-
-.accordion span.title {
-  background: #7d7d7d;
-  padding: 18px;
-  margin-right: -18px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin-left: 5px;
-  max-width: 50px; }
-
-.active, .accordion:hover {
-  background-color: #ccc; }
+  .accordion span.title {
+    background: #7d7d7d;
+    padding: 18px;
+    margin-right: -18px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: 5px;
+    max-width: 50px; }
+  .accordion .active, .accordion .accordion:hover {
+    background-color: #ccc; }
+  .accordion .active:after {
+    content: "\2212"; }
 
 .accordion:after {
   content: '\002B';
@@ -2448,9 +2448,6 @@ table.rounded_table {
   font-weight: bold;
   float: left;
   margin-left: 5px; }
-
-.active:after {
-  content: "\2212"; }
 
 .accordionbody {
   padding: 0 18px;
@@ -2469,37 +2466,35 @@ img {
   object-fit: cover;
   border-radius: 4px; }
 
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-  height: 100%; }
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none; }
-
-/* Position the "next button" to the right */
-.next {
-  left: 0;
-  border-radius: 3px 0 0 3px; }
-
-/* On hover, add a grey background color */
-.prev:hover, .next:hover {
-  background-color: #f1f1f1;
-  color: black; }
+.slideShow {
+  /* Slideshow container */
+  /* Next & previous buttons */
+  /* Position the "next button" to the right */
+  /* On hover, add a grey background color */ }
+  .slideShow .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    height: 100%; }
+  .slideShow .prev, .slideShow .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none; }
+  .slideShow .next {
+    left: 0;
+    border-radius: 3px 0 0 3px; }
+  .slideShow .prev:hover, .slideShow .next:hover {
+    background-color: #f1f1f1;
+    color: black; }
 
 .column {
   display: flex;
