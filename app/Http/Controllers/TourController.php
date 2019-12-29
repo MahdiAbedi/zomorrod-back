@@ -18,7 +18,7 @@ class TourController extends Controller
         //لیست تمام دسته بندی های تور رو میگریم و تو قیمت تورت رو با چشم بسته انتخاب کن نمایش میدیم
         $tourCategories = DB::table('tour_categories')->get();
         //جدیدترین تورها
-        $newTours = Tour::take(8)->latest('created_at')->get();
+        $newTours = Tour::take(8)->latest('updated_at')->get();
         // dd($newTours);
         return view('pages/tours/landing',compact(['tourCategories','newTours']));
     }
@@ -53,11 +53,12 @@ class TourController extends Controller
     public function show($slug)
     {
         $tour = Tour::where('alias',$slug)->first();
+        $tourCategory = DB::table('tour_categories')->select('name','alias')->where('id',$tour->category_id)->first();
         // dd($tour->schedule);
         // dd(json_decode($tour->schedule));
         // dd($tour->title);
         // echo('show tour detail');
-        return view('pages/tours/detail',compact('tour'));
+        return view('pages/tours/detail',compact(['tour','tourCategory']));
     }
 
     /**
@@ -92,5 +93,20 @@ class TourController extends Controller
     public function destroy(r $r)
     {
         //
+    }
+
+    //############### SPECIAL LANDING PAGE FOR EVERY TOUR CATEGORY ######################
+    public function tourCategory($alias){
+        $tourCategory = DB::table('tour_categories')->where('alias',$alias)->first();   //گرفتن اطلاعات دسته بندی تور
+        $tours = DB::table('tours')->where('category_id',$tourCategory->id)->get();     //گرفتن تورهای این دسته بندی
+        $randomTours = DB::table('tours')->select(['title','alias','id','duration'])->get()->random(3);
+        // dd($randomTours);
+        return view('pages/tours/tourCategoryLanding',compact(['tourCategory','tours','randomTours']));
+    }
+
+
+    //######### گرفتن نام تورها برای نمایش در پنل جستجو تور ###############
+    public function getToursName(){
+        return DB::table('tour_categories')->select(['name','alias'])->get();
     }
 }

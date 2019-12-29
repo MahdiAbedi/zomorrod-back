@@ -16,7 +16,7 @@ $(document).ready(function () {
 
         
 
-    // console.clear();
+    console.clear();
     console.log('%c Designed By MahdiAbedi220@yahoo.com tel:09395187902 ', 'background: #222; color: #bada55 ;font-size:30px');
 });
 

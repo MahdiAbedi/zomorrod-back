@@ -31,6 +31,10 @@ class Ticket extends React.Component {
     // localStorage.setItem('ticket',JSON.stringify(this.props.ticket));
     // ارجاع به صفحه وارد کردن اطلاعات مسافر
     localStorage.setItem('FareSourceCode',this.props.ticket.FareSourceCode);
+
+    // ذخیره قیمت بلیط در سشن
+    localStorage.setItem('TicketPrice',this.props.ticket.AirItineraryPricingInfo.ItinTotalFare.TotalFare);
+
 //################################################## اطلاعات لگ رفت ###############################################
     localStorage.setItem('first_let_charter',this.OriginDestinationOptions.FlightSegments[0].IsCharter? 'چارتر': 'سیستمی')
 

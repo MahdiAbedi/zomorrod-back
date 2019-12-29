@@ -53,16 +53,16 @@
             <!-- مسیر سایت  -->
             <ul class="breadCrums">
                 <li>
-                    <a href="#">خانه</a>
+                    <a href="/">خانه</a>
                 </li>
                 <li>
-                    <a href="#">تورهای خارجی</a>
+                    <a href="/tours">تورهای خارجی</a>
                 </li>
                 <li>
-                    <a href="#">تور تایلند</a>
+                    <a href="/tours/{{$tourCategory->alias}}">{{$tourCategory->name}}</a>
                 </li>
                 <li>
-                    <a href="#">تور بانکوک</a>
+                    <a href="/tour/{{$tour->alias}}">{{$tour->title}}</a>
                 </li>
                 
             </ul>
@@ -112,18 +112,16 @@
                 </div>
                 <div class="slideShow">
                     <div class="slideshow-container">
+
+                    @php
+                        $images = explode(',',$tour->gallery)
+                    @endphp
+                    @foreach($images as $image)
                         <div class="mySlides">
-                          <img src="/img/tours/tour1/img_nature_wide.jpg" style="width:100%">
+                            <img src="{{$image}}" alt="{{$tour->title}}" style="width:100%">
                         </div>
-                      
-                        <div class="mySlides">
-                          <img src="/img/tours/tour1/img_snow_wide.jpg" style="width:100%">
-                        </div>
-                      
-                        <div class="mySlides">
-                          <img src="/img/tours/tour1/img_mountains_wide.jpg" style="width:100%">
-                        </div>
-                      
+                    @endforeach
+
                         <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
                         <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
                       </div>
@@ -158,18 +156,24 @@
             @endforeach
 
         </div>
+       
         <!-- مدارک مورد نیاز -->
+        @php
+            $madarek = explode(',',$tour->madarek)
+        @endphp
+
+        @if($tour->madarek)
         <div class="container panel tourOptions"  id="Madarek">
             <h3 class="green">. مدارک مورد نیاز</h3>
-            @php
-                $madarek = explode(',',$tour->madarek)
-            @endphp
+           
             <ul class="links">
                 @foreach($madarek as $madrak)
                     <li>{{$madrak}}</li>
                 @endforeach
             </ul>
         </div>
+        @endif
+       
         <!-- راهنمای سفر -->
         <div class="container panel"  id="Guid">
             <h3 class="green">. راهنمای سفر</h3>
@@ -177,10 +181,54 @@
             {!!$tour->description !!}
         
         </div>
+
+
+            @php
+                $services = explode(',',$tour->services)
+            @endphp
+
+            @if($tour->services)
+         <!-- ما چه خدماتی به شما در این تور ارائه می‌دهیم؟  -->
+         <div class="container panel tourOptions"  id="Madarek">
+            <h3 class="green">. ما چه خدماتی به شما در این تور ارائه می‌دهیم؟ </h3>
+            
+            <ul class="links">
+                @foreach($services as $service)
+                    <li>{{$service}}</li>
+                @endforeach
+            </ul>
+            
+        </div>
+        @endif
+
+
+
+        <!-- مدارک مورد نیاز -->
+        @php
+            $roles = explode(',',$tour->roles)
+        @endphp
+
+        @if($tour->roles)
+        <div class="container panel tourOptions"  id="Madarek">
+            <h3 class="green">. تذکرات</h3>
+           
+            <ul class="links">
+                @foreach($roles as $role)
+                    <li>{{$role}}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
+
+
         <!-- برنامه سفر -->
+        @php
+            $schedules = json_decode($tour->schedule);
+        @endphp
+        @if($schedules)
         <div class="container panel" id="TourPlan">
             <h3 class="green">. برنامه سفر</h3>
-
 
             @foreach($schedules as $schedule)
             <button class="accordion"><span class="title">{{$schedule->title}} : </span>{{$schedule->plan}}</button>
@@ -189,13 +237,9 @@
             </div>
 
             @endforeach
-            
-            
 
-            
-        
         </div>
-       
+        @endif
     </main>
 
     <script>

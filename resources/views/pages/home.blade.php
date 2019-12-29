@@ -92,50 +92,36 @@
             <!-- tours -->
             <div class="tours flex owl-carousel owl-theme">
                 <!-- tour -->
-                <div class="tour">
-                    <img src="img/tours/img-8.jpg" alt="">
-                    <h2>تور بلغارستان "وارنا"</h2>
-                    <p>7 شب و 8 روز -هتل 5 ستاره</p>
-                    <p class="price">7,730,000 تومان</p>
-                </div>
+                @php
+                    $lastTours = DB::table('tours')->get()->random(5);
+                @endphp
                 <!-- tour -->
-                <div class="tour">
-                    <img src="img/tours/img-6.jpg" alt="">
-                    <h2>تور سوئیس</h2>
-                    <p>7 شب و 8 روز -هتل 5 ستاره</p>
-                    <p class="price">7,730,000 تومان</p>
-                </div>
-                <!-- tour -->
-                <div class="tour">
-                    <img src="img/tours/img-3.jpg" alt="">
-                    <h2>تور فرانسه</h2>
-                    <p>7 شب و 8 روز -هتل 5 ستاره</p>
-                    <p class="price">7,730,000 تومان</p>
-                </div>
-                <!-- tour -->
-                <div class="tour">
-                    <img src="img/tours/img-8.jpg" alt="">
-                    <h2>تور بلغارستان "وارنا"</h2>
-                    <p>7 شب و 8 روز -هتل 5 ستاره</p>
-                    <p class="price">7,730,000 تومان</p>
-                </div>
-                <!-- tour -->
-                <div class="tour">
-                    <img src="img/tours/img-6.jpg" alt="">
-                    <h2>تور سوئیس</h2>
-                    <p>7 شب و 8 روز -هتل 5 ستاره</p>
-                    <p class="price">7,730,000 تومان</p>
-                </div>
-                <!-- tour -->
-                <div class="tour">
-                    <img src="img/tours/img-3.jpg" alt="">
-                    <h2>تور فرانسه</h2>
-                    <p>7 شب و 8 روز -هتل 5 ستاره</p>
-                    <p class="price">7,730,000 تومان</p>
-                </div>
-           
-               
-               
+                @foreach($lastTours as $tour)
+                    <a class="tour" href="/tour/{{$tour->alias}}">
+                    @if($tour->discount)
+                        <div class="discount">
+                            <p>{{$tour->discount}}% تخفیف</p>
+                        </div>
+                    @endif
+                        <img src="/img/tours/{{$tour->id}}.jpg" alt="">
+                        <h2>{{$tour->title}}</h2>
+                        <div class="flex-between">
+                            <span class="stars">
+                                <i class="fa fa-star green"></i>
+                                <i class="fa fa-star green"></i>
+                                <i class="fa fa-star green"></i>
+                                <i class="far fa-star green"></i>
+                                <i class="far fa-star green"></i>
+                            </span>
+                            <p>شروع قیمت از</p>
+
+                        </div>
+                        <div class="flex-between ">
+                            <p>رتبه:7|خوب</p>
+                            <p class="orange price"><span name="money">{{$tour->price}}</span> {{$tour->price_currency}}</p>
+                        </div>
+                    </a>                      
+                @endforeach
 
             </div>
             <!-- قسمت خبرنامه و دکمه تورهای بیشتر -->

@@ -200,7 +200,7 @@
 
             <div class="pay">
                 <a href="#" class="btn btn-transparent">مبلغ قابل پرداخت:22,488,000 <span>ریال</span></a>
-                <button href="#" class="btn btn-zgreen" type="submit">پرداخت آنلاین</button>
+                <button href="#" class="btn btn-zgreen" type="submit" id="payBtn">پرداخت آنلاین</button>
             </div>
 
         </div>
@@ -212,13 +212,15 @@
 <script>
 let ticket = JSON.parse(localStorage.getItem('ticket'));
 function showConfirmDate(){
-    passengerInfoConfirm();
+    passengerInfoConfirm()
     //ثبت اطلاعات اتوماتیک برای تایید
     document.getElementById('emailPreview').innerText=document.getElementById('passengerEmail').value;
     document.getElementById('telPreview').innerText=document.getElementById('passengerTel').value;
     
-    // document.getElementById("passengerInfos").style.display = "none";    //نمایش صفحه تایید
-    // document.getElementById("confirmData").style.display = "block";     //محفی کردن صفحه ورود اطلاعات
+    document.getElementById("passengerInfos").style.display = "none";    //نمایش صفحه تایید
+    document.getElementById("confirmData").style.display = "block";     //محفی کردن صفحه ورود اطلاعات
+
+    // FlashMessage('مشکلی در رزرو بلیط شما رخ داده است لطفا با پشتیبانی سایت تماس بگیرید و یا پس از مدتی دوباره تلاش بفرمایید.')
 }
 function hideConfirmDate(){
     document.getElementById("confirmData").style.display = "none";    
@@ -489,13 +491,17 @@ function passengerInfoConfirm(){
         // console.log(JSON.parse(AirBookingData))
         // console.log(JSON.stringify(AirBookingData))
         axios.post('/AirBooking', {
-            AirBookingData:AirBookingData
+            AirBookingData:AirBookingData,
+            TicketPrice:localStorage.getItem('TicketPrice')
         })
         .then(function (response) {
             console.log(response.data);
+            return true;
+            
         })
         .catch(function (error) {
             console.log(error);
+            return false;
         });
    
     // console.log(JSON.parse(AirBookingData));
@@ -513,6 +519,8 @@ window.onload =()=>{
     ticketConfirm();
     
 }
+
+
 
 
 </script>

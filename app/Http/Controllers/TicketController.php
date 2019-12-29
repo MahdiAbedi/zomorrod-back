@@ -123,10 +123,12 @@ class TicketController extends TravelBaseController
     //#############################################################################################################
 
     public function AirBooking(Request $request){
-        // dd($request->all());
+        // dd($request->input('TicketPrice'));
         // dd(session('SessionId'));
         $client = new Client();
         $AirBookingData = $request->input('AirBookingData');
+        //قیمت بلیطی که خریده 
+        $TicketPrice = $request->input('TicketPrice');
         $AirBookingData['SessionId']=session('SessionId');
 
 
@@ -138,7 +140,7 @@ class TicketController extends TravelBaseController
 
 
         // $response = '{"Success":false,"TktTimeLimit":null,"Category":null,"Status":null,"UniqueId":null,"Error":{"Id":"Err0102008","Message":"Invalid SessionID"},"PriceChange":false}';
-        dd($response->getBody()->getContents());
+        // dd($response->getBody()->getContents());
         $returnbooking = json_decode($response->getBody()->getContents());
         // dd($returnbooking);
 
@@ -154,11 +156,35 @@ class TicketController extends TravelBaseController
             'UniqueId'       =>   $returnbooking->UniqueId,
             'ErrorId'        =>   $returnbooking->Error->Id,
             'ErrorMessage'   =>   $returnbooking->Error->Message,
-            'PriceChange'    =>   $returnbooking->PriceChange
+            'PriceChange'    =>   $returnbooking->PriceChange,
+            'TicketPrice'    =>   $TicketPrice
           ]);
+
+          //SAVING $returnbooking->UniqueId TO USE LATER
+          session(['UniqueId' => $returnbooking->UniqueId]);
+
+
+          //########################## اگر مشکلی در بوک کردن نبود وصل بشه به درگاه بانکی ##################
+          $this->GoToBank($TicketPrice);
+          //##################################################################################################
+
           return $returnbooking->Success;
         // return $response->getBody()->getContents();
         // dd($response->getBody()->getContents());
     }
 
 }
+
+
+
+    //#############################################################################################################
+    //############################### اتصال به درگاه بانکی برای پرداخت مبلغ بلیط ##############################################
+    //#############################################################################################################
+
+
+
+
+
+    //#############################################################################################################
+    //############################### ثبت نهایی بلیط خریداری شده بعد از پرداخت ##############################################
+    //#############################################################################################################

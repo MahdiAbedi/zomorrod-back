@@ -73,11 +73,11 @@ function PassengerInfo({title="بزرگسال",passengerType=1}){
                     <input type="hidden" name="PassengerType[]" className="PassengerType" value={passengerType}/>
                     <div className="field">
                         <label >نام(لاتین)</label>
-                        <input type="text" name="PassengerFirstName[]"  className="PassengerFirstName" />
+                        <input type="text" name="PassengerFirstName[]" value="Mahdi" className="PassengerFirstName" />
                     </div>
                     <div className="field">
                         <label >نام خانوادگی(لاتین)</label>
-                        <input type="text" name="PassengerLastName[]"  className="PassengerLastName" />
+                        <input type="text" name="PassengerLastName[]" value="Abedi" className="PassengerLastName" />
                     </div>
                     <div className="field">
                         <label >جنسیت</label>
@@ -88,7 +88,7 @@ function PassengerInfo({title="بزرگسال",passengerType=1}){
                     </div>
                     <div className="field">
                         <label >تاریخ تولد</label>
-                        <input type="text" name="DateOfBirth[]" placeholder="مثال: 1370/06/08"  className="DateOfBirth" maxLength="10" onChange = {checkChildAge} />
+                        <input type="text" name="DateOfBirth[]" placeholder="مثال: 1370/06/08" value="1370/06/08"  className="DateOfBirth" maxLength="10" onChange = {checkChildAge} />
                         {/* <DateSelector name="DateOfBirth[]"  className="DateOfBirth"/> */}
                     </div>
                     <div className="field">
@@ -231,7 +231,7 @@ function PassengerInfo({title="بزرگسال",passengerType=1}){
                     </div> */}
                     <div className="field">
                         <label >تاریخ انقضا پاسپورت</label>
-                        <input type="text" name="ExpiryDate[]" placeholder="مثال:1400/06/08" maxLength="10" className="ExpireDate" onChange = {checkPassportValidation}/>
+                        <input type="text" name="ExpiryDate[]" placeholder="مثال:1400/06/08" value="1400/06/08" maxLength="10" className="ExpireDate" onChange = {checkPassportValidation}/>
                         {/* <DateSelector name="ExpiryDate[]" className="ExpireDate" /> */}
                     </div>
 

@@ -101,7 +101,7 @@
                 <h2 class="special_offers">تورت رو با چشم بسته انتخاب کن !</h2><br/>
                 <div class="text-slider owl-carousel">
                 @foreach($tourCategories as $tourCategory)
-                    <a href="/tours/{{$tourCategory->name}}">{{$tourCategory->name}}</a>
+                    <a href="/tours/{{$tourCategory->alias}}">{{$tourCategory->name}}</a>
                 @endforeach
                 </div>
             </div>
@@ -120,7 +120,7 @@
                                     <p>{{$tour->discount}}% تخفیف</p>
                                 </div>
                             @endif
-                                <img src="img/tours/{{$tour->id}}.jpg" alt="">
+                                <img src="/img/tours/{{$tour->id}}.jpg" alt="">
                                 <h2>{{$tour->title}}</h2>
                                 <div class="flex-between">
                                     <span class="stars">
@@ -147,24 +147,24 @@
         <div class="bgwidth bg-white ">
                 <div class="main-container links">  
                         <ul>
-                            <li><a href="#">رزو هتل آنتالیا</a></li>
-                            <li><a href="#">رزو هتل آنتالیا</a></li>
-                            <li><a href="#">رزو هتل آنتالیا</a></li>
+                            <li><a href="/tours/تور_آفریقای_جنوبی">تور آفریقای جنوبی</a></li>
+                            <li><a href="/tours/تور_ترکیه">تور ترکیه</a></li>
+                            <li><a href="/tours/تور_مالزی">تور مالزی</a></li>
                         </ul>
                         <ul>
-                            <li><a href="#">رزو هتل آنتالیا</a></li>
-                            <li><a href="#">رزو هتل آنتالیا</a></li>
-                            <li><a href="#">رزو هتل آنتالیا</a></li>
+                            <li><a href="/tours/تور_تایلند">تور تایلند</a></li>
+                            <li><a href="/tours/تور_چین">تور چین</a></li>
+                            <li><a href="/tours/تور_سوئیس">تور سوئیس</a></li>
                         </ul>
                         <ul>
-                            <li><a href="#">رزو هتل آنتالیا</a></li>
-                            <li><a href="#">رزو هتل آنتالیا</a></li>
-                            <li><a href="#">رزو هتل آنتالیا</a></li>
+                            <li><a href="/tours/تور_روسیه">تور روسیه</a></li>
+                            <li><a href="/tours/تور_اندونزی">تور اندونزی</a></li>
+                            <li><a href="/tours/تور_سنگاپور">تور سنگاپور</a></li>
                         </ul>
                         <ul>
-                            <li><a href="#">رزو هتل آنتالیا</a></li>
-                            <li><a href="#">رزو هتل آنتالیا</a></li>
-                            <li><a href="#">رزو هتل آنتالیا</a></li>
+                            <li><a href="/tours/تور_گرجستان">تور گرجستان</a></li>
+                            <li><a href="/tours/تور_مالدیو">تور مالدیو</a></li>
+                            <li><a href="/tours/تور_هند">تور هند</a></li>
                         </ul>
                 </div>
             
@@ -212,7 +212,7 @@
 
 <script>
     window.onload =function(){
-        showSearchPanel('HotelTicket')
+        showSearchPanel('TourTicket')
     }
 </script>
    @include('includes/footer')

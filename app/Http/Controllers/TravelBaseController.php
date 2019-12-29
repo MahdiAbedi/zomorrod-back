@@ -29,4 +29,79 @@ class TravelBaseController extends Controller
         session(['SessionId' => $this->SessionId]);
 
     }
+
+
+
+
+    //############################### اتصال به درگاه بانکی #######################################
+    public function GoToBank($price){
+        try {
+            print('در حال اتصال به درگاه بانک...');
+            $gateway = \Gateway::mellat();
+            $gateway->setCallback(url('/Bank_CallBack'));
+            $gateway->price($price);
+            $gateway->ready();
+    
+            $refId =  $gateway->refId();                            // شماره ارجاع بانک
+            $transID = $gateway->transactionId();                   // شماره تراکنش
+    
+                                                                    // در اینجا
+                                                                    //  شماره تراکنش  بانک را با توجه به نوع ساختار دیتابیس تان 
+                                                                    //  در جداول مورد نیاز و بسته به نیاز سیستم تان
+                                                                    // ذخیره کنید .
+           
+            return $gateway->redirect();
+            
+         } catch (\Exception $e) {
+                echo $e->getMessage();
+         }
+    }
+
+
+    //############################## بازگشت از درگاه بانکی #############################################
+    public function bankCallBack(){
+        try {
+       
+            $gateway        =        \Gateway::verify();
+            
+            $trackingCode   =        $gateway->trackingCode();
+            $refId          =        $gateway->refId();
+            $cardNumber     =        $gateway->cardNumber();
+        
+            // عملیات خرید با موفقیت انجام شده است
+            // در اینجا کالا درخواستی را به کاربر ارائه میکنم
+            \DB::table('booking')->where('UniqueId',session('UniqueId'))->update(
+                [
+                    'is_payed' => 'پرداخت شده',
+                    'trackingCode'=>$trackingCode
+                ]);
+        
+                // //ارسال پیامک تایید ثبت سفارش به مالک بیمه نامه
+                $message="سفارش شما با موفقت ثبت شد،برای شما سفر خوشی آرزومندیم";
+                $this->sendSms($phone, $msg);
+        
+                return redirect('factor/'.$invoice_id);
+            }
+             catch (RetryException $e)
+            {
+                echo $e->getMessage();
+            }
+             catch (PortNotFoundException $e) 
+            {
+                echo $e->getMessage();
+            }
+             catch (InvalidRequestException $e)
+            {
+                echo $e->getMessage();
+            }
+             catch (NotFoundTransactionException $e)
+            {
+                echo $e->getMessage();
+            }
+             catch (Exception $e) 
+            {
+                echo $e->getMessage();
+            }
+    }
+
 }

@@ -423,7 +423,7 @@ ul.links {
   display: flex;
   flex-direction: column;
   width: 23%;
-  justify-content: center;
+  justify-content: space-between;
   background-color: #FFF;
   border-radius: 5px;
   cursor: pointer;
@@ -484,12 +484,16 @@ ul.links {
 .text-slider {
   width: 45% !important; }
   .text-slider a {
+    white-space: nowrap;
+    display: inline-block;
     color: #4E4E4E;
     font-size: 15px;
-    width: 140px; }
+    padding: 0 5px;
+    width: 140px;
+    margin-right: 5px; }
     .text-slider a::after {
       content: " | ";
-      padding: 1px; }
+      margin-right: 5px; }
 
 .owl-prev, .owl-next {
   width: 15px;
@@ -522,6 +526,11 @@ ul.links {
       color: black; }
       .main-container.links ul a:hover {
         color: #006C50; }
+
+.tourCatTitle {
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: -15px; }
 
 .slider {
   background: url("../img/bgs/outline-flight.jpg") no-repeat center;
@@ -2418,7 +2427,6 @@ table.rounded_table {
   background-color: transparent;
   color: #006C50;
   cursor: pointer;
-  padding: 18px;
   width: 100%;
   border: none;
   text-align: right;
@@ -2428,7 +2436,11 @@ table.rounded_table {
   border-radius: 4px;
   margin-bottom: 10px;
   border: 1px solid #dcdbd5;
-  font-family: inherit; }
+  font-family: inherit;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  position: relative; }
   .accordion span.title {
     background: #7d7d7d;
     padding: 18px;
@@ -2436,7 +2448,7 @@ table.rounded_table {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     margin-left: 5px;
-    max-width: 50px; }
+    width: 13%; }
   .accordion .active, .accordion .accordion:hover {
     background-color: #ccc; }
   .accordion .active:after {
@@ -2447,7 +2459,8 @@ table.rounded_table {
   color: #777;
   font-weight: bold;
   float: left;
-  margin-left: 5px; }
+  position: absolute;
+  left: 20px; }
 
 .accordionbody {
   padding: 0 18px;
@@ -2476,6 +2489,11 @@ img {
     position: relative;
     margin: auto;
     height: 100%; }
+    .slideShow .slideshow-container img {
+      width: 100%;
+      height: 350px;
+      max-height: 350px;
+      object-fit: cover; }
   .slideShow .prev, .slideShow .next {
     cursor: pointer;
     position: absolute;
