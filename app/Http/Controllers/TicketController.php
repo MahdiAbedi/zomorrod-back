@@ -13,6 +13,28 @@ use App\Http\Controllers\TravelBaseController;
 
 class TicketController extends TravelBaseController
 {
+
+    //=============================================================================================================
+    //=================================== SEARCH AND BOOK FLOW ====================================================
+    //=============================================================================================================
+      # SETP 1:   CREATE SESSION ID
+      # SETP 2:   CALL AirLowFairSearch :{
+        # SETP 2.1: CALL AIR RULES
+        # SETP 2.1: CALL AIR BAGGAGES
+      # }
+      # SETP 3:   USER SELECT ITENERAY
+      # SETP 4:   CALL AirRevalidate
+      # SETP 5:   GET PASSENGER DETAILS
+      # SETP 6:   CALL AirRevalidate
+      # SETP 7:   PAYMENT PAGE (BANK)
+      # SETP 8:   CALL AirRevalidate
+      # SETP 9:   CALL AIRBOOK
+      # SETP 10:  FARETYPE IS WEBFARE
+      # SETP 11:   
+
+
+
+
     //#############################################################################################################
     //############################### چک کردن بلیط پروازهای داخلی و خارجی ######################################
     //#############################################################################################################
@@ -112,25 +134,22 @@ class TicketController extends TravelBaseController
 
     }//international
 
-    //############################### نمایش فاکتور ######################################################
-    public function factor(Request $request){
-        dd($request->all());
-    }
-
-
+ 
     //#############################################################################################################
     //############################### بوک کردن پرواز داخلی و خارجی ##############################################
     //#############################################################################################################
 
-    public function AirBooking(Request $request){
-        // dd($request->input('TicketPrice'));
-        // dd(session('SessionId'));
+    public function AirBooking(){
         $client = new Client();
-        $AirBookingData = $request->input('AirBookingData');
-        //قیمت بلیطی که خریده 
-        $TicketPrice = $request->input('TicketPrice');
-        $AirBookingData['SessionId']=session('SessionId');
+        $AirBookingData =DB::table('booking')->select('BookingDetail')->where('FareSourceCode',session('FareSourceCode'))->first();
+        // dd(($AirBookingData));
+        $AirBookingData = json_decode($AirBookingData->BookingDetail);
+        //################################### REVALIDATE BEFORE BOOK #############################
+        // if(!$this->AirRevalidate()){
+        //   return Redirect::back()->with('error', 'امکان خرید این بلیط مقدور نمیباشد لطفا دوباره جستجو بفرمایید');
+        // }
 
+        //########################################################################################
 
         // dd(json_encode($AirBookingData));
         //ارسال اطلاعات به سرور پرتو برای بوک کردن بلیط
@@ -143,48 +162,182 @@ class TicketController extends TravelBaseController
         // dd($response->getBody()->getContents());
         $returnbooking = json_decode($response->getBody()->getContents());
         // dd($returnbooking);
+        // dd($returnbooking->UniqueId);
 
 
         //#################################### وضعیت کل را در دیتابیس ذخیره میکنیم #############################################
-           DB::table('booking')->insert([
-            'BookingDetail'  =>   json_encode($AirBookingData),
-            'user_id'        =>   auth()->user()->id,
-            'Success'        =>   $returnbooking->Success,
-            'TktTimeLimit'   =>   $returnbooking->TktTimeLimit,
-            'Category'       =>   $returnbooking->Category,
-            'Status'         =>   $returnbooking->Status,
-            'UniqueId'       =>   $returnbooking->UniqueId,
-            'ErrorId'        =>   $returnbooking->Error->Id,
-            'ErrorMessage'   =>   $returnbooking->Error->Message,
-            'PriceChange'    =>   $returnbooking->PriceChange,
-            'TicketPrice'    =>   $TicketPrice
-          ]);
+        $errorId="";   
+        if($returnbooking->Error){
+            $errorId = $returnbooking->Error->Id;
+        }
+        $ErrorMessage="";   
+        if($returnbooking->Error){
+            $ErrorMessage = $returnbooking->Error->Message;
+        }
+        #===============================اطلاعات حاصل از موفقیت یا عدم موفقیت بوکینگ در دیتابس آبدیت میشود ================================
+        DB::table('booking')
+              ->where('FareSourceCode' ,   session('FareSourceCode')) 
+              ->update(
+                  [
+                    'Success'        =>   $returnbooking->Success,
+                    'TktTimeLimit'   =>   $returnbooking->TktTimeLimit,
+                    'Category'       =>   $returnbooking->Category,
+                    'Status'         =>   $returnbooking->Status,
+                    'UniqueId'       =>   $returnbooking->UniqueId,
+                    'ErrorId'        =>   $errorId,
+                    'ErrorMessage'   =>   $ErrorMessage,
+                    'PriceChange'    =>   $returnbooking->PriceChange,
+                    'FareType'       =>   session('FareType')
+                ]
+        );
 
           //SAVING $returnbooking->UniqueId TO USE LATER
-          session(['UniqueId' => $returnbooking->UniqueId]);
+            session(['UniqueId'       => $returnbooking->UniqueId]);
 
 
-          //########################## اگر مشکلی در بوک کردن نبود وصل بشه به درگاه بانکی ##################
-          $this->GoToBank($TicketPrice);
-          //##################################################################################################
+          //IF IN AIRBOOK RESULT FARETYPE WAS WEBFARE WE GET "AIR ORDER RESULTS"
+          //ELSE WE HAVE TO CALL "AIRBOOKING DATA" THEN "CHECK PRICE" AFTER THAT GET "AIR ORDER RESULTS" 
 
-          return $returnbooking->Success;
+          if(session('FareType')==4){
+           // $this->AirOrderTicket();
+           
+
+          }else{
+            $this->AirBookingData();
+          }
+          
+          // return $returnbooking->Success;
         // return $response->getBody()->getContents();
         // dd($response->getBody()->getContents());
     }
 
-}
-
-
 
     //#############################################################################################################
-    //############################### اتصال به درگاه بانکی برای پرداخت مبلغ بلیط ##############################################
+    //################### اطلاعات مسافران و بلیط رو ذخیره کنیم تا بعد از پرداخت بتونیم بوک کنیم ###############
+    //#############################################################################################################
+    public function SaveBookingDate(Request $request){
+        $AirBookingData = $request->input('AirBookingData');
+        //قیمت بلیطی که خریده 
+        $TicketPrice = $request->input('TicketPrice');
+        $AirBookingData['SessionId']=session('SessionId');
+        #======================== SAVE PRICE FOR GOING TO BANK ==========================================
+        session(['TicketPrice'       => $TicketPrice]);
+
+        // #============================ REVALIDATE BEFORE BOOK ==========================================
+        // if(!$this->AirRevalidate()){
+        //   return Redirect::back()->with('error', 'امکان خرید این بلیط مقدور نمیباشد لطفا دوباره جستجو بفرمایید');
+        // }
+
+        #============================ وضعیت کل را در دیتابیس ذخیره میکنیم ===========================
+           DB::table('booking')->insert([
+            'BookingDetail'  =>   json_encode($AirBookingData),
+            'user_id'        =>   auth()->user()->id,
+            'TicketPrice'    =>   $TicketPrice,
+            'FareSourceCode' =>   session('FareSourceCode'),
+            'created_at'     =>   new \DateTime()
+            
+          ]);
+    }
+
+    //#############################################################################################################
+    //############################### AIR REVALIDATE ##############################################
     //#############################################################################################################
 
+    public function AirRevalidate(){
+      $client = new Client();
 
+      $sendArray=array (
+        'SessionId'             => session('SessionId'),
+        'FareSourceCode'        => session('FareSourceCode')
+
+      );
+      $response = $client->post('https://apidemo.partocrs.com/Rest/Air/AirRevalidate', [
+          RequestOptions::JSON => $sendArray
+      ]);
+
+      $returnbooking = json_decode($response->getBody()->getContents());
+      // dd($returnbooking);
+      return (string)$returnbooking->Success;
+
+    }
+
+    //#############################################################################################################
+    //############################### CALL ARIBOOKING DATA ##############################################
+    //#############################################################################################################
+
+      public function AirBookingData(){
+        // echo 'you are in AirBookingDate';
+          $client = new Client();
+
+          $sendArray=array (
+            'SessionId'       => session('SessionId'),
+            'UniqueId'        => session('UniqueId')
+
+          );
+          
+          dd(json_encode($sendArray));
+
+          
+          $response = $client->post('https://apidemo.partocrs.com/Rest/Air/AirBookingData', [
+              RequestOptions::JSON => $sendArray
+          ]);
+
+          // dd($response->getBody()->getContents());
+          // $returnbooking = $response->getBody()->getContents();
+          $returnbooking = json_decode($response->getBody()->getContents());
+          // اگر خطایی هنگانم چک کردن به وجود نیاد دستور ثبت بلیط صادر میشه
+          if(!$returnbooking->Error){
+            $this->AirOrderTicket();
+          }else{
+            echo 'خطایی رخ داده است';
+          }
+          // return (string)$returnbooking->Success;
+        
+      }
+    //#############################################################################################################
+    //############################### CALL AIR ORDER ##############################################
+    //#############################################################################################################
+
+      public function AirOrderTicket(){
+          $client = new Client();
+          // dd('you are in AirorderTicket');
+          $sendArray=array (
+            'SessionId'       => session('SessionId'),
+            'UniqueId'        => session('UniqueId')
+
+          );
+          // dd(json_encode($sendArray));
+          $response = $client->post('https://apidemo.partocrs.com/Rest/Air/AirOrderTicket', [
+              RequestOptions::JSON => $sendArray
+          ]);
+
+          $returnbooking = json_decode($response->getBody()->getContents());
+          dd($returnbooking);
+          // dd($response->getBody()->getContents());
+          // return (string)$returnbooking->Success;
+        
+      }
 
 
 
     //#############################################################################################################
     //############################### ثبت نهایی بلیط خریداری شده بعد از پرداخت ##############################################
     //#############################################################################################################
+
+
+
+
+
+    //#############################################################################################################
+    //############################### نمایش فاکتور پرداخت شده ##############################################
+    //#############################################################################################################
+        public function factor(){
+          print "از اینکه ستاره زمرد را انتخاب کرده اید سپاسگذاریم.";
+          #================================ بعد از اینکه پرداخت انجام شد پرواز بوک میشه ==========================
+          $this->AirBooking();
+      }
+
+
+
+}//END OF CLASS
+

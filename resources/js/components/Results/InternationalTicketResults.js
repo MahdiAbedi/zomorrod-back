@@ -52,6 +52,7 @@ class InternationalTicketResults extends React.Component{
 
         })
         .then(response => {
+            console.log(response.data)
             let myTickets=response.data;
              this.setState({
                 tickets:myTickets.PricedItineraries,

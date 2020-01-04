@@ -37,7 +37,7 @@
                 </li>
             </ul>
         </div>
-        <form action="/international/factor" method="POST">
+        <form action="/goToBank" method="POST">
         @csrf
         <div class="container">
             <!-- بخش نمایش بلیط رفت انتخاب شده و انتظار برای انتخاب بلیط برگشت -->
@@ -76,7 +76,7 @@
                 <input type="text" placeholder="ایمیل" name="passengerEmail" id="passengerEmail" value="mahdiabedi220@yahoo.com">
                 <input type="text" name="passengerTel" placeholder="تلفن همراه" id="passengerTel" value="09395187902">
                 <div class="info">
-                    <input type="checkbox" name="confirm" id="confirm">
+                    <input type="checkbox" name="confirm" id="confirm" checked>
                     <label for="confirm">
                         <a href="#">قوانین سایت</a> و <a href="#">قوانین پرواز</a> را مطالعه کرده ام و آنرا تایید میکنم.
                     </label>
@@ -199,7 +199,7 @@
 
 
             <div class="pay">
-                <a href="#" class="btn btn-transparent">مبلغ قابل پرداخت:22,488,000 <span>ریال</span></a>
+                <a href="#" class="btn btn-transparent">مبلغ قابل پرداخت:<span id="finalPrice"></span> <span>ریال</span></a>
                 <button href="#" class="btn btn-zgreen" type="submit" id="payBtn">پرداخت آنلاین</button>
             </div>
 
@@ -210,8 +210,29 @@
     </main>
     </form>
 <script>
+document.getElementById('finalPrice').innerText=parseInt(localStorage.getItem('TicketPrice')).toLocaleString();
 let ticket = JSON.parse(localStorage.getItem('ticket'));
+//#################################### نمایش صفحه تایید اطلاعات وارد شده مسافران ################################
 function showConfirmDate(){
+
+    //############################# REVALIDATE TICKET BEFORE CONTINUE #############################################
+    // axios.get('/airRevalidate')
+    // .then((response) =>{
+    //     // IF VALIDATE THE TICKET SHOW THE USER INFO PAGE ELSE STAY HERE
+    //     if(response.data){
+    //     }else{
+    //       FlashMessage('هم اکنون ظرفیت این پرواز تکمیل گردیده است لطفا مجددا جستجو بفرمایید.');
+    //     //   setInterval(function(){ window.location.replace("/"); }, 3000);
+
+    //     }
+    // })
+    // .catch( (error)=> {
+    //   console.log(error);
+    //   FlashMessage('خطایی هنگام بررسی بلیط انتخاب شده رخ داده است لطفا با پشتیبانی سایت تماس حاصل بفرمایید.')
+    // });
+
+
+    //####################### ارسال اطلاعات مسافران برای ذخیره در دیتا بیس #########################
     passengerInfoConfirm()
     //ثبت اطلاعات اتوماتیک برای تایید
     document.getElementById('emailPreview').innerText=document.getElementById('passengerEmail').value;
@@ -222,6 +243,7 @@ function showConfirmDate(){
 
     // FlashMessage('مشکلی در رزرو بلیط شما رخ داده است لطفا با پشتیبانی سایت تماس بگیرید و یا پس از مدتی دوباره تلاش بفرمایید.')
 }
+//#################################### مخفی کردن صفحه تایید اطلاعات وارد شده مسافران ################################
 function hideConfirmDate(){
     document.getElementById("confirmData").style.display = "none";    
     document.getElementById("passengerInfos").style.display = "block";    
@@ -304,53 +326,53 @@ function CreateTicketPreview(){
 
 //################################### تایید اطلاعات بلیط رفت و برگشت #############################################
 function ticketConfirm(){
-    let ticketConfirm='';
-    ticket.OriginDestinationOptions.map((item,index)=>{
-        //برای اینکه اگر توقفی در مسیر بود فقط بلیط مسیر رفت و بلیط آخرین مسیر را نشون بده
-        // if(index==0 || index == ticket.OriginDestinationOptions.length-1){
+    // let ticketConfirm='';
+    // ticket.OriginDestinationOptions.map((item,index)=>{
+    //     //برای اینکه اگر توقفی در مسیر بود فقط بلیط مسیر رفت و بلیط آخرین مسیر را نشون بده
+    //     // if(index==0 || index == ticket.OriginDestinationOptions.length-1){
 
-            ticketConfirm += `
-                    <div class="half">
-                        <h3 class="green"><span>&#11044 </span>بلیط رفت</h3>
+    //         ticketConfirm += `
+    //                 <div class="half">
+    //                     <h3 class="green"><span>&#11044 </span>بلیط رفت</h3>
 
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>شرکت هواپیمایی</th>
-                                    <th>${airlineName(item.FlightSegments[0].MarketingAirlineCode)}</th>
+    //                     <table>
+    //                         <thead>
+    //                             <tr>
+    //                                 <th>شرکت هواپیمایی</th>
+    //                                 <th>${airlineName(item.FlightSegments[0].MarketingAirlineCode)}</th>
 
-                                </tr>
-                            </thead>
-                            <tr>
-                                <td>مبدا</td>
-                                <td>${airportName(item.FlightSegments[0].DepartureAirportLocationCode)}</td>
+    //                             </tr>
+    //                         </thead>
+    //                         <tr>
+    //                             <td>مبدا</td>
+    //                             <td>${airportName(item.FlightSegments[0].DepartureAirportLocationCode)}</td>
 
-                            </tr>
-                            <tr>
-                                <td>مقصد</td>
-                                <td>${airportName(item.FlightSegments[0].ArrivalAirportLocationCode)}</td>
-                            </tr>
-                            <tr>
-                                <td>تاریخ و ساعت پرواز</td>
-                                <td>${ShowDay(item.FlightSegments[0].DepartureDateTime)} ساعت ${moment(item.FlightSegments[0].DepartureDateTime).format('HH:mm')}</td>
-                            </tr>
-                            <tr>
-                                <td>شماره پرواز</td>
-                                <td>${item.FlightSegments[0].FlightNumber}</td>
-                            </tr>
-                            <tr>
-                                <td>کلاس پروازی</td>
-                                <td>${checkCabinType(item.FlightSegments[0].CabinClassCode)}</td>
-                            </tr>
-                            <tr>
-                                <td>طول پرواز</td>
-                                <td>${item.FlightSegments[0].JourneyDuration} ساعت</td>
-                            </tr>
-                        </table>
-                    </div>`;
+    //                         </tr>
+    //                         <tr>
+    //                             <td>مقصد</td>
+    //                             <td>${airportName(item.FlightSegments[0].ArrivalAirportLocationCode)}</td>
+    //                         </tr>
+    //                         <tr>
+    //                             <td>تاریخ و ساعت پرواز</td>
+    //                             <td>${ShowDay(item.FlightSegments[0].DepartureDateTime)} ساعت ${moment(item.FlightSegments[0].DepartureDateTime).format('HH:mm')}</td>
+    //                         </tr>
+    //                         <tr>
+    //                             <td>شماره پرواز</td>
+    //                             <td>${item.FlightSegments[0].FlightNumber}</td>
+    //                         </tr>
+    //                         <tr>
+    //                             <td>کلاس پروازی</td>
+    //                             <td>${checkCabinType(item.FlightSegments[0].CabinClassCode)}</td>
+    //                         </tr>
+    //                         <tr>
+    //                             <td>طول پرواز</td>
+    //                             <td>${item.FlightSegments[0].JourneyDuration} ساعت</td>
+    //                         </tr>
+    //                     </table>
+    //                 </div>`;
 
-    })//map
-    document.getElementById('ticketConfirm').innerHTML = ticketConfirm;
+    // })//map
+    // document.getElementById('ticketConfirm').innerHTML = ticketConfirm;
 }//CreateTicketPreview
 //###################################تایید اطلاعات کاربران  #######################################################
 function passengerInfoConfirm(){
@@ -490,18 +512,18 @@ function passengerInfoConfirm(){
         };
         // console.log(JSON.parse(AirBookingData))
         // console.log(JSON.stringify(AirBookingData))
-        axios.post('/AirBooking', {
+        axios.post('/SaveBookingDate', {
             AirBookingData:AirBookingData,
             TicketPrice:localStorage.getItem('TicketPrice')
         })
         .then(function (response) {
-            console.log(response.data);
-            return true;
+            // console.log(response.data);
+            // return true;
             
         })
         .catch(function (error) {
-            console.log(error);
-            return false;
+            // console.log(error);
+            // return false;
         });
    
     // console.log(JSON.parse(AirBookingData));
@@ -510,7 +532,7 @@ function passengerInfoConfirm(){
 
 
 
-//#################################### SAVE BOOKING DATE IN DATABASE ###############################################
+//#################################### SAVE BOOKING DATA IN DATABASE ###############################################
 
 //#################################### اجرای توابع بعد از بارگزاری صفحه###########################################
 window.onload =()=>{

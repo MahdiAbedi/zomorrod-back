@@ -2,6 +2,7 @@
 
 import Leg from './Leg';
 import LegDetail from './LegDetail';
+import Axios from 'axios';
 
 
 class Ticket extends React.Component {
@@ -10,7 +11,8 @@ class Ticket extends React.Component {
     this.state = {
       display: "none",
       displayTitle: "مشاهده جزییات",
-      travelTime: ''
+      travelTime: '',
+      chooseBtnTitle:'انتخاب بلیط'
     };
     this.adult  = localStorage.getItem('adult', 0);
     this.child  = localStorage.getItem('child', 0);
@@ -25,8 +27,9 @@ class Ticket extends React.Component {
       this.setState({display: "none", displayTitle: " مشاهده جزییات"})
     }
   }//checkDisplay
-  //انتخاب بلیط
+  //############################################## انتخاب بلیط ########################################################
   chooseTicket = () => {
+    this.setState({chooseBtnTitle:"در حال بررسی ..."});
     //ذخیره سازی کل اطلاعات تیکت
     // localStorage.setItem('ticket',JSON.stringify(this.props.ticket));
     // ارجاع به صفحه وارد کردن اطلاعات مسافر
@@ -35,20 +38,56 @@ class Ticket extends React.Component {
     // ذخیره قیمت بلیط در سشن
     localStorage.setItem('TicketPrice',this.props.ticket.AirItineraryPricingInfo.ItinTotalFare.TotalFare);
 
-//################################################## اطلاعات لگ رفت ###############################################
+    //================================== اطلاعات لگ رفت ============================
     localStorage.setItem('first_let_charter',this.OriginDestinationOptions.FlightSegments[0].IsCharter? 'چارتر': 'سیستمی')
+    //#################### SAVE FareSourcecode IN PHP SESSION TO USE IN REVALIDATION EVERY TIME #################
+    Axios.post('/setFareSourceCode', {
+      FareSourceCode: this.props.ticket.FareSourceCode,
+      FareType      : this.props.ticket.AirItineraryPricingInfo.FareType
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
+    //#############################################################################################################
+    //############################# REVALIDATE TICKET BEFORE CONTINUE #############################################
+    // Axios.get('/airRevalidate')
+    // .then((response) =>{
+    //     // IF VALIDATE THE TICKET SHOW THE USER INFO PAGE ELSE STAY HERE
+    //     if(response.data){
+    //         if(this.props.isInline){
+    //           //اگر بلیط داخلی بود
+    //           window.location.replace("/internal/book");
+    //         }else{
+    //           window.location.replace("/international/book");
+    //         }
+    //     }else{
+    //       FlashMessage('هم اکنون ظرفیت این پرواز تکمیل گردیده است لطفا مجددا جستجو بفرمایید.')
+    //       setInterval(function(){ window.location.replace("/"); }, 3000);
+    //     }
+       
+    // })
+    // .catch( (error)=> {
+    //   console.log(error);
+    //   FlashMessage('خطایی هنگام بررسی بلیط انتخاب شده رخ داده است لطفا با پشتیبانی سایت تماس حاصل بفرمایید.')
+    // });
     if(this.props.isInline){
       //اگر بلیط داخلی بود
       window.location.replace("/internal/book");
     }else{
       window.location.replace("/international/book");
     }
-  }//chooseTicket
+
+    
+  }//################################################### chooseTicket ####################################################
 
   render() {
     return (
       <div className="ticket-container">
+      کد فیر :{this.props.ticket.AirItineraryPricingInfo.FareType}
             <section className="single-ticket flex-between">
                 <div className="ticket_type">{this.OriginDestinationOptions.FlightSegments[0].IsCharter
                     ? 'چارتر'
@@ -66,7 +105,7 @@ class Ticket extends React.Component {
                   <p className="price">{formatCurrency(this.props.ticket.AirItineraryPricingInfo.ItinTotalFare.TotalFare)}
                     <span>ریال</span>
                   </p>
-                  <button className="btn btn-zgreen" onClick={this.chooseTicket}>انتخاب بلیط</button>
+                  <button className="btn btn-zgreen" onClick={this.chooseTicket}>{this.state.chooseBtnTitle}</button>
                 </div>
           </section>
         {/* جزییات هر بلیط  */}

@@ -29,13 +29,13 @@ class TravelBaseController extends Controller
         session(['SessionId' => $this->SessionId]);
 
     }
-
-
-
-
     //############################### اتصال به درگاه بانکی #######################################
-    public function GoToBank($price){
+    public function GoToBank(){
         try {
+
+            return redirect('Bank_CallBack/');
+
+            $price = session('TicketPrice');
             print('در حال اتصال به درگاه بانک...');
             $gateway = \Gateway::mellat();
             $gateway->setCallback(url('/Bank_CallBack'));
@@ -56,31 +56,30 @@ class TravelBaseController extends Controller
                 echo $e->getMessage();
          }
     }
-
-
     //############################## بازگشت از درگاه بانکی #############################################
     public function bankCallBack(){
         try {
        
-            $gateway        =        \Gateway::verify();
+            // $gateway        =        \Gateway::verify();
             
-            $trackingCode   =        $gateway->trackingCode();
-            $refId          =        $gateway->refId();
-            $cardNumber     =        $gateway->cardNumber();
+            $trackingCode   =       10000;
+            // $trackingCode   =        $gateway->trackingCode();
+            // $refId          =        $gateway->refId();
+            // $cardNumber     =        $gateway->cardNumber();
         
             // عملیات خرید با موفقیت انجام شده است
             // در اینجا کالا درخواستی را به کاربر ارائه میکنم
             \DB::table('booking')->where('UniqueId',session('UniqueId'))->update(
                 [
-                    'is_payed' => 'پرداخت شده',
+                    'is_payed' => 1,
                     'trackingCode'=>$trackingCode
                 ]);
         
                 // //ارسال پیامک تایید ثبت سفارش به مالک بیمه نامه
                 $message="سفارش شما با موفقت ثبت شد،برای شما سفر خوشی آرزومندیم";
-                $this->sendSms($phone, $msg);
+                // $this->sendSms($phone, $message);
         
-                return redirect('factor/'.$invoice_id);
+                return redirect('factor/');
             }
              catch (RetryException $e)
             {
@@ -102,6 +101,24 @@ class TravelBaseController extends Controller
             {
                 echo $e->getMessage();
             }
+    }
+    //############################### setFareSourceCode ##################################################
+    public function setFareSourceCode(Request $request){
+        //FareSourceCode IS NECCESSARY 
+        session(['FareSourceCode'   => $request->FareSourceCode]);
+        session(['FareType'         => $request->FareType]);
+        //  IF FARETYPE == 4 (WEBFARE) YOU HAVE TO NOTICE THAT 
+        //  Instant Purchase, doesn't allow to reserve and will issue by calling Airbook
+        //  SO WE SAVE FARETYPE TO FINDOUT WHEN TO ISSUE TICKET
+    }
+
+
+    //############################### نمایش فاکتور ######################################################
+        public function factor(){
+        
+        print "از اینکه ستاره زمرد را انتخاب کرده اید سپاسگذاریم.";
+
+        
     }
 
 }

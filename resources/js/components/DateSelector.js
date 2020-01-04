@@ -51,9 +51,6 @@ class DateSelector extends React.Component {
     }
   }
 
-  onChangeMe = (value)=>{
-    alert('hello')
-  }
 
   render() {
     return <div className={"DatePicker " + (this.props.disabled ? 'disabled' : '') }>
@@ -66,7 +63,7 @@ class DateSelector extends React.Component {
               value={this.state.value}
               disabled={this.props.disabled}
               isGregorian={this.state.isGregorian}
-              onChange={value => {()=>this.setState({ value })}}
+              onChange={value => {this.setState({ value })}}
             />
 
             <input type="hidden" name={this.props.name} id={this.props.prefix+'_'+this.props.name} value={MiladiFormat(this.state.value)} className={this.props.className}/>

@@ -32,9 +32,9 @@ Route::post('/checkTicket1',function(){
 //روز بلیط خارجی
 Route::get('/international/book',function(){
     return view('pages/international-ticket/book');
-});
+})->middleware('auth');
 //نمایش فاکتور قبل از رزو کامل
-Route::post('/international/factor','TicketController@factor');
+Route::get('/factor','TicketController@factor');
 
 //###################################################################################################
 //################################## بلیط سفر داخلی ########################################
@@ -51,12 +51,15 @@ Route::get('/flights', function () {
 //روز بلیط داخلی
 Route::get('/internal/book',function(){
     return view('pages/internal-ticket/book');
-});
+})->middleware('auth');
 
 //###################################################################################################
 //################################# بوک کردن پرواز AIR BOOKING  ######################################################
 //###################################################################################################
 Route::post('AirBooking','TicketController@AirBooking');
+Route::post('SaveBookingDate','TicketController@SaveBookingDate');
+Route::post('setFareSourceCode','TravelBaseController@setFareSourceCode');
+Route::get('airRevalidate','TicketController@airRevalidate');
 
 //###################################################################################################
 //################################## فرودگاه های بین اللملی ########################################
@@ -130,7 +133,8 @@ Route::get('getTours','TourController@getToursName');
 //###################################################################################################
 //#################################### درگاه بانکی ###########################################
 //###################################################################################################
-Route::any('/Bank_CallBack','TravelBaseController@bankCallBack');//بازگشت باز بانک 
+Route::any('/Bank_CallBack','TravelBaseController@bankCallBack');   //بازگشت باز بانک 
+Route::post('/goToBank','TravelBaseController@GoToBank');;          //اتصال به درگاه بانک
 
 
 
