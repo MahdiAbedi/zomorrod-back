@@ -68,9 +68,9 @@ class TourTicket extends React.Component{
                 <div className="group">
                 <DateSelector name="checkOut" prefix="hotel" title="تاریخ خروج"/>
                 </div>
-                <div className="group">
+                {/* <div className="group">
                     <HotelPassengerCount prefix="hotel"/>
-                </div>
+                </div> */}
                 <div className="group">
                     <input type="button" onClick={()=>this.submit()} className="btn btn-zgreen" value="جستجو"/>
                     <i className="icon-search"></i>

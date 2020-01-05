@@ -75506,10 +75506,6 @@ function (_React$Component) {
         title: "\u062A\u0627\u0631\u06CC\u062E \u062E\u0631\u0648\u062C"
       })), React.createElement("div", {
         className: "group"
-      }, React.createElement(_HotelPassengerCount__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        prefix: "hotel"
-      })), React.createElement("div", {
-        className: "group"
       }, React.createElement("input", {
         type: "button",
         onClick: function onClick() {

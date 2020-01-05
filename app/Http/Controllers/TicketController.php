@@ -161,7 +161,7 @@ class TicketController extends TravelBaseController
         // $response = '{"Success":false,"TktTimeLimit":null,"Category":null,"Status":null,"UniqueId":null,"Error":{"Id":"Err0102008","Message":"Invalid SessionID"},"PriceChange":false}';
         // dd($response->getBody()->getContents());
         $returnbooking = json_decode($response->getBody()->getContents());
-        // dd($returnbooking);
+        // dd($returntbooking);
         // dd($returnbooking->UniqueId);
 
 
