@@ -218,28 +218,28 @@ class InternationalTicketResults extends React.Component{
             }else{
 
             
-            return (  
-                <section className="result-panel container">
-                    {(this.state.airlines.length > 0) ? 
-                    <Filters checkCharter={this.checkCharter} airlines={this.state.airlines} StopCount = {this.StopCount} chooseAirline = {this.chooseAirline}  chooseCabinType= {this.chooseCabinType} resultsCount={this.state.tickets.length}/> :null}                    
-                    <Results 
-                    tickets={this.state.tickets}
-                    isInline={false} 
-                    filterByTime= {this.filterByTime}
-                    filterByPrice= {this.filterByPrice}
-                    filterByCapacity= {this.filterByCapacity}/>
+                return (  
+                    <section className="result-panel container">
+                        {(this.state.airlines.length > 0) ? 
+                        <Filters checkCharter={this.checkCharter} airlines={this.state.airlines} StopCount = {this.StopCount} chooseAirline = {this.chooseAirline}  chooseCabinType= {this.chooseCabinType} resultsCount={this.state.tickets.length}/> :null}                    
+                        <Results 
+                        tickets={this.state.tickets}
+                        isInline={false} 
+                        filterByTime= {this.filterByTime}
+                        filterByPrice= {this.filterByPrice}
+                        filterByCapacity= {this.filterByCapacity}/>
 
-            </section>     
-            );
+                </section>     
+                );
 
-        }//else
+            }//else
     }
 
 }//end of class
 
-if(document.querySelector('#InternationalTicketResults')){
+    if(document.querySelector('#InternationalTicketResults')){
 
-    ReactDOM.render(<InternationalTicketResults/> , document.querySelector('#InternationalTicketResults'));
-}
+        ReactDOM.render(<InternationalTicketResults/> , document.querySelector('#InternationalTicketResults'));
+    }
 
 // export default InternationalTicketResults;

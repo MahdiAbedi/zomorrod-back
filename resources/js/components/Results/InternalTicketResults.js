@@ -223,7 +223,7 @@ class InternalTicketResults extends React.Component{
                     <Filters checkCharter={this.checkCharter} airlines={this.state.airlines} StopCount = {this.StopCount} chooseAirline = {this.chooseAirline}  chooseCabinType= {this.chooseCabinType} inline="true" resultsCount={this.state.tickets.length}/> :null}                    
                     <Results 
                     tickets={this.state.tickets}
-                    isInline={false} 
+                    isInline={true} 
                     filterByTime= {this.filterByTime}
                     filterByPrice= {this.filterByPrice}
                     filterByCapacity= {this.filterByCapacity}/>

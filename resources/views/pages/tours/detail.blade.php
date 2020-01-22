@@ -1,4 +1,12 @@
 @include('includes/head')
+@section('meta')
+    <meta charset="UTF-8">
+    <meta name="description" content="{{$tour->metadescription}}">
+    <meta name="keywords" content="{{$tour->keywords}}">
+    <meta name="author" content="آژانس هواپیمایی ستاره زمرد">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+@end
 <style>
     .mySlides{display: none;height: 100%;}
     img {vertical-align: middle;height: 100%;object-fit: cover;border-radius: 4px;}
@@ -72,11 +80,13 @@
                     <h1> {{$tour->title}} </h1>
                     <h3>{{$tour->duration}}</h3>
                     <span class="stars">
-                        <i class="fa fa-star green"></i>
-                        <i class="fa fa-star green"></i>
-                        <i class="fa fa-star green"></i>
-                        <i class="fa fa-star green"></i>
-                        <i class="fa fa-star green"></i>
+                        @for ($i = 0; $i < $tour->star; $i++)
+                            <i class="fa fa-star green"></i>
+                        @endfor
+                        @for ($i = 0; $i < 5- $tour->star; $i++)
+                            <i class="far fa-star green"></i>
+                        @endfor
+                        
                     </span>
                     <p>{{$tour->after_title}}</p>
                     <small>ایرلاین:{{$tour->airline}}</small>
@@ -141,9 +151,9 @@
                 <a href="#Reviews">دیدگاه مسافران</a>
             </div>
 
-            <a class="btn btn-zgreen">
+            <!-- <a class="btn btn-zgreen">
                 رزرو تور
-            </a>
+            </a> -->
         </div>
         <!-- خدمات  -->
         <div class="container panel tourOptions" id="services">
@@ -181,6 +191,49 @@
             {!!$tour->description !!}
         
         </div>
+
+
+            <!-- برنامه سفر -->
+            @php
+                $hotels = json_decode($tour->hotels);
+            @endphp
+            @if($hotels)
+                 <!-- اطلاعات هتل  -->
+                    <div class="container">
+                        <table class="rounded_table">
+                            <thead>
+                                <th>نام هتل</th>
+                                <th>تعداد ستاره</th>
+                                <th>هر نفر در اتاق 1 تخته</th>
+                                <th>هر نفر در اتاق 2 تخته</th>
+                                <th>کودک با تخت</th>
+                                <th>کودک بدون تخت</th>
+                            </thead>
+                            <tbody>
+                                @foreach($hotels as $hotel)
+                                    <tr>
+                                        <td>{{$hotel->name}}</td>
+                                        <td> 
+                                            <span class="stars">
+                                                <i class="fa fa-star green"></i>
+                                                <i class="fa fa-star green"></i>
+                                                <i class="fa fa-star green"></i>
+                                                <i class="far fa-star green"></i>
+                                                <i class="far fa-star green"></i>
+                                            </span>
+                                        </td>
+                                        <td>{{$hotel->single}}</td>
+                                        <td>{{$hotel->double}}</td>
+                                        <td>{{$hotel->child_with_bed}}</td>
+                                        <td>{{$hotel->child_no_bed}}</td>
+                                        
+                                    </tr>
+                                @endforeach
+                                
+                            </tbody>
+                        </table>
+                    </div>
+            @endif
 
 
             @php
@@ -231,11 +284,16 @@
             <h3 class="green">. برنامه سفر</h3>
 
             @foreach($schedules as $schedule)
-            <button class="accordion"><span class="title">{{$schedule->title}} : </span>{{$schedule->plan}}</button>
-            <div class="accordionbody">
-                {!! $schedule->description !!}
-            </div>
-
+                <button class="accordion"><span class="title">{{$schedule->title}} :</span>{{$schedule->plan}}</button>
+                <div class="accordionbody">
+                    <div class="accordionText clearfix">
+                        @if(isset($schedule->img))
+                            <img src="{{$schedule->img}}" alt="" >
+                        @endif
+                        <p>{!! html_entity_decode($schedule->description)  !!}</p>
+                        
+                    </div>
+                </div>
             @endforeach
 
         </div>

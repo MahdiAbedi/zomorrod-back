@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-    return view('pages/home');
+        $lastTours = DB::table('tours')->where('is_active',1)->get()->random(5);
+        return view('pages/home',compact('lastTours'));
 });
 //###################################################################################################
 //#################################### بلیط سفر خارجی ######################################
@@ -111,13 +112,14 @@ Route::get('/hotel',function(){return view('pages/hotels/landing');});
 //###################################################################################################
 //###################################### پروفایل کاربری ######################################
 //###################################################################################################
-Route::get('profile'    ,   'UserController@profile');
-Route::get('orders'     ,   'UserController@orders');
-Route::get('transactions',  'UserController@transactions');
-Route::get('passengers' ,   'UserController@passengers');
-Route::get('credit'     ,   'UserController@credit');
-Route::get('points'     ,   'UserController@points');
-Route::get('edit-profile',  'UserController@porfileEdit');
+Route::get('profile'        ,   'UserController@profile');
+Route::get('orders'         ,   'UserController@orders');
+Route::get('transactions'   ,   'UserController@transactions');
+Route::get('passengers'     ,   'UserController@passengers');
+Route::get('credit'         ,   'UserController@credit');
+Route::get('points'         ,   'UserController@points');
+Route::get('profile/edit'   ,   'UserController@porfileEdit');
+Route::post('profile/update',   'UserController@update');
 
 
 

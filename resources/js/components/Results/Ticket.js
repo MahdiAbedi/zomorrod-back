@@ -46,40 +46,43 @@ class Ticket extends React.Component {
       FareType      : this.props.ticket.AirItineraryPricingInfo.FareType
     })
     .then(function (response) {
-      console.log(response);
+      // console.log(response);
     })
     .catch(function (error) {
-      console.log(error);
+      // console.log(error);
     });
 
     //#############################################################################################################
     //############################# REVALIDATE TICKET BEFORE CONTINUE #############################################
-    // Axios.get('/airRevalidate')
-    // .then((response) =>{
-    //     // IF VALIDATE THE TICKET SHOW THE USER INFO PAGE ELSE STAY HERE
-    //     if(response.data){
-    //         if(this.props.isInline){
-    //           //اگر بلیط داخلی بود
-    //           window.location.replace("/internal/book");
-    //         }else{
-    //           window.location.replace("/international/book");
-    //         }
-    //     }else{
-    //       FlashMessage('هم اکنون ظرفیت این پرواز تکمیل گردیده است لطفا مجددا جستجو بفرمایید.')
-    //       setInterval(function(){ window.location.replace("/"); }, 3000);
-    //     }
+    Axios.get('/airRevalidate')
+    .then((response) =>{
+        // IF VALIDATE THE TICKET SHOW THE USER INFO PAGE ELSE STAY HERE
+        // console.log(response.data)
+        if(response.status==200){
+          // alert('ok')
+            // console.log(response.data)
+            if(this.props.isInline){
+              //اگر بلیط داخلی بود
+              window.location.replace("/internal/book");
+            }else{
+              window.location.replace("/international/book");
+            }
+        }else{
+          FlashMessage('هم اکنون ظرفیت این پرواز تکمیل گردیده است لطفا مجددا جستجو بفرمایید.')
+          // setInterval(function(){ window.location.replace("/"); }, 3000);
+        }
        
-    // })
-    // .catch( (error)=> {
-    //   console.log(error);
-    //   FlashMessage('خطایی هنگام بررسی بلیط انتخاب شده رخ داده است لطفا با پشتیبانی سایت تماس حاصل بفرمایید.')
-    // });
-    if(this.props.isInline){
-      //اگر بلیط داخلی بود
-      window.location.replace("/internal/book");
-    }else{
-      window.location.replace("/international/book");
-    }
+    })
+    .catch( (error)=> {
+      console.log(error);
+      FlashMessage('خطایی هنگام بررسی بلیط انتخاب شده رخ داده است لطفا با پشتیبانی سایت تماس حاصل بفرمایید.')
+    });
+    // if(this.props.isInline){
+    //   //اگر بلیط داخلی بود
+    //   window.location.replace("/internal/book");
+    // }else{
+    //   window.location.replace("/international/book");
+    // }
 
     
   }//################################################### chooseTicket ####################################################

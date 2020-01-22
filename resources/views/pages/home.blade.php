@@ -92,9 +92,7 @@
             <!-- tours -->
             <div class="tours flex owl-carousel owl-theme">
                 <!-- tour -->
-                @php
-                    $lastTours = DB::table('tours')->get()->random(5);
-                @endphp
+               
                 <!-- tour -->
                 @foreach($lastTours as $tour)
                     <a class="tour" href="/tour/{{$tour->alias}}">
@@ -103,7 +101,7 @@
                             <p>{{$tour->discount}}% تخفیف</p>
                         </div>
                     @endif
-                        <img src="/img/tours/{{$tour->id}}.jpg" alt="">
+                        <img src="{{$tour->thumbnail}}" alt="{{$tour->title}}">
                         <h2>{{$tour->title}}</h2>
                         <div class="flex-between">
                             <span class="stars">

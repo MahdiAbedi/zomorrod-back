@@ -46,14 +46,9 @@
                             <div class="col-lg-3 col-md-4 col-xs-6">
                                 <div class="smile-privilege-box smile-privilege-box__promotion-smile blue-loyalty-card">
                                     <div class="smile-privilege-box__detail">
-                                        <div class="smile-privilege-box__detail--alibaba"><img
-                                                src="https://cdn.alibaba.ir/dist/53945933/img/5fa5e47.svg?w=50&amp;h=50&amp;q=60"
-                                                alt="ستاره زمرد"></div>
-                                        <div class="smile-privilege-box__detail--smile"><img
-                                                src="https://cdn.alibaba.ir/dist/53945933/img/b3bf767.svg?w=50&amp;h=50&amp;q=60"
-                                                alt="لبخند"></div>
+                                        
                                         <div class="smile-privilege-box__email" style="color: rgb(12, 78, 191);">
-                                            MAC70GOD@GMAIL.COM
+                                            {{$currentUser->email}}
                                         </div>
                                         <div class="smile-privilege-box__detail--title">
                                             امتیاز شما:
@@ -240,18 +235,12 @@
                                     </li>
                                 </ul>
                                 <ul class="report-body">
-                                    <li><span><time>
-                                                1398/7/20
-                                            </time></span></li>
-                                    <li><span dir="ltr">
-                                            5
-                                        </span></li>
-                                    <li><span>
-                                            بابت تایید شماره تماس
-                                        </span></li>
-                                    <li><span><time>
-                                                ____
-                                            </time></span></li>
+                                    @foreach($points as $point)
+                                        <li name="dateTime">{{$point->created_at}}</li>
+                                        <li>{{$point->scores}}</li>
+                                        <li>{{$point->description}}</li>
+                                        <li name="dateTime">{{$point->expire_date}}</li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

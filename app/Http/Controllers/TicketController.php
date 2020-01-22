@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use GuzzleHttp\RequestOptions;
-use Illuminate\Support\Facades\DB;
+// use Illuminate\Filesystem\Cache;
 // use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redirect;
 use GuzzleHttp\Exception\GuzzleException;
 use App\Http\Controllers\TravelBaseController;
@@ -38,10 +40,12 @@ class TicketController extends TravelBaseController
     //#############################################################################################################
     //############################### چک کردن بلیط پروازهای داخلی و خارجی ######################################
     //#############################################################################################################
+    //=============================== CALL AirLowFareSearch =======================================================
     public function checkTicket(Request $request){
-        
+      // dd(Cache::get('SessionId'));
         // dd($request->all());
         $this->makeSession();
+        // dd(Cache::get('SessionId'));
         $client = new Client();
         $OrginDestinationArray=[];
         $AirTripType=1;
@@ -92,7 +96,7 @@ class TicketController extends TravelBaseController
         $sendArray=array (
           'PricingSourceType'     => 0,
           'RequestOption'         => 2,
-          'SessionId'             => session('SessionId'),
+          'SessionId'             => Cache::get('SessionId'),
           'AdultCount'            => $request->input('AdultCount'),
           'ChildCount'            => $request->input('ChildCount'),
           'InfantCount'           => $request->input('InfantCount'),
@@ -113,9 +117,9 @@ class TicketController extends TravelBaseController
         // dd(json_encode($sendArray));
 
         //نوشتن خروجی در فایل برای ارسال به پرتو 
-          // $myfile = fopen("Request.json", "w") or die("Unable to open file!");
-          // fwrite($myfile, json_encode($sendArray));
-          // fclose($myfile);
+          $myfile = fopen("1-FareTicketRequest.json", "w") or die("Unable to open file!");
+          fwrite($myfile, json_encode($sendArray));
+          fclose($myfile);
         // پایان تست  
 
         $response = $client->post('https://apidemo.partocrs.com/Rest/Air/AirLowFareSearch', [
@@ -141,13 +145,22 @@ class TicketController extends TravelBaseController
 
     public function AirBooking(){
         $client = new Client();
+        // dd(session('FareSourceCode'));
         $AirBookingData =DB::table('booking')->select('BookingDetail')->where('FareSourceCode',session('FareSourceCode'))->first();
-        // dd(($AirBookingData));
+        // dd($AirBookingData);
         $AirBookingData = json_decode($AirBookingData->BookingDetail);
         //################################### REVALIDATE BEFORE BOOK #############################
         // if(!$this->AirRevalidate()){
         //   return Redirect::back()->with('error', 'امکان خرید این بلیط مقدور نمیباشد لطفا دوباره جستجو بفرمایید');
         // }
+
+
+        //نوشتن خروجی در فایل برای ارسال به پرتو 
+        $myfile = fopen("Booking.json", "w") or die("Unable to open file!");
+        fwrite($myfile, json_encode($AirBookingData));
+        fclose($myfile);
+      // پایان تست  
+
 
         //########################################################################################
 
@@ -209,17 +222,18 @@ class TicketController extends TravelBaseController
           // return $returnbooking->Success;
         // return $response->getBody()->getContents();
         // dd($response->getBody()->getContents());
-    }
+    }//AirBooking
 
 
     //#############################################################################################################
     //################### اطلاعات مسافران و بلیط رو ذخیره کنیم تا بعد از پرداخت بتونیم بوک کنیم ###############
     //#############################################################################################################
     public function SaveBookingDate(Request $request){
+      // dd(Cache::get('SessionId'));
         $AirBookingData = $request->input('AirBookingData');
         //قیمت بلیطی که خریده 
         $TicketPrice = $request->input('TicketPrice');
-        $AirBookingData['SessionId']=session('SessionId');
+        $AirBookingData['SessionId']=Cache::get('SessionId');
         #======================== SAVE PRICE FOR GOING TO BANK ==========================================
         session(['TicketPrice'       => $TicketPrice]);
 
@@ -237,7 +251,7 @@ class TicketController extends TravelBaseController
             'created_at'     =>   new \DateTime()
             
           ]);
-    }
+    }//SaveBookingDate
 
     //#############################################################################################################
     //############################### AIR REVALIDATE ##############################################
@@ -247,19 +261,29 @@ class TicketController extends TravelBaseController
       $client = new Client();
 
       $sendArray=array (
-        'SessionId'             => session('SessionId'),
+        'SessionId'             => Cache::get('SessionId'),
         'FareSourceCode'        => session('FareSourceCode')
 
       );
+
+
+        //نوشتن خروجی در فایل برای ارسال به پرتو 
+        $myfile = fopen("AirRevalidate.json", "w") or die("Unable to open file!");
+        fwrite($myfile, json_encode($sendArray));
+        fclose($myfile);
+        // پایان تست  
+
       $response = $client->post('https://apidemo.partocrs.com/Rest/Air/AirRevalidate', [
           RequestOptions::JSON => $sendArray
       ]);
+
+     
 
       $returnbooking = json_decode($response->getBody()->getContents());
       // dd($returnbooking);
       return (string)$returnbooking->Success;
 
-    }
+    }//AirRevalidate
 
     //#############################################################################################################
     //############################### CALL ARIBOOKING DATA ##############################################
@@ -270,13 +294,17 @@ class TicketController extends TravelBaseController
           $client = new Client();
 
           $sendArray=array (
-            'SessionId'       => session('SessionId'),
+            'SessionId'       => Cache::get('SessionId'),
             'UniqueId'        => session('UniqueId')
 
           );
           
-          dd(json_encode($sendArray));
-
+          // dd(json_encode($sendArray));
+            //نوشتن خروجی در فایل برای ارسال به پرتو 
+            $myfile = fopen("AirBookingData.json", "w") or die("Unable to open file!");
+            fwrite($myfile, json_encode($sendArray));
+            fclose($myfile);
+            // پایان تست 
           
           $response = $client->post('https://apidemo.partocrs.com/Rest/Air/AirBookingData', [
               RequestOptions::JSON => $sendArray
@@ -293,7 +321,7 @@ class TicketController extends TravelBaseController
           }
           // return (string)$returnbooking->Success;
         
-      }
+      }//AirBookingData
     //#############################################################################################################
     //############################### CALL AIR ORDER ##############################################
     //#############################################################################################################
@@ -302,7 +330,7 @@ class TicketController extends TravelBaseController
           $client = new Client();
           // dd('you are in AirorderTicket');
           $sendArray=array (
-            'SessionId'       => session('SessionId'),
+            'SessionId'       => Cache::get('SessionId'),
             'UniqueId'        => session('UniqueId')
 
           );
@@ -311,21 +339,22 @@ class TicketController extends TravelBaseController
               RequestOptions::JSON => $sendArray
           ]);
 
+           //نوشتن خروجی در فایل برای ارسال به پرتو 
+           $myfile = fopen("AirOrderTicket.json", "w") or die("Unable to open file!");
+           fwrite($myfile, json_encode($sendArray));
+           fclose($myfile);
+           // پایان تست 
+
           $returnbooking = json_decode($response->getBody()->getContents());
-          dd($returnbooking);
+          // dd($returnbooking);
           // dd($response->getBody()->getContents());
           // return (string)$returnbooking->Success;
         
-      }
-
-
+      }//AirOrderTicket
 
     //#############################################################################################################
     //############################### ثبت نهایی بلیط خریداری شده بعد از پرداخت ##############################################
     //#############################################################################################################
-
-
-
 
 
     //#############################################################################################################
@@ -335,9 +364,7 @@ class TicketController extends TravelBaseController
           print "از اینکه ستاره زمرد را انتخاب کرده اید سپاسگذاریم.";
           #================================ بعد از اینکه پرداخت انجام شد پرواز بوک میشه ==========================
           $this->AirBooking();
-      }
-
-
+      }//factor
 
 }//END OF CLASS
 

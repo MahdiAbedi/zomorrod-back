@@ -500,7 +500,7 @@ function passengerInfoConfirm(){
         AirBookingData = {
             FareSourceCode: localStorage.getItem('FareSourceCode'),
             SessionId: '',
-            ClientUniqueId: "R123456",
+            ClientUniqueId: "ST"+Math.ceil(Math.random() * 100000),
             MarkupForAdult: 0.0,
             MarkupForChild: 0.0,
             MarkupForInfant: 0.0,

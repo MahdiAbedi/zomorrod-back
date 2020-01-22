@@ -120,7 +120,7 @@
                                     <p>{{$tour->discount}}% تخفیف</p>
                                 </div>
                             @endif
-                                <img src="/img/tours/{{$tour->id}}.jpg" alt="">
+                                <img src="{{$tour->thumbnail}}" alt="{{$tour->title}}">
                                 <h2>{{$tour->title}}</h2>
                                 <div class="flex-between">
                                     <span class="stars">

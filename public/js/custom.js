@@ -5,6 +5,7 @@ $(document).ready(function () {
     $('.select2').select2();
     formatInsideTagMoney('money');
     formatInsideTagDate('date');
+    formatInsideTagDateTime('dateTime');
 
     // showSearchPanel("HotelTicket");
     //درخواست لیست فرودگاه های بین المللی

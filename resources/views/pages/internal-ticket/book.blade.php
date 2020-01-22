@@ -349,7 +349,7 @@ function ticketConfirm(){
 
     })//map
     document.getElementById('ticketConfirm').innerHTML = ticketConfirm;
-}//CreateTicketPreview
+}//ticketConfirm
 //###################################تایید اطلاعات کاربران  #######################################################
 function passengerInfoConfirm(){
     let ticketConfirm   ='';
@@ -393,7 +393,7 @@ function passengerInfoConfirm(){
         }
    
     document.getElementById('passengerInfoConfirm').innerHTML = ticketConfirm;
-}//CreateTicketPreview
+}//passengerInfoConfirm
 
 
 //#################################### پنل ورود اطلاعات مسافران ###################################################
@@ -467,9 +467,9 @@ function passengersInfoPanel(){
 }
 //#################################### اجرای توابع بعد از بارگزاری صفحه###########################################
 window.onload =()=>{
-    CreateTicketPreview();
+    // CreateTicketPreview();
     passengersCount();
-    ticketConfirm();
+    // ticketConfirm();
     passengersInfoPanel();
 }
 

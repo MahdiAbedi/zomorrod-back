@@ -1,5 +1,12 @@
 @include('includes/head')
+@section('meta')
+    <meta charset="UTF-8">
+    <meta name="description" content="{{$tourCategory->metaDescription}}">
+    <meta name="keywords" content="{{$tourCategory->keywords}}">
+    <meta name="author" content="آژانس هواپیمایی ستاره زمرد">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+@end
 <body>
         <!-- منوی بالا -->
         @include('includes/topMenu')
@@ -34,7 +41,7 @@
                 <!-- blog -->
                 @foreach($randomTours as $random)
                     <a class="blog-slider style2" href="/tour/{{$random->alias}}">
-                        <img src="/img/tours/{{$random->id}}.jpg" alt="">
+                        <img src="{{$random->thumbnail}}" alt="{{$random->title}}">
                         <h2>{{$random->title}}<p>{{$random->duration}}</p></h2>
                     </a>
                 @endforeach
@@ -78,7 +85,7 @@
                     <!-- یک تیکت تک -->
                     @foreach($tours as $tour)
                         <div class="hotels-container tour-result">
-                            <img src="/img/tours/{{$tour->id}}.jpg" alt="">
+                            <img src="{{$tour->thumbnail}}" alt="{{$random->title}}">
                             <div class="hotels_preview flex-column">
                                 <div class="hotels_preview_top">
                                 <div class="parts">

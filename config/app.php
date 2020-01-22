@@ -174,8 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Larabookir\Gateway\GatewayServiceProvider::class,      //درگاه بانکی
-
+        Larabookir\Gateway\GatewayServiceProvider::class, //درگاه بانکی
+        Shetabit\Payment\Provider\PaymentServiceProvider::class,
 
     ],
 
@@ -228,7 +228,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         //############################### CUSTOM ADDED PACKAGES ####################################
-        'Gateway' => \Larabookir\Gateway\Gateway::class, // درگاه بانکی
+        'Gateway' => Larabookir\Gateway\Gateway::class, // درگاه بانکی
+        'Payment' => Shetabit\Payment\Facade\Payment::class,
 
 
     ],

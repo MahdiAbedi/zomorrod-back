@@ -45,7 +45,11 @@
                 </div>
 
                 <div class="mojavezha">
-                    <a href="#"><img src="/img/logos/namad1.png" alt=""></a>
+                <a target="_blank" href="https://trustseal.enamad.ir/?id=132303&amp;Code=lqTmTo4h9y6PWkE0BqHq">
+                <img src="/img/logos/namad1.png" alt="نماد اعتماد الکترونیک" style="cursor:pointer" id="lqTmTo4h9y6PWkE0BqHq">
+                </a>
+
+                    <!-- <a href="#"><img src="/img/logos/namad1.png" alt=""></a> -->
                     <a href="#"><img src="/img/logos/namad2.png" alt=""></a>
                     <a href="#"><img src="/img/logos/namad3.png" alt=""></a>
                     <a href="#"><img src="/img/logos/namad4.png" alt=""></a>
