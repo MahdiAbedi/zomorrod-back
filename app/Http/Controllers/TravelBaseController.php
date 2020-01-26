@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 use GuzzleHttp\RequestOptions;
 // use Illuminate\Filesystem\Cache;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Redirect;
 use GuzzleHttp\Exception\GuzzleException;
-use Larabookir\Gateway\Pasargad\Pasargad;
+// use Larabookir\Gateway\Pasargad\Pasargad;
 
 class TravelBaseController extends Controller
 {
@@ -69,31 +70,31 @@ class TravelBaseController extends Controller
     }
     //############################### اتصال به درگاه بانکی #######################################
     public function GoToBank(){
-        try {
-
-            // $gateway = \Gateway::make('mellat');
-            $gateway = \Gateway::make(new \Pasargad());
+        return Redirect::to('/Bank_CallBack');
+        // try {
+        //     // $gateway = \Gateway::make('mellat');
+        //     // $gateway = \Gateway::make(new \Pasargad());
             
-            $gateway->setCallback(url('/Bank_CallBack')); // You can also change the callback
-            $gateway->price(1000)
-                    // setShipmentPrice(10) // optional - just for paypal
-                    // setProductName("My Product") // optional - just for paypal
-                    ->ready();
+        //     // $gateway->setCallback(url('/Bank_CallBack')); // You can also change the callback
+        //     // $gateway->price(1000)
+        //     //         // setShipmentPrice(10) // optional - just for paypal
+        //     //         // setProductName("My Product") // optional - just for paypal
+        //     //         ->ready();
          
-            $refId =  $gateway->refId(); // شماره ارجاع بانک
-            $transID = $gateway->transactionId(); // شماره تراکنش
+        //     // $refId =  $gateway->refId(); // شماره ارجاع بانک
+        //     // $transID = $gateway->transactionId(); // شماره تراکنش
          
-            // در اینجا
-            //  شماره تراکنش  بانک را با توجه به نوع ساختار دیتابیس تان 
-            //  در جداول مورد نیاز و بسته به نیاز سیستم تان
-            // ذخیره کنید .
+        //     // در اینجا
+        //     //  شماره تراکنش  بانک را با توجه به نوع ساختار دیتابیس تان 
+        //     //  در جداول مورد نیاز و بسته به نیاز سیستم تان
+        //     // ذخیره کنید .
          
-            return $gateway->redirect();
+        //     // return $gateway->redirect();
          
-         } catch (\Exception $e) {
+        //  } catch (\Exception $e) {
          
-            echo $e->getMessage();
-         }
+        //     echo $e->getMessage();
+        //  }
             
     }//go to bank
     //############################## بازگشت از درگاه بانکی #############################################

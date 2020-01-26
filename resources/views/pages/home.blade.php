@@ -11,7 +11,7 @@
 
         <!-- تصویر هواپیمای بزرگ که روی اسلایدر و منو -->
         <div class="airplane" id="slider-img">
-            <img src="img/bgs/airplane.png" alt="">
+            <img src="img/bgs/airplane.png" alt="هواپیمای متحرک">
         </div>
         <!-- قسمت جستجو بلیط هواپیما،هتل و .. -->
         <div class="search-container">
@@ -21,7 +21,7 @@
                 <!-- پرواز داخلی  -->
                 <div class="search_icon" onclick="showSearchPanel('InlineTicket')">
                     <div class="icon_container" id="InlineTicket-Icon">
-                        <img src="img/icons/inline-flight.png" alt="" />
+                        <img src="img/icons/inline-flight.png" alt="پرواز داخلی" />
                     </div>
                     <h4 class="inner-flight-title"><span>پرواز داخلی</span></h4>
                 </div>
@@ -29,7 +29,7 @@
                 <!-- {/* پرواز خارجی */} -->
                 <div class="search_icon " onclick="showSearchPanel('OutLineTicket')">
                     <div class="icon_container active" id="OutLineTicket-Icon">
-                        <img class="outline-flight" src="img/icons/outline-flight.png" alt="" />
+                        <img class="outline-flight" src="img/icons/outline-flight.png" alt="پرواز خارجی" />
                     </div>
                     <h4 class="out-flight-title"><span>پرواز خارجی</span></h4>
 
@@ -37,7 +37,7 @@
                  <!-- {/* هتل */} -->
                  <div class="search_icon" onclick="showSearchPanel('HotelTicket')">
                     <div class="icon_container" id="HotelTicket-Icon">
-                        <img src="img/icons/hotel.png" alt=""/>
+                        <img src="img/icons/hotel.png" alt="هتل"/>
                     </div>
                     <h4>هتل</h4>
                 </div>
@@ -45,7 +45,7 @@
                 <!-- {/* قطار */} -->
                 <div class="search_icon" onclick="showSearchPanel('TrainTicket')">
                     <div class="icon_container" id="TrainTicket-Icon">
-                        <img src="img/icons/train.png" alt="" />
+                        <img src="img/icons/train.png" alt="قطار" />
                     </div>
                     <h4>قطار</h4>
                 </div>
@@ -53,14 +53,14 @@
                 <!-- {/* تور */} -->
                 <div class="search_icon" onclick="showSearchPanel('TourTicket')">
                     <div class="icon_container" id="TourTicket-Icon">
-                        <img src="img/icons/tour.png" alt=""/>
+                        <img src="img/icons/tour.png" alt="تور"/>
                     </div>
                     <h4>تور</h4>
                 </div>
                 <!-- {/* بیمه */} -->
                 <div class="search_icon" onclick="showSearchPanel('InsuranceTicket')">
                     <div class="icon_container" id="InsuranceTicket-Icon">
-                        <img src="img/icons/bime.png" alt=""/>
+                        <img src="img/icons/bime.png" alt="بیمه"/>
                     </div>
                     <h4>بیمه</h4>
                 </div>
@@ -74,15 +74,15 @@
         <div class="main-container">
             <div class="home_icons flex">
                 <div class="home_icon">
-                    <img src="img/icons/waranti.png" alt="">
+                    <img src="img/icons/waranti.jpg" alt="گارانتی قیمت">
                     <p>گارانتی قیمت بازگشت وجه در صورت ارائه قیمت ارزان تر از زمرد</p>
                 </div>
                 <div class="home_icon">
-                    <img src="img/icons/travel.png" alt="">
+                    <img src="img/icons/travel.jpg" alt="رزو هتل">
                     <p>دسترسی به بیش از 300 هتل و ایرلاین در سراسر دنیا</p>
                 </div>
                 <div class="home_icon">
-                    <img src="img/icons/support.png" alt="">
+                    <img src="img/icons/support.jpg" alt="پشتیبانی 24 ساعته">
                     <p>ارائه پشتیبانی و خدمات پس از فروش به صورت 24 ساعته</p>
                 </div>
             </div>

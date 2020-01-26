@@ -175,7 +175,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Larabookir\Gateway\GatewayServiceProvider::class, //درگاه بانکی
-        Shetabit\Payment\Provider\PaymentServiceProvider::class,
 
     ],
 
@@ -229,8 +228,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         //############################### CUSTOM ADDED PACKAGES ####################################
         'Gateway' => Larabookir\Gateway\Gateway::class, // درگاه بانکی
-        'Payment' => Shetabit\Payment\Facade\Payment::class,
-
 
     ],
 

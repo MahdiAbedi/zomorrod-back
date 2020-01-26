@@ -50,9 +50,9 @@
                 </a>
 
                     <!-- <a href="#"><img src="/img/logos/namad1.png" alt=""></a> -->
-                    <a href="#"><img src="/img/logos/namad2.png" alt=""></a>
-                    <a href="#"><img src="/img/logos/namad3.png" alt=""></a>
-                    <a href="#"><img src="/img/logos/namad4.png" alt=""></a>
+                    <a href="#"><img src="/img/logos/namad2.png" alt="جشنواره وب"></a>
+                    <a href="#"><img src="/img/logos/namad3.png" alt="نماد اعتماد رسانه"></a>
+                    <a href="#"><img src="/img/logos/namad4.png" alt="اتحادیه کشوری"></a>
                 </div>
             </div>
         </div>
@@ -87,10 +87,10 @@ $.ajaxSetup({
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/fa.js"></script>
 <script src="/js/moment-jalaali.js"></script>
 <!-- React  -->
-<!-- <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script> -->
-<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<!-- <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> -->
 <!-- <script crossorigin src="/js/react.production.min.js"></script>
 <script crossorigin src="/js/react-dom.production.min.js"></script> -->
 

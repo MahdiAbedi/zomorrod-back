@@ -6,7 +6,7 @@
     <meta name="author" content="آژانس هواپیمایی ستاره زمرد">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-@end
+@endsection
 <style>
     .mySlides{display: none;height: 100%;}
     img {vertical-align: middle;height: 100%;object-fit: cover;border-radius: 4px;}
@@ -66,9 +66,13 @@
                 <li>
                     <a href="/tours">تورهای خارجی</a>
                 </li>
-                <li>
-                    <a href="/tours/{{$tourCategory->alias}}">{{$tourCategory->name}}</a>
-                </li>
+                <!-- ممکنه یک تور چندتا دسته بندی داشته باشه -->
+                @foreach($tourCategories as $category)
+                    <li>
+                        <a href="/tours/{{$category->alias}}">{{$category->name}}</a>
+                    </li>
+                @endforeach
+                
                 <li>
                     <a href="/tour/{{$tour->alias}}">{{$tour->title}}</a>
                 </li>

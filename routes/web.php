@@ -138,5 +138,22 @@ Route::get('getTours','TourController@getToursName');
 Route::any('/Bank_CallBack','TravelBaseController@bankCallBack');   //بازگشت باز بانک 
 Route::post('/goToBank','TravelBaseController@GoToBank');;          //اتصال به درگاه بانک
 
+//###################################################################################################
+//#################################### کد تخفیف ###########################################
+//###################################################################################################
+Route::get('/checkDiscount/{id}',function($id){
+    // بررسی کد تخفیف وارد شده
+     $amount= DB::table('coupons')->select('discount_amount')->where('code',$id)->first();
+     
+     if($amount){
+         $amount=$amount->discount_amount;
+     }else{$amount=0;}
+     //ذخیره سازی اطلاعات میزان و کد تخفیف در سشن
+     session(['discount_mount' => $amount]);
+     session(['coupon_code' => $id]);
+
+     return $amount;
+});
+
 
 

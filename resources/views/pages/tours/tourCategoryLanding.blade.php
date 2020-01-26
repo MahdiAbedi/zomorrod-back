@@ -6,7 +6,7 @@
     <meta name="author" content="آژانس هواپیمایی ستاره زمرد">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-@end
+@endsection
 <body>
         <!-- منوی بالا -->
         @include('includes/topMenu')
