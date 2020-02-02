@@ -1,0 +1,21 @@
+table.rounded_table {
+    border-collapse:separate;
+    border:solid $table-border-gray 1px;
+    border-radius:6px;
+    -moz-border-radius:6px;
+    margin:10px 0;
+
+
+    th,td{
+        text-align:center;
+    }
+    th {
+        background-color: #e6e6e6;
+        border-top: none;
+        color:#474747;
+    }
+    
+    td:first-child, th:first-child {
+         border-left: none;
+    }
+}

@@ -1,59 +1,15 @@
-@include('includes/head')
+@extends('master')
 @section('meta')
-    <meta charset="UTF-8">
     <meta name="description" content="{{$tour->metadescription}}">
     <meta name="keywords" content="{{$tour->keywords}}">
-    <meta name="author" content="آژانس هواپیمایی ستاره زمرد">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="{{config('app.url')}}/tour/{{$tour->alias}}" />
 
 @endsection
-<style>
-    .mySlides{display: none;height: 100%;}
-    img {vertical-align: middle;height: 100%;object-fit: cover;border-radius: 4px;}
-    
-    /* Slideshow container */
-    .slideshow-container {
-      max-width: 1000px;
-      position: relative;
-      margin: auto;
-      height: 100%;
-    }
-    
-    /* Next & previous buttons */
-    .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: auto;
-      padding: 16px;
-      margin-top: -22px;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      transition: 0.6s ease;
-      border-radius: 0 3px 3px 0;
-      user-select: none;
-    }
-    
-    /* Position the "next button" to the right */
-    .next {
-      left: 0;
-      border-radius: 3px 0 0 3px;
-    }
-    
-    /* On hover, add a grey background color */
-    .prev:hover, .next:hover {
-      background-color: #f1f1f1;
-      color: black;
-    }
-</style>
+@section('pageTitle', $tour->title)
 
-<body>
-    <!-- منوی بالا -->
-    @include('includes/topMenu')
 
-<!-- نمایش پیامهای خطا و ... در بالای صفحات  -->
-@include('layouts/flash-message')
+
+@section('body')
     <!-- main part -->
     <main class="tourDetail">
         <!-- نمایش مراحل انتخاب و خرید -->
@@ -216,20 +172,22 @@
                             <tbody>
                                 @foreach($hotels as $hotel)
                                     <tr>
-                                        <td>{{$hotel->name}}</td>
+                                        <td>{!!$hotel->name!!}</td>
                                         <td> 
-                                            <span class="stars">
+                                        <span class="stars">
+                                            @for ($i = 0; $i < $hotel->star; $i++)
                                                 <i class="fa fa-star green"></i>
-                                                <i class="fa fa-star green"></i>
-                                                <i class="fa fa-star green"></i>
+                                            @endfor
+                                            @for ($i = 0; $i < 5- $hotel->star; $i++)
                                                 <i class="far fa-star green"></i>
-                                                <i class="far fa-star green"></i>
-                                            </span>
+                                            @endfor
+                                            
+                                        </span>
                                         </td>
-                                        <td>{{$hotel->single}}</td>
-                                        <td>{{$hotel->double}}</td>
-                                        <td>{{$hotel->child_with_bed}}</td>
-                                        <td>{{$hotel->child_no_bed}}</td>
+                                        <td>{{$hotel->single}} {{$hotel->currency}}</td>
+                                        <td>{{$hotel->double}} {{$hotel->currency}}</td>
+                                        <td>{{$hotel->child_with_bed}} {{$hotel->currency}}</td>
+                                        <td>{{$hotel->child_no_bed}} {{$hotel->currency}}</td>
                                         
                                     </tr>
                                 @endforeach
@@ -303,7 +261,50 @@
         </div>
         @endif
     </main>
+@endsection
 
+@section('scripts')
+
+<style>
+    .mySlides{display: none;height: 100%;}
+    img {vertical-align: middle;height: 100%;object-fit: cover;border-radius: 4px;}
+    
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+      height: 100%;
+    }
+    
+    /* Next & previous buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+    
+    /* Position the "next button" to the right */
+    .next {
+      left: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    
+    /* On hover, add a grey background color */
+    .prev:hover, .next:hover {
+      background-color: #f1f1f1;
+      color: black;
+    }
+</style>
     <script>
     var slideIndex = [1,1];
     var slideId = ["mySlides"]
@@ -342,6 +343,4 @@
       });
     }
     </script>
-
-
-   @include('includes/footer')
+@endsection

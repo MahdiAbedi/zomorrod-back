@@ -1,0 +1,112 @@
+//بیشتر کدها در تور همان کدهای هتل است
+.tour-result{
+    display: flex;
+    justify-content: center;
+    h2{
+        font-size: 14px;
+    }
+
+    .hotels_preview_top{
+        .parts{
+            display: flex;
+            justify-content: space-between;
+            flex:1;
+            margin-left: 15px;
+        }
+    }
+
+    img{
+        height: 163px;
+        min-width: 250px;
+        width:250px;
+        object-fit: cover;
+    }
+
+    .price{
+        background:#dcddde;
+        padding:10px;
+        margin:-10px;
+        display: flex;
+        text-align: center;
+        font-size: small;
+        width:150px;
+        p{
+           align-self: center;
+        }
+    }
+
+    .tour_facilities{
+        display:flex;
+        // flex:1;
+        margin-bottom: -3px;
+        // margin-top:-5px;
+        p{
+            background:#dcddde;
+            margin-left: 1px;
+            margin-top: 1px;
+            padding:10px;
+            font-size: 14px;
+            text-align: center;
+            width:calc(100% - 150px /5);
+            max-height: 40px;
+
+            &:last-child{
+                // flex:1;
+                margin-left: 0;
+                min-width:150px;
+                width:150px;
+            }
+        }
+    }
+
+}
+
+
+/* start of desktop styles */
+
+@media screen and (max-width: 991px) {
+    
+}
+
+@media screen and (max-width: 767px) {
+
+    .tour-result{
+        flex-direction: column;
+
+        .tour_facilities{
+            // flex-direction: column;
+            // justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+            margin-right: 5px;
+
+            p{
+                width:49%;
+            }
+            & p:last-child{
+                min-width: 49%;
+                width:49%;
+            }
+        }
+    }
+
+    .hotels-container.tour-result{
+        img{width:100% !important}
+    }
+    .hotels .hotels_preview_top{
+        flex-direction: column;
+        .parts{
+            margin-bottom: 10px;
+        }
+        .price{
+            width:100%;
+            justify-content: center;
+            margin:initial;
+            border-radius: 5px;
+        }
+    }
+}
+
+@media screen and (max-width: 479px) {
+
+}

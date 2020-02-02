@@ -11,13 +11,13 @@
 
             </div>
             <div class="social_icons">
-                <a href="https://www.instagram.com/" rel="nofollow" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com/" rel="" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.facebook.com/" rel="" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://plus.google.com/" rel="" target="_blank"><i class="fab fa-google-plus-g"></i></a>
-                <a href="https://telegram.me/" rel="nofollow" target="_blank"><i class="fab fa-telegram-plane"></i></a> 
-                <a href="https://www.youtube.com/channel/" rel="nofollow" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.linkedin.com/company/BimiLike.ir" rel="nofollow" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/setarehzomorrod" rel="nofollow" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/setarehzomorrod" rel="" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/setarehzomorrod" rel="" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://plus.google.com/setarehzomorrod" rel="" target="_blank"><i class="fab fa-google-plus-g"></i></a>
+                <a href="https://telegram.me/setarehzomorrod" rel="nofollow" target="_blank"><i class="fab fa-telegram-plane"></i></a> 
+                <a href="https://www.youtube.com/channel/setarehzomorrod" rel="nofollow" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/company/setarehzomorrod" rel="nofollow" target="_blank"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
         <div class="footer flex container">
@@ -78,12 +78,12 @@
                 </div>
 
                 <div class="mojavezha">
-                <a target="_blank" href="https://trustseal.enamad.ir/?id=132303&amp;Code=lqTmTo4h9y6PWkE0BqHq">
-                <img src="/img/logos/namad1.png" alt="نماد اعتماد الکترونیک" style="cursor:pointer" id="lqTmTo4h9y6PWkE0BqHq">
+                <a target="_blank" href="https://trustseal.enamad.ir/?id=110756&amp;Code=zUn6UmX7H7owtt7hHkfe">
+                <img class="lazy" data-src="/img/logos/namad1.png" alt="نماد اعتماد الکترونیک" style="cursor:pointer" id="lqTmTo4h9y6PWkE0BqHq">
                 </a>
-                    <a href="#"><img src="/img/logos/namad2.png" alt="جشنواره وب"></a>
-                    <a href="#"><img src="/img/logos/namad3.png" alt="نماد اعتماد رسانه"></a>
-                    <a href="#"><img src="/img/logos/namad4.png" alt="اتحادیه کشوری"></a>
+                    <a href="#"><img class="lazy" data-src="/img/logos/namad2.png" alt="جشنواره وب"></a>
+                    <a href="#"><img class="lazy" data-src="/img/logos/namad3.png" alt="نماد اعتماد رسانه"></a>
+                    <a href="#"><img class="lazy" data-src="/img/logos/namad4.png" alt="اتحادیه کشوری"></a>
                 </div>
             </div>
         </div>
@@ -91,7 +91,7 @@
 
 </body>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
-
+@yield('scripts')
 <!-- newsletter  -->
 <script>
 function submitNewsLetter(){
@@ -122,16 +122,15 @@ function submitNewsLetter(){
    
 }
 </script>
+<script src="/js/custom.js" defer></script>
+
 <!-- jquery -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" defer integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- select2 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js" defer></script>
 
 <!-- Owl Slider -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
-<!-- custom.js -->
-<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" defer></script>
 
 <!-- CSRF  -->
 <script>
@@ -144,20 +143,20 @@ $.ajaxSetup({
 // document.getElementById('csrf').value="{{ csrf_token() }}";
 </script>
 <!-- Moment  -->
-<script src="/js/moment.min.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/fa.js"></script>
-<script src="/js/moment-jalaali.js"></script>
+<!-- <script src="/js/moment.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" defer integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/fa.js" defer></script>
+<script src="/js/moment-jalaali.js" defer></script>
 <!-- React  -->
-<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/react@16/umd/react.production.min.js" defer></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" defer></script>
 <!-- <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> -->
 <!-- <script crossorigin src="/js/react.production.min.js"></script>
 <script crossorigin src="/js/react-dom.production.min.js"></script> -->
 
 <!-- React compiles codes in my project -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-<script src="/js/app.js"></script>
-<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" defer></script>
+<script src="/js/app.js" defer></script>
+<script src="/js/custom.js" defer></script>
 </html>

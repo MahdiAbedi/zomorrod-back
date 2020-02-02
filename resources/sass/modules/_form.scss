@@ -4,7 +4,7 @@ form.search{
 input{
     font-family: inherit;
 }
-input[type="text"]{
+input[type="text"],input[type="password"],input[type='email']{
     background: white;
     // border-radius: 5px;
     outline: none;
@@ -13,6 +13,7 @@ input[type="text"]{
     width:100%;
     // border-left: 1px #ccc solid;    
     padding-right: 15px;
+    
 }
 
 input[type="radio"]{
@@ -47,7 +48,6 @@ select{
     border-radius: $border-radius;
     font-family: inherit;
     // width: 100%;
-    cursor: pointer;
     // margin-top: 5px;
     // height: 38px;
     border-radius: 10px;
@@ -55,6 +55,8 @@ select{
     transition: all .5s ease;
     color:#fff;
     margin:0 5px 0 0;
+    display: inline-block;
+    line-height: 1.42857143;
 }
 .btn-blue{
     background:$light_blue;
@@ -62,6 +64,7 @@ select{
 
 .btn-green{
     background: $font-green;
+    color:#fff !important;
 }
 .btn-transparent{
     border:1px solid $border-gray;
@@ -195,6 +198,13 @@ select{
     }
 }
 
+input[type="number"]{
+    border-radius: 10px;
+    // outline: none;
+    // text-indent: 5px;
+    text-align: center;
+    // border: none;
+}
 
 /* start of desktop styles */
 

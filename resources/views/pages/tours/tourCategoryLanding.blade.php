@@ -1,19 +1,11 @@
-@include('includes/head')
+@extends('master')
 @section('meta')
-    <meta charset="UTF-8">
     <meta name="description" content="{{$tourCategory->metaDescription}}">
     <meta name="keywords" content="{{$tourCategory->keywords}}">
-    <meta name="author" content="آژانس هواپیمایی ستاره زمرد">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 @endsection
-<body>
-        <!-- منوی بالا -->
-        @include('includes/topMenu')
 
-<!-- نمایش پیامهای خطا و ... در بالای صفحات  -->
-@include('layouts/flash-message')
-    <!-- main part -->
+@section('pageTitle', $tourCategory->name)
+@section('body')
 <main>
         <!-- نمایش مراحل انتخاب و خرید -->
         <div class="container">
@@ -144,4 +136,4 @@
     </main>
 
 
-   @include('includes/footer')
+ @endsection

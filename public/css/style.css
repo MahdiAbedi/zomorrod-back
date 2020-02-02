@@ -19,7 +19,8 @@ body {
   font-family: "IRANSans", "robotolight", sans-serif !important;
   font-size: 1.3rem;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  line-height: 1.5; }
 
 @font-face {
   font-family: IRANSansBlack;
@@ -930,6 +931,18 @@ footer {
 .fa-youtube, .fa-times {
   color: #bb0000; }
 
+/* start of desktop styles */
+@media screen and (max-width: 767px) {
+  .footer, .footer1, .footer2, .footer3 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; }
+  .newsletter {
+    width: 100%;
+    margin-bottom: 5px; }
+  .social_icons {
+    margin-top: 10px; } }
+
 input[type=checkbox] + label {
   margin: 0.2em;
   cursor: pointer;
@@ -1110,24 +1123,24 @@ input[type=checkbox]:checked:disabled + label:before {
   position: relative; }
 
 .airline-filter,
-.panel-body > * {
+.filters .panel-body > * {
   padding: 5px 0;
   cursor: pointer;
   transition: all .1s ease; }
   .airline-filter:hover,
-  .panel-body > *:hover {
+  .filters .panel-body > *:hover {
     background: #006C50;
     border-radius: 5px;
     color: #fff;
     padding: 5px;
     transform: scale(1.06); }
   .airline-filter img,
-  .panel-body > * img {
+  .filters .panel-body > * img {
     width: 24px;
     height: 24px;
     margin: 0 5px; }
   .airline-filter .price,
-  .panel-body > * .price {
+  .filters .panel-body > * .price {
     margin-right: auto; }
 
 .single-ticket {
@@ -1487,7 +1500,7 @@ ul.path {
     background: url(/img/mobile/outline-airplane-bg-mobile.jpg) no-repeat center; }
   .home_icon,
   .blog_slide {
-    width: 33%; }
+    width: 100%; }
   .tour {
     width: 33%;
     margin-bottom: 10px; }
@@ -1545,9 +1558,6 @@ ul.path {
     width: 100%; } }
 
 @media screen and (max-width: 479px) {
-  .home_icon,
-  .blog_slide {
-    width: 100%; }
   .tour {
     width: 100%;
     margin-bottom: 10px; }

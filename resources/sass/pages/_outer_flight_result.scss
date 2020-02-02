@@ -100,7 +100,7 @@
             border: 2px solid transparent;
             border-radius: $border_radius;
             margin-bottom: 10px;
-
+            margin-top:5px;
         }
     }
 
@@ -113,21 +113,24 @@
         font-family: inherit;
     }
 
-    .panel {
-        color: inherit;
-
-        .panel-title {
-            border-bottom: 1px solid #b1b1b1;
-            padding-bottom: 10px;
-            color: black;
-        }
-
-        .panel-body {
-            padding-top: 10px;
-        }
-    }
 }
 
+.panel {
+    padding: 10px 10px;
+    color: inherit;
+    background: #fff;
+
+    .panel-title {
+        border-bottom: 1px solid #b1b1b1;
+        padding-bottom: 10px;
+        color: black;
+        background: white;
+    }
+
+    .panel-body {
+        padding-top: 10px;
+    }
+}
 
 .ticket-container {
     background: transparent;
@@ -138,7 +141,7 @@
 
 // فیلتر انتخاب ایرلاینها و ...
 .airline-filter,
-.panel-body>* {
+.filters .panel-body>* {
     // display: flex;
     // justify-content: space-between;
     padding: 5px 0;
@@ -230,6 +233,7 @@
             padding: 7px;
             background: #fff;
             transition: all .2s ease;
+            margin-right: -20px;
 
             &:hover {
                 transform: scale(1.1);
@@ -238,7 +242,7 @@
             }
 
             &:first-child {
-                margin-left: -20px;
+                margin-right: -3px;
             }
         }
 
@@ -350,7 +354,6 @@ ul.path {
     border-radius: $border_radius;
     padding: 20px 3px;
     background:#fff;
-    cursor: pointer;
     // font-size: 1rem;
 
     .btn {

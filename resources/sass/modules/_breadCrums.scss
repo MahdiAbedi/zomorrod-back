@@ -1,0 +1,13 @@
+.breadCrums{
+    display:flex;
+    li{
+        padding-left: 15px;
+        padding-top: 10px;
+
+        &:not(:last-child)::after{
+            content: '>';
+            color:inherit;
+            padding-right: 5px;
+        }
+    }
+}

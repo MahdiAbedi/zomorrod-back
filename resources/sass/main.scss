@@ -22,6 +22,7 @@ body {
     font-size: 1.3rem;
     display:flex; 
     flex-direction:column; 
+    line-height:1.5 ;
 }
 
 @font-face {
@@ -82,11 +83,108 @@ body {
     font-family: IRANSans;
     font-style: normal;
     font-weight: normal;
-    src: url("fonts/IRANSansWeb.eot?");
-    src: url("fonts/IRANSansWeb.eot?#iefix") format("embedded-opentype"),
-        url("fonts/IRANSansWeb.woff2") format("woff2"),
-        url("fonts/IRANSansWeb.woff") format("woff"),
-        url("fonts/IRANSansWeb.ttf") format("truetype");
+    src: url("fonts/IRANSansWeb(FaNum)_Light.eot?");
+    src: url("fonts/IRANSansWeb(FaNum)_Light.eot?#iefix") format("embedded-opentype"),
+     url("fonts/IRANSansWeb(FaNum)_Light.woff2") format("woff2"), 
+     url("fonts/IRANSansWeb(FaNum)_Light.woff") format("woff"),
+     url("fonts/IRANSansWeb(FaNum)_Light.ttf") format("truetype"); }
+  
+//     src: url("fonts/IRANSansWeb.eot?");
+//     src: url("fonts/IRANSansWeb.eot?#iefix") format("embedded-opentype"),
+//         url("fonts/IRANSansWeb.woff2") format("woff2"),
+//         url("fonts/IRANSansWeb.woff") format("woff"),
+//         url("fonts/IRANSansWeb.ttf") format("truetype");
+// }
+
+
+// ################################# IRANSANS FARSI NUMBERS ######################################################
+
+@font-face {
+    font-family: IRANSansWebFaNum;
+    font-style: normal;
+    font-weight: 200;
+    src: url("fonts/IRANSansWeb(FaNum).eot?");
+    src: url("fonts/IRANSansWeb(FaNum).eot?#iefix") format("embedded-opentype"),
+     url("fonts/IRANSansWeb(FaNum).woff2") format("woff2"),
+        url("fonts/IRANSansWeb(FaNum).woff") format("woff"),
+        url("fonts/IRANSansWeb(FaNum).ttf") format("truetype");
+}
+@font-face {
+    font-family: IRANSansWebFaNumBlack;
+    font-style: normal;
+    font-weight: 200;
+    src: url("fonts/IRANSansWeb(FaNum)_Black.eot?");
+    src: url("fonts/IRANSansWeb(FaNum)_Black.eot?#iefix") format("embedded-opentype"),
+     url("fonts/IRANSansWeb(FaNum)_Black.woff2") format("woff2"),
+        url("fonts/IRANSansWeb(FaNum)_Black.woff") format("woff"),
+        url("fonts/IRANSansWeb(FaNum)_Black.ttf") format("truetype");
+}
+@font-face {
+    font-family: IRANSansWebFaNumBold;
+    font-style: normal;
+    font-weight: 200;
+    src: url("fonts/IRANSansWeb(FaNum)_Bold.eot?");
+    src: url("fonts/IRANSansWeb(FaNum)_Bold.eot?#iefix") format("embedded-opentype"),
+     url("fonts/IRANSansWeb(FaNum)_Bold.woff2") format("woff2"),
+        url("fonts/IRANSansWeb(FaNum)_Bold.woff") format("woff"),
+        url("fonts/IRANSansWeb(FaNum)_Bold.ttf") format("truetype");
+}
+@font-face {
+    font-family: IRANSansWebFaNumLight;
+    font-style: normal;
+    font-weight: 200;
+    src: url("fonts/IRANSansWeb(FaNum)_Light.eot?");
+    src: url("fonts/IRANSansWeb(FaNum)_Light.eot?#iefix") format("embedded-opentype"),
+     url("fonts/IRANSansWeb(FaNum)_Light.woff2") format("woff2"),
+        url("fonts/IRANSansWeb(FaNum)_Light.woff") format("woff"),
+        url("fonts/IRANSansWeb(FaNum)_Light.ttf") format("truetype");
+}
+@font-face {
+    font-family: IRANSansWebFaNumMedium;
+    font-style: normal;
+    font-weight: 200;
+    src: url("fonts/IRANSansWeb(FaNum)_Medium.eot?");
+    src: url("fonts/IRANSansWeb(FaNum)_Medium.eot?#iefix") format("embedded-opentype"),
+     url("fonts/IRANSansWeb(FaNum)_Medium.woff2") format("woff2"),
+        url("fonts/IRANSansWeb(FaNum)_Medium.woff") format("woff"),
+        url("fonts/IRANSansWeb(FaNum)_Medium.ttf") format("truetype");
+}
+@font-face {
+    font-family: IRANSansWebFaNumUltraLight;
+    font-style: normal;
+    font-weight: 200;
+    src: url("fonts/IRANSansWeb(FaNum)_UltraLight.eot?");
+    src: url("fonts/IRANSansWeb(FaNum)_UltraLight.eot?#iefix") format("embedded-opentype"),
+     url("fonts/IRANSansWeb(FaNum)_UltraLight.woff2") format("woff2"),
+        url("fonts/IRANSansWeb(FaNum)_UltraLight.woff") format("woff"),
+        url("fonts/IRANSansWeb(FaNum)_UltraLight.ttf") format("truetype");
+}
+
+
+// ####################################### IRAN YEKAN FONT ########################################################
+
+@font-face {
+    font-family: iranyekanweblight;
+    src: url(fonts/iranyekanweblight.eot);
+    src: url(fonts/iranyekanweblight.eot?#iefix&v=4.6.2) format("embedded-opentype"), url(fonts/iranyekanweblight.woff2) format("woff2"), url(fonts/iranyekanweblight.woff) format("woff"), url(fonts/iranyekanweblight.ttf) format("truetype"), url(fonts/iranyekanweblight.svg?v=4.6.2#fontawesomeregular) format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: iranyekanwebbold;
+    src: url(fonts/iranyekanwebbold.eot);
+    src: url(fonts/iranyekanwebbold.eot?#iefix&v=4.6.2) format("embedded-opentype"), url(fonts/iranyekanwebbold.woff2) format("woff2"), url(fonts/iranyekanwebbold.woff) format("woff"), url(fonts/iranyekanwebbold.ttf) format("truetype"), url(fonts/iranyekanwebbold.svg?v=4.6.2#fontawesomeregular) format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: iranyekanwebregular;
+    src: url(fonts/iranyekanwebregular.eot);
+    src: url(fonts/iranyekanwebregular.eot?#iefix&v=4.6.2) format("embedded-opentype"), url(fonts/iranyekanwebregular.woff2) format("woff2"), url(fonts/iranyekanwebregular.woff) format("woff"), url(fonts/iranyekanwebregular.ttf) format("truetype"), url(fonts/iranyekanwebregular.svg?v=4.6.2#fontawesomeregular) format("svg");
+    font-weight: 400;
+    font-style: normal;
 }
 
 
@@ -128,7 +226,7 @@ ul {
 }
 
 main{
-    background-color: #f5f5f5;
+    background-color: #fff;
     // background-color: #fff;
 }
 
@@ -144,7 +242,12 @@ main{
     padding: 10px 0;
     text-align: center;
 }
-
+.text-justify{
+    text-align: justify;
+}
+.text-center{
+    text-align: center;
+}
 
 .make_your_tour {
     // border:2px black solid;
@@ -224,9 +327,23 @@ main{
     margin:5px;
 }
 
-// .organe{
-//     color: $medium_orange !important;
-// }
+.bgwidth {
+    width: 100%;
+    padding:5px 0;
+}
+.bg-white{
+    background:#fff !important;
+}
+.bg-gray{
+    background:#f5f5f5 !important;
+}
+.bg-zgreen{
+    background-color: $font_green !important;
+    color:white;
+}
+.organe{
+    color: $medium_orange !important;
+}
 @import 'modules/menu';
 @import 'pages/home';
 @import 'modules/tours';
@@ -251,7 +368,46 @@ main{
 @import 'modules/select2';
 @import 'modules/login';
 @import 'modules/passenger-count';
+@import 'modules/register';
+@import 'modules/alert';
+@import 'pages/hotels_results';
+@import 'pages/hotel_detail';
+@import 'modules/rounded_table';
+@import 'modules/tab';
+@import 'modules/profileMenu';
+@import 'modules/blog-slider';
+@import 'modules/breadCrums';
+//tags
+@import 'modules/tags';
+// tours 
+@import 'pages/tour_results';
+@import 'pages/tourDetail';
+@import 'modules/accordion';
+// SlideShow
+@import 'modules/slideShow';
+// body main{
+//     background-color: #f5f5f5;
+// }
 
+.column{
+    display: flex;
+    flex-direction: column;
+}
+.clearfix {
+    overflow: auto;
+}
+
+
+.orange{
+    color:#f19a65!important;
+}
+.money,.price{
+    font-family: IRANSansWebFaNum,'b Homa','tahoma';
+    font-size: 18px;
+}
+.border{
+    border-radius: $border-radius;
+}
 .DatePicker{
     position: relative;
 
@@ -290,7 +446,31 @@ main{
         }
     }
 }
+
+strong{
+    color:$font_green;
+}
 /* start of desktop styles */
+
+
+ul.hotel_refund_roles{
+    border:initial;
+    li{
+        font-size: 14px;
+        line-height: 2.7;
+        i{
+            margin-left: 5px;
+            color:red;
+        }
+    }
+}
+
+.rooms {
+    .ticket-container{
+        width:100%;
+        margin:10px;
+    }
+}
 
 @media screen and (max-width: 991px) {
 
@@ -304,4 +484,8 @@ main{
     .half{
         width:100%;
     }
+    .container{
+        margin-right:10px;
+    }
 }
+

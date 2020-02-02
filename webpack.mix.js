@@ -13,3 +13,12 @@ const mix = require('laravel-mix');
 
 mix.react('resources/js/app.js', 'public/js');
    // .sass('resources/sass/app.scss', 'public/css');
+
+  // mix.styles([
+  // 'public/css/master.css',
+  // 'public/css/mahdi.css',
+  // 'public/css/search_slider.css',
+  // 'public/css/owl.carousel.css',
+  
+  // ], 'public/css/app.css')
+     
